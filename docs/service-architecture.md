@@ -47,3 +47,6 @@ Data source: `ahref reports/taxiserviceksa/*matching-terms*.csv` (UTF-8 tab-sepa
 
 ## Ahrefs exports that would help next
 Keyword Explorer for "event transportation saudi arabia", "luxury car / chauffeur saudi arabia", "airport transfer / umrah taxi / intercity taxi" in Arabic (current files are mostly English), plus Content Gap vs both competitors.
+
+## Batch 2 (implemented): 6 pages x 2 languages
+services/event-transportation/corporate-events, conference-transport (exhibitions merged in on purpose, no separate thin page), event-airport-transfers; services/chauffeur-services/hourly-driver; services/umrah-transport/makkah-ziyarat, madinah-ziyarat (transport only, no guide claims). Total now 21 pages = 42 URLs. Remaining queue above, minus these.

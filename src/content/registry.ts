@@ -4,8 +4,9 @@ import { servicesHub } from "./services-hub";
 import { airportPages } from "./airport";
 import { umrahIntercityPages } from "./umrah-intercity";
 import { eventLuxuryChauffeurPages } from "./event-luxury-chauffeur";
+import { batch2Pages } from "./batch2";
 
-export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages];
+export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages];
 
 const byPath = new Map(pages.map((p) => [p.path, p]));
 
