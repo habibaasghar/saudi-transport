@@ -2,17 +2,17 @@
 :root {
   --night: #0f1b2d;
   --night-2: #16263c;
-  --sand: #f3ece0;
-  --sand-2: #ebe2d2;
+  --sand: #fbfbfa;
+  --sand-2: #eef1f5;
   --dune: #c9a877;
   --palm: #1f4d3a;
   --clay: #a4543b;
   --clay-text: #8a432c; /* AA-safe Clay for small text on Sand */
   --ink: #0f1b2d;
   --ink-soft: rgb(15 27 45 / 0.74);
-  --on-night-soft: rgb(243 236 224 / 0.78);
+  --on-night-soft: rgb(251 251 250 / 0.78);
   --line: rgb(15 27 45 / 0.14);
-  --line-night: rgb(243 236 224 / 0.16);
+  --line-night: rgb(251 251 250 / 0.16);
 
   --font-display: var(--font-fraunces), "Cormorant Garamond", Georgia, serif;
   --font-ui: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -179,7 +179,7 @@ h3 { font-size: 1.35rem; }
 /* Services */
 .service-grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
 .service-card { background: var(--sand); padding: 2rem 1.75rem 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; transition: background-color .25s ease; }
-.service-card:hover { background: #fff8ec; }
+.service-card:hover { background: #f4f6f9; }
 .service-card .num { font-family: var(--font-display); color: var(--clay-text); font-size: 0.95rem; }
 .service-card p { color: var(--ink-soft); font-size: 0.97rem; }
 .service-card a { margin-block-start: auto; padding-block-start: 0.75rem; color: var(--palm); font-weight: 600; font-size: 0.92rem; text-decoration: none; }
@@ -204,7 +204,7 @@ h3 { font-size: 1.35rem; }
 /* Fleet */
 .fleet-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
 .fleet-card { border: 1px dashed rgb(15 27 45 / 0.4); padding: 1.75rem; border-radius: var(--radius); min-block-size: 11rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; }
-.fleet-card.filled { border-style: solid; background: #fff8ec; }
+.fleet-card.filled { border-style: solid; background: #f4f6f9; }
 .fleet-card .tag { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay-text); font-weight: 600; }
 :root[dir="rtl"] .fleet-card .tag { letter-spacing: 0; font-size: 0.85rem; }
 .fleet-empty { margin-block-start: 2rem; padding: 1.75rem; background: var(--sand-2); border-inline-start: 3px solid var(--dune); max-inline-size: 46rem; }
@@ -224,7 +224,7 @@ h3 { font-size: 1.35rem; }
 .trust-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
 .trust-item { background: var(--palm); color: var(--sand); padding: 2rem 1.75rem; border-radius: var(--radius); }
 .trust-item h3 { color: var(--sand); margin-block-end: 0.5rem; }
-.trust-item p { color: rgb(243 236 224 / 0.86); font-size: 0.97rem; }
+.trust-item p { color: rgb(251 251 250 / 0.86); font-size: 0.97rem; }
 
 /* FAQ */
 .faq-list { max-inline-size: 52rem; border-block-start: 1px solid var(--line); }

@@ -14,7 +14,7 @@ function DuneArt() {
         </linearGradient>
       </defs>
       <rect width="1440" height="900" fill="url(#sky)" />
-      <g fill="#F3ECE0" opacity=".55">
+      <g fill="#FBFBFA" opacity=".55">
         <circle cx="120" cy="110" r="1.6" />
         <circle cx="310" cy="60" r="1.2" />
         <circle cx="520" cy="150" r="1.4" />
