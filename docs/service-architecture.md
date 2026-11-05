@@ -57,3 +57,6 @@ Intentionally merged (no thin/duplicate pages): madinah-to-makkah, madinah-to-je
 Not built until capability is confirmed: wheelchair-accessible and women's private transportation (special hub states honestly what is requested vs confirmed), vehicle-model pages.
 Cross-border: border names (King Fahd Causeway, Salwa, Batha, Khafji) are stated as geography only; which countries/vehicle permits RideSaudi actually handles must be confirmed by the owner.
 Build guards (registry.ts): missing AR, duplicate title/description/H1, duplicate FAQs (generic ones are auto-scoped to the page), <4 FAQs, broken links, orphans, Latin text in Arabic answers.
+
+## Batch 7 (2026-11-07): 6 more city pages
+city-transport/yanbu, jubail, najran, jazan, hail, buraidah (EN + AR). Total 93 pages = 186 content URLs. Najran and Jazan state that border-region access is confirmed, not promised; Farasan ferry is arranged separately with its operator.

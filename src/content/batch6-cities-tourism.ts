@@ -17,14 +17,14 @@ export const batch6: ServicePage[] = [
       en: {
         nav: "City Transport",
         title: "Private City Transport Across Saudi Arabia",
-        description: "Pre-booked private cars with a driver inside Saudi cities: Riyadh, Jeddah, Makkah, Madinah, Dammam, Al Khobar, Tabuk and Abha. Request a quotation.",
+        description: "Pre-booked private cars with a driver inside Saudi cities: Riyadh, Jeddah, Makkah, Madinah, Dammam, Jubail, Yanbu, Hail, Abha and more. Request a quotation.",
         h1: "Private city transport in the Kingdom's main cities",
         eyebrow: "City Transport",
         answer: "City transport is a pre-booked private car with a driver for journeys inside a Saudi city: to meetings, hotels, appointments, restaurants and events. RideSaudi arranges it on request across the Kingdom. Each city page explains how journeys work locally; coverage and availability are confirmed in the quotation.",
         summary: "Private car with a driver for journeys inside Saudi cities.",
         sections: [
           { h: "Why each city has its own page", p: ["Moving around Riyadh is nothing like moving around Makkah or Abha. Distances, traffic, restrictions and the kinds of trips people take all differ. Each page covers what is specific to that city."] },
-          { h: "Cities covered", p: ["Riyadh, Jeddah, Makkah, Madinah, Dammam, Al Khobar, Tabuk and Abha have their own pages. AlUla and Taif, which are mostly visited as destinations, are covered under tourism transport."] },
+          { h: "Cities covered", p: ["Riyadh, Jeddah, Makkah, Madinah, Dammam, Al Khobar, Jubail, Yanbu, Buraidah, Hail, Tabuk, Abha, Najran and Jazan have their own pages. AlUla and Taif, which are mostly visited as destinations, are covered under tourism transport."] },
           { h: "City ride or a chauffeur", p: ["A single journey inside a city is a city transfer. If you want a driver for hours or the day, see chauffeur services."] },
         ],
         checklist: { h: "Include this in your city transport enquiry", items: ["City and exact pickup and destination", "Date and time", "Passengers and luggage", "One journey or several stops", "Vehicle preference"] },
@@ -45,7 +45,7 @@ export const batch6: ServicePage[] = [
         summary: "سيارة خاصة بسائق للرحلات داخل المدن السعودية.",
         sections: [
           { h: "لماذا لكل مدينة صفحتها", p: ["التنقل في الرياض لا يشبه التنقل في مكة أو أبها. تختلف المسافات والازدحام والقيود وأنواع الرحلات. وتغطي كل صفحة ما يخص تلك المدينة."] },
-          { h: "المدن المغطاة", p: ["للرياض وجدة ومكة والمدينة والدمام والخبر وتبوك وأبها صفحاتها. أما العلا والطائف اللتان تُزاران غالبًا كوجهتين فتغطيهما صفحات النقل السياحي."] },
+          { h: "المدن المغطاة", p: ["للرياض وجدة ومكة والمدينة والدمام والخبر والجبيل وينبع وبريدة وحائل وتبوك وأبها ونجران وجازان صفحاتها. أما العلا والطائف اللتان تُزاران غالبًا كوجهتين فتغطيهما صفحات النقل السياحي."] },
           { h: "مشوار في المدينة أم سائق", p: ["الرحلة المفردة داخل المدينة توصيل داخل المدينة. وإن أردت سائقًا لساعات أو ليوم فراجع خدمات السائق الخاص."] },
         ],
         checklist: { h: "ما الذي تضيفه إلى طلب النقل داخل المدينة", items: ["المدينة ونقطتا الانطلاق والوصول بدقة", "التاريخ والوقت", "الركاب والحقائب", "رحلة واحدة أم عدة محطات", "تفضيل السيارة"] },
