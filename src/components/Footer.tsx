@@ -1,13 +1,21 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
-import { serviceKeys } from "@/lib/site";
+import { getPage } from "@/content/registry";
 import { navItems } from "@/lib/nav";
+
+const footerServices = [
+  "services/airport-transfers",
+  "services/umrah-transport",
+  "services/intercity-transfers",
+  "services/chauffeur-services",
+  "services/event-transportation",
+  "luxury-transportation",
+];
 
 export async function Footer({ locale }: { locale: Locale }) {
   const t = await getTranslations("footer");
   const n = await getTranslations("nav");
-  const s = await getTranslations("form.services");
   const a = await getTranslations("a11y");
   const l = await getTranslations("lang");
 
@@ -28,8 +36,8 @@ export async function Footer({ locale }: { locale: Locale }) {
           <div>
             <h2>{t("services")}</h2>
             <ul>
-              {serviceKeys.map((k) => (
-                <li key={k}><Link href={{ pathname: "/", query: { service: k }, hash: "quote" }}>{s(k)}</Link></li>
+              {footerServices.map((p) => (
+                <li key={p}><Link href={`/${p}`}>{getPage(p)!.copy[locale].nav}</Link></li>
               ))}
             </ul>
           </div>

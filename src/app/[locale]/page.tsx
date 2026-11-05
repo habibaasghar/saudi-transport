@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { Featured } from "@/components/Featured";
 import { Services } from "@/components/Services";
 import { Why } from "@/components/Why";
 import { Airport } from "@/components/Airport";
@@ -80,6 +81,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <Header locale={locale} />
       <main id="main">
         <Hero />
+        <Featured />
         <Services />
         <Why />
         <Airport />

@@ -1,4 +1,4 @@
-import { serviceKeys } from "./site";
+import { formServiceKeys } from "./site";
 
 export type EnquiryInput = {
   service: string;
@@ -38,7 +38,7 @@ export const emptyEnquiry = (): EnquiryInput => ({
 /** Shared by client (UX) and server (authority). */
 export function validateEnquiry(d: EnquiryInput, today = new Date()): FieldErrors {
   const e: FieldErrors = {};
-  if (!(serviceKeys as readonly string[]).includes(d.service)) e.service = "service";
+  if (!(formServiceKeys as readonly string[]).includes(d.service)) e.service = "service";
   if (!d.pickup.trim()) e.pickup = "required";
   if (!d.dropoff.trim()) e.dropoff = "required";
   if (!d.name.trim()) e.name = "required";

@@ -22,9 +22,17 @@
     "fleet": "Fleet",
     "about": "About",
     "contact": "Contact",
-    "quote": "Get a Quote"
+    "quote": "Get a Quote",
+    "umrah": "Umrah Transport",
+    "luxury": "Luxury",
+    "events": "Events",
+    "breadcrumb": "Breadcrumb"
   },
-  "lang": { "en": "English", "ar": "العربية", "switchTo": "العربية" },
+  "lang": {
+    "en": "English",
+    "ar": "العربية",
+    "switchTo": "العربية"
+  },
   "hero": {
     "eyebrow": "Private chauffeur · Saudi Arabia",
     "title": "Your journey across Saudi Arabia, elevated.",
@@ -48,12 +56,30 @@
     "intro": "Choose the kind of journey you need and request a quotation. Each service is pre-booked, so your arrangements are agreed before you travel.",
     "cta": "Request a quote",
     "items": {
-      "airport": { "title": "Airport Transfers", "text": "Arrive or depart without the uncertainty. Share your flight details and request a transfer to or from the airport." },
-      "chauffeur": { "title": "Private Chauffeur", "text": "A dedicated chauffeur for your own schedule, whether it is a single appointment or a day of them." },
-      "intercity": { "title": "Intercity Transfers", "text": "Travel between cities in private comfort. Tell us your route and dates and we will confirm what is possible." },
-      "hourly": { "title": "Hourly Chauffeur", "text": "Keep a chauffeur at your disposal for a set period, with the flexibility to move between stops." },
-      "corporate": { "title": "Corporate Transportation", "text": "Arrangements for business travellers, delegations and teams, planned in advance and quoted clearly." },
-      "vip": { "title": "VIP Transportation", "text": "Discreet, carefully planned transport for guests and occasions that call for added attention." }
+      "airport": {
+        "title": "Airport Transfers",
+        "text": "Arrive or depart without the uncertainty. Share your flight details and request a transfer to or from the airport."
+      },
+      "chauffeur": {
+        "title": "Private Chauffeur",
+        "text": "A dedicated chauffeur for your own schedule, whether it is a single appointment or a day of them."
+      },
+      "intercity": {
+        "title": "Intercity Transfers",
+        "text": "Travel between cities in private comfort. Tell us your route and dates and we will confirm what is possible."
+      },
+      "hourly": {
+        "title": "Hourly Chauffeur",
+        "text": "Keep a chauffeur at your disposal for a set period, with the flexibility to move between stops."
+      },
+      "corporate": {
+        "title": "Corporate Transportation",
+        "text": "Arrangements for business travellers, delegations and teams, planned in advance and quoted clearly."
+      },
+      "vip": {
+        "title": "VIP Transportation",
+        "text": "Discreet, carefully planned transport for guests and occasions that call for added attention."
+      }
     }
   },
   "why": {
@@ -61,10 +87,22 @@
     "title": "Travel that is planned, not improvised",
     "intro": "RideSaudi is built around pre-booked private journeys. The value is in the preparation: knowing your arrangements before you set off.",
     "items": {
-      "prebook": { "title": "Pre-booked by design", "text": "Every journey is arranged in advance, so your pickup, destination and timing are agreed beforehand." },
-      "plan": { "title": "Journey planning", "text": "Share the details that matter, from flight numbers to luggage, and we plan around them." },
-      "clear": { "title": "Clear communication", "text": "You receive a quotation and confirmation before you travel, not a surprise on arrival." },
-      "presentation": { "title": "Professional presentation", "text": "A calm, considered experience from the first enquiry to the end of the journey." }
+      "prebook": {
+        "title": "Pre-booked by design",
+        "text": "Every journey is arranged in advance, so your pickup, destination and timing are agreed beforehand."
+      },
+      "plan": {
+        "title": "Journey planning",
+        "text": "Share the details that matter, from flight numbers to luggage, and we plan around them."
+      },
+      "clear": {
+        "title": "Clear communication",
+        "text": "You receive a quotation and confirmation before you travel, not a surprise on arrival."
+      },
+      "presentation": {
+        "title": "Professional presentation",
+        "text": "A calm, considered experience from the first enquiry to the end of the journey."
+      }
     }
   },
   "airport": {
@@ -102,9 +140,18 @@
     "eyebrow": "How it works",
     "title": "Three steps, no guesswork",
     "steps": {
-      "one": { "title": "Share your journey details", "text": "Tell us the service, locations, date, time and passengers. It takes a couple of minutes." },
-      "two": { "title": "Receive your quotation and confirmation", "text": "RideSaudi reviews your enquiry and gets back to you with a quotation. Your booking is arranged once you have confirmation." },
-      "three": { "title": "Travel as confirmed", "text": "Your journey follows the arrangement you have confirmed." }
+      "one": {
+        "title": "Share your journey details",
+        "text": "Tell us the service, locations, date, time and passengers. It takes a couple of minutes."
+      },
+      "two": {
+        "title": "Receive your quotation and confirmation",
+        "text": "RideSaudi reviews your enquiry and gets back to you with a quotation. Your booking is arranged once you have confirmation."
+      },
+      "three": {
+        "title": "Travel as confirmed",
+        "text": "Your journey follows the arrangement you have confirmed."
+      }
     },
     "note": "Submitting the form is an enquiry, not a confirmed reservation."
   },
@@ -112,24 +159,60 @@
     "eyebrow": "What you can expect",
     "title": "Straightforward from the first message",
     "items": {
-      "comms": { "title": "Clear communication", "text": "You are told what is being arranged, and you confirm it before it happens." },
-      "info": { "title": "Transparent booking information", "text": "Your quotation and confirmation set out the arrangement for your journey." },
-      "experience": { "title": "Considered customer experience", "text": "An enquiry process designed to be simple on a phone, in English or Arabic." },
-      "planning": { "title": "Careful journey planning", "text": "Flight numbers, luggage and special requirements are captured up front." },
-      "support": { "title": "Customer support", "text": "Questions about your enquiry are handled by the RideSaudi team." }
+      "comms": {
+        "title": "Clear communication",
+        "text": "You are told what is being arranged, and you confirm it before it happens."
+      },
+      "info": {
+        "title": "Transparent booking information",
+        "text": "Your quotation and confirmation set out the arrangement for your journey."
+      },
+      "experience": {
+        "title": "Considered customer experience",
+        "text": "An enquiry process designed to be simple on a phone, in English or Arabic."
+      },
+      "planning": {
+        "title": "Careful journey planning",
+        "text": "Flight numbers, luggage and special requirements are captured up front."
+      },
+      "support": {
+        "title": "Customer support",
+        "text": "Questions about your enquiry are handled by the RideSaudi team."
+      }
     }
   },
   "faq": {
     "eyebrow": "FAQ",
     "title": "Questions, answered plainly",
     "items": {
-      "quote": { "q": "How do I request a quote?", "a": "Complete the quote request on this page with your journey details. RideSaudi reviews it and responds with a quotation." },
-      "airport": { "q": "Can I arrange an airport transfer in advance?", "a": "Yes. Airport transfers are requested in advance through the quote request. Select Airport Transfer and add your journey details." },
-      "intercity": { "q": "Can I request an intercity journey?", "a": "Yes. Choose Intercity Transfer, enter your pickup and drop-off locations and your travel date, and we will confirm whether the journey can be arranged." },
-      "flight": { "q": "How do I provide flight details?", "a": "When you select an airport transfer, a flight number field appears in the quote request. Add it there." },
-      "confirm": { "q": "How is my booking confirmed?", "a": "An enquiry is not a confirmed reservation. Your journey is confirmed only after you have received a quotation and confirmation from RideSaudi." },
-      "vehicle": { "q": "Can I request a specific vehicle?", "a": "You can state a vehicle preference in your quote request. Availability is confirmed as part of your quotation." },
-      "change": { "q": "What happens if my travel details change?", "a": "Contact RideSaudi as early as you can with the updated details. The terms that apply to changes are set out with your quotation and confirmation." }
+      "quote": {
+        "q": "How do I request a quote?",
+        "a": "Complete the quote request on this page with your journey details. RideSaudi reviews it and responds with a quotation."
+      },
+      "airport": {
+        "q": "Can I arrange an airport transfer in advance?",
+        "a": "Yes. Airport transfers are requested in advance through the quote request. Select Airport Transfer and add your journey details."
+      },
+      "intercity": {
+        "q": "Can I request an intercity journey?",
+        "a": "Yes. Choose Intercity Transfer, enter your pickup and drop-off locations and your travel date, and we will confirm whether the journey can be arranged."
+      },
+      "flight": {
+        "q": "How do I provide flight details?",
+        "a": "When you select an airport transfer, a flight number field appears in the quote request. Add it there."
+      },
+      "confirm": {
+        "q": "How is my booking confirmed?",
+        "a": "An enquiry is not a confirmed reservation. Your journey is confirmed only after you have received a quotation and confirmation from RideSaudi."
+      },
+      "vehicle": {
+        "q": "Can I request a specific vehicle?",
+        "a": "You can state a vehicle preference in your quote request. Availability is confirmed as part of your quotation."
+      },
+      "change": {
+        "q": "What happens if my travel details change?",
+        "a": "Contact RideSaudi as early as you can with the updated details. The terms that apply to changes are set out with your quotation and confirmation."
+      }
     }
   },
   "cta": {
@@ -187,7 +270,10 @@
       "intercity": "Intercity Transfer",
       "hourly": "Hourly Chauffeur",
       "corporate": "Corporate Transportation",
-      "vip": "VIP Transportation"
+      "vip": "VIP Transportation",
+      "umrah": "Umrah Transport",
+      "event": "Event Transportation",
+      "luxury": "Luxury Transportation"
     }
   },
   "footer": {
@@ -202,5 +288,43 @@
     "soon": "To be published",
     "language": "Language",
     "copyright": "© {year} RideSaudi. All rights reserved."
+  },
+  "svc": {
+    "home": "Home",
+    "breadcrumb": "Breadcrumb",
+    "answerLabel": "Quick answer",
+    "inSection": "In this section",
+    "viewPage": "View page",
+    "related": "Related services",
+    "relatedEyebrow": "Keep planning",
+    "faqEyebrow": "FAQ",
+    "faqTitle": "Questions on this service",
+    "getQuote": "Get a Quote",
+    "whatsapp": "Book on WhatsApp",
+    "notice": "Pre-booked only. An enquiry is not a confirmed reservation.",
+    "reviewed": "Last reviewed",
+    "quoteTitle": "Request your quotation",
+    "quoteText": "Share your journey details. You will receive a quotation before anything is arranged.",
+    "whatsappText": "Hello RideSaudi, I would like a quotation for: {service}"
+  },
+  "featured": {
+    "eyebrow": "Featured",
+    "title": "Journeys that deserve their own planning",
+    "intro": "Premium travel, events and Umrah journeys are planned differently from an ordinary ride. Start with the section that fits.",
+    "cta": "Explore",
+    "items": {
+      "luxury": {
+        "title": "Luxury Transportation",
+        "text": "Premium vehicles with a professional chauffeur for executives, VIP guests and occasions."
+      },
+      "events": {
+        "title": "Event Transportation",
+        "text": "Guests, delegates and VIPs moved between airports, hotels and venues on a set schedule."
+      },
+      "umrah": {
+        "title": "Umrah Transport",
+        "text": "Private transfers around Umrah: airport to Makkah, Makkah to Madinah and back."
+      }
+    }
   }
 }

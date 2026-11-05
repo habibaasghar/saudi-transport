@@ -3,7 +3,9 @@ import type { Locale } from "@/i18n/routing";
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.ridesaudi.com").replace(/\/$/, "");
 export const BRAND = "RideSaudi";
 
-export const localeUrl = (locale: Locale) => `${SITE_URL}/${locale}`;
+export const localeUrl = (locale: Locale) => `${SITE_URL}/${locale}/`;
+/** Absolute canonical URL for a content page (trailing slash convention). */
+export const pageUrl = (locale: Locale, path: string) => `${SITE_URL}/${locale}/${path.replace(/^\/|\/$/g, "")}/`;
 
 /**
  * BUSINESS-CONFIRMED DATA. Everything here ships EMPTY on purpose.
@@ -26,3 +28,6 @@ export const confirmed = {
 
 export const serviceKeys = ["airport", "chauffeur", "intercity", "hourly", "corporate", "vip"] as const;
 export type ServiceKey = (typeof serviceKeys)[number];
+
+/** Services selectable in the enquiry form (homepage cards keep using `serviceKeys`). */
+export const formServiceKeys = [...serviceKeys, "umrah", "event", "luxury"] as const;

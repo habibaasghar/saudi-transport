@@ -18,3 +18,14 @@
 
 ## Repo notes
 - The repo contained only a static page + Supabase waitlist (no Next.js, no /docs). Legacy files moved to `legacy/` untouched. The waitlist table is not used by the new site.
+
+## Added with the service pages (needs owner confirmation before any claim is strengthened)
+- WhatsApp number -> `confirmed.contact.whatsapp` in `src/lib/site.ts`. The "Book on WhatsApp" button only renders once set.
+- Which airports, intercity routes and cities are actually served (pages currently say "availability is confirmed in the quotation")
+- Fleet: vehicle categories, models, passenger/luggage capacities (no /fleet/ page and no vehicle claims until supplied)
+- Whether child seats, Ihram/Miqat stops, multiple pickups, multi-vehicle capacity, decoration for weddings and language-specific chauffeurs are really offered (pages only invite the request)
+- How delayed flights, waiting time and extra hours are handled (pages point to the quotation terms)
+- Payment methods and cancellation policy
+- Native Arabic copy review of all service pages
+- Licensed hero/venue/vehicle photography per page (no imagery yet, so no og:image)
+- ENQUIRY_WEBHOOK_URL must be set or the form honestly reports enquiries are not open

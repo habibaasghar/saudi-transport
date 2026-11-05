@@ -4,7 +4,7 @@ import type { Locale } from "@/i18n/routing";
 import { EnquiryForm } from "./EnquiryForm";
 
 /** Doubles as the final CTA: "Plan your journey with RideSaudi" + the quote request. */
-export async function QuoteSection({ locale }: { locale: Locale }) {
+export async function QuoteSection({ locale, defaultService }: { locale: Locale; defaultService?: string }) {
   const t = await getTranslations("cta");
   const f = await getTranslations("form");
   return (
@@ -17,7 +17,7 @@ export async function QuoteSection({ locale }: { locale: Locale }) {
           <p className="quote__notice">{f("intro")}</p>
         </div>
         <Suspense fallback={null}>
-          <EnquiryForm locale={locale} />
+          <EnquiryForm locale={locale} defaultService={defaultService} />
         </Suspense>
       </div>
     </section>

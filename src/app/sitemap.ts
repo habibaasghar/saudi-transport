@@ -1,11 +1,32 @@
 import type { MetadataRoute } from "next";
+import { pages } from "@/content/registry";
 import { routing } from "@/i18n/routing";
-import { localeUrl } from "@/lib/site";
+import { localeUrl, pageUrl } from "@/lib/site";
 
+/** Every canonical, indexable URL in both languages, each with hreflang alternates. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, localeUrl(l)]));
-  return routing.locales.map((l) => ({
+  const home = routing.locales.map((l) => ({
     url: localeUrl(l),
-    alternates: { languages: { ...languages, "x-default": localeUrl(routing.defaultLocale) } },
+    alternates: {
+      languages: {
+        ...Object.fromEntries(routing.locales.map((x) => [x, localeUrl(x)])),
+        "x-default": localeUrl(routing.defaultLocale),
+      },
+    },
   }));
+
+  const content = pages.flatMap((p) =>
+    routing.locales.map((l) => ({
+      url: pageUrl(l, p.path),
+      lastModified: p.updated,
+      alternates: {
+        languages: {
+          ...Object.fromEntries(routing.locales.map((x) => [x, pageUrl(x, p.path)])),
+          "x-default": pageUrl(routing.defaultLocale, p.path),
+        },
+      },
+    })),
+  );
+
+  return [...home, ...content];
 }

@@ -6,6 +6,8 @@ import { Link } from "@/i18n/navigation";
 type Props = {
   items: { href: string; label: string }[];
   quoteLabel: string;
+  quoteHref: string;
+  switchHref: string;
   openLabel: string;
   closeLabel: string;
   navLabel: string;
@@ -13,7 +15,7 @@ type Props = {
   otherLabel: string;
 };
 
-export function MobileNav({ items, quoteLabel, openLabel, closeLabel, navLabel, otherLocale, otherLabel }: Props) {
+export function MobileNav({ items, quoteLabel, quoteHref, switchHref, openLabel, closeLabel, navLabel, otherLocale, otherLabel }: Props) {
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -68,8 +70,12 @@ export function MobileNav({ items, quoteLabel, openLabel, closeLabel, navLabel, 
           </ul>
         </nav>
         <div className="mobile-nav__foot">
-          <Link href="/#quote" className="btn btn--primary" onClick={close}>{quoteLabel}</Link>
-          <Link href="/" locale={otherLocale} hrefLang={otherLocale} lang={otherLocale} className="lang-switch" onClick={close}>{otherLabel}</Link>
+          {quoteHref.startsWith("#") ? (
+            <a href={quoteHref} className="btn btn--primary" onClick={close}>{quoteLabel}</a>
+          ) : (
+            <Link href={quoteHref} className="btn btn--primary" onClick={close}>{quoteLabel}</Link>
+          )}
+          <Link href={switchHref} locale={otherLocale} hrefLang={otherLocale} lang={otherLocale} className="lang-switch" onClick={close}>{otherLabel}</Link>
         </div>
       </div>
     </>

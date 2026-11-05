@@ -4,16 +4,16 @@ import { useEffect, useId, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { emptyEnquiry, validateEnquiry, type EnquiryInput, type FieldErrors } from "@/lib/enquiry";
-import { serviceKeys } from "@/lib/site";
+import { formServiceKeys } from "@/lib/site";
 import { PREFILL_EVENT } from "@/lib/events";
 
 type Status = "idle" | "sending" | "success" | "notConfigured" | "rateLimited" | "failed";
 
-export function EnquiryForm({ locale }: { locale: string }) {
+export function EnquiryForm({ locale, defaultService }: { locale: string; defaultService?: string }) {
   const t = useTranslations("form");
   const uid = useId();
   const params = useSearchParams();
-  const [data, setData] = useState<EnquiryInput>({ ...emptyEnquiry(), locale });
+  const [data, setData] = useState<EnquiryInput>({ ...emptyEnquiry(), locale, service: defaultService ?? "" });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const formRef = useRef<HTMLFormElement>(null);
@@ -29,7 +29,7 @@ export function EnquiryForm({ locale }: { locale: string }) {
   const [seenQs, setSeenQs] = useState<string | null>(null);
   if (qs !== seenQs) {
     setSeenQs(qs);
-    if (qs && (serviceKeys as readonly string[]).includes(qs)) setData((d) => ({ ...d, service: qs }));
+    if (qs && (formServiceKeys as readonly string[]).includes(qs)) setData((d) => ({ ...d, service: qs }));
   }
 
   // Values handed over from the hero panel
@@ -147,7 +147,7 @@ export function EnquiryForm({ locale }: { locale: string }) {
               aria-describedby={errors.service ? `${uid}-service-e` : undefined}
             >
               <option value="">{t("fields.servicePlaceholder")}</option>
-              {serviceKeys.map((k) => <option key={k} value={k}>{t(`services.${k}`)}</option>)}
+              {formServiceKeys.map((k) => <option key={k} value={k}>{t(`services.${k}`)}</option>)}
             </select>
             {errors.service && <p id={`${uid}-service-e`} className="field__error">{t(`errors.${errors.service}`)}</p>}
           </div>
