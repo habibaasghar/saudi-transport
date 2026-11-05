@@ -11,6 +11,12 @@ const footerServices = [
   "services/chauffeur-services",
   "services/event-transportation",
   "luxury-transportation",
+  "services/cross-border-transfers",
+  "services/city-transport",
+  "services/tourism-transport",
+  "services/group-transportation",
+  "services/special-transportation",
+  "fleet",
 ];
 
 export async function Footer({ locale }: { locale: Locale }) {

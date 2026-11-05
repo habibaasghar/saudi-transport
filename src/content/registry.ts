@@ -5,8 +5,36 @@ import { airportPages } from "./airport";
 import { umrahIntercityPages } from "./umrah-intercity";
 import { eventLuxuryChauffeurPages } from "./event-luxury-chauffeur";
 import { batch2Pages } from "./batch2";
+import { batch3Routes } from "./batch3-routes";
+import { batch4 } from "./batch4-luxury-chauffeur";
+import { batch5 } from "./batch5-events-groups-special";
+import { batch6 } from "./batch6-cities-tourism";
 
-export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages];
+export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6];
+
+/**
+ * SEO-RULES.md: no FAQ may appear verbatim on two pages. Generic questions that several pages
+ * share are kept on the first page and scoped to the page's own service name everywhere else,
+ * so every FAQ on the site is unique and self-explanatory when read in isolation (AI answers).
+ */
+function scopeDuplicateFaqs(list: ServicePage[]) {
+  for (const l of ["en", "ar"] as Locale[]) {
+    const seen = new Set<string>();
+    for (const p of list) {
+      const c = p.copy[l];
+      c.faqs = c.faqs.map((f) => {
+        if (!seen.has(f.q)) {
+          seen.add(f.q);
+          return f;
+        }
+        const q = `${f.q} (${c.nav})`;
+        seen.add(q);
+        return { ...f, q };
+      });
+    }
+  }
+}
+scopeDuplicateFaqs(pages);
 
 const byPath = new Map(pages.map((p) => [p.path, p]));
 
@@ -57,6 +85,13 @@ export function validateRegistry() {
         if (seen.has(key)) errors.push(`${p.path}/${l}: duplicate ${k} with ${seen.get(key)}`);
         seen.set(key, p.path);
       }
+    }
+  }
+  for (const l of ["en", "ar"] as Locale[]) {
+    const qs = new Map<string, string>();
+    for (const p of pages) for (const f of p.copy[l].faqs) {
+      if (qs.has(f.q)) errors.push(`${p.path}/${l}: duplicate FAQ "${f.q}" with ${qs.get(f.q)}`);
+      qs.set(f.q, p.path);
     }
   }
   for (const p of pages) if (!inbound.has(p.path) && p.path !== "services") errors.push(`${p.path}: orphan`);
