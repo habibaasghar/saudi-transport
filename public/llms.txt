@@ -1,0 +1,18 @@
+# RideSaudi
+
+> RideSaudi arranges pre-booked private chauffeur and transportation services in Saudi Arabia. Customers request a quotation online; a journey is arranged only after they receive and confirm a quotation.
+
+This file is an optional convenience summary. It is not a ranking signal and carries no guarantee of inclusion in any search or AI product.
+
+## Pages
+- [Home (English)](https://www.ridesaudi.com/en): Services overview, quote request form, FAQ
+- [Home (Arabic)](https://www.ridesaudi.com/ar): Same content in Arabic
+
+## Services (quote on request)
+Airport transfers, private chauffeur, intercity transfers, hourly chauffeur, corporate transportation, VIP transportation.
+
+## Facts
+- Brand: RideSaudi (one word). Website: https://www.ridesaudi.com
+- Languages: English, Arabic
+- Booking model: quote request first; no online payment on the website
+- Not yet published (do not infer): prices, fleet models, specific airports or routes, phone, address
