@@ -31,6 +31,8 @@ export const batch8Riyadh: ServicePage[] = [
       `${I}/riyadh-to-makkah`,
       `${I}/riyadh-to-madinah`,
       `${I}/riyadh-to-al-ahsa`,
+      `${I}/riyadh-to-doha`,
+      `${I}/riyadh-to-dubai`,
     ],
     updated: U,
     copy: {

@@ -16,11 +16,12 @@ Every row exists as `/en/<path>/` and `/ar/<path>/` (self-canonical, hreflang en
 | services/cross-border-transfers/qatar | Saudi (Riyadh/Eastern) | Qatar | both | cross-border | Saudi to Qatar by road | existing | pending | good, generic | none | live |
 | services/cross-border-transfers/{bahrain,uae,kuwait} | same | same | both | cross-border | Saudi to X by road | existing | pending | good, generic | none | live |
 
+| services/intercity-transfers/riyadh-to-doha | Riyadh | Doha | both (distinct outbound/return sections) | cross-border route | Riyadh to Doha by road | built 2026-11-08, parent cross-border/qatar | **required** (vehicle/driver border permission) | good, soft claims only | none | on branch, not deployed |
+| services/intercity-transfers/riyadh-to-dubai | Riyadh | Dubai | both | cross-border route | Riyadh to Dubai by road | built 2026-11-08, parent cross-border/uae | **required** | good, soft claims only | none | on branch, not deployed |
+
 ## Proposed (not built)
 | Path | Direction coverage | Tier | Decision |
 |---|---|---|---|
-| services/intercity-transfers/riyadh-to-doha | both, direction-specific sections | A | Build after owner + border verification; parent link to cross-border/qatar |
-| services/intercity-transfers/riyadh-to-dubai | both (Abu Dhabi, Sharjah, Al Ain pointers inside) | A | Same; very long journey, consider overnight/two-day planning guidance only if verified |
 | services/intercity-transfers/riyadh-to-abu-dhabi | both | B | Merge into Dubai page unless owner confirms distinct demand |
 | services/intercity-transfers/riyadh-to-manama | both | B | Bahrain country page already strong; build only if Riyadh-origin intent is distinct |
 | services/intercity-transfers/riyadh-to-kuwait-city | both | B | As above |

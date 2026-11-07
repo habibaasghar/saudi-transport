@@ -32,4 +32,5 @@ Sources conflict and **no official checklist was found**, so no requirement can 
 - Whether Riyadh to Makkah / Madinah / Al Ahsa (already live) are really offered.
 
 ## Execution status in this repo
+Built on branch (not deployed): riyadh-to-doha and riyadh-to-dubai, with Riyadh-origin and return sections, parents cross-border/qatar and /uae.
 Done (on `main`): Riyadh hub rewrite, sightseeing, Makkah, Madinah, Al Ahsa pages. This turn: documentation only. Not done: cross-border and Tier C/D routes, imagery, analytics, hub sections for vehicle categories and cross-border comparison.

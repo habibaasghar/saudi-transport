@@ -9,7 +9,8 @@ Gate per page (SEO-RULES.md section 9): distinct intent; verified capability; un
 | intercity/riyadh-to-makkah | pass | no distances published | **pending** | needs native review | pass | pass | none | live, awaiting verification |
 | intercity/riyadh-to-madinah | pass | no distances published | **pending** | needs native review | pass | pass | none | live, awaiting verification |
 | intercity/riyadh-to-al-ahsa | pass | UNESCO oasis: check source | **pending** | needs native review | pass | pass | none | live, awaiting verification |
-| Cross-border route pages (Doha, Dubai, ...) | pass | **fail**: no official border/entry source | **fail** | not written | n/a | n/a | none | NOT built |
+| intercity/riyadh-to-doha, riyadh-to-dubai | pass | distances approximate from public sources; entry rules deliberately NOT stated (official authorities named) | **pending** (border permission for vehicle/driver) | written, needs native review | pass | pass | none | built on branch, not deployed; hold until owner confirms |
+| Other cross-border pages (Abu Dhabi, Manama, Kuwait City, ...) | pass | **fail**: no official source | **fail** | not written | n/a | n/a | none | NOT built |
 | Tier C/D routes | unproven | not researched | pending | not written | n/a | n/a | none | NOT built |
 
 Open actions: owner verification of routes and cross-border permissions; official-source fact check; native Arabic review; imagery; analytics provider; Lighthouse and viewport tests; competitor data.
