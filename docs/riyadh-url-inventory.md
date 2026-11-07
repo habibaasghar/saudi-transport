@@ -18,16 +18,21 @@ Every row exists as `/en/<path>/` and `/ar/<path>/` (self-canonical, hreflang en
 
 | services/intercity-transfers/riyadh-to-doha | Riyadh | Doha | both (distinct outbound/return sections) | cross-border route | Riyadh to Doha by road | built 2026-11-08, parent cross-border/qatar | **required** (vehicle/driver border permission) | good, soft claims only | none | on branch, not deployed |
 | services/intercity-transfers/riyadh-to-dubai | Riyadh | Dubai | both | cross-border route | Riyadh to Dubai by road | built 2026-11-08, parent cross-border/uae | **required** | good, soft claims only | none | on branch, not deployed |
+| services/intercity-transfers/riyadh-to-manama | Riyadh | Manama | both | cross-border route | Riyadh to Manama by road | built 2026-11-08, parent cross-border/bahrain | **required** | good, no distances | none | on branch |
+| services/intercity-transfers/riyadh-to-kuwait-city | Riyadh | Kuwait City | both | cross-border route | Riyadh to Kuwait City by road | built, parent cross-border/kuwait | **required** | good, no distances | none | on branch |
+| services/intercity-transfers/riyadh-to-alula | Riyadh | AlUla | both | route / tourism | Riyadh to AlUla by road | built | **required** | good, no distances | none | on branch |
+| services/intercity-transfers/riyadh-to-taif | Riyadh | Taif | both | route | Riyadh to Taif by road | built | **required** | good, no distances | none | on branch |
+| services/intercity-transfers/riyadh-to-buraydah | Riyadh | Buraydah / Qassim | both | route | Riyadh to Buraydah by road | built (covers Qassim, Unaizah) | **required** | good, no distances | none | on branch |
+| services/intercity-transfers/riyadh-to-jubail | Riyadh | Jubail / Jubail Industrial City | both | route (B2B) | Riyadh to Jubail by road | built | **required** | good, no distances | none | on branch |
 
 ## Proposed (not built)
 | Path | Direction coverage | Tier | Decision |
 |---|---|---|---|
 | services/intercity-transfers/riyadh-to-abu-dhabi | both | B | Merge into Dubai page unless owner confirms distinct demand |
-| services/intercity-transfers/riyadh-to-manama | both | B | Bahrain country page already strong; build only if Riyadh-origin intent is distinct |
-| services/intercity-transfers/riyadh-to-kuwait-city | both | B | As above |
-| services/intercity-transfers/riyadh-to-alula | both | B | Overlaps tourism/alula; position as the long-route guide |
-| services/intercity-transfers/riyadh-to-taif, -yanbu, -jubail, -buraydah | both | C | Research first; Al Khobar merged into Dammam; Qassim covered by Buraydah |
-| riyadh-to-hail, -abha, -tabuk, riyadh-to-sharjah, -al-ain | both | D | Research only; Sharjah/Al Ain fold into UAE pages |
+| services/intercity-transfers/riyadh-to-yanbu | both | C | Not built; research first |
+| riyadh-to-hail, -abha, -tabuk | both | D | Research demand first |
+| riyadh-to-abu-dhabi, -sharjah, -al-ain | both | B/D | Folded into the Dubai page |
+| riyadh-to-al-khobar | both | C | Folded into the Dammam page; Qassim into Buraydah |
 | Reverse-direction URLs (e.g. doha-to-riyadh) | - | - | Not created; revisit only with evidence of independent intent |
 | Riyadh district pages | - | - | Not created (no demand data, risk of thin pages); districts live in the hub |
 | Riyadh VIP / business / hotel / hourly pages | - | - | Not created (national pages cover intent) |

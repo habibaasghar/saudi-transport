@@ -542,7 +542,7 @@ export const batch6: ServicePage[] = [
     parent: T,
     variant: "default",
     service: "chauffeur",
-    related: [T, "services/event-transportation/festival-transport", `${T}/multi-stop-transport`, "services/chauffeur-services/multi-day-chauffeur"],
+    related: [T, "services/event-transportation/festival-transport", `${T}/multi-stop-transport`, "services/chauffeur-services/multi-day-chauffeur", "services/intercity-transfers/riyadh-to-alula"],
     updated: U,
     copy: {
       en: {
@@ -595,7 +595,7 @@ export const batch6: ServicePage[] = [
     parent: T,
     variant: "default",
     service: "chauffeur",
-    related: ["services/intercity-transfers/jeddah-to-taif", "services/airport-transfers/taif-airport", T, `${T}/day-trip-transport`],
+    related: ["services/intercity-transfers/jeddah-to-taif", "services/airport-transfers/taif-airport", T, `${T}/day-trip-transport`, "services/intercity-transfers/riyadh-to-taif"],
     updated: U,
     copy: {
       en: {
