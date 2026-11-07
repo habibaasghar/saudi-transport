@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
+import Image from "next/image";
 import { MobileNav } from "./MobileNav";
 import { navItems } from "@/lib/nav";
 
@@ -16,7 +17,7 @@ export async function Header({ locale, quoteHref = "/#quote", switchHref = "/" }
       <header className="site-header">
         <div className="wrap site-header__bar">
           <Link href="/" className="wordmark" aria-label={a("home")}>
-            Ride<span>Saudi</span>
+            <Image src="/logo.webp" alt="RideSaudi" width={830} height={360} priority sizes="(min-width:1000px) 150px, 120px" className="logo" />
           </Link>
           <nav className="nav-desktop" aria-label={a("primaryNav")}>
             <ul>
