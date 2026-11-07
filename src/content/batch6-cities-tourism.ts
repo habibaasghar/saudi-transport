@@ -60,59 +60,6 @@ export const batch6: ServicePage[] = [
   },
 
   {
-    path: `${C}/riyadh`,
-    parent: C,
-    variant: "default",
-    service: "chauffeur",
-    related: ["services/airport-transfers/riyadh-airport", "services/event-transportation/riyadh", "services/chauffeur-services/business-chauffeur", C],
-    updated: U,
-    copy: {
-      en: {
-        nav: "Riyadh City Transport",
-        title: "Private Car with Driver in Riyadh",
-        description: "Pre-book a private car with a driver in Riyadh for meetings, hotels, appointments and evenings out across a large, spread-out city. Get a quotation.",
-        h1: "A private car with a driver in Riyadh",
-        eyebrow: "City Transport · Riyadh",
-        answer: "A private car with a driver in Riyadh is a pre-booked vehicle for journeys across the capital, a very large and spread-out city where trips between districts are long. RideSaudi arranges it on request, by single journey, hour or day. Availability and terms are confirmed in the quotation.",
-        summary: "Private journeys across Riyadh, by trip, hour or day.",
-        sections: [
-          { h: "A city of long distances", p: ["Riyadh has no single centre. Business districts, the Olaya area, the Diplomatic Quarter, Diriyah and residential neighbourhoods are far apart, and peak-hour traffic is heavy. Plan trips with generous time, and group stops by area."] },
-          { h: "Typical Riyadh journeys", p: [], list: ["Business meetings across districts", "Airport transfers (see Riyadh airport transfer)", "Dinner and evening events", "A visit to Diriyah or other sites on a half-day"] },
-          { h: "Hours or single trips", p: ["For one trip, request a city transfer. For a day of meetings or visits, a chauffeur by the hour or the day is simpler. See chauffeur services and business chauffeur."] },
-        ],
-        checklist: { h: "Include this in your Riyadh enquiry", items: ["Pickup and destination, with district", "Date and time", "Hours, if you want a driver for a period", "Passengers", "Vehicle preference"] },
-        faqs: [
-          { q: "Can I book a driver for the day in Riyadh?", a: "Yes; see full-day driver. Terms are confirmed in the quotation." },
-          { q: "Can you take me to Diriyah?", a: "Include it in your itinerary; coverage is confirmed." },
-          { q: "How do I handle traffic?", a: "Allow generous time and list stops by area." },
-          { q: "Do you publish fares?", a: "No." },
-        ],
-      },
-      ar: {
-        nav: "النقل داخل الرياض",
-        title: "سيارة خاصة بسائق في الرياض",
-        description: "احجز مسبقًا سيارة خاصة بسائق في الرياض للاجتماعات والفنادق والمواعيد والسهرات في مدينة واسعة ومترامية. استلم عرض سعر.",
-        h1: "سيارة خاصة بسائق في الرياض",
-        eyebrow: "النقل داخل المدن · الرياض",
-        answer: "السيارة الخاصة بسائق في الرياض هي مركبة بحجز مسبق لرحلات داخل العاصمة، وهي مدينة واسعة جدًا ومترامية تطول فيها الرحلات بين الأحياء. تُرتِّبها RideSaudi عند الطلب برحلة مفردة أو بالساعة أو باليوم. وتُؤكَّد الإتاحة والشروط في عرض السعر.",
-        summary: "رحلات خاصة داخل الرياض، برحلة أو بالساعة أو باليوم.",
-        sections: [
-          { h: "مدينة المسافات الطويلة", p: ["ليس للرياض مركز واحد. فمناطق الأعمال وحي العليا والحي الدبلوماسي والدرعية والأحياء السكنية متباعدة، وازدحام ساعات الذروة شديد. خطط للرحلات بوقت واسع ورتّب المحطات بحسب المنطقة."] },
-          { h: "رحلات الرياض المعتادة", p: [], list: ["اجتماعات عمل في أحياء مختلفة", "التوصيل من المطار (راجع صفحة التوصيل من مطار الرياض)", "العشاء والفعاليات المسائية", "زيارة الدرعية أو مواقع أخرى في نصف يوم"] },
-          { h: "ساعات أم رحلات مفردة", p: ["لرحلة واحدة اطلب توصيلًا داخل المدينة. وليوم من الاجتماعات أو الزيارات فالسائق بالساعة أو باليوم أبسط. وراجع صفحتي خدمات السائق الخاص وسائق الأعمال."] },
-        ],
-        checklist: { h: "ما الذي تضيفه إلى طلب الرياض", items: ["نقطتا الانطلاق والوصول مع الحي", "التاريخ والوقت", "الساعات إن أردت سائقًا لفترة", "الركاب", "تفضيل السيارة"] },
-        faqs: [
-          { q: "هل يمكنني حجز سائق لليوم في الرياض؟", a: "نعم؛ راجع صفحة السائق ليوم كامل. وتُؤكَّد الشروط في عرض السعر." },
-          { q: "هل يمكنكم أخذي إلى الدرعية؟", a: "أضفها إلى برنامجك؛ وتُؤكَّد التغطية." },
-          { q: "كيف أتعامل مع الازدحام؟", a: "اترك وقتًا واسعًا ورتّب المحطات بحسب المنطقة." },
-          { q: "هل تنشرون أسعارًا؟", a: "لا." },
-        ],
-      },
-    },
-  },
-
-  {
     path: `${C}/jeddah`,
     parent: C,
     variant: "default",

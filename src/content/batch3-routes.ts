@@ -381,7 +381,7 @@ export const batch3Routes: ServicePage[] = [
     parent: "services/intercity-transfers",
     variant: "default",
     service: "intercity",
-    related: ["services/intercity-transfers/riyadh-to-dammam", "services/intercity-transfers/private-intercity-chauffeur", "luxury-transportation/luxury-intercity-transfers", "services/intercity-transfers"],
+    related: ["services/intercity-transfers/riyadh-to-dammam", "services/intercity-transfers/riyadh-to-makkah", "services/intercity-transfers/riyadh-to-madinah", "services/city-transport/riyadh", "services/intercity-transfers/private-intercity-chauffeur", "luxury-transportation/luxury-intercity-transfers", "services/intercity-transfers"],
     updated: U,
     copy: {
       en: {
@@ -434,7 +434,7 @@ export const batch3Routes: ServicePage[] = [
     parent: "services/intercity-transfers",
     variant: "default",
     service: "intercity",
-    related: ["services/intercity-transfers/riyadh-to-jeddah", "services/airport-transfers/dammam-airport", "services/cross-border-transfers/bahrain", "services/intercity-transfers"],
+    related: ["services/intercity-transfers/riyadh-to-jeddah", "services/intercity-transfers/riyadh-to-al-ahsa", "services/city-transport/riyadh", "services/airport-transfers/dammam-airport", "services/cross-border-transfers/bahrain", "services/intercity-transfers"],
     updated: U,
     copy: {
       en: {

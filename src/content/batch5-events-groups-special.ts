@@ -12,7 +12,7 @@ export const batch5: ServicePage[] = [
     parent: E,
     variant: "event",
     service: "event",
-    related: ["services/airport-transfers/riyadh-airport", `${E}/conference-transport`, `${E}/concert-transport`, "services/city-transport/riyadh"],
+    related: ["services/airport-transfers/riyadh-airport", `${E}/conference-transport`, `${E}/concert-transport`, "services/city-transport/riyadh", "services/tourism-transport/riyadh-sightseeing"],
     updated: U,
     copy: {
       en: {

@@ -60,3 +60,9 @@ Build guards (registry.ts): missing AR, duplicate title/description/H1, duplicat
 
 ## Batch 7 (2026-11-07): 6 more city pages
 city-transport/yanbu, jubail, najran, jazan, hail, buraidah (EN + AR). Total 93 pages = 186 content URLs. Najran and Jazan state that border-region access is confirmed, not promised; Farasan ferry is arranged separately with its operator.
+
+## Batch 8 (2026-11-08): Riyadh cluster
+URL structure kept as-is: the Riyadh pillar is `services/city-transport/riyadh` (no separate /locations/ tree, which would duplicate it). Rewritten with a districts list (Olaya, KAFD, Diplomatic Quarter, Al Malqa/Al Yasmin/Al Narjis, Diriyah, Riyadh Front, RUH) and 12 related links to the whole cluster.
+New pages (EN + AR): `services/tourism-transport/riyadh-sightseeing`, `services/intercity-transfers/riyadh-to-makkah`, `riyadh-to-madinah`, `riyadh-to-al-ahsa`. Existing Riyadh pages (airport, event, to-dammam, to-jeddah) now link into the cluster. Total 98 pages = 196 content URLs.
+Intentionally not built (generic pages already cover the intent; a Riyadh clone would be a near-duplicate): riyadh hourly / full-day chauffeur (see chauffeur-services/hourly-driver, full-day-driver), riyadh corporate (business-chauffeur, corporate-events), riyadh VIP/luxury (luxury-chauffeur), riyadh hotel transfers (airport-to-hotel, hotel-transportation), riyadh family/group (group-transportation), riyadh to AlUla/Bahrain/Qatar/UAE/Kuwait (alula in tourism; cross-border pages exist).
+Needs owner confirmation: that Riyadh to Makkah / Madinah / Al Ahsa are routes RideSaudi will actually run (pages state availability is confirmed per quotation; no distances, times or fares published).

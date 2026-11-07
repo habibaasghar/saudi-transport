@@ -320,6 +320,7 @@ export const airportPages: ServicePage[] = [
       "services/chauffeur-services",
       "services/event-transportation",
       "services/airport-transfers/jeddah-airport",
+      "services/city-transport/riyadh",
     ],
     updated: UPDATED,
     copy: {
