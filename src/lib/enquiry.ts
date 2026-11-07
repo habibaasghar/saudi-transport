@@ -16,6 +16,8 @@ export type EnquiryInput = {
   notes: string;
   consent: boolean;
   locale: string;
+  /** page the enquiry was sent from */
+  source: string;
   /** honeypot — must be empty */
   website: string;
   /** ms epoch when the form was rendered */
@@ -32,7 +34,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 export const emptyEnquiry = (): EnquiryInput => ({
   service: "", pickup: "", dropoff: "", date: "", time: "", passengers: "1", luggage: "0",
   vehicle: "", flight: "", name: "", phone: "", email: "", notes: "", consent: false,
-  locale: "en", website: "", startedAt: 0,
+  locale: "en", source: "", website: "", startedAt: 0,
 });
 
 /** Shared by client (UX) and server (authority). */
@@ -69,7 +71,7 @@ export function sanitizeEnquiry(raw: unknown): EnquiryInput | null {
     service: s("service"), pickup: s("pickup"), dropoff: s("dropoff"), date: s("date", 10), time: s("time", 5),
     passengers: s("passengers", 3), luggage: s("luggage", 3), vehicle: s("vehicle"), flight: s("flight", 12),
     name: s("name"), phone: s("phone", 20), email: s("email"), notes: s("notes", MAX.notes),
-    consent: r.consent === true, locale: s("locale", 2), website: s("website"),
+    consent: r.consent === true, locale: s("locale", 2), source: s("source", 200), website: s("website"),
     startedAt: typeof r.startedAt === "number" ? r.startedAt : 0,
   };
 }

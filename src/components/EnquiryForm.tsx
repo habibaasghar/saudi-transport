@@ -59,10 +59,10 @@ export function EnquiryForm({ locale, defaultService }: { locale: string; defaul
     }
     setStatus("sending");
     try {
-      const res = await fetch("/api/enquiry", {
+      const res = await fetch("/api/enquiry/", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ ...data, startedAt }),
+        body: JSON.stringify({ ...data, startedAt, source: window.location.pathname }),
       });
       if (res.ok) {
         setStatus("success");

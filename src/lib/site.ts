@@ -23,7 +23,11 @@ export const confirmed = {
     image?: { src: string; alt: Record<Locale, string>; width: number; height: number };
   }[],
   /** Verified public contact details; leave undefined until supplied. */
-  contact: { whatsapp: undefined as string | undefined, email: undefined as string | undefined },
+  contact: {
+    /** Set NEXT_PUBLIC_WHATSAPP_NUMBER (digits with country code, e.g. 9665XXXXXXXX). */
+    whatsapp: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || undefined) as string | undefined,
+    email: (process.env.NEXT_PUBLIC_CONTACT_EMAIL || undefined) as string | undefined,
+  },
 };
 
 export const serviceKeys = ["airport", "chauffeur", "intercity", "hourly", "corporate", "vip"] as const;
