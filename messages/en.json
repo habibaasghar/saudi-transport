@@ -13,7 +13,7 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "languageSwitch": "Language",
-    "heroArt": "Illustration of desert dunes at dusk. A placeholder until a licensed photograph is supplied."
+    "heroArt": "Riyadh skyline at dusk"
   },
   "nav": {
     "services": "Services",
@@ -26,7 +26,8 @@
     "umrah": "Umrah Transport",
     "luxury": "Luxury",
     "events": "Events",
-    "breadcrumb": "Breadcrumb"
+    "breadcrumb": "Breadcrumb",
+    "riyadh": "Riyadh"
   },
   "lang": {
     "en": "English",
@@ -212,6 +213,22 @@
       "change": {
         "q": "What happens if my travel details change?",
         "a": "Contact RideSaudi as early as you can with the updated details. The terms that apply to changes are set out with your quotation and confirmation."
+      },
+      "riyadh": {
+        "q": "Can I book a private driver in Riyadh and travel on to other cities?",
+        "a": "Yes. Request a driver in Riyadh by the trip, hour or day, and ask for intercity routes such as Dammam, Jeddah, Makkah, Madinah or AlUla in the same enquiry. Each journey is quoted individually."
+      },
+      "border": {
+        "q": "Can I request a transfer from Saudi Arabia to Qatar, the UAE, Bahrain or Kuwait?",
+        "a": "You can request it. Each cross-border journey is quoted individually, and vehicle and driver arrangements are confirmed in the quotation. Visas and entry permission are the traveller's responsibility, so check them with the official authorities."
+      },
+      "price": {
+        "q": "Do you publish fixed prices?",
+        "a": "No. Distance, date, vehicle and waiting time change the cost, so each journey is quoted individually and the price is stated before you confirm."
+      },
+      "language": {
+        "q": "Can I make an enquiry in Arabic?",
+        "a": "Yes. The whole site, including the quote request, is available in English and Arabic."
       }
     }
   },
@@ -287,7 +304,8 @@
     "terms": "Terms and Conditions",
     "soon": "To be published",
     "language": "Language",
-    "copyright": "© {year} RideSaudi. All rights reserved."
+    "copyright": "© {year} RideSaudi. All rights reserved.",
+    "riyadh": "Riyadh"
   },
   "svc": {
     "home": "Home",
@@ -326,5 +344,23 @@
         "text": "Private transfers around Umrah: airport to Makkah, Makkah to Madinah and back."
       }
     }
+  },
+  "about": {
+    "eyebrow": "About RideSaudi",
+    "title": "Private journeys across Saudi Arabia, planned in advance",
+    "lead": "RideSaudi arranges pre-booked private transport in Saudi Arabia: airport transfers, a chauffeur by the hour or day, intercity and cross-border journeys, Umrah transport, events and luxury travel. You send your journey details, receive a quotation, and the journey is confirmed only after you accept it.",
+    "linksTitle": "Start with the journey you need",
+    "links": {
+      "riyadh": "Private driver in Riyadh",
+      "airport": "Airport transfers",
+      "intercity": "Intercity routes from Riyadh",
+      "border": "Cross-border transfers"
+    }
+  },
+  "destinations": {
+    "eyebrow": "Destinations",
+    "title": "Where RideSaudi can take you",
+    "intro": "Choose a destination to see how that journey is planned: pickups, the route and what to include in your enquiry. Availability and price are confirmed in your quotation, never assumed.",
+    "cta": "See the journey"
   }
 }

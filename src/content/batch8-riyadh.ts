@@ -39,6 +39,10 @@ export const batch8Riyadh: ServicePage[] = [
       `${I}/riyadh-to-taif`,
       `${I}/riyadh-to-buraydah`,
       `${I}/riyadh-to-jubail`,
+      `${I}/riyadh-to-abha`,
+      `${I}/riyadh-to-tabuk`,
+      `${I}/riyadh-to-hail`,
+      `${I}/riyadh-to-yanbu`,
     ],
     updated: U,
     copy: {

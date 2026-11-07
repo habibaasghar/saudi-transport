@@ -4,7 +4,8 @@ import { setRequestLocale } from "next-intl/server";
 import { ServicePageView } from "@/components/ServicePageView";
 import { getPage, pages, validateRegistry } from "@/content/registry";
 import { routing, type Locale } from "@/i18n/routing";
-import { pageUrl } from "@/lib/site";
+import { getImage } from "@/content/images";
+import { pageUrl, SITE_URL } from "@/lib/site";
 
 validateRegistry();
 
@@ -23,6 +24,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!page) return {};
   const c = page.copy[locale];
   const url = pageUrl(locale, page.path);
+  const img = getImage(page.path);
+  const ogImages = img ? [{ url: `${SITE_URL}${img.src}`, width: img.width, height: img.height, alt: img.alt[locale] }] : undefined;
   return {
     title: { absolute: `${c.title} | RideSaudi` },
     description: c.description,
@@ -41,8 +44,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       description: c.description,
       locale: locale === "ar" ? "ar_SA" : "en_US",
       alternateLocale: locale === "ar" ? ["en_US"] : ["ar_SA"],
+      ...(ogImages ? { images: ogImages } : {}),
     },
-    twitter: { card: "summary", title: c.title, description: c.description },
+    twitter: { card: img ? "summary_large_image" : "summary", title: c.title, description: c.description, ...(ogImages ? { images: [ogImages[0].url] } : {}) },
     robots: { index: true, follow: true },
   };
 }

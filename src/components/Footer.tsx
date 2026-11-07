@@ -19,6 +19,19 @@ const footerServices = [
   "fleet",
 ];
 
+const footerRiyadh = [
+  "services/city-transport/riyadh",
+  "services/airport-transfers/riyadh-airport",
+  "services/tourism-transport/riyadh-sightseeing",
+  "services/event-transportation/riyadh",
+  "services/intercity-transfers/riyadh-to-dammam",
+  "services/intercity-transfers/riyadh-to-jeddah",
+  "services/intercity-transfers/riyadh-to-makkah",
+  "services/intercity-transfers/riyadh-to-madinah",
+  "services/intercity-transfers/riyadh-to-doha",
+  "services/intercity-transfers/riyadh-to-dubai",
+] as const;
+
 export async function Footer({ locale }: { locale: Locale }) {
   const t = await getTranslations("footer");
   const n = await getTranslations("nav");
@@ -43,6 +56,14 @@ export async function Footer({ locale }: { locale: Locale }) {
             <h2>{t("services")}</h2>
             <ul>
               {footerServices.map((p) => (
+                <li key={p}><Link href={`/${p}`}>{getPage(p)!.copy[locale].nav}</Link></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2>{t("riyadh")}</h2>
+            <ul>
+              {footerRiyadh.map((p) => (
                 <li key={p}><Link href={`/${p}`}>{getPage(p)!.copy[locale].nav}</Link></li>
               ))}
             </ul>

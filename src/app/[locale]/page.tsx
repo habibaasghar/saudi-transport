@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { Destinations, homeDestinations } from "@/components/Destinations";
+import { getPage } from "@/content/registry";
+import { images } from "@/content/images";
 import { Featured } from "@/components/Featured";
 import { Services } from "@/components/Services";
 import { Why } from "@/components/Why";
@@ -38,9 +42,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: t("ogDescription"),
       locale: locale === "ar" ? "ar_SA" : "en_US",
       alternateLocale: locale === "ar" ? ["en_US"] : ["ar_SA"],
-      // No og:image yet: add one only once a real, licensed asset exists (see docs/missing-assets.md).
+      images: [{ url: `${SITE_URL}${images.riyadh.src}`, width: images.riyadh.width, height: images.riyadh.height, alt: images.riyadh.alt[locale] }],
     },
-    twitter: { card: "summary", title: t("ogTitle"), description: t("ogDescription") },
+    twitter: { card: "summary_large_image", title: t("ogTitle"), description: t("ogDescription"), images: [`${SITE_URL}${images.riyadh.src}`] },
     robots: { index: true, follow: true },
   };
 }
@@ -74,6 +78,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               inLanguage: locale,
               isPartOf: { "@id": `${SITE_URL}/#website` },
               about: { "@id": `${SITE_URL}/#organization` },
+              primaryImageOfPage: { "@type": "ImageObject", url: `${SITE_URL}${images.riyadh.src}`, width: images.riyadh.width, height: images.riyadh.height, caption: images.riyadh.alt[locale] },
+              mainEntity: { "@id": `${localeUrl(locale)}#destinations` },
+            },
+            {
+              "@type": "ItemList",
+              "@id": `${localeUrl(locale)}#destinations`,
+              name: t("title"),
+              itemListElement: homeDestinations.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: getPage(p)!.copy[locale].nav, url: `${SITE_URL}/${locale}/${p}/` })),
             },
           ],
         }}
@@ -81,8 +93,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <Header locale={locale} />
       <main id="main">
         <Hero />
+        <About />
         <Featured />
         <Services />
+        <Destinations locale={locale} />
         <Why />
         <Airport />
         <Intercity locale={locale} />

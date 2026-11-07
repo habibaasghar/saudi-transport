@@ -12,6 +12,6 @@ Gate per page (SEO-RULES.md section 9): distinct intent; verified capability; un
 | intercity/riyadh-to-doha, riyadh-to-dubai | pass | distances approximate from public sources; entry rules deliberately NOT stated (official authorities named) | **pending** (border permission for vehicle/driver) | written, needs native review | pass | pass | none | built on branch, not deployed; hold until owner confirms |
 | intercity/riyadh-to-manama, -kuwait-city, -alula, -taif, -buraydah, -jubail | pass | no distances or times published (none sourced); causeway status and entry rules point to official bodies | **pending** | written, needs native review | pass | pass | none | built on branch; hold until owner confirms routes |
 | Abu Dhabi, Sharjah, Al Ain, Al Khobar, Qassim | folded into Dubai / Dammam / Buraydah pages | n/a | n/a | n/a | n/a | n/a | n/a | no separate page |
-| Yanbu, Hail, Abha, Tabuk routes | unproven | not researched | pending | not written | n/a | n/a | none | NOT built |
+| intercity/riyadh-to-abha, -tabuk, -hail, -yanbu | pass | no distances or times published | **pending** | written, needs native review | pass | pass | partial | built on branch; hold until owner confirms routes |
 
 Open actions: owner verification of routes and cross-border permissions; official-source fact check; native Arabic review; imagery; analytics provider; Lighthouse and viewport tests; competitor data.

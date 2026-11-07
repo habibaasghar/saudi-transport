@@ -24,13 +24,15 @@ Every row exists as `/en/<path>/` and `/ar/<path>/` (self-canonical, hreflang en
 | services/intercity-transfers/riyadh-to-taif | Riyadh | Taif | both | route | Riyadh to Taif by road | built | **required** | good, no distances | none | on branch |
 | services/intercity-transfers/riyadh-to-buraydah | Riyadh | Buraydah / Qassim | both | route | Riyadh to Buraydah by road | built (covers Qassim, Unaizah) | **required** | good, no distances | none | on branch |
 | services/intercity-transfers/riyadh-to-jubail | Riyadh | Jubail / Jubail Industrial City | both | route (B2B) | Riyadh to Jubail by road | built | **required** | good, no distances | none | on branch |
+| services/intercity-transfers/riyadh-to-abha | Riyadh | Abha | both | route | Riyadh to Abha by road | built 2026-11-08 | **required** | good, no distances | image | on branch |
+| services/intercity-transfers/riyadh-to-tabuk | Riyadh | Tabuk | both | route | Riyadh to Tabuk by road | built | **required** | good, no distances | image | on branch |
+| services/intercity-transfers/riyadh-to-hail | Riyadh | Hail | both | route | Riyadh to Hail by road | built | **required** | good, no distances | none | on branch |
+| services/intercity-transfers/riyadh-to-yanbu | Riyadh | Yanbu | both | route (B2B) | Riyadh to Yanbu by road | built | **required** | good, no distances | low-res image | on branch |
 
 ## Proposed (not built)
 | Path | Direction coverage | Tier | Decision |
 |---|---|---|---|
 | services/intercity-transfers/riyadh-to-abu-dhabi | both | B | Merge into Dubai page unless owner confirms distinct demand |
-| services/intercity-transfers/riyadh-to-yanbu | both | C | Not built; research first |
-| riyadh-to-hail, -abha, -tabuk | both | D | Research demand first |
 | riyadh-to-abu-dhabi, -sharjah, -al-ain | both | B/D | Folded into the Dubai page |
 | riyadh-to-al-khobar | both | C | Folded into the Dammam page; Qassim into Buraydah |
 | Reverse-direction URLs (e.g. doha-to-riyadh) | - | - | Not created; revisit only with evidence of independent intent |
