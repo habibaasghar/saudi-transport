@@ -1,6 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { confirmed } from "@/lib/site";
+import { confirmed, servicePath } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 import { SectionHead } from "./SectionHead";
 
@@ -27,7 +27,7 @@ export async function Airport() {
               </ul>
             </>
           )}
-          <Link href={{ pathname: "/", query: { service: "airport" }, hash: "quote" }} className="btn btn--dark btn--lg">{t("cta")}</Link>
+          <Link href={servicePath.airport} className="btn btn--dark btn--lg">{t("cta")}</Link>
         </div>
         <div className="split__art" aria-hidden="true">
           <svg viewBox="0 0 400 400" focusable="false">

@@ -7,6 +7,23 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   trailingSlash: true,
   images: { formats: ["image/avif", "image/webp"] },
+  // Old /{locale}/?service=x URLs (already indexed) -> real service pages.
+  async redirects() {
+    const map: Record<string, string> = {
+      airport: "services/airport-transfers",
+      chauffeur: "services/chauffeur-services",
+      intercity: "services/intercity-transfers",
+      hourly: "services/chauffeur-services/hourly-driver",
+      corporate: "services/chauffeur-services/business-chauffeur",
+      vip: "luxury-transportation",
+    };
+    return Object.entries(map).map(([k, path]) => ({
+      source: "/:locale(en|ar)",
+      has: [{ type: "query" as const, key: "service", value: k }],
+      destination: `/:locale/${path}/`,
+      permanent: true,
+    }));
+  },
   async headers() {
     return [
       {

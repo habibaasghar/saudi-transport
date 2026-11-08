@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { confirmed } from "@/lib/site";
+import { confirmed, servicePath } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 import { SectionHead } from "./SectionHead";
 
@@ -34,7 +34,7 @@ export async function Intercity({ locale }: { locale: Locale }) {
               <p>{t("emptyText")}</p>
             </div>
           )}
-          <Link href={{ pathname: "/", query: { service: "intercity" }, hash: "quote" }} className="btn btn--primary btn--lg">{t("cta")}</Link>
+          <Link href={servicePath.intercity} className="btn btn--primary btn--lg">{t("cta")}</Link>
         </div>
       </div>
     </section>

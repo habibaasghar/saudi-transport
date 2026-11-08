@@ -33,5 +33,15 @@ export const confirmed = {
 export const serviceKeys = ["airport", "chauffeur", "intercity", "hourly", "corporate", "vip"] as const;
 export type ServiceKey = (typeof serviceKeys)[number];
 
+/** Real, indexable page per homepage service. Never link to /?service=x: it only creates canonicalised duplicate URLs. */
+export const servicePath: Record<ServiceKey, string> = {
+  airport: "/services/airport-transfers/",
+  chauffeur: "/services/chauffeur-services/",
+  intercity: "/services/intercity-transfers/",
+  hourly: "/services/chauffeur-services/hourly-driver/",
+  corporate: "/services/chauffeur-services/business-chauffeur/",
+  vip: "/luxury-transportation/",
+};
+
 /** Services selectable in the enquiry form (homepage cards keep using `serviceKeys`). */
 export const formServiceKeys = [...serviceKeys, "umrah", "event", "luxury"] as const;

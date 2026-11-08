@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { serviceKeys } from "@/lib/site";
+import { serviceKeys, servicePath } from "@/lib/site";
 import { SectionHead } from "./SectionHead";
 
 export async function Services() {
@@ -15,7 +15,7 @@ export async function Services() {
               <span className="card__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
               <h3>{t(`items.${k}.title`)}</h3>
               <p>{t(`items.${k}.text`)}</p>
-              <Link className="card__link" href={{ pathname: "/", query: { service: k }, hash: "quote" }}>
+              <Link className="card__link" href={servicePath[k]}>
                 {t("cta")}
                 <span className="sr-only"> — {t(`items.${k}.title`)}</span>
                 <span aria-hidden="true" className="arrow">→</span>
