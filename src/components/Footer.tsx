@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { getPage } from "@/content/registry";
@@ -19,6 +20,19 @@ const footerServices = [
   "fleet",
 ];
 
+const footerRiyadh = [
+  "services/city-transport/riyadh",
+  "services/airport-transfers/riyadh-airport",
+  "services/tourism-transport/riyadh-sightseeing",
+  "services/event-transportation/riyadh",
+  "services/intercity-transfers/riyadh-to-dammam",
+  "services/intercity-transfers/riyadh-to-jeddah",
+  "services/intercity-transfers/riyadh-to-makkah",
+  "services/intercity-transfers/riyadh-to-madinah",
+  "services/intercity-transfers/riyadh-to-doha",
+  "services/intercity-transfers/riyadh-to-dubai",
+] as const;
+
 export async function Footer({ locale }: { locale: Locale }) {
   const t = await getTranslations("footer");
   const n = await getTranslations("nav");
@@ -29,7 +43,7 @@ export async function Footer({ locale }: { locale: Locale }) {
     <footer className="footer">
       <div className="wrap footer__grid">
         <div>
-          <p className="wordmark wordmark--lg">Ride<span>Saudi</span></p>
+          <p className="footer__logo"><Image src="/logo.webp" alt="RideSaudi" width={830} height={360} sizes="200px" className="logo logo--footer" /></p>
           <p className="footer__tag">{t("tagline")}</p>
         </div>
         <nav aria-label={a("footerNav")} className="footer__cols">
@@ -43,6 +57,14 @@ export async function Footer({ locale }: { locale: Locale }) {
             <h2>{t("services")}</h2>
             <ul>
               {footerServices.map((p) => (
+                <li key={p}><Link href={`/${p}`}>{getPage(p)!.copy[locale].nav}</Link></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2>{t("riyadh")}</h2>
+            <ul>
+              {footerRiyadh.map((p) => (
                 <li key={p}><Link href={`/${p}`}>{getPage(p)!.copy[locale].nav}</Link></li>
               ))}
             </ul>

@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { SectionHead } from "./SectionHead";
 
-const keys = ["quote", "airport", "intercity", "flight", "confirm", "vehicle", "change"] as const;
+const keys = ["quote", "airport", "intercity", "riyadh", "border", "price", "flight", "confirm", "vehicle", "language", "change"] as const;
 
 /** Native <details>: keyboard + screen-reader accessible with zero JavaScript. */
 export async function Faq() {

@@ -10,8 +10,12 @@ import { batch4 } from "./batch4-luxury-chauffeur";
 import { batch5 } from "./batch5-events-groups-special";
 import { batch6 } from "./batch6-cities-tourism";
 import { batch7 } from "./batch7-more-cities";
+import { batch8Riyadh } from "./batch8-riyadh";
+import { batch9RiyadhCrossBorder } from "./batch9-riyadh-cross-border";
+import { batch10RiyadhRoutes } from "./batch10-riyadh-routes";
+import { batch11RiyadhRoutes } from "./batch11-riyadh-routes";
 
-export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7];
+export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes];
 
 /**
  * SEO-RULES.md: no FAQ may appear verbatim on two pages. Generic questions that several pages

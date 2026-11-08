@@ -1,8 +1,10 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import type { ServicePage } from "@/content/types";
 import { childrenOf, getPage, trail } from "@/content/registry";
+import { getImage } from "@/content/images";
 import { confirmed } from "@/lib/site";
 import { pageSchema } from "@/lib/schema";
 import { Header } from "./Header";
@@ -18,6 +20,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
   const t = await getTranslations({ locale, namespace: "svc" });
   const c = page.copy[locale];
   const crumbs = trail(page);
+  const hero = getImage(page.path);
   const kids = childrenOf(page.path);
   const related = page.related.map(getPage).filter((p): p is ServicePage => Boolean(p));
   const wa = confirmed.contact.whatsapp?.replace(/[^\d]/g, "");
@@ -28,7 +31,19 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
       <JsonLd data={pageSchema(page, locale)} />
       <Header locale={locale} quoteHref="#quote" switchHref={href(page.path)} />
       <main id="main" className={`svc svc--${page.variant}`}>
-        <section className="svc-hero" aria-labelledby="svc-h1">
+        <section className={`svc-hero${hero ? " svc-hero--img" : ""}`} aria-labelledby="svc-h1">
+          {hero && (
+            <Image
+              className="svc-hero__bg"
+              src={hero.src}
+              alt={hero.alt[locale]}
+              fill
+              priority
+              fetchPriority="high"
+              sizes="100vw"
+              style={{ objectFit: "cover", objectPosition: hero.focus ?? "50% 50%" }}
+            />
+          )}
           <div className="wrap">
             <nav aria-label={t("breadcrumb")} className="crumbs">
               <ol>
@@ -74,6 +89,9 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
                 {kids.map((k, i) => (
                   <li key={k.path} className="card">
                     <span className="card__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                    {getImage(k.path) && (
+                      <Image className="card__img" src={getImage(k.path)!.src} alt={getImage(k.path)!.alt[locale]} width={getImage(k.path)!.width} height={getImage(k.path)!.height} sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" loading="lazy" />
+                    )}
                     <h3>{k.copy[locale].nav}</h3>
                     <p>{k.copy[locale].summary}</p>
                     <Link className="card__link" href={href(k.path)}>
@@ -151,6 +169,9 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
                 {related.map((r, i) => (
                   <li key={r.path} className="card">
                     <span className="card__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                    {getImage(r.path) && (
+                      <Image className="card__img" src={getImage(r.path)!.src} alt={getImage(r.path)!.alt[locale]} width={getImage(r.path)!.width} height={getImage(r.path)!.height} sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" loading="lazy" />
+                    )}
                     <h3>{r.copy[locale].nav}</h3>
                     <p>{r.copy[locale].summary}</p>
                     <Link className="card__link" href={href(r.path)}>

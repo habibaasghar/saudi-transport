@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { HeroArt } from "./HeroArt";
 import { QuickStart } from "./QuickStart";
 
 export async function Hero() {
@@ -8,8 +8,7 @@ export async function Hero() {
   const a = await getTranslations("a11y");
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <HeroArt />
-      <span className="sr-only">{a("heroArt")}</span>
+      <Image className="hero__art" src="/images/riyadh.webp" alt={a("heroArt")} fill priority fetchPriority="high" sizes="100vw" style={{ objectFit: "cover" }} />
       <div className="wrap hero__grid">
         <div className="hero__copy">
           <p className="eyebrow eyebrow--light">{t("eyebrow")}</p>

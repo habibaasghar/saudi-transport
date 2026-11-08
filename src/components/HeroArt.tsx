@@ -1,30 +1,39 @@
 /**
- * Art-directed placeholder: dusk sky and layered dunes in the brand palette. Decorative only.
- * No vehicle is shown. Replace with a licensed photograph (see docs/missing-assets.md).
+ * Decorative hero scene in the brand palette: night sky, skyline and a dotted route line.
+ * No vehicle is shown (no fleet claims). Replace with a licensed photograph (see docs/missing-assets.md).
  */
 export function HeroArt() {
   return (
     <svg className="hero__art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
       <defs>
         <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#0F1B2D" />
-          <stop offset="0.55" stopColor="#1d2a3d" />
-          <stop offset="0.8" stopColor="#6b4a3f" />
-          <stop offset="1" stopColor="#C9A877" />
+          <stop offset="0" stopColor="#0B1F3A" />
+          <stop offset="0.6" stopColor="#123a63" />
+          <stop offset="1" stopColor="#174A78" />
         </linearGradient>
-        <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0" stopColor="#F3ECE0" stopOpacity="0.95" />
-          <stop offset="0.35" stopColor="#E3C79A" stopOpacity="0.5" />
-          <stop offset="1" stopColor="#C9A877" stopOpacity="0" />
+        <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#38BDF8" stopOpacity="0.55" />
+          <stop offset="1" stopColor="#38BDF8" stopOpacity="0" />
         </radialGradient>
       </defs>
       <rect width="1600" height="900" fill="url(#sky)" />
-      <circle cx="1130" cy="520" r="260" fill="url(#sun)" />
-      <circle cx="1130" cy="520" r="46" fill="#F3ECE0" opacity="0.92" />
-      <path d="M0 610 C 220 560 380 540 560 590 S 900 660 1120 600 S 1450 540 1600 580 V900 H0Z" fill="#8a6a52" opacity="0.55" />
-      <path d="M0 690 C 260 610 430 650 640 690 S 1000 740 1230 670 S 1500 640 1600 660 V900 H0Z" fill="#4a3a35" opacity="0.8" />
-      <path d="M0 770 C 300 710 520 760 780 790 S 1180 800 1380 750 S 1540 730 1600 740 V900 H0Z" fill="#1F4D3A" opacity="0.85" />
-      <path d="M0 830 C 340 800 640 840 940 850 S 1420 840 1600 820 V900 H0Z" fill="#0F1B2D" />
+      <circle cx="1150" cy="430" r="300" fill="url(#glow)" />
+      <circle cx="1150" cy="430" r="52" fill="#EAF6FF" opacity="0.9" />
+      <g fill="#38BDF8" opacity="0.6">
+        <circle cx="180" cy="120" r="3" /><circle cx="420" cy="220" r="2" /><circle cx="760" cy="90" r="3" /><circle cx="980" cy="200" r="2" /><circle cx="1420" cy="140" r="3" />
+      </g>
+      <g fill="#0f2c50">
+        <rect x="620" y="520" width="70" height="380" /><rect x="710" y="440" width="56" height="460" />
+        <path d="M800 900V380l22-60 22 60v520z" /><rect x="868" y="500" width="80" height="400" /><rect x="968" y="460" width="60" height="440" /><rect x="1048" y="560" width="96" height="340" />
+        <rect x="1170" y="500" width="64" height="400" /><rect x="1254" y="580" width="110" height="320" /><rect x="1384" y="540" width="90" height="360" />
+      </g>
+      <path d="M0 720 C 280 660 520 700 800 740 S 1300 760 1600 700 V900 H0Z" fill="#102b4d" />
+      <path d="M0 800 H1600 V900 H0Z" fill="#07162b" />
+      <path d="M0 800 H1600" stroke="#38BDF8" strokeWidth="3" opacity="0.6" />
+      <path d="M0 850 H1600" stroke="#EAF6FF" strokeWidth="5" strokeDasharray="90 70" opacity="0.55" />
+      <path d="M120 760 C 420 640 760 640 1500 700" fill="none" stroke="#38BDF8" strokeWidth="4" strokeDasharray="3 16" strokeLinecap="round" />
+      <circle cx="120" cy="760" r="12" fill="#fff" /><circle cx="120" cy="760" r="5" fill="#0B1F3A" />
+      <circle cx="1500" cy="700" r="12" fill="#38BDF8" /><circle cx="1500" cy="700" r="5" fill="#0B1F3A" />
     </svg>
   );
 }

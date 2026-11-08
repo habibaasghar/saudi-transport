@@ -5,7 +5,7 @@ These rules apply to **every page ever created** on https://www.ridesaudi.com/ �
 ## Project baseline
 - Brand: **RideSaudi** · Domain: `https://www.ridesaudi.com/`
 - Stack: Next.js App Router, TypeScript, next-intl (English + Arabic, RTL)
-- Design: Desert Dusk — `#0F1B2D` navy, `#F3ECE0` ivory, `#C9A877` sand/gold, `#1F4D3A` green, `#A4543B` terracotta
+- Design: Navy + Sky Blue — `#0B1F3A` midnight navy, `#174A78` royal blue, `#38BDF8` sky blue, `#EAF6FF` ice blue, white; Manrope (Latin) + IBM Plex Sans Arabic
 - Booking model: **enquiry-first**. Never imply instant/confirmed booking.
 - Preserve and improve existing SEO content and Ahrefs-based work; never overwrite without inspecting first.
 

@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/routing";
 import type { ServicePage } from "@/content/types";
 import { trail } from "@/content/registry";
+import { getImage } from "@/content/images";
 import { pageUrl, localeUrl, SITE_URL } from "@/lib/site";
 
 const home = (l: Locale) => (l === "ar" ? "الرئيسية" : "Home");
@@ -14,6 +15,7 @@ export function pageSchema(page: ServicePage, locale: Locale) {
   const url = pageUrl(locale, page.path);
   const crumbs = trail(page);
   const isHub = page.path === "services";
+  const img = getImage(page.path);
 
   const graph: Record<string, unknown>[] = [
     { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "RideSaudi", url: SITE_URL },
@@ -35,6 +37,7 @@ export function pageSchema(page: ServicePage, locale: Locale) {
       dateModified: page.updated,
       isPartOf: { "@id": `${SITE_URL}/#website` },
       breadcrumb: { "@id": `${url}#breadcrumb` },
+      ...(img ? { primaryImageOfPage: { "@type": "ImageObject", url: `${SITE_URL}${img.src}`, width: img.width, height: img.height, caption: img.alt[locale] } } : {}),
       ...(isHub ? {} : { about: { "@id": `${url}#service` } }),
     },
     {

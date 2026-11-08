@@ -23,6 +23,11 @@ export function GET() {
 - Vehicle and route availability is confirmed per quotation, not published as a fleet or route list
 - Not affiliated with any religious or government authority; does not issue Umrah visas or permits
 
+## Riyadh coverage
+- Riyadh city hub: private car with a driver by trip, hour or day, plus airport, sightseeing, events and intercity routes: ${SITE_URL}/en/services/city-transport/riyadh/ (Arabic: ${SITE_URL}/ar/services/city-transport/riyadh/)
+- Routes from Riyadh are quoted individually and can be requested in either direction: Dammam, Jeddah, Makkah, Madinah, Al Ahsa, AlUla, Taif, Abha, Tabuk, Hail, Buraydah, Jubail, Yanbu, and cross-border to Doha, Dubai, Manama and Kuwait City.
+- Distances, durations and prices are not published; entry rules for cross-border journeys must be checked with official authorities.
+
 ## Services (English)
 ${section("en")}
 
