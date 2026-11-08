@@ -4,22 +4,17 @@ type Lead = Omit<EnquiryInput, "website" | "startedAt"> & { receivedAt: string }
 
 export type DeliveryResult = { configured: boolean; delivered: boolean };
 
-const DEFAULT_SUPABASE_URL = "https://nxparehkrztumdjecint.supabase.co";
-
 /**
  * Lead delivery. Any combination of channels may be configured; the enquiry counts as
  * delivered if at least one configured channel accepted it. Nothing configured => the API
  * reports "not_configured" and never pretends success.
  *
- *  1. Supabase table `enquiries`   (SUPABASE_SERVICE_ROLE_KEY, server-only)
- *  2. Email alert via Resend       (RESEND_API_KEY + LEAD_NOTIFY_EMAIL [+ LEAD_FROM_EMAIL])
- *  3. Generic JSON webhook         (ENQUIRY_WEBHOOK_URL [+ ENQUIRY_WEBHOOK_SECRET])
+ *  (The database is the system of record and is written by the API route, not here.)
+ *  1. Email alert via Resend       (RESEND_API_KEY + LEAD_NOTIFY_EMAIL [+ LEAD_FROM_EMAIL])
+ *  2. Generic JSON webhook         (ENQUIRY_WEBHOOK_URL [+ ENQUIRY_WEBHOOK_SECRET])
  */
 export async function deliverLead(lead: Lead): Promise<DeliveryResult> {
   const jobs: Promise<boolean>[] = [];
-
-  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (serviceKey) jobs.push(toSupabase(lead, serviceKey));
 
   const resendKey = process.env.RESEND_API_KEY;
   const notify = process.env.LEAD_NOTIFY_EMAIL;
@@ -31,42 +26,6 @@ export async function deliverLead(lead: Lead): Promise<DeliveryResult> {
   if (!jobs.length) return { configured: false, delivered: false };
   const results = await Promise.all(jobs);
   return { configured: true, delivered: results.some(Boolean) };
-}
-
-async function toSupabase(lead: Lead, key: string): Promise<boolean> {
-  const base = (process.env.SUPABASE_URL || DEFAULT_SUPABASE_URL).replace(/\/$/, "");
-  try {
-    const res = await fetch(`${base}/rest/v1/enquiries`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        apikey: key,
-        authorization: `Bearer ${key}`,
-        prefer: "return=minimal",
-      },
-      body: JSON.stringify({
-        service: lead.service,
-        pickup: lead.pickup,
-        dropoff: lead.dropoff,
-        travel_date: lead.date,
-        travel_time: lead.time,
-        passengers: Number(lead.passengers) || 1,
-        luggage: Number(lead.luggage) || 0,
-        vehicle: lead.vehicle || null,
-        flight: lead.flight || null,
-        name: lead.name,
-        phone: lead.phone,
-        email: lead.email || null,
-        notes: lead.notes || null,
-        locale: lead.locale,
-        source: lead.source || null,
-      }),
-      signal: AbortSignal.timeout(8000),
-    });
-    return res.ok;
-  } catch {
-    return false;
-  }
 }
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
