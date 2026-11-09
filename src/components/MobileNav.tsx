@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
+import { MailIcon, PhoneIcon, WhatsAppIcon } from "./Icons";
 
 type Props = {
   items: { href: string; label: string }[];
@@ -13,9 +14,16 @@ type Props = {
   navLabel: string;
   otherLocale: "en" | "ar";
   otherLabel: string;
+  whatsappHref: string;
+  telHref: string;
+  mailHref: string;
+  whatsappLabel: string;
+  callLabel: string;
+  emailLabel: string;
+  phoneDisplay: string;
 };
 
-export function MobileNav({ items, quoteLabel, quoteHref, switchHref, openLabel, closeLabel, navLabel, otherLocale, otherLabel }: Props) {
+export function MobileNav({ items, quoteLabel, quoteHref, switchHref, openLabel, closeLabel, navLabel, otherLocale, otherLabel, whatsappHref, telHref, mailHref, whatsappLabel, callLabel, emailLabel, phoneDisplay }: Props) {
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -75,6 +83,20 @@ export function MobileNav({ items, quoteLabel, quoteHref, switchHref, openLabel,
           ) : (
             <Link href={quoteHref} className="btn btn--primary" onClick={close}>{quoteLabel}</Link>
           )}
+          <div className="mobile-nav__contact">
+            <a href={whatsappHref} className="btn cta cta--whatsapp" target="_blank" rel="noopener noreferrer" onClick={close}>
+              <WhatsAppIcon className="cta__icon" />
+              <span>{whatsappLabel}</span>
+            </a>
+            <a href={telHref} className="btn cta cta--ghost cta--call" onClick={close}>
+              <PhoneIcon className="cta__icon" />
+              <span>{callLabel} <bdi dir="ltr">{phoneDisplay}</bdi></span>
+            </a>
+            <a href={mailHref} className="btn cta cta--ghost cta--email" onClick={close}>
+              <MailIcon className="cta__icon" />
+              <span>{emailLabel}</span>
+            </a>
+          </div>
           <Link href={switchHref} locale={otherLocale} hrefLang={otherLocale} lang={otherLocale} className="lang-switch" onClick={close}>{otherLabel}</Link>
         </div>
       </div>

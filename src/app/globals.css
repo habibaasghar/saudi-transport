@@ -339,3 +339,37 @@ tbody th { font-weight: 600; color: var(--palm); }
 @media (min-width: 1080px) { .logo { height: 64px; } }
 .footer__logo { margin: 0; display: inline-block; background: #fff; border-radius: 16px; padding: .6rem 1rem; }
 .logo--footer { height: 72px; }
+
+/* Contact CTAs (WhatsApp / Call / Email) */
+.cta { gap: .55rem; }
+.cta__icon { flex: none; }
+.cta--ghost { background: transparent; border-color: rgba(255, 255, 255, .55); color: var(--sand); }
+.cta--ghost:hover { background: rgba(255, 255, 255, .14); border-color: var(--sand); transform: translateY(-1px); }
+.cta--outline { background: #fff; border-color: var(--line); color: var(--night); }
+.cta--outline:hover { border-color: var(--dune); color: var(--clay); transform: translateY(-1px); }
+.cta--whatsapp { background: #0b7d4b; border-color: #0b7d4b; color: #fff; }
+.cta--whatsapp:hover { background: #096a3f; border-color: #096a3f; transform: translateY(-1px); }
+.cta--icon { width: 40px; padding: 0; }
+.cta-row { display: flex; flex-wrap: wrap; gap: .7rem; }
+.hero__contact { margin-top: 1rem; }
+.quote__contact { margin-top: 2rem; max-width: 40ch; }
+.quote__contact-title { font-weight: 600; margin-bottom: .75rem; color: rgba(255, 255, 255, .9); }
+.footer__contact { margin-top: 1.5rem; }
+.footer__contact h2 { font-size: .95rem; margin-bottom: .5rem; }
+.footer__phone, .footer__mail { margin-bottom: .3rem; color: rgba(255, 255, 255, .85); }
+.footer__contact .cta-row { margin-top: .9rem; }
+.footer__contact .cta--outline { color: var(--night); }
+.mobile-nav__contact { display: grid; gap: .7rem; }
+.mobile-nav__contact .btn { justify-content: flex-start; }
+.site-header__wa { display: none; }
+@media (min-width: 1080px) { .site-header__wa { display: inline-flex; } }
+
+/* Floating WhatsApp */
+.wa-float { position: fixed; inset-inline-end: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); z-index: 40; display: inline-flex; align-items: center; gap: .55rem; min-height: 56px; min-width: 56px; padding: 0 1rem; justify-content: center; border-radius: 999px; background: #1fa855; color: #fff; text-decoration: none; font: 700 .95rem/1 var(--font-body); box-shadow: 0 10px 28px -8px rgba(11, 31, 58, .55); transition: transform .2s, background-color .2s, opacity .2s, box-shadow .2s; }
+.wa-float:hover { background: #178a45; transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(11, 31, 58, .6); }
+.wa-float__icon { width: 28px; height: 28px; }
+.wa-float__label { display: none; }
+.wa-float--hidden { opacity: 0; pointer-events: none; transform: translateY(8px); }
+html.nav-open .wa-float { display: none; }
+@media (min-width: 700px) { .wa-float__label { display: inline; } }
+@media (prefers-reduced-motion: reduce) { .wa-float, .cta { transition: none; } }

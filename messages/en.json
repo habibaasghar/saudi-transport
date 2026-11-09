@@ -362,5 +362,22 @@
     "title": "Where RideSaudi can take you",
     "intro": "Choose a destination to see how that journey is planned: pickups, the route and what to include in your enquiry. Availability and price are confirmed in your quotation, never assumed.",
     "cta": "See the journey"
+  },
+  "contact": {
+    "whatsapp": "WhatsApp Us",
+    "call": "Call Now",
+    "email": "Email Us",
+    "quote": "Request a Quote",
+    "book": "Book Your Private Transfer",
+    "whatsappAria": "Chat with RideSaudi on WhatsApp (opens in a new tab)",
+    "callAria": "Call RideSaudi on {number}",
+    "emailAria": "Email RideSaudi at {email}",
+    "whatsappGeneral": "Hello, I would like to request a private transfer quotation through RideSaudi.",
+    "whatsappTopic": "Hello, I need a private transfer: {topic}. Please share availability and quotation.",
+    "emailSubject": "Request a Private Transfer Quotation - RideSaudi",
+    "emailSubjectTopic": "Request a Private Transfer Quotation - {topic}",
+    "heading": "Prefer to talk to us directly?",
+    "footerHeading": "Contact",
+    "quoteAlt": "Or contact us directly"
   }
 }

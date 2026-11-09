@@ -3,6 +3,29 @@ import type { ServicePage } from "@/content/types";
 import { trail } from "@/content/registry";
 import { getImage } from "@/content/images";
 import { pageUrl, localeUrl, SITE_URL } from "@/lib/site";
+import { CONTACT } from "@/config/contact";
+
+/** The single Organization node (with official contact points), shared by every page's JSON-LD graph. */
+export function organizationSchema() {
+  return {
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: "RideSaudi",
+    url: SITE_URL,
+    email: CONTACT.email,
+    telephone: CONTACT.phone,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        telephone: CONTACT.phone,
+        email: CONTACT.email,
+        availableLanguage: ["English", "Arabic"],
+        areaServed: "SA",
+      },
+    ],
+  };
+}
 
 const home = (l: Locale) => (l === "ar" ? "الرئيسية" : "Home");
 
@@ -18,7 +41,7 @@ export function pageSchema(page: ServicePage, locale: Locale) {
   const img = getImage(page.path);
 
   const graph: Record<string, unknown>[] = [
-    { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "RideSaudi", url: SITE_URL },
+    organizationSchema(),
     {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,

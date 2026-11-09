@@ -5,7 +5,6 @@ import type { Locale } from "@/i18n/routing";
 import type { ServicePage } from "@/content/types";
 import { childrenOf, getPage, trail } from "@/content/registry";
 import { getImage } from "@/content/images";
-import { confirmed } from "@/lib/site";
 import { pageSchema } from "@/lib/schema";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -13,6 +12,7 @@ import { HowItWorks } from "./HowItWorks";
 import { QuoteSection } from "./QuoteSection";
 import { SectionHead } from "./SectionHead";
 import { JsonLd } from "./JsonLd";
+import { ContactRow } from "./ContactCta";
 
 const href = (path: string) => `/${path}`;
 
@@ -23,8 +23,6 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
   const hero = getImage(page.path);
   const kids = childrenOf(page.path);
   const related = page.related.map(getPage).filter((p): p is ServicePage => Boolean(p));
-  const wa = confirmed.contact.whatsapp?.replace(/[^\d]/g, "");
-  const waLink = wa ? `https://wa.me/${wa}?text=${encodeURIComponent(t("whatsappText", { service: c.h1 }))}` : null;
 
   return (
     <>
@@ -64,10 +62,8 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             <p className="svc-hero__sub">{c.summary}</p>
             <div className="hero__actions">
               <a href="#quote" className="btn btn--primary btn--lg">{t("getQuote")}</a>
-              {waLink ? (
-                <a href={waLink} className="btn btn--ghost btn--lg" rel="noopener" target="_blank">{t("whatsapp")}</a>
-              ) : null}
             </div>
+            <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp", "call"]} className="hero__contact" />
             <p className="hero__note">{t("notice")}</p>
           </div>
         </section>
@@ -200,7 +196,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
           </div>
         </section>
 
-        <QuoteSection locale={locale} defaultService={page.service} />
+        <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} />
         <p className="wrap svc-reviewed">{t("reviewed")}: <time dateTime={page.updated}>{page.updated}</time></p>
       </main>
       <Footer locale={locale} />

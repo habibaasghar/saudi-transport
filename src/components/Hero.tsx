@@ -2,8 +2,9 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { QuickStart } from "./QuickStart";
+import { ContactRow } from "./ContactCta";
 
-export async function Hero() {
+export async function Hero({ locale }: { locale: string }) {
   const t = await getTranslations("hero");
   const a = await getTranslations("a11y");
   return (
@@ -18,6 +19,7 @@ export async function Hero() {
             <Link href="/#quote" className="btn btn--primary btn--lg">{t("ctaQuote")}</Link>
             <Link href="/#services" className="btn btn--ghost btn--lg">{t("ctaServices")}</Link>
           </div>
+          <ContactRow locale={locale} kinds={["whatsapp", "call"]} className="hero__contact" />
           <p className="hero__note">{t("note")}</p>
         </div>
         <QuickStart />

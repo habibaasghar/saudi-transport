@@ -22,12 +22,7 @@ export const confirmed = {
     luggage?: number;
     image?: { src: string; alt: Record<Locale, string>; width: number; height: number };
   }[],
-  /** Verified public contact details; leave undefined until supplied. */
-  contact: {
-    /** Set NEXT_PUBLIC_WHATSAPP_NUMBER (digits with country code, e.g. 9665XXXXXXXX). */
-    whatsapp: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || undefined) as string | undefined,
-    email: (process.env.NEXT_PUBLIC_CONTACT_EMAIL || undefined) as string | undefined,
-  },
+  /** Public contact details live in src/config/contact.ts. */
 };
 
 export const serviceKeys = ["airport", "chauffeur", "intercity", "hourly", "corporate", "vip"] as const;

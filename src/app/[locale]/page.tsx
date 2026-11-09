@@ -20,6 +20,7 @@ import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { routing, type Locale } from "@/i18n/routing";
 import { localeUrl, SITE_URL } from "@/lib/site";
+import { organizationSchema } from "@/lib/schema";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = (await params) as { locale: Locale };
@@ -60,7 +61,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         data={{
           "@context": "https://schema.org",
           "@graph": [
-            { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "RideSaudi", url: SITE_URL },
+            organizationSchema(),
             {
               "@type": "WebSite",
               "@id": `${SITE_URL}/#website`,
@@ -92,7 +93,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       />
       <Header locale={locale} />
       <main id="main">
-        <Hero />
+        <Hero locale={locale} />
         <About />
         <Featured />
         <Services />

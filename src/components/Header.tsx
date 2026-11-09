@@ -4,11 +4,14 @@ import { routing, type Locale } from "@/i18n/routing";
 import Image from "next/image";
 import { MobileNav } from "./MobileNav";
 import { navItems } from "@/lib/nav";
+import { ContactCta } from "./ContactCta";
+import { CONTACT, mailHref, telHref, whatsappHref } from "@/config/contact";
 
 export async function Header({ locale, quoteHref = "/#quote", switchHref = "/" }: { locale: Locale; quoteHref?: string; switchHref?: string }) {
   const t = await getTranslations("nav");
   const a = await getTranslations("a11y");
   const l = await getTranslations("lang");
+  const c = await getTranslations("contact");
   const other = routing.locales.find((x) => x !== locale)!;
 
   return (
@@ -27,6 +30,8 @@ export async function Header({ locale, quoteHref = "/#quote", switchHref = "/" }
             </ul>
           </nav>
           <div className="site-header__actions">
+            <ContactCta kind="call" locale={locale} variant="outline" size="sm" iconOnly className="site-header__call" />
+            <ContactCta kind="whatsapp" locale={locale} size="sm" iconOnly className="site-header__wa" />
             <Link href={switchHref} locale={other} hrefLang={other} lang={other} className="lang-switch" aria-label={`${a("languageSwitch")}: ${l(other)}`}>
               {l("switchTo")}
             </Link>
@@ -45,6 +50,13 @@ export async function Header({ locale, quoteHref = "/#quote", switchHref = "/" }
               otherLocale={other}
               switchHref={switchHref}
               otherLabel={l("switchTo")}
+              whatsappHref={whatsappHref(c("whatsappGeneral"))}
+              telHref={telHref}
+              mailHref={mailHref(c("emailSubject"))}
+              whatsappLabel={c("whatsapp")}
+              callLabel={c("call")}
+              emailLabel={c("email")}
+              phoneDisplay={CONTACT.phoneDisplay}
             />
           </div>
         </div>

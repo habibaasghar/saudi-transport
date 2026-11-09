@@ -4,6 +4,8 @@ import { Link } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { getPage } from "@/content/registry";
 import { navItems } from "@/lib/nav";
+import { ContactCta } from "./ContactCta";
+import { CONTACT } from "@/config/contact";
 
 const footerServices = [
   "services/airport-transfers",
@@ -38,6 +40,7 @@ export async function Footer({ locale }: { locale: Locale }) {
   const n = await getTranslations("nav");
   const a = await getTranslations("a11y");
   const l = await getTranslations("lang");
+  const c = await getTranslations("contact");
 
   return (
     <footer className="footer">
@@ -45,6 +48,16 @@ export async function Footer({ locale }: { locale: Locale }) {
         <div>
           <p className="footer__logo"><Image src="/logo.webp" alt="RideSaudi" width={830} height={360} sizes="200px" className="logo logo--footer" /></p>
           <p className="footer__tag">{t("tagline")}</p>
+          <div className="footer__contact">
+            <h2>{c("footerHeading")}</h2>
+            <p className="footer__phone"><bdi dir="ltr">{CONTACT.phoneDisplay}</bdi></p>
+            <p className="footer__mail"><bdi dir="ltr">{CONTACT.email}</bdi></p>
+            <div className="cta-row">
+              <ContactCta kind="whatsapp" locale={locale} size="sm" />
+              <ContactCta kind="call" locale={locale} size="sm" variant="ghost" />
+              <ContactCta kind="email" locale={locale} size="sm" variant="ghost" />
+            </div>
+          </div>
         </div>
         <nav aria-label={a("footerNav")} className="footer__cols">
           <div>

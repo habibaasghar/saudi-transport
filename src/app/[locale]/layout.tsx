@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, rtlLocales } from "@/i18n/routing";
 import { arabic, display, sans } from "@/lib/fonts";
 import { SITE_URL } from "@/lib/site";
+import { whatsappHref } from "@/config/contact";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -21,6 +23,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   // Only ship the namespaces Client Components actually use.
   const clientMessages = { form: all.form, quick: all.quick, nav: all.nav, a11y: all.a11y };
   const isRtl = rtlLocales.includes(locale);
+  const c = await getTranslations({ locale, namespace: "contact" });
 
   return (
     <html
@@ -30,6 +33,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
     >
       <body>
         <NextIntlClientProvider messages={clientMessages}>{children}</NextIntlClientProvider>
+        <FloatingWhatsApp href={whatsappHref(c("whatsappGeneral"))} label={c("whatsapp")} aria={c("whatsappAria")} />
       </body>
     </html>
   );
