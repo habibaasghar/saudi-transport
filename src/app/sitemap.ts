@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { pages } from "@/content/registry";
 import { routing } from "@/i18n/routing";
 import { localeUrl, pageUrl } from "@/lib/site";
+import { blogPosts } from "@/content/blog/posts";
 
 /** Every canonical, indexable URL in both languages, each with hreflang alternates. */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -28,5 +29,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...home, ...content];
+  const alt = (path: string) => ({
+    languages: {
+      ...Object.fromEntries(routing.locales.map((x) => [x, pageUrl(x, path)])),
+      "x-default": pageUrl(routing.defaultLocale, path),
+    },
+  });
+  const blog = [
+    ...routing.locales.map((l) => ({ url: pageUrl(l, "blog"), lastModified: "2026-11-10", alternates: alt("blog") })),
+    ...blogPosts.flatMap((b) =>
+      routing.locales.map((l) => ({ url: pageUrl(l, `blog/${b.slug}`), lastModified: b.updated, alternates: alt(`blog/${b.slug}`) })),
+    ),
+  ];
+
+  return [...home, ...content, ...blog];
 }

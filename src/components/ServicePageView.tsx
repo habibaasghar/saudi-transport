@@ -13,6 +13,7 @@ import { QuoteSection } from "./QuoteSection";
 import { SectionHead } from "./SectionHead";
 import { JsonLd } from "./JsonLd";
 import { ContactRow } from "./ContactCta";
+import { routePrefill } from "@/content/route-prefill";
 
 const href = (path: string) => `/${path}`;
 
@@ -196,7 +197,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
           </div>
         </section>
 
-        <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} />
+        <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} prefill={routePrefill[page.path] ? { pickup: routePrefill[page.path][locale][0], dropoff: routePrefill[page.path][locale][1] } : undefined} />
         <p className="wrap svc-reviewed">{t("reviewed")}: <time dateTime={page.updated}>{page.updated}</time></p>
       </main>
       <Footer locale={locale} />

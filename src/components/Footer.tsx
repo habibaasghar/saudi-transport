@@ -64,6 +64,7 @@ export async function Footer({ locale }: { locale: Locale }) {
             <h2>{t("explore")}</h2>
             <ul>
               {navItems.map((i) => <li key={i.key}><Link href={i.href}>{n(i.key)}</Link></li>)}
+              <li><Link href="/blog">{locale === "ar" ? "الأدلة" : "Guides"}</Link></li>
             </ul>
           </div>
           <div>

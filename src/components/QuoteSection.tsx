@@ -5,7 +5,7 @@ import { EnquiryForm } from "./EnquiryForm";
 import { ContactRow } from "./ContactCta";
 
 /** Doubles as the final CTA: "Plan your journey with RideSaudi" + the quote request. */
-export async function QuoteSection({ locale, defaultService, topic }: { locale: Locale; defaultService?: string; topic?: string }) {
+export async function QuoteSection({ locale, defaultService, topic, prefill }: { locale: Locale; defaultService?: string; topic?: string; prefill?: { pickup: string; dropoff: string } }) {
   const t = await getTranslations("cta");
   const f = await getTranslations("form");
   const c = await getTranslations("contact");
@@ -23,7 +23,7 @@ export async function QuoteSection({ locale, defaultService, topic }: { locale: 
           </div>
         </div>
         <Suspense fallback={null}>
-          <EnquiryForm locale={locale} defaultService={defaultService} />
+          <EnquiryForm locale={locale} defaultService={defaultService} prefill={prefill} />
         </Suspense>
       </div>
     </section>

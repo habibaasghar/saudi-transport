@@ -11,11 +11,11 @@ import { whatsappHref } from "@/config/contact";
 
 type Status = "idle" | "sending" | "success" | "notConfigured" | "rateLimited" | "failed";
 
-export function EnquiryForm({ locale, defaultService }: { locale: string; defaultService?: string }) {
+export function EnquiryForm({ locale, defaultService, prefill }: { locale: string; defaultService?: string; prefill?: { pickup: string; dropoff: string } }) {
   const t = useTranslations("form");
   const uid = useId();
   const params = useSearchParams();
-  const [data, setData] = useState<EnquiryInput>({ ...emptyEnquiry(), locale, service: defaultService ?? "" });
+  const [data, setData] = useState<EnquiryInput>({ ...emptyEnquiry(), locale, service: defaultService ?? "", pickup: prefill?.pickup ?? "", dropoff: prefill?.dropoff ?? "" });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [receipt, setReceipt] = useState<{ reference?: string; wa: string } | null>(null);

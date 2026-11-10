@@ -1,5 +1,6 @@
 import { pages } from "@/content/registry";
 import { pageUrl, SITE_URL } from "@/lib/site";
+import { blogPosts } from "@/content/blog/posts";
 
 export const dynamic = "force-static";
 
@@ -11,6 +12,10 @@ export const dynamic = "force-static";
 export function GET() {
   const section = (locale: "en" | "ar") =>
     pages.map((p) => `- [${p.copy[locale].nav}](${pageUrl(locale, p.path)}): ${p.copy[locale].summary}`).join("\n");
+
+  const guides = (["en", "ar"] as const)
+    .flatMap((l) => blogPosts.map((b) => `- [${b.copy[l].nav}](${pageUrl(l, `blog/${b.slug}`)})`))
+    .join("\n");
 
   const body = `# RideSaudi
 
@@ -27,6 +32,9 @@ export function GET() {
 - Riyadh city hub: private car with a driver by trip, hour or day, plus airport, sightseeing, events and intercity routes: ${SITE_URL}/en/services/city-transport/riyadh/ (Arabic: ${SITE_URL}/ar/services/city-transport/riyadh/)
 - Routes from Riyadh are quoted individually and can be requested in either direction: Dammam, Jeddah, Makkah, Madinah, Al Ahsa, AlUla, Taif, Abha, Tabuk, Hail, Buraydah, Jubail, Yanbu, Hafar Al Batin, and cross-border to Doha, Dubai, Manama and Kuwait City.
 - Distances, durations and prices are not published; entry rules for cross-border journeys must be checked with official authorities.
+
+## Guides
+${guides}
 
 ## Services (English)
 ${section("en")}
