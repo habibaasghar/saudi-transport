@@ -261,7 +261,12 @@
       "phoneHint": "Include the country code, for example +966.",
       "email": "Email (optional)",
       "notes": "Additional requirements (optional)",
-      "consent": "I agree that RideSaudi may use these details to respond to my enquiry."
+      "consent": "I agree that RideSaudi may use these details to respond to my enquiry.",
+      "tripType": "Trip type",
+      "oneWay": "One way",
+      "roundTrip": "Return (round trip)",
+      "returnDate": "Return date",
+      "returnTime": "Return pickup time"
     },
     "submit": "Send enquiry",
     "sending": "Sending…",
@@ -273,7 +278,8 @@
       "date": "Choose a date that is today or later.",
       "number": "Enter a valid number.",
       "consent": "Please agree so we can respond to your enquiry.",
-      "summary": "Please correct the highlighted fields."
+      "summary": "Please correct the highlighted fields.",
+      "returnDate": "The return date cannot be before the outbound date."
     },
     "status": {
       "success": "Enquiry received. This is not a confirmed reservation. You will receive a quotation and confirmation from RideSaudi.",
@@ -291,7 +297,10 @@
       "umrah": "Umrah Transport",
       "event": "Event Transportation",
       "luxury": "Luxury Transportation"
-    }
+    },
+    "reference": "Your reference: {ref}.",
+    "followUpWhatsApp": "Send these details on WhatsApp",
+    "whatsappFollowUp": "Hello RideSaudi, I just sent an enquiry (ref {ref}) for {service}: {pickup} to {dropoff} on {date} at {time}, {pax} passenger(s). Please confirm availability and a quotation."
   },
   "footer": {
     "tagline": "Pre-booked private chauffeur transportation in Saudi Arabia.",

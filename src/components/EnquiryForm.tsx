@@ -6,6 +6,8 @@ import { useTranslations } from "next-intl";
 import { emptyEnquiry, validateEnquiry, type EnquiryInput, type FieldErrors } from "@/lib/enquiry";
 import { formServiceKeys } from "@/lib/site";
 import { PREFILL_EVENT } from "@/lib/events";
+import { track } from "@/lib/analytics";
+import { whatsappHref } from "@/config/contact";
 
 type Status = "idle" | "sending" | "success" | "notConfigured" | "rateLimited" | "failed";
 
@@ -16,11 +18,19 @@ export function EnquiryForm({ locale, defaultService }: { locale: string; defaul
   const [data, setData] = useState<EnquiryInput>({ ...emptyEnquiry(), locale, service: defaultService ?? "" });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
+  const [receipt, setReceipt] = useState<{ reference?: string; wa: string } | null>(null);
+  const [started, setStarted] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const statusRef = useRef<HTMLDivElement>(null);
   const [today] = useState(() => new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10));
 
-  const set = <K extends keyof EnquiryInput>(k: K, v: EnquiryInput[K]) => setData((d) => ({ ...d, [k]: v }));
+  const set = <K extends keyof EnquiryInput>(k: K, v: EnquiryInput[K]) => {
+    if (!started) {
+      setStarted(true);
+      track("form_start", { form: "quote" });
+    }
+    setData((d) => ({ ...d, [k]: v }));
+  };
 
   const [startedAt, setStartedAt] = useState(() => Date.now());
 
@@ -54,6 +64,7 @@ export function EnquiryForm({ locale, defaultService }: { locale: string; defaul
     setErrors(errs);
     const first = Object.keys(errs)[0];
     if (first) {
+      track("form_error", { form: "quote", field: first });
       formRef.current?.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;
     }
@@ -65,6 +76,21 @@ export function EnquiryForm({ locale, defaultService }: { locale: string; defaul
         body: JSON.stringify({ ...data, startedAt, source: window.location.pathname }),
       });
       if (res.ok) {
+        const j = await res.json().catch(() => ({}));
+        const sent = data;
+        const wa = whatsappHref(
+          t("whatsappFollowUp", {
+            ref: j.reference ?? "-",
+            service: t(`services.${sent.service}` as never),
+            pickup: sent.pickup,
+            dropoff: sent.dropoff,
+            date: sent.date,
+            time: sent.time,
+            pax: sent.passengers,
+          }),
+        );
+        setReceipt({ reference: j.reference, wa });
+        track("generate_lead", { form: "quote", service: sent.service, trip_type: sent.tripType, language: locale });
         setStatus("success");
         setData({ ...emptyEnquiry(), locale });
         setStartedAt(Date.now());
@@ -153,8 +179,21 @@ export function EnquiryForm({ locale, defaultService }: { locale: string; defaul
           </div>
           {Field({ name: "pickup", label: t("fields.pickup"), required: true, autoComplete: "off", maxLength: 160 })}
           {Field({ name: "dropoff", label: t("fields.dropoff"), required: true, autoComplete: "off", maxLength: 160 })}
+          <div className="field field--wide">
+            <label htmlFor={id("tripType")}>{t("fields.tripType")}</label>
+            <select id={id("tripType")} name="tripType" value={data.tripType} onChange={(e) => set("tripType", e.target.value)}>
+              <option value="one_way">{t("fields.oneWay")}</option>
+              <option value="round_trip">{t("fields.roundTrip")}</option>
+            </select>
+          </div>
           {Field({ name: "date", label: t("fields.date"), type: "date", required: true, min: today })}
           {Field({ name: "time", label: t("fields.time"), type: "time", required: true })}
+          {data.tripType === "round_trip" && (
+            <>
+              {Field({ name: "returnDate", label: t("fields.returnDate"), type: "date", required: true, min: data.date || today })}
+              {Field({ name: "returnTime", label: t("fields.returnTime"), type: "time", required: true })}
+            </>
+          )}
           {Field({ name: "passengers", label: t("fields.passengers"), type: "number", inputMode: "numeric", required: true, min: 1, max: 100 })}
           {Field({ name: "luggage", label: t("fields.luggage"), type: "number", inputMode: "numeric", min: 0, max: 100 })}
           {data.service === "airport" &&
@@ -202,6 +241,12 @@ export function EnquiryForm({ locale, defaultService }: { locale: string; defaul
       <div ref={statusRef} tabIndex={-1} role="status" aria-live="polite" className="form__status">
         {messageKey && (
           <p className={status === "success" ? "ok" : "bad"}>{t(`status.${messageKey}`)}</p>
+        )}
+        {status === "success" && receipt && (
+          <p>
+            {receipt.reference && <strong>{t("reference", { ref: receipt.reference })} </strong>}
+            <a href={receipt.wa} target="_blank" rel="noopener noreferrer" className="btn btn--primary">{t("followUpWhatsApp")}</a>
+          </p>
         )}
       </div>
     </form>

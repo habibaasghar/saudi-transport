@@ -8,6 +8,10 @@ export type EnquiryInput = {
   time: string;
   passengers: string;
   luggage: string;
+  /** "one_way" or "round_trip" */
+  tripType: string;
+  returnDate: string;
+  returnTime: string;
   vehicle: string;
   flight: string;
   name: string;
@@ -24,7 +28,7 @@ export type EnquiryInput = {
   startedAt: number;
 };
 
-export type FieldErrorCode = "required" | "service" | "phone" | "email" | "date" | "number" | "consent";
+export type FieldErrorCode = "required" | "returnDate" | "service" | "phone" | "email" | "date" | "number" | "consent";
 export type FieldErrors = Partial<Record<keyof EnquiryInput, FieldErrorCode>>;
 
 const MAX = { short: 160, notes: 1500 };
@@ -32,7 +36,7 @@ const PHONE_RE = /^\+?[0-9\s\-()]{7,20}$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export const emptyEnquiry = (): EnquiryInput => ({
-  service: "", pickup: "", dropoff: "", date: "", time: "", passengers: "1", luggage: "0",
+  service: "", pickup: "", dropoff: "", date: "", time: "", passengers: "1", luggage: "0", tripType: "one_way", returnDate: "", returnTime: "",
   vehicle: "", flight: "", name: "", phone: "", email: "", notes: "", consent: false,
   locale: "en", source: "", website: "", startedAt: 0,
 });
@@ -54,6 +58,11 @@ export function validateEnquiry(d: EnquiryInput, today = new Date()): FieldError
     if (Number.isNaN(picked.getTime()) || picked < start) e.date = "date";
   }
   if (!d.time) e.time = "required";
+  if (d.tripType === "round_trip") {
+    if (!d.returnDate) e.returnDate = "required";
+    else if (d.date && d.returnDate < d.date) e.returnDate = "returnDate";
+    if (!d.returnTime) e.returnTime = "required";
+  }
   const p = Number(d.passengers);
   if (!Number.isInteger(p) || p < 1 || p > 100) e.passengers = "number";
   const l = Number(d.luggage);
@@ -69,7 +78,8 @@ export function sanitizeEnquiry(raw: unknown): EnquiryInput | null {
   const s = (k: string, max = MAX.short) => (typeof r[k] === "string" ? (r[k] as string).trim().slice(0, max) : "");
   return {
     service: s("service"), pickup: s("pickup"), dropoff: s("dropoff"), date: s("date", 10), time: s("time", 5),
-    passengers: s("passengers", 3), luggage: s("luggage", 3), vehicle: s("vehicle"), flight: s("flight", 12),
+    passengers: s("passengers", 3), luggage: s("luggage", 3),
+    tripType: s("tripType", 10) === "round_trip" ? "round_trip" : "one_way", returnDate: s("returnDate", 10), returnTime: s("returnTime", 5), vehicle: s("vehicle"), flight: s("flight", 12),
     name: s("name"), phone: s("phone", 20), email: s("email"), notes: s("notes", MAX.notes),
     consent: r.consent === true, locale: s("locale", 2), source: s("source", 200), website: s("website"),
     startedAt: typeof r.startedAt === "number" ? r.startedAt : 0,

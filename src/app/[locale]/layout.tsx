@@ -6,6 +6,7 @@ import { routing, rtlLocales } from "@/i18n/routing";
 import { arabic, display, sans } from "@/lib/fonts";
 import { SITE_URL } from "@/lib/site";
 import { whatsappHref } from "@/config/contact";
+import { Analytics } from "@/components/Analytics";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import "../globals.css";
 
@@ -33,6 +34,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
     >
       <body>
         <NextIntlClientProvider messages={clientMessages}>{children}</NextIntlClientProvider>
+        <Analytics />
         <FloatingWhatsApp href={whatsappHref(c("whatsappGeneral"))} label={c("whatsapp")} aria={c("whatsappAria")} />
       </body>
     </html>
