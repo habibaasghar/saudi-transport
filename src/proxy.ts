@@ -2,6 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import createMiddleware from "next-intl/middleware";
 import { NextResponse, type NextRequest } from "next/server";
 import { routing } from "./i18n/routing";
+import { servicePath, type ServiceKey } from "./lib/site";
 
 const intl = createMiddleware(routing);
 
@@ -36,9 +37,26 @@ async function admin(request: NextRequest) {
 export default function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
   if (path === "/admin" || path.startsWith("/admin/")) return admin(request);
+
+  // Legacy /{locale}/?service=x (already indexed) -> the real service page, query string dropped.
+  const home = path.match(/^\/(en|ar)\/?$/);
+  const svc = request.nextUrl.searchParams.get("service");
+  if (home && svc && Object.prototype.hasOwnProperty.call(servicePath, svc)) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${home[1]}${servicePath[svc as ServiceKey]}`;
+    url.search = "";
+    return NextResponse.redirect(url, 301);
+  }
+
+  // Locale-less content URLs (/services/...) -> default locale, permanently.
+  if (!/^\/(en|ar)(\/|$)/.test(path) && path !== "/") {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${routing.defaultLocale}${path.endsWith("/") ? path : `${path}/`}`;
+    return NextResponse.redirect(url, 301);
+  }
   return intl(request);
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|_vercel|.*\..*).*)"],
+  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };
