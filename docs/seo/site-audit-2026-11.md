@@ -1,6 +1,6 @@
 # RideSaudi site audit — 2026-11 (technical crawl + gap analysis)
 
-Method: production build (`next build` + `next start`) crawled locally; every URL in `/sitemap.xml` fetched and parsed. Per-URL data: [url-audit.csv](url-audit.csv) (status, inbound internal links, title/description length, title, H1).
+Method (crawl run before the Eastern Province pages and blog guides landed, so the URL count and CSV predate them): production build (`next build` + `next start`) crawled locally; every URL in `/sitemap.xml` fetched and parsed. Per-URL data: [url-audit.csv](url-audit.csv) (status, inbound internal links, title/description length, title, H1).
 
 ## Result: technical baseline is clean
 | Check | Result |
@@ -30,8 +30,8 @@ Method: production build (`next build` + `next start`) crawled locally; every UR
 - Homepage `/` returns 307 to `/en/` (temporary). Acceptable; switch to 308 only if you want it cached as permanent.
 - `docs/*.md` still quote 176 sitemap URLs; actual is 220.
 
-## Analytics added
-`NEXT_PUBLIC_GA_ID` (empty = nothing loads). Events: `generate_lead` (only after the enquiry API returns OK), `whatsapp_click`, `phone_click`, `email_click` (one delegated listener, no double firing). Mark `generate_lead` as a GA4 key event. No consent banner exists; confirm whether one is required before enabling.
+## Analytics
+GA4 lead tracking (`generate_lead`, env `NEXT_PUBLIC_GA_ID`) and global WhatsApp/call/email CTAs were added on `habiba` separately and are kept as-is. Remaining: mark `generate_lead` as a GA4 key event and confirm whether a consent banner is required.
 
 ## Structure decision: no `/locations/`, `/routes/`, `/airport-transfers/` tree
 The brief proposed these top-level hubs. The site already covers the same intents under stable URLs:
@@ -53,7 +53,7 @@ A parallel tree would duplicate these pages and make them compete for the same q
 | Fix 22 over-long titles | Small content edit; can be done next. |
 
 ## Next 30 days
-1. Set `NEXT_PUBLIC_GA_ID`; mark `generate_lead` as key event; verify events in GA4 DebugView.
+1. Set `NEXT_PUBLIC_GA_ID` in Vercel; mark `generate_lead` as key event; verify events in GA4 DebugView.
 2. Deploy to main after preview check; submit sitemap in Search Console; inspect 10 URLs (5 EN, 5 AR); confirm `?service=` URLs drop out.
 3. Pull Search Console queries (90 days) + Ahrefs exports; build the keyword-to-URL sheet from real numbers.
 4. Shorten the 22 long titles; fill `missing-business-info.md` (fleet, airports served, distances).
