@@ -5,7 +5,7 @@ const I = "services/intercity-transfers";
 const X = "services/cross-border-transfers";
 const C = "services/city-transport";
 const A = "services/airport-transfers";
-const H = "services/chauffeur-services/hourly-driver";
+const H = "services/chauffeur-services";
 
 /**
  * City pages for Dhahran, Al Ahsa and Hafar Al Batin, and airport pages for Qassim (ELQ) and Al Ahsa (HOF).

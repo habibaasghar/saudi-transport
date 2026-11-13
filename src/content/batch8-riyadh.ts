@@ -20,8 +20,8 @@ export const batch8Riyadh: ServicePage[] = [
     service: "chauffeur",
     related: [
       "services/airport-transfers/riyadh-airport",
-      "services/chauffeur-services/hourly-driver",
-      "services/chauffeur-services/full-day-driver",
+      "services/chauffeur-services",
+      "services/chauffeur-services",
       "services/chauffeur-services/business-chauffeur",
       "services/event-transportation/riyadh",
       "luxury-transportation/luxury-chauffeur",
@@ -117,7 +117,7 @@ export const batch8Riyadh: ServicePage[] = [
     parent: T,
     variant: "default",
     service: "chauffeur",
-    related: [`${C}/riyadh`, "services/chauffeur-services/hourly-driver", `${T}/private-sightseeing-driver`, `${T}/day-trip-transport`],
+    related: [`${C}/riyadh`, "services/chauffeur-services", `${T}/private-sightseeing-driver`, `${T}/day-trip-transport`],
     updated: U,
     copy: {
       en: {

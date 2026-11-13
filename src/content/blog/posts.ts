@@ -64,7 +64,7 @@ export const blogPosts: BlogPost[] = [
     slug: "private-car-vs-flight-vs-rental-saudi-intercity",
     published: D,
     updated: D,
-    links: [`${I}/riyadh-to-jeddah`, `${I}/riyadh-to-dammam`, "services/intercity-transfers", "services/chauffeur-services/hourly-driver", `${I}/jeddah-to-madinah`],
+    links: [`${I}/riyadh-to-jeddah`, `${I}/riyadh-to-dammam`, "services/intercity-transfers", "services/chauffeur-services", `${I}/jeddah-to-madinah`],
     copy: {
       en: {
         nav: "Private car vs flight vs rental",

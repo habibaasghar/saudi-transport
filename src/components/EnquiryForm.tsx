@@ -198,7 +198,17 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
           {Field({ name: "luggage", label: t("fields.luggage"), type: "number", inputMode: "numeric", min: 0, max: 100 })}
           {data.service === "airport" &&
             Field({ name: "flight", label: t("fields.flight"), hint: t("fields.flightHint"), maxLength: 12, autoComplete: "off", dir: "ltr" })}
-          {Field({ name: "vehicle", label: t("fields.vehicle"), hint: t("fields.vehicleHint"), maxLength: 160, wide: true })}
+          <div className="field field--wide">
+            <label htmlFor={id("vehicle")}>{t("fields.vehicle")}</label>
+            <select id={id("vehicle")} name="vehicle" value={data.vehicle} onChange={(e) => set("vehicle", e.target.value)} aria-describedby={`${uid}-vehicle-h`}>
+              <option value="">{t("fields.vehicleAny")}</option>
+              <option value="Sedan">{t("fields.vehicleSedan")}</option>
+              <option value="GMC Yukon">{t("fields.vehicleGmc")}</option>
+              <option value="Hyundai Staria">{t("fields.vehicleStaria")}</option>
+              <option value="Other / larger group">{t("fields.vehicleOther")}</option>
+            </select>
+            <p id={`${uid}-vehicle-h`} className="field__hint">{t("fields.vehicleHint")}</p>
+          </div>
         </div>
       </fieldset>
 

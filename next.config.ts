@@ -7,6 +7,14 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   trailingSlash: true,
   images: { formats: ["image/avif", "image/webp"] },
+  // Removed pages keep their link equity: permanent redirect to the chauffeur hub (SEO-RULES.md section 2).
+  async redirects() {
+    return ["hourly-driver", "full-day-driver", "personal-driver"].map((slug) => ({
+      source: `/:locale(en|ar)/services/chauffeur-services/${slug}`,
+      destination: "/:locale/services/chauffeur-services/",
+      permanent: true,
+    }));
+  },
   async headers() {
     return [
       {

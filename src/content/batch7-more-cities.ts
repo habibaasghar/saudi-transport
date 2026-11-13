@@ -115,7 +115,7 @@ export const batch7: ServicePage[] = [
     parent: C,
     variant: "default",
     service: "chauffeur",
-    related: [C, `${C}/abha`, "services/tourism-transport", "services/chauffeur-services/full-day-driver"],
+    related: [C, `${C}/abha`, "services/tourism-transport", "services/chauffeur-services"],
     updated: U,
     copy: {
       en: {
@@ -168,7 +168,7 @@ export const batch7: ServicePage[] = [
     parent: C,
     variant: "default",
     service: "chauffeur",
-    related: [C, `${C}/abha`, "services/tourism-transport", "services/chauffeur-services/full-day-driver"],
+    related: [C, `${C}/abha`, "services/tourism-transport", "services/chauffeur-services"],
     updated: U,
     copy: {
       en: {

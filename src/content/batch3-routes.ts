@@ -9,7 +9,7 @@ export const batch3Routes: ServicePage[] = [
     parent: "services/airport-transfers",
     variant: "default",
     service: "airport",
-    related: ["services/intercity-transfers/jeddah-to-taif", "services/tourism-transport/taif", "services/airport-transfers/jeddah-airport", "services/airport-transfers"],
+    related: ["services/intercity-transfers/jeddah-to-taif", "services/tourism-transport/taif", "services/airport-transfers/jeddah-airport", "services/airport-transfers", "services/intercity-transfers/taif-to-makkah"],
     updated: U,
     copy: {
       en: {
@@ -434,13 +434,13 @@ export const batch3Routes: ServicePage[] = [
     parent: "services/intercity-transfers",
     variant: "default",
     service: "intercity",
-    related: ["services/intercity-transfers/dammam-to-bahrain", "services/intercity-transfers/riyadh-to-jeddah", "services/intercity-transfers/riyadh-to-al-ahsa", "services/intercity-transfers/riyadh-to-doha", "services/intercity-transfers/riyadh-to-dubai", "services/city-transport/riyadh", "services/airport-transfers/dammam-airport", "services/cross-border-transfers/bahrain", "services/intercity-transfers", "services/intercity-transfers/dammam-to-riyadh", "services/intercity-transfers/riyadh-to-al-khobar"],
+    related: ["services/intercity-transfers/dammam-to-bahrain", "services/intercity-transfers/riyadh-to-jeddah", "services/intercity-transfers/riyadh-to-al-ahsa", "services/intercity-transfers/riyadh-to-doha", "services/intercity-transfers/riyadh-to-dubai", "services/city-transport/riyadh", "services/airport-transfers/dammam-airport", "services/cross-border-transfers/bahrain", "services/intercity-transfers", "services/intercity-transfers/dammam-to-riyadh", "services/intercity-transfers/riyadh-to-al-khobar", "fleet"],
     updated: U,
     copy: {
       en: {
         nav: "Riyadh to Dammam",
-        title: "Riyadh to Dammam Private Transfer by Road",
-        description: "Request a private car with a driver between Riyadh and Dammam, Al Khobar or Dhahran, in either direction. Get a quotation from RideSaudi.",
+        title: "Riyadh to Dammam Private Car: GMC, Staria or Sedan",
+        description: "Request a private GMC Yukon, Hyundai Staria or sedan with a driver from Riyadh to Dammam, Al Khobar or Dhahran, door to door. Get a quotation from RideSaudi.",
         h1: "Riyadh to Dammam by private car, across the eastern plains",
         eyebrow: "Intercity · Riyadh ⇄ Dammam",
         answer: "A private Riyadh to Dammam transfer is a pre-booked car with a driver for the road journey between the capital and the Eastern Province, with drop-offs in Dammam, Al Khobar, Dhahran or nearby, and the same in reverse. RideSaudi quotes each journey individually; availability is confirmed before you commit.",
@@ -460,8 +460,8 @@ export const batch3Routes: ServicePage[] = [
       },
       ar: {
         nav: "الرياض إلى الدمام",
-        title: "الرياض إلى الدمام: توصيل خاص بالسيارة",
-        description: "اطلب سيارة خاصة بسائق بين الرياض والدمام أو الخبر أو الظهران بالاتجاهين. استلم عرض سعر من RideSaudi.",
+        title: "من الرياض إلى الدمام: جمس أو ستاريا أو سيدان بسائق",
+        description: "اطلب جمس يوكن أو هيونداي ستاريا أو سيدان بسائق من الرياض إلى الدمام أو الخبر أو الظهران، من الباب إلى الباب. استلم عرض سعر من RideSaudi.",
         h1: "من الرياض إلى الدمام بسيارة خاصة عبر السهول الشرقية",
         eyebrow: "بين المدن · الرياض ⇄ الدمام",
         answer: "التوصيل الخاص من الرياض إلى الدمام هو سيارة بسائق وبحجز مسبق للرحلة البرية بين العاصمة والمنطقة الشرقية، مع النزول في الدمام أو الخبر أو الظهران أو ما جاورها، والعكس. تُسعِّر RideSaudi كل رحلة على حدة، وتتأكد الإتاحة قبل أن تلتزم.",

@@ -254,84 +254,6 @@ export const batch2Pages: ServicePage[] = [
   },
 
   /* ───────── Chauffeur child ───────── */
-  {
-    path: "services/chauffeur-services/hourly-driver",
-    parent: "services/chauffeur-services",
-    variant: "default",
-    service: "hourly",
-    related: ["services/chauffeur-services", "luxury-transportation/luxury-chauffeur", "services/airport-transfers", "services/intercity-transfers"],
-    updated: UPDATED,
-    copy: {
-      en: {
-        nav: "Private Driver by the Hour",
-        title: "Private Driver by the Hour in Saudi Arabia",
-        description: "Book a private driver by the hour in Saudi Arabia for meetings, shopping, appointments or errands. Learn how to estimate hours and request a quotation.",
-        h1: "A private driver by the hour, for a defined window",
-        eyebrow: "Chauffeur Services · Hourly",
-        answer: "An hourly private driver is a driver and vehicle booked in advance for a set number of hours, with as many stops within that window as you need. RideSaudi arranges it on request. State your date, city, start time and hours; availability and the terms for extra time are confirmed in the quotation.",
-        summary: "A driver and vehicle for a set number of hours, with several stops.",
-        sections: [
-          {
-            h: "Estimating how many hours you need",
-            p: ["Count the time you will actually spend at each stop, add the driving between them, and allow margin for traffic and for things running over. People most often under-estimate waiting time and city traffic, so it is better to list your stops and ask us for a view than to guess a number."],
-          },
-          {
-            h: "When hourly makes sense",
-            p: [],
-            list: ["A morning or afternoon of meetings in different parts of a city", "Shopping and appointments where you do not want to park or wait for a ride", "Hospital or administrative visits with unpredictable waiting", "A short tour of a few places in one city"],
-          },
-          {
-            h: "Hourly or full day?",
-            p: ["If your plans fill most of a day or may change as you go, a full-day arrangement is usually simpler than counting hours. If you only need a point-to-point journey, an airport or intercity transfer is the better fit. The chauffeur services page sets out the differences."],
-          },
-        ],
-        checklist: {
-          h: "Include this in your hourly driver enquiry",
-          items: ["Date, city and start time", "Stops in order, with fixed appointment times", "Your estimate of hours, or ask for advice", "Passengers and luggage", "How extra time should be handled"],
-        },
-        faqs: [
-          { q: "Can I book a driver for only a few hours?", a: "Yes. State the hours and your stops and you will receive a quotation. Terms are set out in the quotation and confirmation." },
-          { q: "What happens if I need extra time?", a: "Ask in your enquiry. How extra time is handled is set out in your quotation and confirmation." },
-          { q: "Can the driver wait while I attend an appointment?", a: "Waiting time within your booked hours is part of how an hourly arrangement works. Describe the waiting you expect so the hours are estimated realistically." },
-          { q: "Can I change my stops on the day?", a: "Tell us if your plans may change. It affects how the arrangement is set up, and changes within your hours are discussed with you." },
-        ],
-      },
-      ar: {
-        nav: "سائق خاص بالساعة",
-        title: "سائق خاص بالساعة في السعودية",
-        description: "احجز سائقًا خاصًا بالساعة في السعودية للاجتماعات أو التسوق أو المواعيد أو المشاوير. تعرّف كيف تقدّر الساعات واطلب عرض سعر.",
-        h1: "سائق خاص بالساعة لنافذة زمنية محددة",
-        eyebrow: "خدمات السائق · بالساعة",
-        answer: "السائق الخاص بالساعة هو سائق وسيارة يُحجزان مسبقًا لعدد محدد من الساعات، بعدد المحطات الذي تحتاجه ضمن تلك النافذة. تُرتِّب RideSaudi ذلك عند الطلب. اذكر التاريخ والمدينة ووقت البدء والساعات، وتُؤكَّد الإتاحة وشروط الوقت الإضافي في عرض السعر.",
-        summary: "سائق وسيارة لعدد محدد من الساعات بعدة محطات.",
-        sections: [
-          {
-            h: "كيف تقدّر عدد الساعات التي تحتاجها",
-            p: ["احسب الوقت الذي ستقضيه فعلًا في كل محطة، وأضف القيادة بينها، واترك هامشًا للازدحام وللأمور التي تطول. يقلل الناس غالبًا من تقدير وقت الانتظار وازدحام المدينة، ولذلك الأفضل أن تذكر محطاتك وتطلب رأينا بدل تخمين رقم."],
-          },
-          {
-            h: "متى يناسب الترتيب بالساعة",
-            p: [],
-            list: ["صباح أو بعد ظهر من الاجتماعات في أنحاء مختلفة من المدينة", "التسوق والمواعيد حين لا تريد البحث عن موقف أو انتظار سيارة", "زيارات المستشفيات أو المعاملات ذات الانتظار غير المتوقع", "جولة قصيرة في عدة أماكن داخل مدينة واحدة"],
-          },
-          {
-            h: "بالساعة أم ليوم كامل؟",
-            p: ["إن كانت خططك تملأ معظم اليوم أو قد تتغير أثناءه فالترتيب ليوم كامل أبسط عادة من حساب الساعات. وإن كنت تحتاج رحلة من نقطة إلى أخرى فالتوصيل من المطار أو بين المدن أنسب. وتوضح صفحة خدمات السائق الخاص الفروق."],
-          },
-        ],
-        checklist: {
-          h: "ما الذي تضيفه إلى طلب السائق بالساعة",
-          items: ["التاريخ والمدينة ووقت البدء", "المحطات بالترتيب مع مواعيد الارتباطات الثابتة", "تقديرك للساعات، أو اطلب النصيحة", "عدد الركاب والحقائب", "كيف يُعالَج الوقت الإضافي"],
-        },
-        faqs: [
-          { q: "هل يمكنني حجز سائق لبضع ساعات فقط؟", a: "نعم. اذكر الساعات ومحطاتك فيصلك عرض سعر. وتُوضَّح الشروط في عرض السعر والتأكيد." },
-          { q: "ماذا لو احتجت إلى وقت إضافي؟", a: "اسأل في استفسارك. وتُوضَّح آلية التعامل مع الوقت الإضافي في عرض السعر والتأكيد." },
-          { q: "هل يمكن للسائق الانتظار أثناء موعدي؟", a: "الانتظار ضمن ساعاتك المحجوزة جزء من عمل الترتيب بالساعة. صف الانتظار المتوقع لتُقدَّر الساعات بواقعية." },
-          { q: "هل يمكنني تغيير محطاتي في اليوم نفسه؟", a: "أخبرنا إن كانت خططك قد تتغير، فهذا يؤثر في إعداد الترتيب، وتُناقَش معك التغييرات ضمن ساعاتك." },
-        ],
-      },
-    },
-  },
 
   /* ───────── Umrah ziyarat ───────── */
   {
@@ -339,7 +261,7 @@ export const batch2Pages: ServicePage[] = [
     parent: "services/umrah-transport",
     variant: "umrah",
     service: "umrah",
-    related: ["services/umrah-transport", "services/umrah-transport/madinah-ziyarat", "services/umrah-transport/jeddah-airport-to-makkah", "services/chauffeur-services/hourly-driver"],
+    related: ["services/umrah-transport", "services/umrah-transport/madinah-ziyarat", "services/umrah-transport/jeddah-airport-to-makkah", "services/chauffeur-services"],
     updated: UPDATED,
     copy: {
       en: {
@@ -426,7 +348,7 @@ export const batch2Pages: ServicePage[] = [
     parent: "services/umrah-transport",
     variant: "umrah",
     service: "umrah",
-    related: ["services/umrah-transport", "services/umrah-transport/makkah-ziyarat", "services/airport-transfers/madinah-airport", "services/chauffeur-services/hourly-driver"],
+    related: ["services/umrah-transport", "services/umrah-transport/makkah-ziyarat", "services/airport-transfers/madinah-airport", "services/chauffeur-services"],
     updated: UPDATED,
     copy: {
       en: {

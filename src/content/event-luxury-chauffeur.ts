@@ -668,9 +668,8 @@ export const eventLuxuryChauffeurPages: ServicePage[] = [
     copy: {
       en: {
         nav: "Private Chauffeur",
-        title: "Private Chauffeur & Driver Services in Saudi Arabia",
-        description:
-          "Book a private chauffeur or hourly driver in Saudi Arabia for a day of meetings, sightseeing or travel. Learn how it differs from a transfer. Get a quotation.",
+        title: "Private Car with Chauffeur in Saudi Arabia",
+        description: "Book a private car with a chauffeur in Saudi Arabia by the hour or the day: sedan, GMC Yukon or Hyundai Staria. The vehicle is always included. Get a quotation.",
         h1: "A private chauffeur in Saudi Arabia, by the hour or the day",
         eyebrow: "Private Chauffeur",
         answer:
@@ -727,6 +726,7 @@ export const eventLuxuryChauffeurPages: ServicePage[] = [
           ],
         },
         faqs: [
+          { q: "Can I hire only a driver for my own car, or apply for a driver job?", a: "No. RideSaudi arranges a vehicle and its driver together for passengers. We do not supply drivers for a customer's own car, and this website does not handle driver recruitment." },
           {
             q: "What is the difference between a private chauffeur and an airport transfer?",
             a: "An airport transfer is one journey. A private chauffeur is available to you for a set number of hours or a day, for as many stops as the schedule needs.",
@@ -747,9 +747,8 @@ export const eventLuxuryChauffeurPages: ServicePage[] = [
       },
       ar: {
         nav: "السائق الخاص",
-        title: "خدمات السائق الخاص في السعودية",
-        description:
-          "احجز سائقًا خاصًا بالساعة أو لليوم في السعودية للاجتماعات أو السياحة أو السفر. تعرّف إلى الفرق بينه وبين التوصيل. استلم عرض السعر.",
+        title: "سيارة خاصة مع سائق في السعودية بالساعة أو اليوم",
+        description: "احجز سيارة خاصة مع سائق في السعودية بالساعة أو لليوم: سيدان أو جمس يوكن أو هيونداي ستاريا. المركبة مشمولة دائمًا. استلم عرض السعر.",
         h1: "سائق خاص في السعودية، بالساعة أو بالنهار",
         eyebrow: "السائق الخاص",
         answer:
@@ -806,6 +805,7 @@ export const eventLuxuryChauffeurPages: ServicePage[] = [
           ],
         },
         faqs: [
+          { q: "هل يمكن طلب سائق فقط لسيارتي الخاصة أو التقديم على وظيفة سائق؟", a: "لا. ترتّب RideSaudi المركبة وسائقها معًا لنقل الركاب. لا نوفّر سائقين لسيارة العميل الخاصة، وهذا الموقع ليس للتوظيف." },
           {
             q: "ما الفرق بين السائق الخاص والتوصيل من المطار؟",
             a: "التوصيل من المطار رحلة واحدة. أما السائق الخاص فيكون متاحًا لك طوال عدد محدد من الساعات أو يوم، بعدد المحطات الذي يحتاجه الجدول.",

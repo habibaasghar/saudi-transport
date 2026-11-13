@@ -503,15 +503,15 @@ export const umrahIntercityPages: ServicePage[] = [
       "services/umrah-transport/jeddah-airport-to-makkah",
       "services/airport-transfers/madinah-airport",
       "luxury-transportation/luxury-chauffeur",
+      "services/intercity-transfers/madinah-to-makkah",
     ],
     updated: UPDATED,
     copy: {
       en: {
         nav: "Makkah to Madinah",
-        title: "Makkah to Madinah Taxi: Private Transfer, Both Directions",
-        description:
-          "Request a private taxi from Makkah to Madinah or Madinah to Makkah. Hotel to hotel, for pilgrims, families and groups. Get a quotation.",
-        h1: "Makkah to Madinah by private car, in either direction",
+        title: "Makkah to Madinah Private Car: GMC, Staria or Sedan",
+        description: "Request a private GMC Yukon, Hyundai Staria or sedan with a driver from your Makkah hotel to your Madinah hotel, for families and groups. Get a quotation.",
+        h1: "Makkah to Madinah by private car, hotel to hotel",
         eyebrow: "Intercity · Makkah ⇄ Madinah",
         answer:
           "A private Makkah to Madinah taxi is a pre-booked car with a driver that takes you hotel to hotel between the two holy cities, and the same applies in reverse from Madinah to Makkah. RideSaudi quotes each journey individually. Send your hotels, date and passenger numbers for a quotation; availability is confirmed before you commit.",
@@ -584,10 +584,9 @@ export const umrahIntercityPages: ServicePage[] = [
       },
       ar: {
         nav: "مكة إلى المدينة",
-        title: "تاكسي من مكة إلى المدينة المنورة: توصيل خاص بالاتجاهين",
-        description:
-          "اطلب تاكسي خاصًا من مكة المكرمة إلى المدينة المنورة أو من المدينة إلى مكة. من فندق إلى فندق للمعتمرين والعائلات والمجموعات. استلم عرض السعر.",
-        h1: "من مكة إلى المدينة المنورة بسيارة خاصة، في الاتجاهين",
+        title: "من مكة إلى المدينة المنورة: جمس أو ستاريا أو سيدان بسائق",
+        description: "اطلب جمس يوكن أو هيونداي ستاريا أو سيدان بسائق من فندقك في مكة المكرمة إلى فندقك في المدينة المنورة للعائلات والمجموعات. استلم عرض سعر.",
+        h1: "من مكة إلى المدينة المنورة بسيارة خاصة، من فندق إلى فندق",
         eyebrow: "بين المدن · مكة ⇄ المدينة",
         answer:
           "تاكسي مكة إلى المدينة الخاص هو سيارة بسائق بحجز مسبق تنقلك من فندق إلى فندق بين المدينتين المقدستين، والأمر نفسه عكسيًّا من المدينة إلى مكة. تُسعِّر RideSaudi كل رحلة على حدة. أرسل فندقيك والتاريخ وعدد الركاب لتصلك عرض سعر، وتتأكد الإتاحة قبل أن تلتزم.",

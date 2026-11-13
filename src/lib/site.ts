@@ -33,7 +33,7 @@ export const servicePath: Record<ServiceKey, string> = {
   airport: "/services/airport-transfers/",
   chauffeur: "/services/chauffeur-services/",
   intercity: "/services/intercity-transfers/",
-  hourly: "/services/chauffeur-services/hourly-driver/",
+  hourly: "/services/chauffeur-services/",
   corporate: "/services/chauffeur-services/business-chauffeur/",
   vip: "/luxury-transportation/",
 };

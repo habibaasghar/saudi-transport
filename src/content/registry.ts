@@ -18,8 +18,9 @@ import { batch12GapRoutes } from "./batch12-gap-routes";
 import { batch13EasternProvince } from "./batch13-eastern-province";
 import { batch14OriginRoutes } from "./batch14-origin-routes";
 import { batch15CitiesAirports } from "./batch15-cities-airports";
+import { batch16ReverseAlulaRoutes } from "./batch16-reverse-alula-routes";
 
-export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports];
+export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes];
 
 /**
  * SEO-RULES.md: no FAQ may appear verbatim on two pages. Generic questions that several pages
@@ -44,6 +45,9 @@ function scopeDuplicateFaqs(list: ServicePage[]) {
   }
 }
 scopeDuplicateFaqs(pages);
+
+// A page never lists itself or the same related page twice (keeps cards and React keys unique).
+for (const p of pages) p.related = [...new Set(p.related)].filter((r) => r !== p.path);
 
 const byPath = new Map(pages.map((p) => [p.path, p]));
 

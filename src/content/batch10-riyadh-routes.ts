@@ -134,7 +134,7 @@ export const batch10RiyadhRoutes: ServicePage[] = [
     parent: I,
     variant: "default",
     service: "intercity",
-    related: [`${T}/alula`, `${I}/private-intercity-chauffeur`, `${T}/multi-stop-transport`, R],
+    related: [`${T}/alula`, `${I}/private-intercity-chauffeur`, `${T}/multi-stop-transport`, R, "services/intercity-transfers/alula-to-riyadh"],
     updated: U,
     copy: {
       en: {

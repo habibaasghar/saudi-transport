@@ -483,65 +483,13 @@ export const batch4: ServicePage[] = [
   },
 
   /* ───────── Chauffeur children ───────── */
-  {
-    path: "services/chauffeur-services/full-day-driver",
-    parent: "services/chauffeur-services",
-    variant: "default",
-    service: "chauffeur",
-    related: ["services/chauffeur-services/hourly-driver", "services/chauffeur-services/multi-day-chauffeur", "services/tourism-transport/private-sightseeing-driver", "services/chauffeur-services"],
-    updated: U,
-    copy: {
-      en: {
-        nav: "Full-Day Private Driver",
-        title: "Full-Day Private Driver in Saudi Arabia",
-        description: "Book a private driver for a full day in Saudi Arabia: meetings, family visits, shopping or sightseeing with flexible stops. Request a quotation.",
-        h1: "A full-day private driver, when the plan may change",
-        eyebrow: "Chauffeur Services · Full Day",
-        answer: "A full-day private driver is a driver and vehicle booked for most of a day, for as many stops as the day needs. It is simpler than counting hours when plans are fluid. RideSaudi arranges it on request. State the date, city and start time; the terms for the day are confirmed in the quotation.",
-        summary: "A driver and vehicle for the whole day, with flexible stops.",
-        sections: [
-          { h: "When a full day beats hourly", p: ["If the day has many stops, uncertain waiting or a plan that may change as you go, counting hours becomes a distraction. A full-day arrangement lets you focus on the day."] },
-          { h: "Define the day's boundaries", p: ["Tell us when the day starts and when you expect it to end, and any fixed appointments. How the end of the day and extra time are handled is confirmed in your quotation and confirmation."] },
-          { h: "Typical full days", p: [], list: ["Business visits across a city", "Family day with several visits", "Shopping and errands", "Sightseeing in a city (see private sightseeing driver)"] },
-        ],
-        checklist: { h: "Include this in your full-day enquiry", items: ["Date, city and start time", "Expected end time", "Likely stops and fixed appointments", "Passengers and luggage", "Vehicle preference"] },
-        faqs: [
-          { q: "How is a full day defined?", a: "It is agreed in your quotation and confirmation, based on your start and expected end." },
-          { q: "Can I change stops during the day?", a: "Yes within the day's arrangement; tell us if plans may change." },
-          { q: "Can I book several days?", a: "See multi-day chauffeur." },
-          { q: "Is the price fixed?", a: "No fares are published; each day is quoted individually." },
-        ],
-      },
-      ar: {
-        nav: "سائق خاص ليوم كامل",
-        title: "سائق خاص ليوم كامل في السعودية",
-        description: "احجز سائقًا خاصًا ليوم كامل في السعودية: اجتماعات أو زيارات عائلية أو تسوق أو تنزه بتوقفات مرنة. اطلب عرض سعر.",
-        h1: "سائق خاص ليوم كامل حين قد تتغير الخطة",
-        eyebrow: "خدمات السائق · يوم كامل",
-        answer: "السائق الخاص ليوم كامل هو سائق وسيارة يُحجزان لمعظم اليوم بعدد المحطات الذي يحتاجه اليوم. وهو أبسط من عدّ الساعات حين تكون الخطط مرنة. تُرتِّبه RideSaudi عند الطلب. اذكر التاريخ والمدينة ووقت البدء؛ وتُؤكَّد شروط اليوم في عرض السعر.",
-        summary: "سائق وسيارة لليوم كله بتوقفات مرنة.",
-        sections: [
-          { h: "متى يتفوق اليوم الكامل على الساعات", p: ["إن كان لليوم محطات كثيرة أو انتظار غير محدد أو خطة قد تتغير أثناءه، يصبح عدّ الساعات مشتتًا. ويتيح لك الترتيب ليوم كامل التركيز على يومك."] },
-          { h: "حدد حدود اليوم", p: ["أخبرنا متى يبدأ اليوم ومتى تتوقع انتهاءه وأي مواعيد ثابتة. وتُؤكَّد في عرض السعر والتأكيد كيفية التعامل مع نهاية اليوم والوقت الإضافي."] },
-          { h: "أيام نموذجية", p: [], list: ["زيارات عمل في أنحاء المدينة", "يوم عائلي بعدة زيارات", "تسوق ومشاوير", "تنزه في مدينة (راجع صفحة سائق التنزه الخاص)"] },
-        ],
-        checklist: { h: "ما الذي تضيفه إلى طلب يوم كامل", items: ["التاريخ والمدينة ووقت البدء", "وقت الانتهاء المتوقع", "المحطات المحتملة والمواعيد الثابتة", "الركاب والحقائب", "تفضيل السيارة"] },
-        faqs: [
-          { q: "كيف يُعرَّف اليوم الكامل؟", a: "يُتفق عليه في عرض السعر والتأكيد بحسب بدايتك ونهايتك المتوقعة." },
-          { q: "هل يمكنني تغيير المحطات خلال اليوم؟", a: "نعم ضمن ترتيب اليوم؛ أخبرنا إن كانت الخطط قد تتغير." },
-          { q: "هل يمكنني حجز عدة أيام؟", a: "راجع صفحة السائق لعدة أيام." },
-          { q: "هل السعر ثابت؟", a: "لا تُنشر أسعار؛ يُسعَّر كل يوم على حدة." },
-        ],
-      },
-    },
-  },
 
   {
     path: "services/chauffeur-services/business-chauffeur",
     parent: "services/chauffeur-services",
     variant: "default",
     service: "corporate",
-    related: [`${L}/executive-transport`, "services/chauffeur-services/full-day-driver", "services/special-transportation/business-travel", "services/chauffeur-services"],
+    related: [`${L}/executive-transport`, "services/chauffeur-services", "services/special-transportation/business-travel", "services/chauffeur-services"],
     updated: U,
     copy: {
       en: {
@@ -589,65 +537,13 @@ export const batch4: ServicePage[] = [
     },
   },
 
-  {
-    path: "services/chauffeur-services/personal-driver",
-    parent: "services/chauffeur-services",
-    variant: "default",
-    service: "chauffeur",
-    related: ["services/chauffeur-services/full-day-driver", "services/chauffeur-services/hourly-driver", "services/group-transportation/family-transport", "services/chauffeur-services"],
-    updated: U,
-    copy: {
-      en: {
-        nav: "Personal Driver Service",
-        title: "Personal Driver Service in Saudi Arabia",
-        description: "Arrange a personal driver in Saudi Arabia for your daily and regular journeys, visits and errands. Describe your routine for a quotation.",
-        h1: "A personal driver for your own routine",
-        eyebrow: "Chauffeur Services · Personal",
-        answer: "A personal driver is a driver arranged for your own movements, whether a few journeys a week or a recurring pattern, rather than a one-off trip. RideSaudi accepts such requests; what can be arranged for your pattern, including how long and how often, is confirmed in the quotation.",
-        summary: "A driver arranged around your own routine rather than a single trip.",
-        sections: [
-          { h: "Routine versus one-off", p: ["A one-off chauffeur booking is built around one date. A personal driver arrangement is built around a pattern: school runs, regular appointments, weekly visits. Describe the pattern, including days and times, so we can say what is feasible."] },
-          { h: "Visitors and residents", p: ["Visitors staying for weeks, and residents without a driver of their own, are the usual enquirers. Tell us your situation, how long you need the arrangement and the areas you cover."] },
-          { h: "What we do not assume", p: ["We do not assume long-term contracts or particular terms. Duration, frequency and conditions are confirmed in the quotation. For single days see full-day driver."] },
-        ],
-        checklist: { h: "Include this in your personal driver enquiry", items: ["Your routine: days, times, places", "Duration of the arrangement", "Passengers, including children", "Vehicle preference", "Any special requirements"] },
-        faqs: [
-          { q: "Can I get a driver for regular weekly journeys?", a: "Describe the pattern; what can be arranged is confirmed in the quotation." },
-          { q: "Is this a long-term contract?", a: "Terms are set out in the quotation; none are assumed." },
-          { q: "Can I use the driver for school runs?", a: "Describe the routine; arrangements are confirmed with you." },
-          { q: "How is it different from a chauffeur?", a: "It is built around a recurring pattern rather than a single booking." },
-        ],
-      },
-      ar: {
-        nav: "خدمة السائق الشخصي",
-        title: "خدمة سائق شخصي في السعودية",
-        description: "رتّب سائقًا شخصيًا في السعودية لتنقلاتك اليومية والمنتظمة وزياراتك ومشاويرك. صف روتينك لتصلك عرض سعر.",
-        h1: "سائق شخصي لروتينك الخاص",
-        eyebrow: "خدمات السائق · الشخصي",
-        answer: "السائق الشخصي هو سائق يُرتَّب لتنقلاتك أنت، سواء بضع رحلات أسبوعيًا أو نمطًا متكررًا، وليس رحلة لمرة واحدة. تقبل RideSaudi مثل هذه الطلبات؛ وتُؤكَّد في عرض السعر الممكنات لنمطك بما فيها المدة والتكرار.",
-        summary: "سائق مرتَّب حول روتينك الخاص وليس رحلة واحدة.",
-        sections: [
-          { h: "الروتين مقابل الرحلة الواحدة", p: ["حجز السائق لمرة واحدة مبني على تاريخ واحد. أما ترتيب السائق الشخصي فمبني على نمط: توصيل مدارس ومواعيد منتظمة وزيارات أسبوعية. صف النمط مع الأيام والأوقات لنقول ما هو ممكن."] },
-          { h: "الزوار والمقيمون", p: ["الزوار المقيمون أسابيع، والمقيمون بلا سائق خاص بهم هم السائلون المعتادون. أخبرنا بحالتك ومدة حاجتك للترتيب والمناطق التي تتنقل فيها."] },
-          { h: "ما لا نفترضه", p: ["لا نفترض عقودًا طويلة الأمد أو شروطًا بعينها. وتُؤكَّد المدة والتكرار والشروط في عرض السعر. ولأيام مفردة راجع صفحة السائق ليوم كامل."] },
-        ],
-        checklist: { h: "ما الذي تضيفه إلى طلب سائق شخصي", items: ["روتينك: الأيام والأوقات والأماكن", "مدة الترتيب", "الركاب ومنهم الأطفال", "تفضيل السيارة", "أي متطلبات خاصة"] },
-        faqs: [
-          { q: "هل يمكنني الحصول على سائق لرحلات أسبوعية منتظمة؟", a: "صف النمط؛ وتُؤكَّد الممكنات في عرض السعر." },
-          { q: "هل هو عقد طويل الأمد؟", a: "تُوضَّح الشروط في عرض السعر؛ ولا يُفترض شيء." },
-          { q: "هل يمكنني استخدام السائق لتوصيل المدارس؟", a: "صف الروتين؛ وتُؤكَّد الترتيبات معك." },
-          { q: "كيف يختلف عن السائق الخاص؟", a: "هو مبني على نمط متكرر وليس حجزًا واحدًا." },
-        ],
-      },
-    },
-  },
 
   {
     path: "services/chauffeur-services/multi-day-chauffeur",
     parent: "services/chauffeur-services",
     variant: "default",
     service: "chauffeur",
-    related: ["services/intercity-transfers/private-intercity-chauffeur", "services/chauffeur-services/full-day-driver", `${L}/luxury-chauffeur`, "services/chauffeur-services"],
+    related: ["services/intercity-transfers/private-intercity-chauffeur", "services/chauffeur-services", `${L}/luxury-chauffeur`, "services/chauffeur-services"],
     updated: U,
     copy: {
       en: {

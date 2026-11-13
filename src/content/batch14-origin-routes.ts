@@ -28,13 +28,13 @@ export const batch14OriginRoutes: ServicePage[] = [
     parent: I,
     variant: "default",
     service: "intercity",
-    related: [`${I}/riyadh-to-dammam`, `${I}/riyadh-to-al-khobar`, `${A}/dammam-airport`, `${A}/riyadh-airport`, `${C}/dammam`, `${C}/riyadh`],
+    related: [`${I}/riyadh-to-dammam`, `${I}/riyadh-to-al-khobar`, `${A}/dammam-airport`, `${A}/riyadh-airport`, `${C}/dammam`, `${C}/riyadh`, "fleet", "services/intercity-transfers/alula-to-dammam"],
     updated: U,
     copy: {
       en: {
         nav: "Dammam to Riyadh",
-        title: "Dammam to Riyadh Private Car: Eastern Province Pickups",
-        description: "Request a private car with a driver from Dammam, Al Khobar, Dhahran or King Fahd Airport to Riyadh. About 400 km by road. Send your pickup and get a quotation.",
+        title: "Dammam to Riyadh Private Car: GMC, Staria or Sedan",
+        description: "Request a private GMC Yukon, Hyundai Staria or sedan with a driver from Dammam, Al Khobar, Dhahran or King Fahd Airport to Riyadh. About 400 km. Get a quotation.",
         h1: "Dammam to Riyadh by private car, door to door from the Eastern Province",
         eyebrow: "Intercity · Eastern Province to Riyadh",
         answer: "A private Dammam to Riyadh transfer is a pre-booked car with a driver from an address in Dammam, Al Khobar or Dhahran, or from King Fahd International Airport, to a Riyadh address. Public mapping sources put the road at roughly 400 to 415 km, about three and a half to four hours of driving before stops. RideSaudi quotes each journey individually and confirms availability first.",
@@ -56,8 +56,8 @@ export const batch14OriginRoutes: ServicePage[] = [
       },
       ar: {
         nav: "الدمام إلى الرياض",
-        title: "من الدمام إلى الرياض: سيارة خاصة من المنطقة الشرقية",
-        description: "اطلب سيارة خاصة بسائق من الدمام أو الخبر أو الظهران أو مطار الملك فهد إلى الرياض. نحو 400 كم بالطريق. أرسل نقطة الاستلام واستلم عرض سعر.",
+        title: "من الدمام إلى الرياض: جمس أو ستاريا أو سيدان بسائق",
+        description: "اطلب جمس يوكن أو هيونداي ستاريا أو سيدان بسائق من الدمام أو الخبر أو الظهران أو مطار الملك فهد إلى الرياض. نحو 400 كم. استلم عرض سعر.",
         h1: "من الدمام إلى الرياض بسيارة خاصة، من الباب إلى الباب",
         eyebrow: "بين المدن · من المنطقة الشرقية إلى الرياض",
         answer: "التوصيل الخاص من الدمام إلى الرياض هو سيارة بسائق وبحجز مسبق من عنوان في الدمام أو الخبر أو الظهران، أو من مطار الملك فهد الدولي، إلى عنوان في الرياض. وتقدّر خرائط عامة الطريق بنحو 400 إلى 415 كم، أي ثلاث ساعات ونصف إلى أربع ساعات قيادة قبل التوقفات. تُسعِّر RideSaudi كل رحلة على حدة وتؤكد الإتاحة أولًا.",

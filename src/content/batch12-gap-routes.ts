@@ -77,7 +77,7 @@ export const batch12GapRoutes: ServicePage[] = [
     parent: I,
     variant: "umrah",
     service: "intercity",
-    related: [`${I}/jeddah-to-taif`, `${A}/taif-airport`, `${T}/taif`, "services/umrah-transport/makkah-ziyarat", `${C}/makkah`],
+    related: [`${I}/jeddah-to-taif`, `${A}/taif-airport`, `${T}/taif`, "services/umrah-transport/makkah-ziyarat", `${C}/makkah`, "services/intercity-transfers/taif-to-makkah"],
     updated: U,
     copy: {
       en: {
@@ -248,7 +248,7 @@ export const batch12GapRoutes: ServicePage[] = [
     parent: A,
     variant: "default",
     service: "airport",
-    related: [`${T}/alula`, `${I}/madinah-to-alula`, `${I}/jeddah-to-alula`, `${I}/riyadh-to-alula`],
+    related: [`${T}/alula`, `${I}/madinah-to-alula`, `${I}/jeddah-to-alula`, `${I}/riyadh-to-alula`, "services/intercity-transfers/alula-to-riyadh"],
     updated: U,
     copy: {
       en: {
