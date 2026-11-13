@@ -91,6 +91,9 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
         );
         setReceipt({ reference: j.reference, wa });
         track("generate_lead", { form: "quote", service: sent.service, trip_type: sent.tripType, language: locale });
+        // Fired only after the backend accepted the enquiry (never on a button click).
+        track("form_submit", { form: "quote", service: sent.service, language: locale });
+        track("quote_request", { service: sent.service, route: `${sent.pickup} > ${sent.dropoff}`, language: locale });
         setStatus("success");
         setData({ ...emptyEnquiry(), locale });
         setStartedAt(Date.now());

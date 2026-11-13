@@ -19,8 +19,12 @@ import { batch13EasternProvince } from "./batch13-eastern-province";
 import { batch14OriginRoutes } from "./batch14-origin-routes";
 import { batch15CitiesAirports } from "./batch15-cities-airports";
 import { batch16ReverseAlulaRoutes } from "./batch16-reverse-alula-routes";
+import { batch17JeddahRoutes, jeddahBacklinks } from "./batch17-jeddah-routes";
 
-export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes];
+export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...batch17JeddahRoutes];
+
+// Cross-link the Jeddah route cluster from the existing hub, airport and neighbouring route pages.
+for (const p of pages) if (jeddahBacklinks[p.path]) p.related.push(...jeddahBacklinks[p.path]);
 
 /**
  * SEO-RULES.md: no FAQ may appear verbatim on two pages. Generic questions that several pages

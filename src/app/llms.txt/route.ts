@@ -33,6 +33,11 @@ export function GET() {
 - Routes from Riyadh are quoted individually and can be requested in either direction: Dammam, Jeddah, Makkah, Madinah, Al Ahsa, AlUla, Taif, Abha, Tabuk, Hail, Buraydah, Jubail, Yanbu, Hafar Al Batin, and cross-border to Doha, Dubai, Manama and Kuwait City.
 - Distances, durations and prices are not published; entry rules for cross-border journeys must be checked with official authorities.
 
+## Jeddah coverage
+- Jeddah city hub and King Abdulaziz Airport transfers: ${SITE_URL}/en/services/city-transport/jeddah/ and ${SITE_URL}/en/services/airport-transfers/jeddah-airport/
+- Private intercity routes from Jeddah, each requestable in both directions: Riyadh, Dammam, AlUla, Jazan, Abha, Makkah, Madinah, Taif and Yanbu. Each direction has its own page (for example /en/services/intercity-transfers/jeddah-to-dammam/ and /en/services/intercity-transfers/dammam-to-jeddah/; Arabic under /ar/).
+- Distances quoted on route pages are approximate public mapping figures before stops; prices and availability are confirmed per quotation.
+
 ## Guides
 ${guides}
 

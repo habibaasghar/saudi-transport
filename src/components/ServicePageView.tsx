@@ -13,6 +13,7 @@ import { QuoteSection } from "./QuoteSection";
 import { SectionHead } from "./SectionHead";
 import { JsonLd } from "./JsonLd";
 import { ContactRow } from "./ContactCta";
+import { RouteTracker } from "./RouteTracker";
 import { routePrefill } from "@/content/route-prefill";
 
 const href = (path: string) => `/${path}`;
@@ -28,6 +29,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
   return (
     <>
       <JsonLd data={pageSchema(page, locale)} />
+      {page.path.startsWith("services/intercity-transfers/") && <RouteTracker route={page.path.split("/").pop() ?? ""} locale={locale} />}
       <Header locale={locale} quoteHref="#quote" switchHref={href(page.path)} />
       <main id="main" className={`svc svc--${page.variant}`}>
         <section className={`svc-hero${hero ? " svc-hero--img" : ""}`} aria-labelledby="svc-h1">
