@@ -305,7 +305,7 @@ export const batch12GapRoutes: ServicePage[] = [
     parent: I,
     variant: "default",
     service: "intercity",
-    related: [`${X}/kuwait`, `${I}/riyadh-to-kuwait-city`, `${I}/riyadh-to-dammam`, `${A}/riyadh-airport`, `${C}/riyadh`],
+    related: [`${X}/kuwait`, `${I}/riyadh-to-kuwait-city`, `${I}/riyadh-to-dammam`, `${A}/riyadh-airport`, `${C}/riyadh`, "services/city-transport/hafar-al-batin"],
     updated: U,
     copy: {
       en: {

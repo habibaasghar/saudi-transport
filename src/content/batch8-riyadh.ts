@@ -287,7 +287,7 @@ export const batch8Riyadh: ServicePage[] = [
     parent: I,
     variant: "default",
     service: "intercity",
-    related: [`${I}/riyadh-to-dammam`, `${C}/riyadh`, "services/intercity-transfers/private-intercity-chauffeur", `${T}/day-trip-transport`],
+    related: [`${I}/riyadh-to-dammam`, `${C}/riyadh`, "services/intercity-transfers/private-intercity-chauffeur", `${T}/day-trip-transport`, "services/city-transport/al-ahsa"],
     updated: U,
     copy: {
       en: {

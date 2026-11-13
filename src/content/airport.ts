@@ -615,6 +615,7 @@ export const airportPages: ServicePage[] = [
       "services/event-transportation",
       "luxury-transportation/luxury-chauffeur",
       "services/airport-transfers/riyadh-airport",
+      "services/city-transport/dhahran",
     ],
     updated: UPDATED,
     copy: {

@@ -248,7 +248,7 @@ export const batch10RiyadhRoutes: ServicePage[] = [
     parent: I,
     variant: "default",
     service: "intercity",
-    related: [`${C}/buraidah`, `${C}/hail`, `${I}/private-intercity-chauffeur`, R],
+    related: [`${C}/buraidah`, `${C}/hail`, `${I}/private-intercity-chauffeur`, R, "services/airport-transfers/qassim-airport"],
     updated: U,
     copy: {
       en: {

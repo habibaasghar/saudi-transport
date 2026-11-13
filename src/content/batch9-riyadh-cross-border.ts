@@ -18,7 +18,7 @@ export const batch9RiyadhCrossBorder: ServicePage[] = [
     parent: `${X}/qatar`,
     variant: "default",
     service: "intercity",
-    related: [`${X}/qatar`, X, "services/airport-transfers/riyadh-airport", `${I}/riyadh-to-dammam`, C],
+    related: [`${X}/qatar`, X, "services/airport-transfers/riyadh-airport", `${I}/riyadh-to-dammam`, C, "services/intercity-transfers/dammam-to-doha"],
     updated: U,
     copy: {
       en: {
@@ -79,7 +79,7 @@ export const batch9RiyadhCrossBorder: ServicePage[] = [
     parent: `${X}/uae`,
     variant: "default",
     service: "intercity",
-    related: [`${X}/uae`, X, "services/airport-transfers/riyadh-airport", `${I}/riyadh-to-dammam`, C],
+    related: [`${X}/uae`, X, "services/airport-transfers/riyadh-airport", `${I}/riyadh-to-dammam`, C, "services/intercity-transfers/riyadh-to-abu-dhabi"],
     updated: U,
     copy: {
       en: {

@@ -64,7 +64,7 @@ export const batch6: ServicePage[] = [
     parent: C,
     variant: "default",
     service: "chauffeur",
-    related: ["services/airport-transfers/jeddah-airport", "services/event-transportation/jeddah", "services/intercity-transfers/jeddah-to-makkah", C],
+    related: ["services/airport-transfers/jeddah-airport", "services/event-transportation/jeddah", "services/intercity-transfers/jeddah-to-makkah", C, "services/intercity-transfers/jeddah-to-riyadh"],
     updated: U,
     copy: {
       en: {
@@ -223,7 +223,7 @@ export const batch6: ServicePage[] = [
     parent: C,
     variant: "default",
     service: "chauffeur",
-    related: ["services/airport-transfers/dammam-airport", "services/event-transportation/dammam", `${C}/al-khobar`, C],
+    related: ["services/airport-transfers/dammam-airport", "services/event-transportation/dammam", `${C}/al-khobar`, C, "services/city-transport/dhahran", "services/intercity-transfers/dammam-to-riyadh"],
     updated: U,
     copy: {
       en: {
@@ -276,7 +276,7 @@ export const batch6: ServicePage[] = [
     parent: C,
     variant: "default",
     service: "chauffeur",
-    related: [`${C}/dammam`, "services/cross-border-transfers/bahrain", "services/airport-transfers/dammam-airport", C],
+    related: [`${C}/dammam`, "services/cross-border-transfers/bahrain", "services/airport-transfers/dammam-airport", C, "services/city-transport/dhahran", "services/intercity-transfers/riyadh-to-al-khobar"],
     updated: U,
     copy: {
       en: {

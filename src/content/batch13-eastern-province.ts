@@ -16,7 +16,7 @@ export const batch13EasternProvince: ServicePage[] = [
     parent: `${X}/bahrain`,
     variant: "default",
     service: "intercity",
-    related: [`${X}/bahrain`, `${I}/riyadh-to-manama`, "services/airport-transfers/dammam-airport", "services/city-transport/al-khobar", `${I}/riyadh-to-dammam`],
+    related: [`${X}/bahrain`, `${I}/riyadh-to-manama`, "services/airport-transfers/dammam-airport", "services/city-transport/al-khobar", `${I}/riyadh-to-dammam`, "services/city-transport/dhahran"],
     updated: U,
     copy: {
       en: {
@@ -74,7 +74,7 @@ export const batch13EasternProvince: ServicePage[] = [
     parent: I,
     variant: "default",
     service: "intercity",
-    related: [`${I}/riyadh-to-al-ahsa`, `${I}/riyadh-to-dammam`, "services/city-transport/dammam", "services/airport-transfers/dammam-airport"],
+    related: [`${I}/riyadh-to-al-ahsa`, `${I}/riyadh-to-dammam`, "services/city-transport/dammam", "services/airport-transfers/dammam-airport", "services/city-transport/al-ahsa", "services/airport-transfers/al-ahsa-airport"],
     updated: U,
     copy: {
       en: {
