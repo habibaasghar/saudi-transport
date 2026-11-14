@@ -54,6 +54,10 @@ export const routePrefill: Record<string, Pair> = {
   [`${I}/jeddah-to-jazan`]: p(["Jeddah", "Jazan"], ["جدة", "جازان"]),
   [`${I}/jazan-to-jeddah`]: p(["Jazan", "Jeddah"], ["جازان", "جدة"]),
   [`${I}/jeddah-to-abha`]: p(["Jeddah", "Abha"], ["جدة", "أبها"]),
+  [`${I}/madinah-to-jeddah`]: p(["Madinah", "Jeddah"], ["المدينة المنورة", "جدة"]),
+  [`${I}/yanbu-to-jeddah`]: p(["Yanbu", "Jeddah"], ["ينبع", "جدة"]),
+  [`${I}/taif-to-jeddah`]: p(["Taif", "Jeddah"], ["الطائف", "جدة"]),
+  [`${I}/abha-to-riyadh`]: p(["Abha", "Riyadh"], ["أبها", "الرياض"]),
   [`${I}/abha-to-jeddah`]: p(["Abha", "Jeddah"], ["أبها", "جدة"]),
   "services/umrah-transport/jeddah-airport-to-makkah": p(["Jeddah Airport (JED)", "Makkah"], ["مطار جدة (JED)", "مكة المكرمة"]),
 };

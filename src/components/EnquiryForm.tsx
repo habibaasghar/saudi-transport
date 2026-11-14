@@ -208,6 +208,13 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
               <option value="Sedan">{t("fields.vehicleSedan")}</option>
               <option value="GMC Yukon">{t("fields.vehicleGmc")}</option>
               <option value="Hyundai Staria">{t("fields.vehicleStaria")}</option>
+              <option value="Toyota Camry">{t("fields.vehicleCamry")}</option>
+              <option value="Hyundai Sonata">{t("fields.vehicleSonata")}</option>
+              <option value="Ford Taurus">{t("fields.vehicleTaurus")}</option>
+              <option value="GMC Suburban">{t("fields.vehicleSuburban")}</option>
+              <option value="Chevrolet Tahoe">{t("fields.vehicleTahoe")}</option>
+              <option value="Toyota Prado">{t("fields.vehiclePrado")}</option>
+              <option value="Luxury SUV / VIP">{t("fields.vehicleLuxury")}</option>
               <option value="Other / larger group">{t("fields.vehicleOther")}</option>
             </select>
             <p id={`${uid}-vehicle-h`} className="field__hint">{t("fields.vehicleHint")}</p>

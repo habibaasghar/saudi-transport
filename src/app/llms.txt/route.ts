@@ -25,7 +25,8 @@ export function GET() {
 - Website: ${SITE_URL}/
 - Languages: English (/en/) and Arabic (/ar/, right-to-left)
 - Booking model: enquiry first, quotation, then confirmation
-- Vehicle and route availability is confirmed per quotation, not published as a fleet or route list
+- Vehicles that can be requested, each with a driver: sedans (Toyota Camry, Hyundai Sonata, Ford Taurus), SUVs (GMC Yukon, GMC Suburban, Chevrolet Tahoe, Toyota Prado), Hyundai Staria van, luxury and VIP SUVs. Models and availability are confirmed per quotation, subject to partner availability
+- Route availability is confirmed per quotation, not published as a fleet or route list
 - Not affiliated with any religious or government authority; does not issue Umrah visas or permits
 
 ## Riyadh coverage

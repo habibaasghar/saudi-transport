@@ -3,6 +3,7 @@ import { dammamPages } from "./jeddah/dammam";
 import { alulaPages } from "./jeddah/alula";
 import { jazanPages } from "./jeddah/jazan";
 import { abhaPages } from "./jeddah/abha";
+import { reversePages } from "./jeddah/reverse";
 
 const I = "services/intercity-transfers";
 const A = "services/airport-transfers";
@@ -15,7 +16,7 @@ const T = "services/tourism-transport";
  * Jeddah to Jazan, Jazan to Jeddah, Jeddah to Abha and Abha to Jeddah. Each direction is written for
  * its own traveller, not as a mirrored copy. Sources and caveats are in each file's header comment.
  */
-export const batch17JeddahRoutes: ServicePage[] = [...dammamPages, ...alulaPages, ...jazanPages, ...abhaPages];
+export const batch17JeddahRoutes: ServicePage[] = [...dammamPages, ...alulaPages, ...jazanPages, ...abhaPages, ...reversePages];
 
 /**
  * Existing pages that should link to the new Jeddah routes so none is orphaned and the cluster is
@@ -30,11 +31,20 @@ export const jeddahBacklinks: Record<string, string[]> = {
   [J("jeddah-to-alula")]: [J("alula-to-jeddah")],
   [J("riyadh-to-dammam")]: [J("jeddah-to-dammam"), J("dammam-to-jeddah")],
   [J("dammam-to-riyadh")]: [J("dammam-to-jeddah")],
-  [J("riyadh-to-abha")]: [J("jeddah-to-abha"), J("abha-to-jeddah")],
   [J("alula-to-riyadh")]: [J("alula-to-jeddah")],
   [`${C}/dammam`]: [J("jeddah-to-dammam"), J("dammam-to-jeddah")],
   [`${C}/abha`]: [J("jeddah-to-abha"), J("abha-to-jeddah")],
   [`${C}/jazan`]: [J("jeddah-to-jazan"), J("jazan-to-jeddah")],
   [`${T}/alula`]: [J("alula-to-jeddah")],
-  [I]: [J("jeddah-to-dammam"), J("dammam-to-jeddah"), J("jeddah-to-jazan"), J("jazan-to-jeddah"), J("jeddah-to-abha"), J("abha-to-jeddah"), J("alula-to-jeddah")],
+  [J("jeddah-to-madinah")]: [J("madinah-to-jeddah")],
+  [J("jeddah-to-yanbu")]: [J("yanbu-to-jeddah")],
+  [J("jeddah-to-taif")]: [J("taif-to-jeddah")],
+  [J("taif-to-makkah")]: [J("taif-to-jeddah")],
+  [J("madinah-to-makkah")]: [J("madinah-to-jeddah")],
+  [`${C}/yanbu`]: [J("yanbu-to-jeddah")],
+  [`${C}/madinah`]: [J("madinah-to-jeddah")],
+  [`${T}/taif`]: [J("taif-to-jeddah")],
+  [`${C}/riyadh`]: [J("abha-to-riyadh")],
+  [J("riyadh-to-abha")]: [J("jeddah-to-abha"), J("abha-to-jeddah"), J("abha-to-riyadh")],
+  [I]: [J("madinah-to-jeddah"), J("yanbu-to-jeddah"), J("taif-to-jeddah"), J("abha-to-riyadh"), J("jeddah-to-dammam"), J("dammam-to-jeddah"), J("jeddah-to-jazan"), J("jazan-to-jeddah"), J("jeddah-to-abha"), J("abha-to-jeddah"), J("alula-to-jeddah")],
 };
