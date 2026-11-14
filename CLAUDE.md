@@ -13,3 +13,7 @@ Key non-negotiables (details in SEO-RULES.md):
 - Do not push to `origin` (saudi-ride-) for deploys.
 - Production = `vercel-repo/main`. Use a non-main branch on `vercel-repo` for previews.
 - Only deploy when the user explicitly asks.
+
+## No driver job pages
+- No driver job, driver recruitment, "become a driver", or driver inquiry pages will be built. No job-seeker content, forms, nav links, sitemap entries or database tables for driver applications.
+- Customer-facing "private car with driver" pages are fine; job-seeker intent (e.g. "مطلوب سائق خاص") is excluded.
