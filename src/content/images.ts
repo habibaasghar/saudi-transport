@@ -99,6 +99,23 @@ export const pageImages: Record<string, PageImage> = {
   "services/city-transport/jeddah": images.jeddah,
   "services/umrah-transport": images.makkah,
   "services/city-transport/madinah": images.madinah,
+  // Route pages use the destination's picture (same convention as riyadh-to-dammam above).
+  "services/intercity-transfers/jeddah-to-riyadh": images.riyadh,
+  "services/intercity-transfers/abha-to-riyadh": images.riyadh,
+  "services/intercity-transfers/jeddah-to-makkah": images.makkah,
+  "services/intercity-transfers/jeddah-to-madinah": images.madinah,
+  "services/intercity-transfers/makkah-to-madinah": images.madinah,
+  "services/intercity-transfers/jeddah-to-taif": images.taif,
+  "services/tourism-transport/taif": images.taif,
+  "services/intercity-transfers/jeddah-to-dammam": images.alKhobar,
+  "services/intercity-transfers/dammam-to-jeddah": images.jeddah,
+  "services/intercity-transfers/alula-to-jeddah": images.jeddah,
+  "services/intercity-transfers/jazan-to-jeddah": images.jeddah,
+  "services/intercity-transfers/madinah-to-jeddah": images.jeddah,
+  "services/intercity-transfers/yanbu-to-jeddah": images.jeddah,
+  "services/intercity-transfers/taif-to-jeddah": images.jeddah,
+  "services/intercity-transfers/abha-to-jeddah": images.jeddah,
+  "services/intercity-transfers/jeddah-to-abha": images.abha,
 };
 
 export const getImage = (path: string) => pageImages[path];
