@@ -82,3 +82,9 @@ Edited: `src/content/registry.ts`, `src/content/route-prefill.ts`, `src/componen
 
 ## 13. Deployment recommendation
 Review the diff and Arabic, set DATABASE_URL in a preview, submit one test enquiry per page type, then push to a non-main branch on `vercel-repo` for a preview before merging to `main`. After launch: submit the sitemap in Search Console, request indexing for the 7 EN URLs, and run the Rich Results Test.
+
+## Update 2026-11-15: GSC export, four more routes, all vehicle models
+- **Search Console exports** (28-day and 24-hour): 15 impressions and 1 click in total, all on the homepage; queries are only generic ("saudi airport transfers", positions 80-94). No route-level demand exists yet, so new routes were chosen from coverage gaps, not GSC volume.
+- **New pages (EN+AR):** `madinah-to-jeddah` (about 405-425 km, ~4 h), `yanbu-to-jeddah` (about 337 km, ~3 h 20), `taif-to-jeddah` (about 163-169 km, under 2 h), `abha-to-riyadh` (about 880-950 km on the main roads, ~9-10 h; routes differ). Reverse pages for existing both-ways pages. `makkah-to-jeddah` deliberately not created: the existing Jeddah-to-Makkah page already covers both directions and a second page would compete with it.
+- **Vehicles (owner confirmed 2026-11-15):** Toyota Camry, Hyundai Sonata, Ford Taurus; GMC Yukon, GMC Suburban, Chevrolet Tahoe, Toyota Prado; Hyundai Staria; luxury/VIP SUVs. Added to the Fleet page, all 11 Jeddah-cluster pages (varied per page, not one repeated block), the enquiry form dropdown and llms.txt. Seat counts, luggage capacity and photos remain unpublished.
+- **Duplicate check:** registry rejects duplicate titles/descriptions/H1/FAQs; a sentence-level scan of the Jeddah files shows no sentence repeated across pages.

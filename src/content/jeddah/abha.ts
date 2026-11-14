@@ -96,7 +96,7 @@ export const abhaPages: ServicePage[] = [
         checklist: { h: "Include this in your Abha to Jeddah enquiry", items: ["The time you must arrive, or your flight time from Jeddah", "Abha hotel or Asir resort name, entrance and contact number", "Destination: Jeddah hotel, airport terminal or Makkah", "Anyone prone to motion sickness, children or older passengers", "Passengers and large bags", "Vehicle: sedan, GMC Yukon or Hyundai Staria"] },
         faqs: [
           { q: "Can I book a private car from Abha to Jeddah Airport?", a: "Yes, you can request one. Send your flight time and the Abha pickup, and we plan the departure and confirm availability before arranging anything." },
-          { q: "How long is the drive from Abha to Jeddah?", a: "Public sources vary. Expect roughly 620 to 700 km and eight to nine hours before stops, and check a live map for your route." },
+          { q: "How long is the drive from Abha to Jeddah?", a: "Public sources vary. Sources differ, so treat roughly 620 to 700 km and eight to nine hours before stops as a guide and confirm on a live map." },
           { q: "Can you collect me from a mountain resort outside Abha?", a: "You can request it. Send the property name, the entrance and a contact number, and the pickup is planned around them." },
           { q: "Can the car go on to Makkah?", a: "You can ask for the journey to end in Makkah, and it is quoted as one trip to the destination you give." },
           { q: "What if mist or rain affects the descent?", a: "The driver adjusts speed and breaks to conditions. Tell us your flight time early, so a safety margin is already part of the plan." },
@@ -119,7 +119,7 @@ export const abhaPages: ServicePage[] = [
         checklist: { h: "ما الذي تضيفه إلى طلب أبها إلى جدة", items: ["الوقت الذي يجب أن تصل فيه أو موعد رحلتك من جدة", "اسم الفندق في أبها أو منتجع عسير والمدخل ورقم للتواصل", "الوجهة: فندق في جدة أو صالة المطار أو مكة", "من يتأثر بدوار السفر، والأطفال أو كبار السن", "الركاب والحقائب الكبيرة", "المركبة: سيدان أو جمس يوكن أو هيونداي ستاريا"] },
         faqs: [
           { q: "هل يمكن حجز سيارة خاصة من أبها إلى مطار جدة؟", a: "نعم، يمكنك إرسال طلب. أرسل موعد رحلتك ونقطة الاستلام في أبها، ونخطط الانطلاق ونؤكد الإتاحة قبل ترتيب أي شيء." },
-          { q: "كم تستغرق الرحلة من أبها إلى جدة؟", a: "تختلف المصادر العامة. توقعوا نحو 620 إلى 700 كم وثماني إلى تسع ساعات قبل التوقفات، وراجعوا خريطة حية لمسارك." },
+          { q: "كم تستغرق الرحلة من أبها إلى جدة؟", a: "تختلف المصادر العامة. تختلف المصادر، فاعتبروا نحو 620 إلى 700 كم وثماني إلى تسع ساعات قبل التوقفات تقديرًا وتأكدوا على خريطة حية." },
           { q: "هل يمكن الاستلام من منتجع جبلي خارج أبها؟", a: "يمكنك طلب ذلك. أرسل اسم المنشأة والمدخل ورقم للتواصل، ويُخطَّط الاستلام على أساسها." },
           { q: "هل تواصل السيارة إلى مكة؟", a: "يمكنك طلب أن تنتهي الرحلة في مكة، وتُسعَّر رحلة واحدة إلى الوجهة التي تحددها." },
           { q: "ماذا لو أثّر الضباب أو المطر في النزول؟", a: "يُعدِّل السائق سرعته واستراحاته بحسب الظروف. أخبرنا بموعد رحلتك مبكرًا ليكون هامش الأمان جزءًا من الخطة منذ البداية." },
