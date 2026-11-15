@@ -27,7 +27,10 @@
     "luxury": "النقل الفاخر",
     "events": "الفعاليات",
     "breadcrumb": "مسار التنقل",
-    "riyadh": "الرياض"
+    "riyadh": "الرياض",
+    "routes": "المسارات",
+    "airports": "المطارات",
+    "cities": "المدن"
   },
   "lang": {
     "en": "English",

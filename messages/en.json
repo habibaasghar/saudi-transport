@@ -27,7 +27,10 @@
     "luxury": "Luxury",
     "events": "Events",
     "breadcrumb": "Breadcrumb",
-    "riyadh": "Riyadh"
+    "riyadh": "Riyadh",
+    "routes": "Routes",
+    "airports": "Airports",
+    "cities": "Cities"
   },
   "lang": {
     "en": "English",

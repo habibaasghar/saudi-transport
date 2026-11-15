@@ -3,9 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { MailIcon, PhoneIcon, WhatsAppIcon } from "./Icons";
+import type { ResolvedNavItem } from "@/lib/nav";
 
 type Props = {
-  items: { href: string; label: string }[];
+  items: ResolvedNavItem[];
   quoteLabel: string;
   quoteHref: string;
   switchHref: string;
@@ -25,6 +26,7 @@ type Props = {
 
 export function MobileNav({ items, quoteLabel, quoteHref, switchHref, openLabel, closeLabel, navLabel, otherLocale, otherLabel, whatsappHref, telHref, mailHref, whatsappLabel, callLabel, emailLabel, phoneDisplay }: Props) {
   const [open, setOpen] = useState(false);
+  const [group, setGroup] = useState<string | null>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -54,7 +56,10 @@ export function MobileNav({ items, quoteLabel, quoteHref, switchHref, openLabel,
     };
   }, [open]);
 
-  const close = () => setOpen(false);
+  const close = () => {
+    setOpen(false);
+    setGroup(null);
+  };
 
   return (
     <>
@@ -72,9 +77,29 @@ export function MobileNav({ items, quoteLabel, quoteHref, switchHref, openLabel,
       <div id="mobile-nav" ref={panelRef} className="mobile-nav" hidden={!open} role="dialog" aria-modal="true" aria-label={navLabel}>
         <nav aria-label={navLabel}>
           <ul>
-            {items.map((i) => (
-              <li key={i.href}><Link href={i.href} onClick={close}>{i.label}</Link></li>
-            ))}
+            {items.map((i) =>
+              i.children?.length ? (
+                <li key={i.key} className="mobile-nav__group">
+                  <button
+                    type="button"
+                    className="mobile-nav__toggle"
+                    aria-expanded={group === i.key}
+                    aria-controls={`mnav-${i.key}`}
+                    onClick={() => setGroup((g) => (g === i.key ? null : i.key))}
+                  >
+                    <span>{i.label}</span>
+                    <span aria-hidden="true" className="mobile-nav__caret" />
+                  </button>
+                  <ul id={`mnav-${i.key}`} className="mobile-nav__sub" hidden={group !== i.key}>
+                    {i.children.map((c) => (
+                      <li key={c.href}><Link href={c.href} onClick={close}>{c.label}</Link></li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li key={i.key}><Link href={i.href} onClick={close}>{i.label}</Link></li>
+              ),
+            )}
           </ul>
         </nav>
         <div className="mobile-nav__foot">
