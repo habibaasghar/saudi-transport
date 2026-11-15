@@ -286,6 +286,7 @@ html[lang="ar"] .svc-hero h1 { max-width: 22ch; line-height: 1.35; }
 .answer__label { font: 600 .78rem/1 var(--font-body); letter-spacing: .18em; text-transform: uppercase; color: var(--clay); margin-bottom: .75rem; }
 html[lang="ar"] .answer__label { letter-spacing: 0; text-transform: none; font-size: .95rem; }
 .answer p { font-size: clamp(1.1rem, 1.8vw, 1.3rem); line-height: 1.7; }
+.answer p.answer__exclusive { margin-top: 1rem; font-size: 1rem; font-weight: 600; color: var(--clay); }
 .svc-answer { padding-block: clamp(2.5rem, 5vw, 4rem); }
 
 .prose { display: grid; gap: 1.5rem; }
@@ -304,6 +305,8 @@ html[lang="ar"] .answer__label { letter-spacing: 0; text-transform: none; font-s
 .table-title { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 1.25rem; }
 .table-wrap { overflow-x: auto; border: 1px solid var(--line); background: #f5f9fd; }
 table { width: 100%; border-collapse: collapse; min-width: 34rem; font-size: .98rem; }
+/* Two-column fact tables fit a phone screen without sideways scrolling. */
+table.table--fit { min-width: 0; }
 th, td { padding: .9rem 1.1rem; text-align: start; vertical-align: top; border-bottom: 1px solid var(--line); }
 thead th { background: var(--night); color: var(--sand); font-weight: 600; }
 tbody th { font-weight: 600; color: var(--palm); }

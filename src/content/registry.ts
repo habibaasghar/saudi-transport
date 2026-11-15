@@ -19,8 +19,13 @@ import { batch13EasternProvince } from "./batch13-eastern-province";
 import { batch14OriginRoutes } from "./batch14-origin-routes";
 import { batch15CitiesAirports } from "./batch15-cities-airports";
 import { batch16ReverseAlulaRoutes } from "./batch16-reverse-alula-routes";
+import { priorityRoutes } from "./priority-routes";
+import { applyRoutePatches, priorityRoutesB } from "./priority-routes-b";
 
-export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes];
+export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB];
+
+// Verified-fact upgrades for pages that stay in their original files (must run before FAQ scoping).
+applyRoutePatches(pages);
 
 /**
  * SEO-RULES.md: no FAQ may appear verbatim on two pages. Generic questions that several pages

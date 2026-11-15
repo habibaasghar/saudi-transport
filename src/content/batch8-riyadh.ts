@@ -169,63 +169,6 @@ export const batch8Riyadh: ServicePage[] = [
 
   /* ───────── Riyadh intercity routes (distinct destinations, distinct planning) ───────── */
   {
-    path: `${I}/riyadh-to-makkah`,
-    parent: I,
-    variant: "umrah",
-    service: "umrah",
-    related: [`${I}/riyadh-to-madinah`, `${I}/riyadh-to-jeddah`, "services/umrah-transport", "services/umrah-transport/private-umrah-chauffeur", `${C}/riyadh`],
-    updated: U,
-    copy: {
-      en: {
-        nav: "Riyadh to Makkah",
-        title: "Riyadh to Makkah Private Car for Umrah",
-        description: "Request a private car with a driver from Riyadh to Makkah for Umrah or travel, in either direction. Plan the journey and get a quotation from RideSaudi.",
-        h1: "Riyadh to Makkah by private car, a long road journey planned in advance",
-        eyebrow: "Intercity · Riyadh ⇄ Makkah",
-        answer: "A private Riyadh to Makkah transfer is a pre-booked car with a driver for the long road journey from the capital to Makkah, commonly for Umrah, and the same in reverse. RideSaudi quotes each journey individually. Timing, rest stops and availability are agreed before you commit; the quotation, not this page, states them.",
-        summary: "A planned private road journey between Riyadh and Makkah, with Umrah in mind.",
-        sections: [
-          { h: "A journey for people who want to go door to door", p: ["This is one of the longest routes out of Riyadh. Families, groups of relatives and pilgrims with luggage often choose a private car so that the whole party travels together from their address to their accommodation in Makkah, rather than changing at an airport or station."] },
-          { h: "Plan the day around prayer and rest", p: ["On a long journey, prayer times and rest stops shape the schedule. Tell us when you want to leave and what stops matter to you. Leaving time, the pace and where you break the journey are agreed in the quotation. Do not assume a fixed arrival time."] },
-          { h: "Umrah paperwork stays with you", p: ["RideSaudi provides transport only. It is not affiliated with any religious or government authority and does not issue Umrah visas or permits; those are arranged through official channels. Entry to Makkah is for Muslims, so check the rules for everyone in your party before you travel."] },
-          { h: "Onward and return travel", p: ["Many travellers continue to Madinah afterwards; see Riyadh to Madinah and Makkah to Madinah. For local movement inside the holy cities, see private Umrah chauffeur. Add your return journey to the same enquiry."] },
-        ],
-        checklist: { h: "Include this in your Riyadh to Makkah enquiry", items: ["Direction, date and preferred departure time", "Pickup address in Riyadh and accommodation in Makkah", "Passengers, including children and elderly travellers", "Luggage", "Return journey or onward travel to Madinah", "Any stops you want on the way"] },
-        faqs: [
-          { q: "Can I book a private car from Riyadh to Makkah?", a: "Yes. Send an enquiry, receive a quotation and confirm before anything is arranged." },
-          { q: "Can the same car take us on to Madinah?", a: "You can request it as part of the same journey plan; availability and terms are confirmed in the quotation." },
-          { q: "Do you arrange Umrah permits?", a: "No. RideSaudi provides transport only; permits and visas are arranged through official channels." },
-          { q: "Can I plan prayer and rest stops?", a: "Yes. State what matters in your enquiry so the schedule is agreed in advance." },
-          { q: "Is a return from Makkah to Riyadh possible?", a: "Yes, both directions can be requested; add it to your enquiry." },
-        ],
-      },
-      ar: {
-        nav: "الرياض إلى مكة المكرمة",
-        title: "الرياض إلى مكة المكرمة بسيارة خاصة للعمرة",
-        description: "اطلب سيارة خاصة بسائق من الرياض إلى مكة المكرمة للعمرة أو السفر بالاتجاهين. خطط لرحلتك واستلم عرض سعر من RideSaudi.",
-        h1: "من الرياض إلى مكة المكرمة بسيارة خاصة، رحلة برية طويلة تُخطَّط مسبقًا",
-        eyebrow: "بين المدن · الرياض ⇄ مكة المكرمة",
-        answer: "التوصيل الخاص من الرياض إلى مكة المكرمة هو سيارة بسائق وبحجز مسبق للرحلة البرية الطويلة من العاصمة إلى مكة، وغالبًا للعمرة، والعكس كذلك. تُسعِّر RideSaudi كل رحلة على حدة. ويُتَّفق على التوقيت ومحطات الراحة والإتاحة قبل أن تلتزم، وعرض السعر هو الذي يبيّنها لا هذه الصفحة.",
-        summary: "رحلة برية خاصة مخطط لها بين الرياض ومكة المكرمة، بعين على العمرة.",
-        sections: [
-          { h: "رحلة لمن يريد الانتقال من الباب إلى الباب", p: ["هذا من أطول المسارات الخارجة من الرياض. وكثيرًا ما تختار العائلات ومجموعات الأقارب والمعتمرون الذين معهم حقائب سيارة خاصة ليسافر الجميع معًا من عنوانهم إلى سكنهم في مكة، دون تبديل في مطار أو محطة."] },
-          { h: "رتّب اليوم حول الصلاة والراحة", p: ["في الرحلة الطويلة تحدد أوقات الصلاة ومحطات الراحة شكل الجدول. أخبرنا متى تريد الانطلاق وأي التوقفات تهمك. ويُتَّفق في عرض السعر على وقت الانطلاق ووتيرة السير ومكان التوقف. ولا تفترض وقت وصول ثابتًا."] },
-          { h: "أوراق العمرة تبقى عندك", p: ["تقدّم RideSaudi النقل فقط. وهي غير تابعة لأي جهة دينية أو حكومية ولا تصدر تأشيرات العمرة أو تصاريحها؛ فتلك تُنجَز عبر القنوات الرسمية. ودخول مكة المكرمة للمسلمين، فتحقق من الأحكام لكل فرد في مجموعتك قبل السفر."] },
-          { h: "السفر اللاحق والعودة", p: ["يتابع كثير من المسافرين إلى المدينة المنورة بعد ذلك؛ راجع صفحتي الرياض إلى المدينة المنورة ومكة المكرمة إلى المدينة المنورة. وللتنقل داخل المدينتين المقدستين راجع صفحة سائق العمرة الخاص. وأضف رحلة العودة إلى الطلب نفسه."] },
-        ],
-        checklist: { h: "ما الذي تضيفه إلى طلب الرياض إلى مكة المكرمة", items: ["الاتجاه والتاريخ ووقت الانطلاق المفضل", "عنوان الاستلام في الرياض والسكن في مكة", "الركاب ومنهم الأطفال وكبار السن", "الحقائب", "رحلة العودة أو السفر اللاحق إلى المدينة المنورة", "أي توقفات تريدها في الطريق"] },
-        faqs: [
-          { q: "هل يمكنني حجز سيارة خاصة من الرياض إلى مكة المكرمة؟", a: "نعم. أرسل استفسارًا فيصلك عرض سعر، وتؤكد قبل ترتيب أي شيء." },
-          { q: "هل تواصل السيارة نفسها إلى المدينة المنورة؟", a: "يمكنك طلب ذلك ضمن خطة الرحلة نفسها؛ وتُؤكَّد الإتاحة والشروط في عرض السعر." },
-          { q: "هل ترتبون تصاريح العمرة؟", a: "لا. تقدّم RideSaudi النقل فقط، وتُنجَز التصاريح والتأشيرات عبر القنوات الرسمية." },
-          { q: "هل يمكنني تخطيط محطات الصلاة والراحة؟", a: "نعم. اذكر ما يهمك في استفسارك ليُتَّفق على الجدول مسبقًا." },
-          { q: "هل يمكن العودة من مكة المكرمة إلى الرياض؟", a: "نعم، يمكن طلب الاتجاهين؛ أضف ذلك إلى استفسارك." },
-        ],
-      },
-    },
-  },
-
-  {
     path: `${I}/riyadh-to-madinah`,
     parent: I,
     variant: "umrah",

@@ -25,13 +25,14 @@ export function GET() {
 - Website: ${SITE_URL}/
 - Languages: English (/en/) and Arabic (/ar/, right-to-left)
 - Booking model: enquiry first, quotation, then confirmation
+- Every journey is private: the vehicle is reserved for one customer party only. RideSaudi does not sell shared seats or combine separate bookings in one car.
 - Vehicle and route availability is confirmed per quotation, not published as a fleet or route list
 - Not affiliated with any religious or government authority; does not issue Umrah visas or permits
 
 ## Riyadh coverage
 - Riyadh city hub: private car with a driver by trip, hour or day, plus airport, sightseeing, events and intercity routes: ${SITE_URL}/en/services/city-transport/riyadh/ (Arabic: ${SITE_URL}/ar/services/city-transport/riyadh/)
 - Routes from Riyadh are quoted individually and can be requested in either direction: Dammam, Jeddah, Makkah, Madinah, Al Ahsa, AlUla, Taif, Abha, Tabuk, Hail, Buraydah, Jubail, Yanbu, Hafar Al Batin, and cross-border to Doha, Dubai, Manama and Kuwait City.
-- Distances, durations and prices are not published; entry rules for cross-border journeys must be checked with official authorities.
+- Prices are not published. Road distance and driving time are stated on a route page only where they have been checked; entry rules for cross-border journeys must be checked with official authorities.
 
 ## Guides
 ${guides}

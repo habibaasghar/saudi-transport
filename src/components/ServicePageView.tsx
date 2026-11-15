@@ -74,6 +74,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             <div className="answer">
               <h2 id="answer-h" className="answer__label">{t("answerLabel")}</h2>
               <p>{c.answer}</p>
+              <p className="answer__exclusive">{t("exclusive")}</p>
             </div>
           </div>
         </section>
@@ -123,7 +124,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
                 <div className="wrap">
                   <h2 id="table-h" className="table-title">{c.table.h}</h2>
                   <div className="table-wrap" tabIndex={0} role="region" aria-labelledby="table-h">
-                    <table>
+                    <table className={c.table.head.length <= 2 ? "table--fit" : undefined}>
                       <thead>
                         <tr>{c.table.head.map((h) => <th key={h} scope="col">{h}</th>)}</tr>
                       </thead>

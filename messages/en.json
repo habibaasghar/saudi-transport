@@ -331,7 +331,8 @@
     "relatedEyebrow": "Keep planning",
     "faqEyebrow": "FAQ",
     "faqTitle": "Questions on this service",
-    "getQuote": "Get a Quote",
+    "getQuote": "Request a Private Transfer Quote",
+    "exclusive": "Private vehicle for your party only. RideSaudi does not sell shared seats or combine separate bookings in one car.",
     "whatsapp": "Book on WhatsApp",
     "notice": "Pre-booked only. An enquiry is not a confirmed reservation.",
     "reviewed": "Last reviewed",
@@ -378,7 +379,7 @@
     "cta": "See the journey"
   },
   "contact": {
-    "whatsapp": "WhatsApp Us",
+    "whatsapp": "WhatsApp Our Team",
     "call": "Call Now",
     "email": "Email Us",
     "quote": "Request a Quote",
