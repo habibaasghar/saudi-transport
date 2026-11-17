@@ -396,3 +396,4 @@ tbody th { font-weight: 600; color: var(--palm); }
 html.nav-open .wa-float { display: none; }
 @media (min-width: 700px) { .wa-float__label { display: inline; } }
 @media (prefers-reduced-motion: reduce) { .wa-float, .cta { transition: none; } }
+.more__sub { font-size: 1rem; margin: 0 0 .75rem; }

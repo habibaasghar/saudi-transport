@@ -3,7 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import type { ServicePage } from "@/content/types";
-import { childrenOf, getPage, trail } from "@/content/registry";
+import { childrenOf, getPage, pages, trail } from "@/content/registry";
+import { blogPosts } from "@/content/blog/posts";
 import { getImage } from "@/content/images";
 import { pageSchema } from "@/lib/schema";
 import { Header } from "./Header";
@@ -16,6 +17,22 @@ import { ContactRow } from "./ContactCta";
 import { routePrefill } from "@/content/route-prefill";
 
 const href = (path: string) => `/${path}`;
+const ROUTE_PREFIX = "services/intercity-transfers/";
+const CITY_PREFIX = "services/city-transport/";
+
+/** On a city hub, every route page that starts or ends in that city (by slug), not already linked as related or child. */
+function cityRoutes(page: ServicePage, exclude: Set<string>): ServicePage[] {
+  if (!page.path.startsWith(CITY_PREFIX)) return [];
+  const hub = page.path.slice(CITY_PREFIX.length);
+  /** City hub slugs that are spelled differently in route slugs. */
+  const city = ({ buraidah: "buraydah" } as Record<string, string>)[hub] ?? hub;
+  if (!hub || hub.includes("/")) return [];
+  return pages.filter((p) => {
+    if (!p.path.startsWith(ROUTE_PREFIX) || exclude.has(p.path)) return false;
+    const [o, d] = p.path.slice(ROUTE_PREFIX.length).split("-to-");
+    return o === city || d === city;
+  });
+}
 
 export async function ServicePageView({ page, locale }: { page: ServicePage; locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "svc" });
@@ -24,6 +41,9 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
   const hero = getImage(page.path);
   const kids = childrenOf(page.path);
   const related = page.related.map(getPage).filter((p): p is ServicePage => Boolean(p));
+  const routes = cityRoutes(page, new Set([...page.related, ...kids.map((k) => k.path)]));
+  /** Guides that cite this page link back to it, so informational and commercial pages reinforce each other. */
+  const guides = blogPosts.filter((b) => b.links.includes(page.path));
 
   return (
     <>
@@ -180,6 +200,29 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
                   </li>
                 ))}
               </ul>
+            </div>
+          </section>
+        )}
+
+        {(routes.length > 0 || guides.length > 0) && (
+          <section className="section section--white" aria-labelledby="more-h">
+            <div className="wrap">
+              <SectionHead id="more-h" eyebrow={t("relatedEyebrow")} title={routes.length > 0 ? t("cityRoutes") : t("guides")} />
+              {routes.length > 0 && (
+                <ul className="chips">
+                  {routes.map((r) => (
+                    <li key={r.path}><Link href={href(r.path)}>{r.copy[locale].nav}</Link></li>
+                  ))}
+                </ul>
+              )}
+              {routes.length > 0 && guides.length > 0 && <h3 className="more__sub">{t("guides")}</h3>}
+              {guides.length > 0 && (
+                <ul className="chips">
+                  {guides.map((b) => (
+                    <li key={b.slug}><Link href={`/blog/${b.slug}`}>{b.copy[locale].nav}</Link></li>
+                  ))}
+                </ul>
+              )}
             </div>
           </section>
         )}
