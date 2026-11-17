@@ -25,6 +25,7 @@ export function GET() {
 - Website: ${SITE_URL}/
 - Languages: English (/en/) and Arabic (/ar/, right-to-left)
 - Booking model: enquiry first, quotation, then confirmation
+- RideSaudi is a booking and enquiry service: journeys are carried out by the transport partners it books with, and RideSaudi does not claim to own every vehicle or employ every driver
 - Every journey is private: the vehicle is reserved for one customer party only. RideSaudi does not sell shared seats or combine separate bookings in one car.
 - Vehicle and route availability is confirmed per quotation, not published as a fleet or route list
 - Not affiliated with any religious or government authority; does not issue Umrah visas or permits

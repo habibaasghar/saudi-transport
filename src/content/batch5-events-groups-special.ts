@@ -973,7 +973,7 @@ export const batch5: ServicePage[] = [
     copy: {
       en: {
         nav: "Fleet",
-        title: "Our Vehicles: Sedan, GMC Yukon and Hyundai Staria with Driver",
+        title: "Vehicles with Driver: Sedan, GMC Yukon and Hyundai Staria",
         description: "Vehicles you can request from RideSaudi: sedan, GMC Yukon SUV and Hyundai Staria van, each with a driver. The vehicle for your date is confirmed in the quotation.",
         h1: "Sedan, GMC Yukon or Hyundai Staria: choose the vehicle for your journey",
         eyebrow: "Fleet",
@@ -986,15 +986,15 @@ export const batch5: ServicePage[] = [
         ],
         checklist: { h: "Include this in your vehicle enquiry", items: ["Passengers and luggage", "Journey type and dates", "Category preference", "Child seat or mobility needs", "Premium or standard"] },
         faqs: [
-          { q: "Which vehicles do you have?", a: "Sedans, GMC Yukon SUVs and Hyundai Staria vans, each with a driver. The exact vehicle for your date is confirmed in the quotation." },
+          { q: "Which vehicles can I request?", a: "Sedans, GMC Yukon SUVs and Hyundai Staria vans, each with a driver, provided through the transport partners RideSaudi books with. The exact vehicle for your date is confirmed in the quotation." },
           { q: "Can I request a specific model?", a: "You can; availability for your date is confirmed." },
           { q: "How many passengers fit?", a: "It depends on the vehicle. State your numbers and we confirm." },
-          { q: "Do you publish vehicle photos?", a: "Only of vehicles we actually operate, once verified." },
+          { q: "Do you publish vehicle photos?", a: "Only of vehicles actually used for RideSaudi bookings, once verified." },
         ],
       },
       ar: {
         nav: "المركبات",
-        title: "مركباتنا: سيدان وجمس يوكن وهيونداي ستاريا مع سائق",
+        title: "مركبات مع سائق: سيدان وجمس يوكن وهيونداي ستاريا",
         description: "المركبات التي يمكن طلبها من RideSaudi: سيدان وجمس يوكن وهيونداي ستاريا، وكلها مع سائق. تُؤكَّد مركبة تاريخك في عرض السعر.",
         h1: "سيدان أو جمس يوكن أو هيونداي ستاريا: اختر المركبة المناسبة لرحلتك",
         eyebrow: "المركبات",
@@ -1007,10 +1007,10 @@ export const batch5: ServicePage[] = [
         ],
         checklist: { h: "ما الذي تضيفه إلى طلب المركبة", items: ["الركاب والحقائب", "نوع الرحلة والتواريخ", "تفضيل الفئة", "الحاجة إلى مقاعد أطفال أو دعم حركة", "مميزة أم عادية"] },
         faqs: [
-          { q: "ما المركبات التي لديكم؟", a: "سيدان وجمس يوكن وهيونداي ستاريا، وكلها مع سائق. وتُؤكَّد المركبة المحددة لتاريخك في عرض السعر." },
+          { q: "ما المركبات التي يمكنني طلبها؟", a: "سيدان وجمس يوكن وهيونداي ستاريا، وكلها مع سائق، يوفّرها شركاء النقل الذين تحجز معهم RideSaudi. وتُؤكَّد المركبة المحددة لتاريخك في عرض السعر." },
           { q: "هل يمكنني طلب موديل بعينه؟", a: "يمكنك ذلك؛ وتُؤكَّد الإتاحة لتاريخك." },
           { q: "كم راكبًا يتسع؟", a: "يتوقف على المركبة. اذكر أعدادك ونؤكد." },
-          { q: "هل تنشرون صور المركبات؟", a: "فقط لمركبات نشغّلها فعلًا، وبعد التحقق." },
+          { q: "هل تنشرون صور المركبات؟", a: "فقط لمركبات تُستخدم فعلًا في حجوزات RideSaudi، وبعد التحقق." },
         ],
       },
     },
