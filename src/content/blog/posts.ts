@@ -1,5 +1,6 @@
 import type { BlogPost } from "./types";
 import { pillarPost } from "./pillar";
+import { jeddahAirportMakkahPost } from "./jeddah-airport-makkah-options";
 
 const I = "services/intercity-transfers";
 const X = "services/cross-border-transfers";
@@ -12,6 +13,7 @@ const D = "2026-11-10";
  */
 export const blogPosts: BlogPost[] = [
   pillarPost,
+  jeddahAirportMakkahPost,
   {
     slug: "cross-border-private-transfer-checklist",
     published: D,
