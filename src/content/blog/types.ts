@@ -9,6 +9,8 @@ export type BlogCopy = {
   answer: string;
   summary: string;
   sections: Section[];
+  /** Optional facts table, rendered after the first section. */
+  table?: { h: string; head: string[]; rows: string[][] };
   faqs: { q: string; a: string }[];
 };
 

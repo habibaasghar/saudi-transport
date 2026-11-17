@@ -1,4 +1,5 @@
 import type { BlogPost } from "./types";
+import { pillarPost } from "./pillar";
 
 const I = "services/intercity-transfers";
 const X = "services/cross-border-transfers";
@@ -10,6 +11,7 @@ const D = "2026-11-10";
  * question and links to the commercial page that serves it.
  */
 export const blogPosts: BlogPost[] = [
+  pillarPost,
   {
     slug: "cross-border-private-transfer-checklist",
     published: D,
