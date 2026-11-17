@@ -125,3 +125,22 @@ Not verified: form pre-fill was confirmed on one directly loaded page only (the 
 ## 5. Recommended next step
 
 Commit this work and push it to a preview branch on the `saudi-transport` repo, review the ten pages there in English and Arabic, then deploy to production. After that: the four new P1 routes (Madinah to Jeddah, Makkah to Jeddah, Makkah to Riyadh, Taif to Jeddah), a route directory in the header, and the remaining pages marked IMPROVE.
+
+## 6. Deployment of 2A and 2B (2026-11-18)
+
+Commits `8383d92` and `dce6fe9` (ten route pages, exclusivity line, dropdown menus) were pushed as a fast-forward to `vercel-repo/main` and `vercel-repo/habiba`. The live site served the new version about 45 seconds later. Checked on www.ridesaudi.com: pages return 200, the Riyadh to Dammam page shows the new title, canonical, facts table, exclusivity line, renamed CTA and five dropdown menus; sitemap 272 URLs; `llms.txt` carries the exclusivity sentence; unknown pages return 404.
+
+## 7. Phase 2C: four new P1 routes (2026-11-18, not deployed)
+
+| New page | Planned around | Facts (Google Maps times checked 2026-11-18) |
+|---|---|---|
+| `madinah-to-jeddah` | Departure day: pickup worked back from the flight | 399 km and 3 h 56 min to JED; 404 km and 4 h 13 min to central Jeddah |
+| `makkah-to-jeddah` | Departure day, airport or Jeddah address (also covers "Makkah to Jeddah airport") | 98 km and 1 h 05 min to JED; 88 km and 1 h 02 min to central Jeddah |
+| `makkah-to-riyadh` | The drive home after Umrah | 871 km; 8 h 59 min |
+| `taif-to-jeddah` | Descent from the mountains; flights from Jeddah | 171 km; 2 h 01 min to central Jeddah, 2 h 04 min to JED |
+
+- Written fresh in English and Arabic. The drafts on `claude/ridesaudi-jeddah-routes` were not used because they name unconfirmed vehicle models (Camry, Sonata, Taurus, Tahoe, Suburban).
+- The four forward pages no longer claim to cover the return; they link to the new pages instead, so two URLs do not compete for the same direction.
+- Added to the form pre-fill, the Routes dropdown (Makkah to Jeddah, Madinah to Jeddah) and, automatically, the sitemap, `llms.txt` and the intercity hub.
+
+Test evidence: `tsc`, `eslint`, `next build` pass; `vitest` 11 pass, 10 fail (same database tests); crawl of 280 URLs all 200, self-canonical, one H1, no duplicate titles or descriptions, no broken links; similarity to each forward page 0.18 to 0.26 (EN and AR); no FAQ auto-renamed for duplication; 375 px phone width shows no overflow, tables fit, RTL correct, form pre-fill correct in both languages.

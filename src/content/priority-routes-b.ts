@@ -29,6 +29,7 @@ export const priorityRoutesB: ServicePage[] = [
     variant: "umrah",
     service: "intercity",
     related: [
+      `${I}/madinah-to-jeddah`,
       `${I}/makkah-to-madinah`,
       `${I}/madinah-to-makkah`,
       `${I}/jeddah-to-makkah`,
@@ -92,7 +93,7 @@ export const priorityRoutesB: ServicePage[] = [
           {
             h: "Returning from Madinah to Jeddah",
             p: [
-              "The return is covered on this page. If you are flying out of Jeddah, give the flight time and the pickup in Madinah is worked back from it, with time for the road and for the airport. Ask for both directions in one enquiry and they are quoted together.",
+              "Leaving Madinah for a flight home has its own page: Madinah to Jeddah plans the pickup backwards from your departure time. You can ask for both directions in one enquiry and they are quoted together.",
             ],
           },
         ],
@@ -127,7 +128,7 @@ export const priorityRoutesB: ServicePage[] = [
           { q: "Will other passengers share the car from Jeddah to Madinah?", a: "No. The vehicle is reserved for your party only. RideSaudi does not sell shared seats." },
           { q: "Can you collect me at Jeddah airport and drive to Madinah?", a: "Yes, you can request that. Give the flight number and landing time so the pickup is planned around your arrival." },
           { q: "How much is a private taxi from Jeddah to Madinah?", a: "No fixed fare is published. The quotation depends on the date, the vehicle type, the pickup point and the number of passengers, and you see it before you confirm." },
-          { q: "Can you take me from Madinah back to Jeddah or to Jeddah airport?", a: "Yes. Request the return in the same enquiry and include your flight time if you are flying out." },
+          { q: "Can you take me from Madinah back to Jeddah or to Jeddah airport?", a: "Yes. See the Madinah to Jeddah page, or request the return in the same enquiry with your flight time." },
         ],
       },
       ar: {
@@ -182,7 +183,7 @@ export const priorityRoutesB: ServicePage[] = [
           {
             h: "العودة من المدينة إلى جدة",
             p: [
-              "رحلة العودة مشمولة في هذه الصفحة. وإذا كنت مغادرًا جوًّا من جدة فاذكر موعد الرحلة ليُحسب وقت الاستلام في المدينة رجوعًا منه، مع وقت للطريق وللمطار. واطلب الاتجاهين في طلب واحد فيُسعَّران معًا.",
+              "لمغادرة المدينة للحاق برحلة العودة صفحة مستقلة: صفحة المدينة إلى جدة تحسب موعد الاستلام رجوعًا من موعد إقلاعك. ويمكنك طلب الاتجاهين في طلب واحد فيُسعَّران معًا.",
             ],
           },
         ],
@@ -217,7 +218,7 @@ export const priorityRoutesB: ServicePage[] = [
           { q: "هل يشاركنا ركاب آخرون في السيارة من جدة إلى المدينة؟", a: "لا. السيارة مخصصة لك ولمرافقيك فقط. لا تبيع RideSaudi مقاعد مشتركة." },
           { q: "هل تستلمونني من مطار جدة إلى المدينة المنورة؟", a: "نعم، يمكنك طلب ذلك. اذكر رقم الرحلة وموعد الهبوط ليُخطَّط الاستلام بحسب وصولك." },
           { q: "كم سعر تاكسي خاص من جدة إلى المدينة؟", a: "لا يُنشر سعر ثابت. يعتمد عرض السعر على التاريخ ونوع السيارة ونقطة الاستلام وعدد الركاب، ويصلك قبل أن تؤكد." },
-          { q: "هل توصلونني من المدينة إلى جدة أو إلى مطار جدة في العودة؟", a: "نعم. اطلب العودة في الطلب نفسه واذكر موعد رحلتك الجوية إن كنت مسافرًا." },
+          { q: "هل توصلونني من المدينة إلى جدة أو إلى مطار جدة في العودة؟", a: "نعم. راجع صفحة المدينة إلى جدة، أو اطلب العودة في الطلب نفسه مع موعد رحلتك الجوية." },
         ],
       },
     },
@@ -231,6 +232,7 @@ export const priorityRoutesB: ServicePage[] = [
     related: [
       `${I}/jeddah-to-riyadh`,
       `${I}/riyadh-to-makkah`,
+      `${I}/makkah-to-jeddah`,
       `${I}/riyadh-to-taif`,
       `${I}/riyadh-to-madinah`,
       `${I}/riyadh-to-dammam`,
@@ -408,6 +410,7 @@ export const priorityRoutesB: ServicePage[] = [
     variant: "umrah",
     service: "umrah",
     related: [
+      `${I}/makkah-to-riyadh`,
       `${I}/riyadh-to-jeddah`,
       `${I}/riyadh-to-madinah`,
       `${I}/riyadh-to-taif`,
@@ -464,7 +467,7 @@ export const priorityRoutesB: ServicePage[] = [
           {
             h: "Return and onward travel",
             p: [
-              "The return from Makkah to Riyadh is covered here; add it to the same enquiry with the date. Many travellers continue to Madinah after Umrah; see Makkah to Madinah and Riyadh to Madinah. For local movement inside the holy cities, see private Umrah chauffeur.",
+              "The drive home has its own page, Makkah to Riyadh; you can also add the return to this enquiry with the date. Many travellers continue to Madinah after Umrah; see Makkah to Madinah and Riyadh to Madinah. For local movement inside the holy cities, see private Umrah chauffeur.",
             ],
           },
         ],
@@ -500,7 +503,7 @@ export const priorityRoutesB: ServicePage[] = [
           { q: "Where do pilgrims from Riyadh enter Ihram?", a: "Pilgrims driving from Riyadh commonly stop at the Miqat of Qarn al-Manazil at As-Sayl Al-Kabir. Confirm the right Miqat for your journey with your scholar, and tell us you need the stop." },
           { q: "Do you arrange Umrah permits?", a: "No. RideSaudi provides transport only; permits and visas are arranged through official channels." },
           { q: "Can the same car take us on from Makkah to Madinah?", a: "You can request it as part of the same journey plan. Availability and terms are confirmed in the quotation." },
-          { q: "Can you bring us back from Makkah to Riyadh?", a: "Yes. Add the return date to your enquiry and both journeys are quoted together." },
+          { q: "Can you bring us back from Makkah to Riyadh?", a: "Yes. See the Makkah to Riyadh page, or add the return date to this enquiry and both journeys are quoted together." },
         ],
       },
       ar: {
@@ -549,7 +552,7 @@ export const priorityRoutesB: ServicePage[] = [
           {
             h: "العودة والسفر بعد مكة",
             p: [
-              "العودة من مكة إلى الرياض مشمولة هنا؛ أضفها إلى الطلب نفسه مع التاريخ. وكثير من المسافرين يواصلون إلى المدينة المنورة بعد العمرة؛ راجع صفحتي مكة إلى المدينة والرياض إلى المدينة. وللتنقل داخل المدينتين المقدستين راجع صفحة سائق العمرة الخاص.",
+              "ولطريق العودة صفحة مستقلة هي مكة إلى الرياض، ويمكنك أيضًا إضافة العودة إلى هذا الطلب مع التاريخ. وكثير من المسافرين يواصلون إلى المدينة المنورة بعد العمرة؛ راجع صفحتي مكة إلى المدينة والرياض إلى المدينة. وللتنقل داخل المدينتين المقدستين راجع صفحة سائق العمرة الخاص.",
             ],
           },
         ],
@@ -585,7 +588,7 @@ export const priorityRoutesB: ServicePage[] = [
           { q: "من أين يُحرم القادم من الرياض؟", a: "القادمون برًّا من الرياض يتوقفون عادة في ميقات قرن المنازل في السيل الكبير. تأكد من الميقات الصحيح لرحلتك مع شيخك، وأخبرنا أنك تحتاج التوقف." },
           { q: "هل ترتبون تصاريح العمرة؟", a: "لا. تقدّم RideSaudi النقل فقط؛ أما التصاريح والتأشيرات فتُرتَّب عبر القنوات الرسمية." },
           { q: "هل تواصل السيارة نفسها بنا من مكة إلى المدينة؟", a: "يمكنك طلب ذلك ضمن خطة الرحلة نفسها. وتتأكد الإتاحة والشروط في عرض السعر." },
-          { q: "هل تعيدوننا من مكة إلى الرياض؟", a: "نعم. أضف تاريخ العودة إلى طلبك فتُسعَّر الرحلتان معًا." },
+          { q: "هل تعيدوننا من مكة إلى الرياض؟", a: "نعم. راجع صفحة مكة إلى الرياض، أو أضف تاريخ العودة إلى هذا الطلب فتُسعَّر الرحلتان معًا." },
         ],
       },
     },
@@ -597,6 +600,7 @@ export const priorityRoutesB: ServicePage[] = [
     variant: "default",
     service: "intercity",
     related: [
+      `${I}/taif-to-jeddah`,
       `${I}/makkah-to-taif`,
       `${I}/taif-to-makkah`,
       `${I}/jeddah-to-makkah`,
@@ -647,7 +651,7 @@ export const priorityRoutesB: ServicePage[] = [
           {
             h: "Taif to Jeddah, and other starting points",
             p: [
-              "The return from Taif to Jeddah is covered on this page; state the direction in your enquiry. If you are starting in Makkah, see Makkah to Taif. For a pickup at Taif International Airport, see the Taif airport transfer page.",
+              "For the drive back down, see Taif to Jeddah, which also covers flights from Jeddah airport. If you are starting in Makkah, see Makkah to Taif. For a pickup at Taif International Airport, see the Taif airport transfer page.",
             ],
           },
         ],
@@ -682,7 +686,7 @@ export const priorityRoutesB: ServicePage[] = [
           { q: "Can I book a day trip from Jeddah to Taif with the car waiting?", a: "Yes. Describe your timing and the places you want to visit, and the quotation covers the whole day including waiting." },
           { q: "Is the Jeddah to Taif car private?", a: "Yes. The vehicle is reserved for your party only and no other passengers are added." },
           { q: "Can non-Muslim visitors travel from Jeddah to Taif?", a: "Yes. Tell us in the enquiry, and the journey is planned on roads that do not enter the Makkah area." },
-          { q: "Do you also drive from Taif to Jeddah?", a: "Yes, both directions can be requested. For a pickup at Taif airport, see the Taif airport transfer page." },
+          { q: "Do you also drive from Taif to Jeddah?", a: "Yes. See the Taif to Jeddah page. For a pickup at Taif airport, see the Taif airport transfer page." },
         ],
       },
       ar: {
@@ -725,7 +729,7 @@ export const priorityRoutesB: ServicePage[] = [
           {
             h: "من الطائف إلى جدة، ونقاط انطلاق أخرى",
             p: [
-              "العودة من الطائف إلى جدة مشمولة في هذه الصفحة؛ اذكر الاتجاه في طلبك. وإذا كنت تنطلق من مكة فراجع صفحة مكة إلى الطائف. وللاستلام من مطار الطائف الدولي راجع صفحة توصيل مطار الطائف.",
+              "ولطريق النزول من الطائف إلى جدة صفحة مستقلة تشمل اللحاق بالرحلات من مطار جدة. وإذا كنت تنطلق من مكة فراجع صفحة مكة إلى الطائف. وللاستلام من مطار الطائف الدولي راجع صفحة توصيل مطار الطائف.",
             ],
           },
         ],
@@ -760,7 +764,7 @@ export const priorityRoutesB: ServicePage[] = [
           { q: "هل يمكن حجز رحلة يوم واحد من جدة إلى الطائف مع انتظار السيارة؟", a: "نعم. صِف توقيتك والأماكن التي تريد زيارتها، ويغطي عرض السعر اليوم كله مع الانتظار." },
           { q: "هل السيارة من جدة إلى الطائف خاصة؟", a: "نعم. السيارة مخصصة لك ولمرافقيك فقط ولا يُضاف إليها ركاب آخرون." },
           { q: "هل يستطيع الزوار غير المسلمين السفر من جدة إلى الطائف؟", a: "نعم. أخبرنا في الطلب، فتُخطَّط الرحلة على طرق لا تدخل منطقة مكة المكرمة." },
-          { q: "هل توصلون أيضًا من الطائف إلى جدة؟", a: "نعم، يمكن طلب الاتجاهين. وللاستلام من مطار الطائف راجع صفحة توصيل مطار الطائف." },
+          { q: "هل توصلون أيضًا من الطائف إلى جدة؟", a: "نعم. راجع صفحة الطائف إلى جدة. وللاستلام من مطار الطائف راجع صفحة توصيل مطار الطائف." },
         ],
       },
     },

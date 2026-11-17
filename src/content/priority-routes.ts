@@ -439,6 +439,7 @@ export const priorityRoutes: ServicePage[] = [
     service: "intercity",
     related: [
       "services/umrah-transport/jeddah-airport-to-makkah",
+      `${I}/makkah-to-jeddah`,
       `${I}/makkah-to-madinah`,
       `${I}/jeddah-to-madinah`,
       `${I}/makkah-to-taif`,
@@ -492,7 +493,7 @@ export const priorityRoutes: ServicePage[] = [
           {
             h: "Returning from Makkah to Jeddah",
             p: [
-              "The return is covered here as well. If it connects to a flight, include the flight time so the pickup in Makkah is worked back from it, with time for the road and for airport procedures. Ask for both directions in one enquiry and they are quoted together.",
+              "Departure day has its own page: Makkah to Jeddah covers the drive to the airport or a Jeddah address, with the pickup worked back from your flight. You can still ask for both directions in one enquiry and they are quoted together.",
             ],
           },
           {
@@ -539,7 +540,7 @@ export const priorityRoutes: ServicePage[] = [
           { q: "How much is a private car from Jeddah to Makkah?", a: "No fixed fare is published. The quotation depends on the date, the vehicle type, your pickup area in Jeddah and the number of passengers, and you see it before you confirm." },
           { q: "Can I ask for a GMC Yukon from Jeddah to Makkah?", a: "Yes. Select GMC Yukon as the preferred vehicle. Availability on your date is confirmed in the quotation." },
           { q: "I am landing at Jeddah airport. Is this the right page?", a: "For a pickup at King Abdulaziz International Airport, use the Jeddah Airport to Makkah page, which covers arrivals and flight timing." },
-          { q: "Can you take me from Makkah back to Jeddah?", a: "Yes. Request the return in the same enquiry and give your flight time if you are flying out, so the pickup time in Makkah is planned around it." },
+          { q: "Can you take me from Makkah back to Jeddah?", a: "Yes. See the Makkah to Jeddah page, or request the return in the same enquiry with your flight time so the pickup in Makkah is planned around it." },
         ],
       },
       ar: {
@@ -585,7 +586,7 @@ export const priorityRoutes: ServicePage[] = [
           {
             h: "العودة من مكة إلى جدة",
             p: [
-              "رحلة العودة مشمولة هنا أيضًا. وإذا كانت مرتبطة برحلة جوية فاذكر موعد الإقلاع ليُحسب وقت الاستلام في مكة رجوعًا منه، مع وقت للطريق ولإجراءات المطار. واطلب الاتجاهين في طلب واحد فيُسعَّران معًا.",
+              "ليوم المغادرة صفحة مستقلة: صفحة مكة إلى جدة تغطي الطريق إلى المطار أو إلى عنوان في جدة، مع حساب موعد الاستلام رجوعًا من رحلتك. ويمكنك مع ذلك طلب الاتجاهين في طلب واحد فيُسعَّران معًا.",
             ],
           },
           {
@@ -632,7 +633,7 @@ export const priorityRoutes: ServicePage[] = [
           { q: "كم سعر السيارة الخاصة من جدة إلى مكة؟", a: "لا يُنشر سعر ثابت. يعتمد عرض السعر على التاريخ ونوع السيارة ومنطقة الاستلام في جدة وعدد الركاب، ويصلك قبل أن تؤكد." },
           { q: "هل يمكنني طلب جمس يوكن من جدة إلى مكة؟", a: "نعم. اختر جمس يوكن سيارةً مفضلة، وتتأكد إتاحتها في تاريخك ضمن عرض السعر." },
           { q: "سأصل عبر مطار جدة، فهل هذه الصفحة المناسبة؟", a: "للاستلام من مطار الملك عبدالعزيز الدولي راجع صفحة مطار جدة إلى مكة، فهي تغطي الوصول وتوقيت الرحلة الجوية." },
-          { q: "هل توصلونني من مكة إلى جدة في العودة؟", a: "نعم. اطلب العودة في الطلب نفسه واذكر موعد رحلتك الجوية إن كنت مسافرًا، ليُخطَّط وقت الاستلام في مكة بحسبه." },
+          { q: "هل توصلونني من مكة إلى جدة في العودة؟", a: "نعم. راجع صفحة مكة إلى جدة، أو اطلب العودة في الطلب نفسه مع موعد رحلتك الجوية ليُخطَّط وقت الاستلام في مكة بحسبه." },
         ],
       },
     },
