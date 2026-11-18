@@ -252,6 +252,30 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
         {messageKey && (
           <p className={status === "success" ? "ok" : "bad"}>{t(`status.${messageKey}`)}</p>
         )}
+        {(status === "failed" || status === "notConfigured") && Object.keys(errors).length === 0 && (
+          /* Safety net: if online delivery fails, the customer can still send the same details on WhatsApp. */
+          <p>
+            <a
+              href={whatsappHref(
+                t("whatsappFallback", {
+                  service: data.service ? t(`services.${data.service}` as never) : "-",
+                  pickup: data.pickup,
+                  dropoff: data.dropoff,
+                  date: data.date,
+                  time: data.time,
+                  pax: data.passengers,
+                  bags: data.luggage,
+                  name: data.name,
+                }),
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--primary"
+            >
+              {t("sendOnWhatsApp")}
+            </a>
+          </p>
+        )}
         {status === "success" && receipt && (
           <p>
             {receipt.reference && <strong>{t("reference", { ref: receipt.reference })} </strong>}

@@ -6,6 +6,7 @@ import { howToBookPost } from "./how-to-book";
 import { jeddahMadinahPost } from "./jeddah-madinah-options";
 import { madinahAlulaPost } from "./madinah-alula-road";
 import { chauffeurVsTaxiPost } from "./chauffeur-vs-taxi";
+import { stariaPost } from "./staria-groups";
 
 const I = "services/intercity-transfers";
 const X = "services/cross-border-transfers";
@@ -24,6 +25,7 @@ export const blogPosts: BlogPost[] = [
   jeddahMadinahPost,
   madinahAlulaPost,
   chauffeurVsTaxiPost,
+  stariaPost,
   {
     slug: "cross-border-private-transfer-checklist",
     published: D,
@@ -151,7 +153,7 @@ export const blogPosts: BlogPost[] = [
             h: "Start with an honest count",
             p: [
               "Count adults, children and infants, then count every bag: large suitcases, cabin bags, pushchairs, wheelchairs and anything bulky. Travellers almost always underestimate the bags, and a vehicle that is full at the airport is uncomfortable on a four-hour drive.",
-              "Seat counts and luggage space vary with the model year and seat layout, so this guide does not quote numbers. Send your counts and the capacity of the actual vehicle is confirmed in the quotation.",
+              "A Hyundai Staria takes up to 7 passengers with 10 or more bags, depending on bag size. For sedans and GMC Yukons, seat counts and luggage space vary with the model year and seat layout, so send your counts and the capacity of the actual vehicle is confirmed in the quotation.",
             ],
           },
           {
@@ -160,7 +162,7 @@ export const blogPosts: BlogPost[] = [
             list: [
               "Sedan: one to a few travellers with light luggage, such as business travellers, couples and airport runs with cabin bags",
               "GMC Yukon: families and small groups who want more room and comfort on long routes such as Makkah to Madinah or Riyadh to Dammam",
-              "Hyundai Staria: larger families and small groups with plenty of luggage, so that everyone travels in one vehicle",
+              "Hyundai Staria: up to 7 passengers with 10 or more bags, for larger families and small groups who want to travel in one vehicle",
             ],
           },
           {
@@ -197,8 +199,8 @@ export const blogPosts: BlogPost[] = [
             ["Business traveller or couple with suitcases", "Sedan, or a GMC Yukon for more room on a long route"],
             ["Family of five with suitcases", "GMC Yukon or Hyundai Staria; a sedan is usually too tight"],
             ["Umrah family with elderly relatives and Zamzam water", "GMC Yukon or Hyundai Staria, sized for the return leg"],
-            ["Larger family or small group with a lot of luggage", "Hyundai Staria"],
-            ["Group too large for one van", "More than one vehicle; choose 'Other or larger group'"],
+            ["Up to 7 passengers with 10 or more bags", "Hyundai Staria"],
+            ["More than 7 passengers", "More than one vehicle; choose 'Other or larger group'"],
           ],
         },
         faqs: [
@@ -222,7 +224,7 @@ export const blogPosts: BlogPost[] = [
             h: "ابدأ بعدّ دقيق",
             p: [
               "احسب البالغين والأطفال والرضّع، ثم احسب كل الحقائب: الكبيرة وحقائب اليد وعربات الأطفال والكراسي المتحركة وأي شيء كبير الحجم. فالمسافرون يقللون غالبًا من عدد الحقائب، والسيارة الممتلئة عند المطار تصبح مرهقة في رحلة من أربع ساعات.",
-              "يختلف عدد المقاعد ومساحة الحقائب بحسب سنة الصنع وتوزيع المقاعد، لذلك لا يذكر هذا الدليل أرقامًا. أرسل أعدادك وتُؤكَّد سعة السيارة الفعلية في عرض السعر.",
+              "تتسع هيونداي ستاريا لما يصل إلى 7 ركاب مع 10 حقائب أو أكثر بحسب حجمها. أما في السيدان والجمس يوكن فيختلف عدد المقاعد ومساحة الحقائب بحسب سنة الصنع وتوزيع المقاعد، فأرسل أعدادك وتُؤكَّد سعة السيارة الفعلية في عرض السعر.",
             ],
           },
           {
@@ -231,7 +233,7 @@ export const blogPosts: BlogPost[] = [
             list: [
               "سيدان: لمسافر أو بضعة مسافرين بحقائب خفيفة، مثل رجال الأعمال والأزواج ومشاوير المطار بحقائب اليد",
               "جمس يوكن: للعائلات والمجموعات الصغيرة التي تريد مساحة وراحة أكبر على المسارات الطويلة مثل مكة إلى المدينة أو الرياض إلى الدمام",
-              "هيونداي ستاريا: للعائلات الكبيرة والمجموعات الصغيرة ذات الحقائب الكثيرة، ليسافر الجميع في سيارة واحدة",
+              "هيونداي ستاريا: حتى 7 ركاب مع 10 حقائب أو أكثر، للعائلات الكبيرة والمجموعات الصغيرة التي تريد السفر في سيارة واحدة",
             ],
           },
           {
@@ -268,8 +270,8 @@ export const blogPosts: BlogPost[] = [
             ["رجل أعمال أو زوجان مع حقائب", "سيدان، أو جمس يوكن لمساحة أكبر في مسار طويل"],
             ["عائلة من خمسة أفراد مع حقائب", "جمس يوكن أو هيونداي ستاريا؛ السيدان ضيقة عادةً"],
             ["عائلة معتمرة مع كبار سن وماء زمزم", "جمس يوكن أو هيونداي ستاريا، بحسب حقائب طريق العودة"],
-            ["عائلة كبيرة أو مجموعة صغيرة بحقائب كثيرة", "هيونداي ستاريا"],
-            ["مجموعة أكبر من سيارة فان واحدة", "أكثر من سيارة؛ اختر «أخرى أو مجموعة أكبر»"],
+            ["حتى 7 ركاب مع 10 حقائب أو أكثر", "هيونداي ستاريا"],
+            ["أكثر من 7 ركاب", "أكثر من سيارة؛ اختر «أخرى أو مجموعة أكبر»"],
           ],
         },
         faqs: [

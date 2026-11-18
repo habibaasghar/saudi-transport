@@ -291,9 +291,9 @@
     },
     "status": {
       "success": "Enquiry received. This is not a confirmed reservation. You will receive a quotation and confirmation from RideSaudi.",
-      "notConfigured": "Online enquiries are not open yet, so your details have not been sent. Please try again later.",
+      "notConfigured": "Online enquiries are not available right now. Send the same details on WhatsApp with the button below.",
       "rateLimited": "Too many attempts. Please wait a moment and try again.",
-      "failed": "We could not send your enquiry. Please try again."
+      "failed": "We could not send your enquiry online. Your details are still in the form: send them on WhatsApp with the button below, or try again."
     },
     "services": {
       "airport": "Airport Transfer",
@@ -308,7 +308,9 @@
     },
     "reference": "Your reference: {ref}.",
     "followUpWhatsApp": "Send these details on WhatsApp",
-    "whatsappFollowUp": "Hello RideSaudi, I just sent an enquiry (ref {ref}) for {service}: {pickup} to {dropoff} on {date} at {time}, {pax} passenger(s). Please confirm availability and a quotation."
+    "whatsappFollowUp": "Hello RideSaudi, I just sent an enquiry (ref {ref}) for {service}: {pickup} to {dropoff} on {date} at {time}, {pax} passenger(s). Please confirm availability and a quotation.",
+    "sendOnWhatsApp": "Send this enquiry on WhatsApp",
+    "whatsappFallback": "Hello RideSaudi, I would like a quotation for {service}: {pickup} to {dropoff} on {date} at {time}, {pax} passenger(s), {bags} bag(s). Name: {name}."
   },
   "footer": {
     "tagline": "Pre-booked private chauffeur transportation in Saudi Arabia.",
