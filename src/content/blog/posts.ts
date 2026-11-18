@@ -117,45 +117,157 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "choosing-vehicle-size-family-group-travel-saudi",
     published: D,
-    updated: D,
-    links: ["fleet", "services/group-transportation/family-transport", "services/group-transportation/van-and-minibus", "luxury-transportation/luxury-suv", "services/airport-transfers/family-airport-transfer"],
+    updated: "2026-11-18",
+    links: [
+      "fleet",
+      "services/group-transportation/family-transport",
+      "services/umrah-transport/family-umrah-transport",
+      "services/group-transportation/van-and-minibus",
+      "services/group-transportation",
+      "services/airport-transfers/family-airport-transfer",
+      "luxury-transportation/luxury-suv",
+    ],
     copy: {
       en: {
-        nav: "Choosing a vehicle for family or group travel",
-        title: "Which Vehicle for Five Passengers with Luggage? A Practical Guide",
-        description: "How to choose between a sedan, an SUV and a van for family or group travel in Saudi Arabia: seats, luggage, comfort and what to confirm with your provider.",
-        h1: "Which vehicle suits five passengers with luggage?",
-        answer: "For five passengers with luggage, a standard sedan is usually too tight; a full-size SUV or a people carrier is the safer starting point, and a van suits larger groups or heavy luggage. Seat counts and luggage space vary by model, so tell your provider the number of people and bags and ask them to confirm the exact vehicle.",
-        summary: "A simple way to match vehicle type to passengers and luggage.",
+        nav: "Choosing a vehicle by passengers and luggage",
+        title: "Sedan, GMC Yukon or Staria? Choosing by Passengers and Bags",
+        description: "How to choose between a sedan, a GMC Yukon and a Hyundai Staria for family, group or Umrah travel in Saudi Arabia, by passengers, luggage and route.",
+        h1: "Sedan, GMC Yukon or Hyundai Staria: which vehicle suits your group?",
+        answer:
+          "Choose by people and bags, then by route. A sedan suits one to a few travellers with light luggage. A GMC Yukon suits families who want space on long intercity roads. A Hyundai Staria suits larger families and groups with a lot of luggage. For five passengers with suitcases a sedan is usually too tight. The usable capacity is confirmed for the actual vehicle in your quotation.",
+        summary: "Match the vehicle to your passengers, your luggage and your route, including Umrah groups carrying Zamzam water.",
         sections: [
-          { h: "Count people and bags, then add margin", p: ["Start with the number of adults, children and bags, including large suitcases, strollers and golf or sports gear. Then add margin: long drives are far more comfortable with spare space, and airport arrivals often involve more luggage than travellers expect."] },
-          { h: "Sedan, SUV or van: the general picture", p: ["A sedan suits one to three travellers with modest luggage. A full-size SUV suits families and small groups who want comfort on long roads. A van or people carrier suits larger groups and heavy luggage. These are general categories, not promises about any specific vehicle."] },
-          { h: "Children and special needs", p: ["Tell the provider if you travel with infants, children or someone who needs extra help getting in and out. Child seats and accessible vehicles are not assumed; ask for them explicitly and get them confirmed."] },
-          { h: "Confirm the vehicle before you commit", p: ["Availability depends on date and partner confirmation. A quotation should name the vehicle category, the seats and the luggage allowance. See the fleet page for how we handle vehicle requests."] },
+          {
+            h: "Start with an honest count",
+            p: [
+              "Count adults, children and infants, then count every bag: large suitcases, cabin bags, pushchairs, wheelchairs and anything bulky. Travellers almost always underestimate the bags, and a vehicle that is full at the airport is uncomfortable on a four-hour drive.",
+              "Seat counts and luggage space vary with the model year and seat layout, so this guide does not quote numbers. Send your counts and the capacity of the actual vehicle is confirmed in the quotation.",
+            ],
+          },
+          {
+            h: "The three vehicle types, and who usually asks for each",
+            p: ["RideSaudi quotes journeys in three main vehicle types, each with a driver:"],
+            list: [
+              "Sedan: one to a few travellers with light luggage, such as business travellers, couples and airport runs with cabin bags",
+              "GMC Yukon: families and small groups who want more room and comfort on long routes such as Makkah to Madinah or Riyadh to Dammam",
+              "Hyundai Staria: larger families and small groups with plenty of luggage, so that everyone travels in one vehicle",
+            ],
+          },
+          {
+            h: "Umrah groups: plan for the bags on the way home",
+            p: [
+              "Umrah families often travel with more luggage on the return than on arrival: shopping from Makkah and Madinah, and Zamzam water. When you book the full sequence, from Jeddah airport to Makkah, Makkah to Madinah and back to the airport, size the vehicle for the heaviest leg, which is usually the last one.",
+              "Mention elderly relatives and anyone using a wheelchair. Near the Haram and the Prophet's Mosque the car may stop a short walk from the hotel, so a vehicle that is easy to get in and out of, and room for a folded wheelchair, matter more than extra seats.",
+            ],
+          },
+          {
+            h: "Long routes need more margin than city trips",
+            p: [
+              "A tight fit is tolerable for a 30-minute city trip and tiring on a long one. Makkah to Madinah is about 436 km and Riyadh to Jeddah about 955 km by road. On journeys like these, choose the vehicle with spare room rather than the one that only just fits, especially with children or older passengers.",
+            ],
+          },
+          {
+            h: "When one vehicle is not enough",
+            p: [
+              "If your group is larger than one van can carry comfortably, choose 'Other or larger group' in the form and give the full numbers. A larger group may be quoted in more than one vehicle, so you can decide whether that works for you.",
+            ],
+          },
+          {
+            h: "Children and special needs",
+            p: [
+              "Child seats and mobility support are not assumed. Ask for them in the enquiry, say how many and for what ages, and check that the quotation states what can be provided.",
+            ],
+          },
         ],
+        table: {
+          h: "A quick starting point",
+          head: ["Your party", "Usually ask for"],
+          rows: [
+            ["One or two travellers, light luggage", "Sedan"],
+            ["Business traveller or couple with suitcases", "Sedan, or a GMC Yukon for more room on a long route"],
+            ["Family of five with suitcases", "GMC Yukon or Hyundai Staria; a sedan is usually too tight"],
+            ["Umrah family with elderly relatives and Zamzam water", "GMC Yukon or Hyundai Staria, sized for the return leg"],
+            ["Larger family or small group with a lot of luggage", "Hyundai Staria"],
+            ["Group too large for one van", "More than one vehicle; choose 'Other or larger group'"],
+          ],
+        },
         faqs: [
-          { q: "Can five adults with luggage fit in a standard sedan?", a: "It is usually tight. A larger vehicle is the safer choice; confirm with your provider." },
-          { q: "Do you guarantee a specific model?", a: "Not by default. Vehicle category and availability are confirmed in the quotation." },
-          { q: "Can I request a child seat?", a: "You can ask; whether it is available is confirmed in the quotation." },
+          { q: "Can five adults with luggage fit in a standard sedan?", a: "It is usually tight. A GMC Yukon or a Hyundai Staria is the safer choice; the capacity is confirmed in your quotation." },
+          { q: "Which vehicle is best for an Umrah family?", a: "Usually a GMC Yukon or a Hyundai Staria, chosen for the leg with the most luggage, which is often the return to the airport." },
+          { q: "Can I request a specific model?", a: "You can state a preference. The vehicle category and availability for your date are confirmed in the quotation." },
+          { q: "Can I request a child seat or room for a wheelchair?", a: "Yes, ask in the enquiry. Whether it can be provided is confirmed in the quotation." },
+          { q: "What if our group does not fit in one vehicle?", a: "Choose 'Other or larger group' and give the numbers. The quotation may offer more than one vehicle." },
         ],
       },
       ar: {
-        nav: "اختيار مركبة للعائلة أو المجموعة",
-        title: "أي مركبة تناسب خمسة ركاب مع حقائب؟ دليل عملي",
-        description: "كيف تختار بين سيارة سيدان وسيارة دفع رباعي وفان لسفر العائلات والمجموعات في السعودية: المقاعد والحقائب والراحة وما تؤكده مع مزوّد الخدمة.",
-        h1: "أي مركبة تناسب خمسة ركاب مع حقائب؟",
-        answer: "لخمسة ركاب مع حقائب تكون سيارة السيدان العادية عادةً ضيقة؛ والأسلم البدء بسيارة دفع رباعي كبيرة أو مركبة عائلية، وتناسب الحافلة الصغيرة المجموعات الأكبر أو الحقائب الثقيلة. تختلف المقاعد ومساحة الحقائب بحسب الطراز، فأخبر مزوّد الخدمة بعدد الأشخاص والحقائب واطلب منه تأكيد المركبة بدقة.",
-        summary: "طريقة بسيطة لمطابقة نوع المركبة مع الركاب والحقائب.",
+        nav: "اختيار السيارة حسب الركاب والحقائب",
+        title: "سيدان أم جمس يوكن أم ستاريا؟ اختر حسب الركاب والحقائب",
+        description: "كيف تختار بين سيدان وجمس يوكن وهيونداي ستاريا لسفر العائلات والمجموعات والعمرة في السعودية، بحسب عدد الركاب والحقائب والمسار.",
+        h1: "سيدان أم جمس يوكن أم هيونداي ستاريا: أي سيارة تناسب مجموعتك؟",
+        answer:
+          "اختر بحسب عدد الأشخاص والحقائب ثم بحسب المسار. السيدان لمسافر أو بضعة مسافرين بحقائب خفيفة، والجمس يوكن للعائلات التي تريد مساحة على الطرق الطويلة بين المدن، والهيونداي ستاريا للعائلات الكبيرة والمجموعات ذات الحقائب الكثيرة. ولخمسة ركاب مع حقائب تكون السيدان عادةً ضيقة. وتُؤكَّد السعة الفعلية للسيارة المخصصة لك في عرض السعر.",
+        summary: "طابق السيارة مع عدد الركاب والحقائب والمسار، ومنها مجموعات العمرة التي تحمل ماء زمزم.",
         sections: [
-          { h: "احسب الأشخاص والحقائب ثم أضف هامشًا", p: ["ابدأ بعدد البالغين والأطفال والحقائب، بما فيها الحقائب الكبيرة وعربات الأطفال والمعدات الرياضية. ثم أضف هامشًا: فالرحلات الطويلة أريح كثيرًا مع مساحة إضافية، وغالبًا يصل القادمون إلى المطار بحقائب أكثر مما يتوقعون."] },
-          { h: "سيدان أم دفع رباعي أم فان: الصورة العامة", p: ["تناسب السيدان من مسافر إلى ثلاثة مع حقائب معتدلة. وتناسب سيارة الدفع الرباعي الكبيرة العائلات والمجموعات الصغيرة التي تريد الراحة على الطرق الطويلة. ويناسب الفان أو المركبة العائلية مجموعات أكبر وحقائب ثقيلة. وهذه فئات عامة لا وعود بشأن مركبة محددة."] },
-          { h: "الأطفال والاحتياجات الخاصة", p: ["أخبر المزوّد إن كنت تسافر برضّع أو أطفال أو بمن يحتاج مساعدة إضافية في الصعود والنزول. ولا تُفترض مقاعد الأطفال والمركبات الميسّرة؛ اطلبها صراحةً وتأكد منها."] },
-          { h: "أكّد المركبة قبل أن تلتزم", p: ["تعتمد الإتاحة على التاريخ وتأكيد الشريك. وينبغي أن يذكر عرض السعر فئة المركبة والمقاعد وسعة الحقائب. راجع صفحة الأسطول لمعرفة كيف نتعامل مع طلبات المركبات."] },
+          {
+            h: "ابدأ بعدّ دقيق",
+            p: [
+              "احسب البالغين والأطفال والرضّع، ثم احسب كل الحقائب: الكبيرة وحقائب اليد وعربات الأطفال والكراسي المتحركة وأي شيء كبير الحجم. فالمسافرون يقللون غالبًا من عدد الحقائب، والسيارة الممتلئة عند المطار تصبح مرهقة في رحلة من أربع ساعات.",
+              "يختلف عدد المقاعد ومساحة الحقائب بحسب سنة الصنع وتوزيع المقاعد، لذلك لا يذكر هذا الدليل أرقامًا. أرسل أعدادك وتُؤكَّد سعة السيارة الفعلية في عرض السعر.",
+            ],
+          },
+          {
+            h: "أنواع السيارات الثلاثة، ومن يطلب كلًّا منها عادةً",
+            p: ["تُسعِّر RideSaudi الرحلات بثلاثة أنواع رئيسية من السيارات، وكلها مع سائق:"],
+            list: [
+              "سيدان: لمسافر أو بضعة مسافرين بحقائب خفيفة، مثل رجال الأعمال والأزواج ومشاوير المطار بحقائب اليد",
+              "جمس يوكن: للعائلات والمجموعات الصغيرة التي تريد مساحة وراحة أكبر على المسارات الطويلة مثل مكة إلى المدينة أو الرياض إلى الدمام",
+              "هيونداي ستاريا: للعائلات الكبيرة والمجموعات الصغيرة ذات الحقائب الكثيرة، ليسافر الجميع في سيارة واحدة",
+            ],
+          },
+          {
+            h: "مجموعات العمرة: خطط لحقائب طريق العودة",
+            p: [
+              "كثيرًا ما تعود عائلات العمرة بحقائب أكثر مما وصلت به: مشتريات من مكة والمدينة وماء زمزم. فإذا حجزت الرحلة كاملة، من مطار جدة إلى مكة ثم من مكة إلى المدينة ثم العودة إلى المطار، فاختر السيارة على أثقل مرحلة، وهي غالبًا الأخيرة.",
+              "واذكر كبار السن ومن يستخدم كرسيًا متحركًا. فقرب الحرم والمسجد النبوي قد تتوقف السيارة على بعد مشي قصير من الفندق، لذلك تكون سهولة الصعود والنزول ومكان الكرسي المطوي أهم من المقاعد الإضافية.",
+            ],
+          },
+          {
+            h: "المسارات الطويلة تحتاج هامشًا أكبر من مشاوير المدينة",
+            p: [
+              "الضيق محتمل في مشوار داخل المدينة مدته نصف ساعة، ومتعب في رحلة طويلة. فمكة إلى المدينة نحو 436 كم والرياض إلى جدة نحو 955 كم بالطريق. وفي رحلات كهذه اختر السيارة التي فيها مساحة زائدة لا التي تكفي بالكاد، خصوصًا مع الأطفال أو كبار السن.",
+            ],
+          },
+          {
+            h: "حين لا تكفي سيارة واحدة",
+            p: [
+              "إن كانت مجموعتك أكبر مما تتسع له سيارة فان واحدة براحة، فاختر «أخرى أو مجموعة أكبر» في النموذج واذكر الأعداد كاملة. فقد تُسعَّر المجموعة الكبيرة بأكثر من سيارة، فتقرر إن كان ذلك يناسبك.",
+            ],
+          },
+          {
+            h: "الأطفال والاحتياجات الخاصة",
+            p: [
+              "لا تُفترض مقاعد الأطفال ودعم الحركة. اطلبها في الطلب، واذكر عددها وأعمار الأطفال، وتأكد أن عرض السعر يذكر ما يمكن توفيره.",
+            ],
+          },
         ],
+        table: {
+          h: "نقطة بداية سريعة",
+          head: ["مجموعتك", "ما تطلبه عادةً"],
+          rows: [
+            ["مسافر أو اثنان بحقائب خفيفة", "سيدان"],
+            ["رجل أعمال أو زوجان مع حقائب", "سيدان، أو جمس يوكن لمساحة أكبر في مسار طويل"],
+            ["عائلة من خمسة أفراد مع حقائب", "جمس يوكن أو هيونداي ستاريا؛ السيدان ضيقة عادةً"],
+            ["عائلة معتمرة مع كبار سن وماء زمزم", "جمس يوكن أو هيونداي ستاريا، بحسب حقائب طريق العودة"],
+            ["عائلة كبيرة أو مجموعة صغيرة بحقائب كثيرة", "هيونداي ستاريا"],
+            ["مجموعة أكبر من سيارة فان واحدة", "أكثر من سيارة؛ اختر «أخرى أو مجموعة أكبر»"],
+          ],
+        },
         faqs: [
-          { q: "هل يتسع خمسة بالغين مع حقائب لسيارة سيدان عادية؟", a: "غالبًا تكون ضيقة. والأسلم مركبة أكبر؛ أكّد ذلك مع مزوّد الخدمة." },
-          { q: "هل تضمنون طرازًا محددًا؟", a: "ليس افتراضيًا. تُؤكَّد فئة المركبة والإتاحة في عرض السعر." },
-          { q: "هل يمكنني طلب مقعد أطفال؟", a: "يمكنك السؤال؛ وتُؤكَّد إتاحته في عرض السعر." },
+          { q: "هل يتسع خمسة بالغين مع حقائب لسيارة سيدان عادية؟", a: "غالبًا تكون ضيقة. والأسلم جمس يوكن أو هيونداي ستاريا، وتُؤكَّد السعة في عرض السعر." },
+          { q: "ما أنسب سيارة لعائلة معتمرة؟", a: "غالبًا جمس يوكن أو هيونداي ستاريا، تُختار على المرحلة التي فيها أكثر الحقائب، وهي غالبًا العودة إلى المطار." },
+          { q: "هل يمكنني طلب طراز محدد؟", a: "يمكنك ذكر تفضيلك، وتُؤكَّد فئة السيارة وإتاحتها لتاريخك في عرض السعر." },
+          { q: "هل يمكنني طلب مقعد أطفال أو مكان لكرسي متحرك؟", a: "نعم، اطلب ذلك في الطلب، ويُؤكَّد ما يمكن توفيره في عرض السعر." },
+          { q: "ماذا لو لم تتسع مجموعتنا لسيارة واحدة؟", a: "اختر «أخرى أو مجموعة أكبر» واذكر الأعداد، وقد يقترح عرض السعر أكثر من سيارة." },
         ],
       },
     },
