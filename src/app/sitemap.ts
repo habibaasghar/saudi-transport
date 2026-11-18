@@ -3,6 +3,7 @@ import { pages } from "@/content/registry";
 import { routing } from "@/i18n/routing";
 import { localeUrl, pageUrl } from "@/lib/site";
 import { blogPosts } from "@/content/blog/posts";
+import { legalPages } from "@/content/legal";
 
 /** Every canonical, indexable URL in both languages, each with hreflang alternates. */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -45,5 +46,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   ];
 
-  return [...home, ...content, ...blog];
+  const legal = legalPages.flatMap((p) =>
+    routing.locales.map((l) => ({ url: pageUrl(l, p.slug), lastModified: p.updated, alternates: alt(p.slug) })),
+  );
+
+  return [...home, ...content, ...blog, ...legal];
 }

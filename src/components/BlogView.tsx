@@ -64,7 +64,7 @@ export async function BlogIndexView({ locale }: { locale: Locale }) {
         </section>
         <QuoteSection locale={locale} topic={l.indexH1} />
       </main>
-      <Footer locale={locale} />
+      <Footer locale={locale} switchHref="/blog" />
     </>
   );
 }
@@ -178,7 +178,7 @@ export async function BlogPostView({ post, locale }: { post: BlogPost; locale: L
         <QuoteSection locale={locale} topic={c.h1} />
         <p className="wrap svc-reviewed">{l.updated}: <time dateTime={post.updated}>{post.updated}</time></p>
       </main>
-      <Footer locale={locale} />
+      <Footer locale={locale} switchHref={`/blog/${post.slug}`} />
     </>
   );
 }

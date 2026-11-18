@@ -397,3 +397,28 @@ html.nav-open .wa-float { display: none; }
 @media (min-width: 700px) { .wa-float__label { display: inline; } }
 @media (prefers-reduced-motion: reduce) { .wa-float, .cta { transition: none; } }
 .more__sub { font-size: 1rem; margin: 0 0 .75rem; }
+
+/* Fleet categories (verified facts only; see src/content/fleet.ts) */
+.fleet__item { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; gap: .6rem; }
+.fleet__item h3 { font-size: 1.5rem; }
+.fleet__cat { color: var(--clay); font-weight: 600; }
+.fleet__item dl { margin: .25rem 0; }
+.fleet__label { font-size: .85rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-top: .5rem; }
+html[lang="ar"] .fleet__label { text-transform: none; letter-spacing: 0; }
+.fleet__suit { margin: 0; gap: .5rem; }
+.fleet__avail { font-size: .9rem; color: var(--muted); margin-top: auto; padding-top: .5rem; }
+.fleet__note { margin-block: 1.5rem; color: var(--muted); max-width: 62ch; }
+.fleet-page { padding-block: clamp(2.5rem, 5vw, 4rem); }
+
+/* Info pages: privacy, terms, contact */
+.info-page { max-width: 780px; }
+.info-page h2 { font-size: clamp(1.35rem, 2.4vw, 1.75rem); margin: 2.25rem 0 .75rem; }
+.info-page p, .info-page li { margin-bottom: .75rem; }
+.info-page ul { list-style: disc; padding-inline-start: 1.4rem; margin-bottom: 1rem; }
+.info-page__meta { color: var(--muted); font-size: .95rem; }
+.info-page__contact { display: grid; gap: .5rem; margin: 1rem 0; }
+.info-page a { color: var(--clay); text-decoration: underline; }
+.info-page a.btn { text-decoration: none; }
+.form__legal { font-size: .9rem; color: var(--muted); margin-top: .5rem; }
+.form__legal a { color: inherit; }
+.quote__legal { font-size: .95rem; margin-top: .5rem; } .quote__legal a, .quote__more a { color: inherit; text-decoration: underline; }

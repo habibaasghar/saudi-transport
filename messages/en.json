@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "RideSaudi | Private Chauffeur Services in Saudi Arabia",
-    "description": "Pre-book private chauffeur transportation across Saudi Arabia, from airport transfers to intercity journeys. Request a quote from RideSaudi.",
+    "description": "Pre-book private airport transfers, intercity journeys and chauffeur services across Saudi Arabia, each with a driver. Share your trip details and request a quote.",
     "ogTitle": "RideSaudi | Private Chauffeur Services in Saudi Arabia",
     "ogDescription": "Pre-booked private chauffeur transportation for airport transfers, intercity journeys and premium travel across Saudi Arabia."
   },
@@ -38,10 +38,10 @@
     "switchTo": "العربية"
   },
   "hero": {
-    "eyebrow": "Private chauffeur · Saudi Arabia",
-    "title": "Your journey across Saudi Arabia, elevated.",
-    "subtitle": "Pre-booked private chauffeur travel for airport transfers, intercity journeys and every arrival in between. Tell us where you are going and we will prepare your quotation.",
-    "ctaQuote": "Get a Quote",
+    "eyebrow": "Pre-booked private transport · Saudi Arabia",
+    "title": "Private Chauffeur & Intercity Transfers Across Saudi Arabia",
+    "subtitle": "Pre-book private airport transfers, SUVs, vans and intercity journeys with a driver across Saudi Arabia. Share your travel details and receive a tailored quotation.",
+    "ctaQuote": "Request a Private Transfer Quote",
     "ctaServices": "Explore Our Services",
     "note": "Pre-booked only. An enquiry is not a confirmed reservation."
   },
@@ -132,13 +132,21 @@
   },
   "fleet": {
     "eyebrow": "Fleet",
-    "title": "The right vehicle for the journey",
-    "text": "When you request a quote you can tell us how many passengers are travelling, how much luggage you have and any vehicle preference. We will confirm what is available for your journey.",
+    "title": "Choose the vehicle for your journey",
+    "text": "Tell us how many passengers are travelling, how much luggage you have and which vehicle you prefer. Availability for your date is confirmed in your quotation.",
     "emptyTitle": "Vehicle details",
     "emptyText": "Verified vehicle information will be shown here. Until then, share your needs in the quote request and we will respond with the options for your journey.",
     "passengers": "Passengers",
     "luggage": "Luggage",
-    "cta": "State your vehicle preference"
+    "cta": "State your vehicle preference",
+    "capacity": "Capacity",
+    "capacityValue": "Up to {passengers} passengers and {luggage} or more bags, depending on bag size",
+    "capacityPerQuote": "Confirmed for the actual vehicle in your quotation",
+    "suitableFor": "Suitable for",
+    "availability": "Availability is confirmed in your quotation.",
+    "partnerNote": "Every vehicle comes with a driver, supplied by the transport partners RideSaudi books with.",
+    "photoNote": "Photographs are shown only for vehicles actually used for RideSaudi bookings, once verified.",
+    "viewFleet": "View fleet details"
   },
   "how": {
     "eyebrow": "How it works",
@@ -268,13 +276,15 @@
       "phone": "WhatsApp or phone number",
       "phoneHint": "Include the country code, for example +966.",
       "email": "Email (optional)",
-      "notes": "Additional requirements (optional)",
-      "consent": "I agree that RideSaudi may use these details to respond to my enquiry.",
+      "notes": "Special requirements (optional)",
+      "consent": "I agree that RideSaudi may use these details to respond to my enquiry, as described in the <privacy>Privacy Policy</privacy>.",
       "tripType": "Trip type",
       "oneWay": "One way",
       "roundTrip": "Return (round trip)",
       "returnDate": "Return date",
-      "returnTime": "Return pickup time"
+      "returnTime": "Return pickup time",
+      "childSeats": "Child seats",
+      "childSeatsHint": "How many child seats you need (0 if none)."
     },
     "submit": "Send enquiry",
     "sending": "Sending…",
@@ -310,7 +320,8 @@
     "followUpWhatsApp": "Send these details on WhatsApp",
     "whatsappFollowUp": "Hello RideSaudi, I just sent an enquiry (ref {ref}) for {service}: {pickup} to {dropoff} on {date} at {time}, {pax} passenger(s). Please confirm availability and a quotation.",
     "sendOnWhatsApp": "Send this enquiry on WhatsApp",
-    "whatsappFallback": "Hello RideSaudi, I would like a quotation for {service}: {pickup} to {dropoff} on {date} at {time}, {pax} passenger(s), {bags} bag(s). Name: {name}."
+    "whatsappFallback": "Hello RideSaudi, I would like a quotation for {service}: {pickup} to {dropoff} on {date} at {time}, {pax} passenger(s), {bags} bag(s). Name: {name}.",
+    "legal": "An enquiry is not a confirmed reservation. See the <terms>Terms and Conditions</terms>."
   },
   "footer": {
     "tagline": "Pre-booked private chauffeur transportation in Saudi Arabia.",
@@ -324,7 +335,9 @@
     "soon": "To be published",
     "language": "Language",
     "copyright": "© {year} RideSaudi. All rights reserved.",
-    "riyadh": "Riyadh"
+    "riyadh": "Riyadh",
+    "contactPage": "Contact page",
+    "legalNote": "RideSaudi arranges pre-booked private transport with transport partners."
   },
   "svc": {
     "home": "Home",
@@ -400,6 +413,14 @@
     "emailSubjectTopic": "Request a Private Transfer Quotation - {topic}",
     "heading": "Prefer to talk to us directly?",
     "footerHeading": "Contact",
-    "quoteAlt": "Or contact us directly"
+    "quoteAlt": "Or contact us directly",
+    "allOptions": "All contact options"
+  },
+  "legal": {
+    "updated": "Last reviewed",
+    "contactHeading": "Contact RideSaudi",
+    "related": "Related pages",
+    "fleet": "Vehicles and fleet",
+    "services": "All services"
   }
 }

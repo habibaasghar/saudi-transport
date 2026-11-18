@@ -35,7 +35,7 @@ const footerRiyadh = [
   "services/intercity-transfers/riyadh-to-dubai",
 ] as const;
 
-export async function Footer({ locale }: { locale: Locale }) {
+export async function Footer({ locale, switchHref = "/" }: { locale: Locale; switchHref?: string }) {
   const t = await getTranslations("footer");
   const n = await getTranslations("nav");
   const a = await getTranslations("a11y");
@@ -86,8 +86,9 @@ export async function Footer({ locale }: { locale: Locale }) {
           <div>
             <h2>{t("legal")}</h2>
             <ul>
-              <li>{t("privacy")} <small>({t("soon")})</small></li>
-              <li>{t("terms")} <small>({t("soon")})</small></li>
+              <li><Link href="/privacy-policy">{t("privacy")}</Link></li>
+              <li><Link href="/terms-and-conditions">{t("terms")}</Link></li>
+              <li><Link href="/contact">{t("contactPage")}</Link></li>
             </ul>
             <h2>{t("language")}</h2>
             <ul>
@@ -96,7 +97,7 @@ export async function Footer({ locale }: { locale: Locale }) {
                   {x === locale ? (
                     <span aria-current="true">{l(x)}</span>
                   ) : (
-                    <Link href="/" locale={x} hrefLang={x} lang={x}>{l(x)}</Link>
+                    <Link href={switchHref} locale={x} hrefLang={x} lang={x}>{l(x)}</Link>
                   )}
                 </li>
               ))}

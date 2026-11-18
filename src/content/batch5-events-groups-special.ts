@@ -973,7 +973,7 @@ export const batch5: ServicePage[] = [
     copy: {
       en: {
         nav: "Fleet",
-        title: "Vehicles with Driver: Sedan, GMC Yukon and Hyundai Staria",
+        title: "Fleet: Sedan, GMC Yukon and Hyundai Staria with Driver",
         description: "Vehicles you can request from RideSaudi: sedan, GMC Yukon SUV and Hyundai Staria van, each with a driver. The vehicle for your date is confirmed in the quotation.",
         h1: "Sedan, GMC Yukon or Hyundai Staria: choose the vehicle for your journey",
         eyebrow: "Fleet",

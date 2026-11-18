@@ -26,3 +26,18 @@ describe("validateEnquiry trip type", () => {
     expect(sanitizeEnquiry({ tripType: "round_trip" })?.tripType).toBe("round_trip");
   });
 });
+
+describe("validateEnquiry child seats", () => {
+  it("defaults to zero child seats and accepts a valid count", () => {
+    expect(emptyEnquiry().childSeats).toBe("0");
+    expect(validateEnquiry({ ...base(), childSeats: "2" }, new Date("2030-01-01"))).toEqual({});
+  });
+  it("rejects negative, fractional or absurd child seat counts", () => {
+    for (const v of ["-1", "1.5", "11", "abc"]) {
+      expect(validateEnquiry({ ...base(), childSeats: v }, new Date("2030-01-01")).childSeats).toBe("number");
+    }
+  });
+  it("sanitizer falls back to 0 when child seats is missing", () => {
+    expect(sanitizeEnquiry({})?.childSeats).toBe("0");
+  });
+});
