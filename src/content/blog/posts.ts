@@ -3,6 +3,7 @@ import { pillarPost } from "./pillar";
 import { jeddahAirportMakkahPost } from "./jeddah-airport-makkah-options";
 import { makkahMadinahPost } from "./makkah-madinah-options";
 import { howToBookPost } from "./how-to-book";
+import { jeddahMadinahPost } from "./jeddah-madinah-options";
 
 const I = "services/intercity-transfers";
 const X = "services/cross-border-transfers";
@@ -18,6 +19,7 @@ export const blogPosts: BlogPost[] = [
   jeddahAirportMakkahPost,
   makkahMadinahPost,
   howToBookPost,
+  jeddahMadinahPost,
   {
     slug: "cross-border-private-transfer-checklist",
     published: D,
