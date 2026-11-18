@@ -20,7 +20,7 @@ export const batch12GapRoutes: ServicePage[] = [
     parent: I,
     variant: "default",
     service: "intercity",
-    related: [`${C}/yanbu`, `${I}/riyadh-to-yanbu`, `${A}/jeddah-airport`, `${C}/jeddah`],
+    related: [`${I}/yanbu-to-jeddah`, `${C}/yanbu`, `${I}/riyadh-to-yanbu`, `${A}/jeddah-airport`, `${C}/jeddah`],
     updated: U,
     copy: {
       en: {
@@ -34,7 +34,7 @@ export const batch12GapRoutes: ServicePage[] = [
         sections: [
           { h: "Two very different Yanbus", p: ["Yanbu is really two places: the older waterfront town of Yanbu Al Bahr and the planned industrial city and port area, with its own offices, camps and plant gates. Say which one you are going to, and the exact gate, hotel or address, because a driver cannot guess between them. If you are arriving to work at a site, ask your host for the entry gate and any access permit well before the date."] },
           { h: "Starting from Jeddah", p: ["Most people start either at King Abdulaziz International Airport or at a hotel or home in Jeddah. The road runs north along the Red Sea coast, and towns such as Rabigh lie on the way. We do not publish a distance or driving time on this page; the planned schedule is in your quotation. If you land late in the evening, tell us your flight number so the pickup can be planned around the arrival time."] },
-          { h: "Starting from Yanbu", p: ["Going the other way, the usual starts are a Yanbu hotel, a site gate or Yanbu's own airport, and the usual destinations are Jeddah airport for an onward flight or a Jeddah address. For a flight, leave a safety margin and tell us the departure time and terminal. Our Riyadh to Yanbu page covers the longer inland route to the same city, and the Yanbu city page covers local movement once you arrive."] },
+          { h: "Starting from Yanbu", p: ["Travelling the other way, from Yanbu to Jeddah airport or a Jeddah address? That direction has its own page, Yanbu to Jeddah, planned around flights from Jeddah. Our Riyadh to Yanbu page covers the longer inland route to the same city, and the Yanbu city page covers local movement once you arrive."] },
           { h: "One way, return or several days", p: ["You can ask for a single one-way transfer, a return the same day, or a driver who stays with you for a multi-day business trip. Waiting time, overnight arrangements and returning empty are all handled in the quotation, so state your plan honestly at the start rather than changing it on the road."] },
         ],
         checklist: { h: "Include this in your Jeddah to Yanbu enquiry", items: ["Direction, date and pickup time", "Yanbu Al Bahr or Yanbu Industrial area, plus exact gate or hotel", "Jeddah airport terminal and flight number, if relevant", "Passengers and luggage, including any work equipment", "One way or return, and waiting time at either end"] },
@@ -57,7 +57,7 @@ export const batch12GapRoutes: ServicePage[] = [
         sections: [
           { h: "ينبعان مختلفان", p: ["ينبع في الواقع مكانان: بلدة ينبع البحر الساحلية القديمة، ومدينة ينبع الصناعية وميناؤها بمكاتبها ومعسكراتها وبوابات مصانعها. حدّد أيهما تقصد مع البوابة أو الفندق أو العنوان بدقة، فالسائق لا يستطيع التخمين. وإن كنت قادمًا للعمل في موقع فاطلب من مضيفك رقم البوابة وأي تصريح دخول قبل الموعد بوقت كافٍ."] },
           { h: "الانطلاق من جدة", p: ["ينطلق أغلب المسافرين من مطار الملك عبدالعزيز الدولي أو من فندق أو منزل في جدة. ويسير الطريق شمالًا على ساحل البحر الأحمر وتقع على جانبه بلدات مثل رابغ. ولا ننشر في هذه الصفحة مسافة أو زمن قيادة؛ فالجدول المخطط يأتي في عرض السعر. وإن وصلت متأخرًا مساءً فأخبرنا برقم رحلتك ليُرتَّب الاستلام وفق موعد وصولك."] },
-          { h: "الانطلاق من ينبع", p: ["في الاتجاه المعاكس تبدأ الرحلة عادةً من فندق في ينبع أو بوابة موقع أو مطار ينبع، وتنتهي في مطار جدة لرحلة متصلة أو في عنوان بجدة. وللرحلات الجوية اترك هامشًا آمنًا وأخبرنا بموعد الإقلاع والصالة. وتغطي صفحة الرياض إلى ينبع الطريق الداخلي الأطول إلى المدينة نفسها، وتغطي صفحة مدينة ينبع التنقل المحلي بعد وصولك."] },
+          { h: "الانطلاق من ينبع", p: ["هل تسافر في الاتجاه المعاكس من ينبع إلى مطار جدة أو عنوان في جدة؟ لهذا الاتجاه صفحته الخاصة، ينبع إلى جدة، وهي مخططة حول رحلات الطيران من جدة. وتغطي صفحة الرياض إلى ينبع الطريق الداخلي الأطول إلى المدينة نفسها، وتغطي صفحة مدينة ينبع التنقل المحلي بعد وصولك."] },
           { h: "ذهاب فقط أو ذهاب وعودة أو عدة أيام", p: ["يمكنك طلب توصيلة واحدة ذهابًا، أو رحلة ذهاب وعودة في اليوم نفسه، أو سائقًا يرافقك خلال رحلة عمل من عدة أيام. وتُحدَّد في عرض السعر تفاصيل الانتظار والمبيت والعودة بلا ركاب، فاذكر خطتك بصدق من البداية بدل تغييرها على الطريق."] },
         ],
         checklist: { h: "ما الذي تضيفه إلى طلب جدة إلى ينبع", items: ["الاتجاه والتاريخ ووقت الاستلام", "ينبع البحر أو ينبع الصناعية مع البوابة أو الفندق بدقة", "صالة مطار جدة ورقم الرحلة إن لزم", "عدد الركاب والحقائب ومنها أي معدات عمل", "ذهاب فقط أم ذهاب وعودة ووقت الانتظار في أي من الطرفين"] },
@@ -134,7 +134,7 @@ export const batch12GapRoutes: ServicePage[] = [
     parent: I,
     variant: "default",
     service: "intercity",
-    related: [`${I}/riyadh-to-alula`, `${T}/alula`, `${A}/alula-airport`, `${A}/madinah-airport`, `${C}/madinah`],
+    related: [`${I}/alula-to-madinah`, `${I}/riyadh-to-alula`, `${T}/alula`, `${A}/alula-airport`, `${A}/madinah-airport`, `${C}/madinah`],
     updated: U,
     copy: {
       en: {
@@ -149,7 +149,7 @@ export const batch12GapRoutes: ServicePage[] = [
           { h: "Why travellers combine Madinah and AlUla", p: ["Madinah draws visitors for ziyarat and prayer, and AlUla draws them for sandstone landscapes and the heritage sites around Hegra. Linking the two by road lets a family or small group see both without arranging two separate trips, but the drive is long, so plan it as a half-day or more of travel rather than a short hop. We do not publish a distance or time here; the quotation covers the schedule."] },
           { h: "Starting from Madinah", p: ["Common starting points are a hotel near the Prophet's Mosque, a Madinah residence or Madinah's airport. Tell us your hotel and your departure time, and whether you are checking out the same day. Our Madinah airport and city pages explain how pickups there work."] },
           { h: "Arriving in AlUla", p: ["AlUla is spread over a wide area: the old town, the Hegra site, Elephant Rock and the resorts are not next to each other, so give us your exact hotel or resort. Entry to heritage sites is usually by ticket or guided access through official AlUla channels, so book that yourself; we carry you between places and do not sell entry or guide you. Check seasonal opening times on the official AlUla visitor channels."] },
-          { h: "Rest stops and the return leg", p: ["On a long desert road, fuel and rest stops are sparse. Ask us to plan a stop, particularly with children or elderly passengers. For the return, give your Madinah flight or hotel deadline so the schedule works backwards from it. Travellers coming from the east can see our Riyadh to AlUla page."] },
+          { h: "Rest stops and the return leg", p: ["On a long desert road, fuel and rest stops are sparse. Ask us to plan a stop, particularly with children or elderly passengers. For the return, see AlUla to Madinah, which is planned from your AlUla resort to your Madinah hotel or flight. Travellers coming from the east can see our Riyadh to AlUla page."] },
         ],
         checklist: { h: "Include this in your Madinah to AlUla enquiry", items: ["Direction, date and departure time", "Madinah hotel or airport, and exact AlUla hotel or site", "Passengers, luggage and any rest-stop needs", "Your onward flight or check-out time", "One way or return, and days in AlUla"] },
         faqs: [
@@ -172,7 +172,7 @@ export const batch12GapRoutes: ServicePage[] = [
           { h: "لماذا يجمع المسافرون بين المدينة والعلا", p: ["تجذب المدينة المنورة الزوار للزيارة والصلاة، وتجذبهم العلا لمناظرها الرملية ومواقعها التراثية حول الحِجر. وربط الوجهتين بالطريق البري يتيح لعائلة أو مجموعة صغيرة رؤية الاثنتين دون ترتيب رحلتين منفصلتين، لكن القيادة طويلة، فخطط لها بنصف يوم من السفر أو أكثر لا لمشوار قصير. ولا ننشر هنا مسافة أو زمنًا؛ فعرض السعر يغطي الجدول."] },
           { h: "الانطلاق من المدينة المنورة", p: ["تتنوع نقاط الانطلاق بين فندق قرب المسجد النبوي أو سكن في المدينة أو مطارها. أخبرنا باسم فندقك ووقت المغادرة وهل ستغادر الفندق في اليوم نفسه. وتشرح صفحتا مطار المدينة ومدينتها كيفية الاستلام هناك."] },
           { h: "الوصول إلى العلا", p: ["تمتد العلا على مساحة واسعة: البلدة القديمة وموقع الحِجر وجبل الفيل والمنتجعات ليست متجاورة، فزوّدنا باسم فندقك أو منتجعك بدقة. ويكون دخول المواقع التراثية عادةً بتذكرة أو بمرافقة عبر القنوات الرسمية للعلا، فاحجز ذلك بنفسك؛ فنحن ننقلك بين الأماكن ولا نبيع الدخول ولا نرشدك. وراجع مواعيد الفتح الموسمية لدى القنوات الرسمية لزوار العلا."] },
-          { h: "محطات الراحة ورحلة العودة", p: ["على الطريق الصحراوي الطويل تقل محطات الوقود والراحة. اطلب منا تخطيط توقف خاصة مع الأطفال أو كبار السن. وفي العودة زوّدنا بموعد رحلتك أو مغادرة فندقك في المدينة ليُبنى الجدول انطلاقًا منه. ويمكن للقادمين من الشرق الاطلاع على صفحة الرياض إلى العلا."] },
+          { h: "محطات الراحة ورحلة العودة", p: ["على الطريق الصحراوي الطويل تقل محطات الوقود والراحة. اطلب منا تخطيط توقف خاصة مع الأطفال أو كبار السن. وللعودة راجع صفحة العلا إلى المدينة، وهي مخططة من منتجعك في العلا إلى فندقك أو رحلتك في المدينة. ويمكن للقادمين من الشرق الاطلاع على صفحة الرياض إلى العلا."] },
         ],
         checklist: { h: "ما الذي تضيفه إلى طلب المدينة المنورة إلى العلا", items: ["الاتجاه والتاريخ ووقت المغادرة", "فندق المدينة أو المطار وفندق العلا أو الموقع بدقة", "الركاب والحقائب وأي حاجة إلى توقفات راحة", "رحلتك التالية أو وقت إخلاء الفندق", "ذهاب فقط أم ذهاب وعودة وعدد الأيام في العلا"] },
         faqs: [

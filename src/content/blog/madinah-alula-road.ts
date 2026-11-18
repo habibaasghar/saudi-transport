@@ -18,6 +18,7 @@ export const madinahAlulaPost: BlogPost = {
   updated: D,
   links: [
     `${I}/madinah-to-alula`,
+    `${I}/alula-to-madinah`,
     `${S}/tourism-transport/alula`,
     `${S}/airport-transfers/alula-airport`,
     `${S}/airport-transfers/madinah-airport`,
