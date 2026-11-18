@@ -107,3 +107,21 @@ These are all niche service pages, plus a few city hubs:
 - Crawl of 280 URLs: all return 200 and are self-canonical, with one H1 each.
 - No duplicate titles or descriptions, hreflang on every page, no broken links, no images missing alt text.
 - The Arabic city hubs show the new block, and the Buraidah hub links to riyadh-to-buraydah.
+
+## 6. Status (2026-11-18)
+
+| Item | Status | URL (EN; AR at /ar/) |
+|---|---|---|
+| A1 Pillar guide | Live | /en/blog/private-transport-saudi-arabia-guide/ |
+| C1 Jeddah airport to Makkah options | Live | /en/blog/jeddah-airport-to-makkah-train-bus-taxi-private-car/ |
+| C2 Makkah to Madinah options | Live | /en/blog/makkah-to-madinah-train-bus-or-private-car/ |
+| A2 How to book | Live | /en/blog/how-to-book-private-car-with-driver-saudi-arabia/ |
+| A4+C5+E5 Vehicle guide update | Live (same URL) | /en/blog/choosing-vehicle-size-family-group-travel-saudi/ |
+| D3 Jeddah to Madinah options | Live | /en/blog/jeddah-to-madinah-train-flight-bus-or-car/ |
+| D4 Madinah to AlUla by road | Built | /en/blog/madinah-to-alula-by-road-guide/ |
+| A3 Private car with driver vs taxi | Built | /en/blog/private-car-with-driver-vs-taxi-saudi-arabia/ |
+| D1 Riyadh–Jeddah and Riyadh–Dammam section | Built (in existing guide) | /en/blog/private-car-vs-flight-vs-rental-saudi-intercity/ |
+| E2 Hyundai Staria for groups | **Waiting for owner**: seat and luggage layout of the partner vehicles | — |
+| E1 GMC Suburban vs Chevrolet Tahoe | **On hold**: neither vehicle is confirmed | — |
+
+Also done with D4: the madinah-to-alula route page now carries a verified distance and facts table (about 338 km, about 3 h 42 min via Route 328; Google Maps, November 2026).

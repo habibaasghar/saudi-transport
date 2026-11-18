@@ -971,6 +971,42 @@ export const routePatches: Record<string, Record<Locale, RoutePatch>> = {
       ],
     },
   },
+  [`${I}/madinah-to-alula`]: {
+    en: {
+      answer: "A private Madinah to AlUla transfer is a pre-booked car with a driver from Madinah, or Prince Mohammad bin Abdulaziz Airport, north to AlUla, and the reverse. The road is about 338 km from the Prophet's Mosque area to AlUla town, around 3 hours 40 minutes of driving before stops. It fits travellers combining a Madinah visit with AlUla's heritage sites. The vehicle is reserved for your party only.",
+      table: {
+        h: "Madinah to AlUla route facts",
+        head: ["Detail", "Madinah to AlUla"],
+        rows: [
+          ["Road distance", "About 338 km, Prophet's Mosque area to AlUla town"],
+          ["Driving time", "About 3 h 42 min without stops via Route 328 (Google Maps, checked November 2026)"],
+          ["Longer alternative", "About 390 km via Route 15 and Route 375, about 4 h 14 min"],
+          ["Pickup", "Your hotel in Madinah or Prince Mohammad bin Abdulaziz Airport"],
+          ["Drop-off", "Your hotel or resort in AlUla; give the exact name, as AlUla is spread out"],
+          ["Vehicle types", "Sedan, GMC Yukon or Hyundai Staria, confirmed in your quotation"],
+          ["Shared seats", "None. One vehicle for your party only"],
+          ["Price", "Quoted for each journey; no fixed fare is published"],
+        ],
+      },
+    },
+    ar: {
+      answer: "التوصيل الخاص من المدينة المنورة إلى العلا سيارة مع سائق تحجزها مسبقًا من المدينة أو من مطار الأمير محمد بن عبدالعزيز شمالًا إلى العلا، وبالعكس. والطريق نحو 338 كم من منطقة المسجد النبوي إلى بلدة العلا، أي قرابة 3 ساعات و40 دقيقة قيادة قبل التوقفات. ويناسب من يجمع بين زيارة المدينة والمواقع التراثية في العلا، والسيارة محجوزة لك ولمن معك فقط.",
+      table: {
+        h: "معلومات مسار المدينة إلى العلا",
+        head: ["التفصيل", "المدينة إلى العلا"],
+        rows: [
+          ["المسافة بالطريق", "نحو 338 كم من منطقة المسجد النبوي إلى بلدة العلا"],
+          ["زمن القيادة", "نحو 3 ساعات و42 دقيقة بلا توقف عبر طريق 328 (خرائط Google، تحقق في نوفمبر 2026)"],
+          ["طريق بديل أطول", "نحو 390 كم عبر طريق 15 وطريق 375، قرابة 4 ساعات و14 دقيقة"],
+          ["الاستلام", "فندقك في المدينة أو مطار الأمير محمد بن عبدالعزيز"],
+          ["الوصول", "فندقك أو منتجعك في العلا؛ اذكر الاسم بدقة لأن العلا متباعدة الأطراف"],
+          ["أنواع السيارات", "سيدان أو جمس يوكن أو هيونداي ستاريا، تُؤكَّد في عرض السعر"],
+          ["مقاعد مشتركة", "لا. سيارة واحدة لمجموعتك فقط"],
+          ["السعر", "يُحدَّد لكل رحلة؛ لا توجد أجرة ثابتة منشورة"],
+        ],
+      },
+    },
+  },
 };
 
 /** Applies `routePatches` to the registry. Throws (failing the build) if a page or sentence is not found. */

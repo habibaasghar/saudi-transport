@@ -4,6 +4,8 @@ import { jeddahAirportMakkahPost } from "./jeddah-airport-makkah-options";
 import { makkahMadinahPost } from "./makkah-madinah-options";
 import { howToBookPost } from "./how-to-book";
 import { jeddahMadinahPost } from "./jeddah-madinah-options";
+import { madinahAlulaPost } from "./madinah-alula-road";
+import { chauffeurVsTaxiPost } from "./chauffeur-vs-taxi";
 
 const I = "services/intercity-transfers";
 const X = "services/cross-border-transfers";
@@ -20,6 +22,8 @@ export const blogPosts: BlogPost[] = [
   makkahMadinahPost,
   howToBookPost,
   jeddahMadinahPost,
+  madinahAlulaPost,
+  chauffeurVsTaxiPost,
   {
     slug: "cross-border-private-transfer-checklist",
     published: D,
@@ -73,7 +77,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "private-car-vs-flight-vs-rental-saudi-intercity",
     published: D,
-    updated: D,
+    updated: "2026-11-18",
     links: [`${I}/riyadh-to-jeddah`, `${I}/riyadh-to-dammam`, "services/intercity-transfers", "services/chauffeur-services", `${I}/jeddah-to-madinah`],
     copy: {
       en: {
@@ -87,11 +91,13 @@ export const blogPosts: BlogPost[] = [
           { h: "Door to door, not airport to airport", p: ["Compare the whole journey, not just time in the air. A flight adds travel to the airport, check-in, security, and onward travel from the destination airport. A car leaves from your address and arrives at your destination, which can narrow the gap on mid-length routes such as Riyadh to Dammam."] },
           { h: "When a private car with a driver makes sense", p: ["Groups and families share one vehicle, luggage is not restricted by airline rules, you can stop on the way, and you can work or rest instead of driving. It is also practical when the destination is not near an airport, or when you want one driver for several stops in a day; see hourly driver."] },
           { h: "When a flight or a rental may be better", p: ["A flight is faster on the longest routes for one traveller. A rental gives independence if you are comfortable with long highway driving and want to set your own route and schedule. Be honest about fatigue on long distances."] },
+          { h: "Two routes compared: Riyadh to Jeddah and Riyadh to Dammam", p: ["Riyadh to Jeddah is the clearest case for flying. The road is about 955 km on Route 40, close to 9 hours 48 minutes of driving before stops (Google Maps, November 2026), while Google Maps lists the flight at about two hours, before airport time at each end. For one or two people with ordinary luggage, fly. The car makes sense for a family moving with many bags, a group that wants to stay together, or anyone who would rather not fly, and it is a full day on the road.", "Riyadh to Dammam is much closer: about 410 km on Route 40, close to 3 hours 55 minutes of driving before stops. A passenger train also links the two cities. Here the door-to-door gap between car, train and flight is small, so the choice comes down to group size, luggage and where exactly you start and finish."] },
           { h: "What to ask for in a private car quotation", p: ["Ask about vehicle category and seats, luggage space, waiting time, return trips and what happens if your plans change. Prices are not published here because they depend on route, date and vehicle; request a quotation."] },
         ],
         faqs: [
           { q: "Is a private car cheaper than flying between Saudi cities?", a: "It depends on the route, date and group size. Compare a quotation against all flight costs for every traveller, including airport transfers." },
           { q: "Can I stop on the way during a private intercity transfer?", a: "You can request stops in your enquiry; they are confirmed in the quotation." },
+          { q: "Should I drive or fly from Riyadh to Jeddah?", a: "For one or two travellers, flying is usually better: the road is about 955 km, close to ten hours of driving. A car suits families with a lot of luggage or groups who want to travel together." },
           { q: "Is a private car suitable for a family with luggage?", a: "Usually it is a good fit because the vehicle is chosen for the group; confirm passenger and luggage numbers when you enquire." },
         ],
       },
@@ -106,11 +112,13 @@ export const blogPosts: BlogPost[] = [
           { h: "من الباب إلى الباب لا من مطار إلى مطار", p: ["قارن الرحلة كلها لا زمن الطيران وحده. فالطيران يضيف الذهاب إلى المطار والتسجيل والتفتيش ثم التنقل من مطار الوصول. أما السيارة فتنطلق من عنوانك وتصل إلى وجهتك، وقد يضيّق ذلك الفارق على المسارات المتوسطة مثل الرياض إلى الدمام."] },
           { h: "متى تكون السيارة الخاصة مع سائق خيارًا جيدًا", p: ["تتشارك المجموعات والعائلات مركبة واحدة، ولا تقيّدك قواعد الحقائب لدى شركات الطيران، ويمكنك التوقف في الطريق، وتعمل أو ترتاح بدل القيادة. وهي عملية أيضًا حين لا تكون الوجهة قرب مطار أو حين تريد سائقًا واحدًا لعدة محطات في يوم؛ راجع صفحة السائق بالساعة."] },
           { h: "متى يكون الطيران أو التأجير أفضل", p: ["الطيران أسرع على أطول المسارات لمسافر واحد. ويمنحك التأجير استقلالية إن كنت مرتاحًا للقيادة الطويلة على الطرق السريعة وتريد تحديد مسارك وجدولك. وكن صادقًا مع نفسك بشأن الإرهاق في المسافات الطويلة."] },
+          { h: "مقارنة مسارين: الرياض إلى جدة والرياض إلى الدمام", p: ["الرياض إلى جدة أوضح مثال يكون فيه الطيران الخيار الأنسب. فالطريق نحو 955 كم عبر طريق 40، أي قرابة 9 ساعات و48 دقيقة قيادة قبل التوقفات (خرائط Google، نوفمبر 2026)، بينما تذكر خرائط Google أن الرحلة الجوية نحو ساعتين قبل وقت المطار في الطرفين. فلشخص أو شخصين بحقائب عادية، سافر بالطائرة. أما السيارة فتناسب عائلة تنتقل بحقائب كثيرة، أو مجموعة تريد البقاء معًا، أو من يفضّل عدم الطيران، وهي يوم كامل على الطريق.", "أما الرياض إلى الدمام فأقرب بكثير: نحو 410 كم عبر طريق 40، قرابة 3 ساعات و55 دقيقة قيادة قبل التوقفات، ويربط بين المدينتين أيضًا قطار ركاب. وهنا يكون الفارق من الباب إلى الباب بين السيارة والقطار والطيران صغيرًا، فيعتمد الاختيار على حجم المجموعة والحقائب ونقطتي الانطلاق والوصول بدقة."] },
           { h: "ماذا تسأل عنه في عرض سعر السيارة الخاصة", p: ["اسأل عن فئة المركبة والمقاعد ومساحة الحقائب والانتظار والرحلات ذات العودة وما يحدث إذا تغيرت خطتك. ولا ننشر الأسعار هنا لأنها تعتمد على المسار والتاريخ والمركبة؛ اطلب عرض سعر."] },
         ],
         faqs: [
           { q: "هل السيارة الخاصة أرخص من الطيران بين المدن السعودية؟", a: "يعتمد ذلك على المسار والتاريخ وحجم المجموعة. قارن عرض السعر بتكاليف الطيران لكل مسافر بما فيها التنقل من وإلى المطارات." },
           { q: "هل يمكنني التوقف في الطريق خلال توصيل خاص بين المدن؟", a: "يمكنك طلب التوقفات في الطلب؛ وتُؤكَّد في عرض السعر." },
+          { q: "هل أسافر من الرياض إلى جدة بالسيارة أم بالطائرة؟", a: "لمسافر أو اثنين يكون الطيران غالبًا أفضل، فالطريق نحو 955 كم أي قرابة عشر ساعات قيادة. وتناسب السيارة العائلات ذات الحقائب الكثيرة أو المجموعات التي تريد السفر معًا." },
           { q: "هل السيارة الخاصة مناسبة لعائلة معها حقائب؟", a: "غالبًا هي مناسبة لأن المركبة تُختار للمجموعة؛ أكّد عدد الركاب والحقائب عند الطلب." },
         ],
       },
