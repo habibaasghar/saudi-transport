@@ -2,6 +2,7 @@ import type { BlogPost } from "./types";
 import { pillarPost } from "./pillar";
 import { jeddahAirportMakkahPost } from "./jeddah-airport-makkah-options";
 import { makkahMadinahPost } from "./makkah-madinah-options";
+import { howToBookPost } from "./how-to-book";
 
 const I = "services/intercity-transfers";
 const X = "services/cross-border-transfers";
@@ -16,6 +17,7 @@ export const blogPosts: BlogPost[] = [
   pillarPost,
   jeddahAirportMakkahPost,
   makkahMadinahPost,
+  howToBookPost,
   {
     slug: "cross-border-private-transfer-checklist",
     published: D,
