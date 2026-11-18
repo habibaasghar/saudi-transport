@@ -65,6 +65,25 @@ Never invent: fleet size, vehicle availability, passenger/luggage capacities, di
 - Keep key content in server-rendered HTML (not hidden behind JS/tabs) so crawlers and LLMs can read it.
 - Cite no fake statistics; any factual claim must be verifiable.
 
+## 7A. Indexability (owner rule, 2026-11-18: every page we build must be indexable)
+Every public page ships **indexable by design**, in both languages. Before a page is reported done, all of these must be true on the built site:
+- Returns **200** directly at its final URL (lowercase, `/en/` or `/ar/` prefix, trailing slash). No redirect, no redirect chain.
+- `<meta name="robots" content="index, follow">`; no `noindex` in HTML or in an `X-Robots-Tag` header; not blocked in robots.txt.
+- **Self-referencing canonical** to the exact final URL (`https://www.ridesaudi.com/...`).
+- **One hreflang source of truth**: `<link rel="alternate">` in the HTML plus the sitemap, reciprocal EN ↔ AR, x-default = the `/en/` URL. Never a second, conflicting set (the next-intl `Link` header is switched off: `alternateLinks: false`). No hreflang or sitemap URL may redirect.
+- In the sitemap (EN + AR) with an accurate `lastmod` (the page's real update date, not the build date), and in `/llms.txt`.
+- **At least 3 contextual internal links** in the main content of other indexable pages (menus and footer do not count), with descriptive anchors; never orphaned.
+- Main content is server-rendered HTML (no content only behind JS, tabs that load on click, or images of text).
+- Distinct from every other page: 5-word-shingle similarity to its closest page stays low (target under 0.30; route pairs have run 0.13–0.26).
+- Old URLs that change are 301/308-redirected in one hop to the closest live page; unprefixed URLs (`/`, `/services/...`) redirect permanently to `/en/`.
+- Machine files (`sitemap.xml`, `llms.txt`) carry `X-Robots-Tag: noindex` so they never take a search result.
+
+**Quality bar that earns indexing** (Google can crawl a page and still not index it if it adds nothing): highly optimised, **unique** content for one search intent; answer-first opening; verified facts with sources and check dates (distances, times, rules); real local and route detail (GEO); entity-consistent wording for AI/LLM answers; native Arabic, not translation; FAQs that answer real questions; honest comparisons (train, flight, taxi) instead of sales filler. Pages that cannot meet this bar are merged or not built.
+
+**Audit script**: `node scripts/indexability-audit.mjs` against a production build; every bucket must be 0.
+
+**After each deploy**: crawl the live sitemap (status, canonical, robots, hreflang, internal links); then ask the owner to submit the sitemap and use URL Inspection → Request indexing in Search Console for the new and most important URLs.
+
 ## 8. Technical SEO checklist per new page
 - [ ] Metadata: title, description, canonical, hreflang, Open Graph, Twitter, robots, `lang`
 - [ ] JSON-LD: Organization/LocalBusiness (if justified), WebSite, WebPage, Service, BreadcrumbList; FAQPage only when eligible and matching visible FAQs. **No invented ratings, reviews, prices, awards.**

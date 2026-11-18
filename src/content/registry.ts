@@ -23,11 +23,13 @@ import { priorityRoutes } from "./priority-routes";
 import { applyRoutePatches, priorityRoutesB } from "./priority-routes-b";
 import { priorityRoutesC } from "./priority-routes-c";
 import { priorityRoutesD } from "./priority-routes-d";
+import { applyLinkBoosts } from "./link-boosts";
 
 export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB, ...priorityRoutesC, ...priorityRoutesD];
 
 // Verified-fact upgrades for pages that stay in their original files (must run before FAQ scoping).
 applyRoutePatches(pages);
+applyLinkBoosts(pages);
 
 /**
  * SEO-RULES.md: no FAQ may appear verbatim on two pages. Generic questions that several pages

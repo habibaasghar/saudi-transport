@@ -7,6 +7,7 @@ Key non-negotiables (details in SEO-RULES.md):
 - Every page ships in English AND Arabic (own URL, hreflang, native-quality Arabic SEO, RTL).
 - No invented facts (fleet, prices, capacities, reviews, availability).
 - AIO/GEO/LLM: answer-first content, consistent entities, accurate schema, updated sitemap and `/llms.txt`.
+- **Every page must be indexable** (200 at its final URL, index/follow, self-canonical, one consistent hreflang set, in the sitemap, 3+ contextual internal links) and highly optimised, unique content. See SEO-RULES.md section 7A.
 
 ## Deploy / push rule
 - Every deploy or push goes to the **saudi-transport** repo: remote `vercel-repo` (https://github.com/habibaasghar/saudi-transport.git). Vercel builds ridesaudi.com from its `main` branch.

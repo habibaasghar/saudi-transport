@@ -9,11 +9,19 @@ const nextConfig: NextConfig = {
   images: { formats: ["image/avif", "image/webp"] },
   // Removed pages keep their link equity: permanent redirect to the chauffeur hub (SEO-RULES.md section 2).
   async redirects() {
-    return ["hourly-driver", "full-day-driver", "personal-driver"].map((slug) => ({
+    const removed = ["hourly-driver", "full-day-driver", "personal-driver"].map((slug) => ({
       source: `/:locale(en|ar)/services/chauffeur-services/${slug}`,
       destination: "/:locale/services/chauffeur-services/",
       permanent: true,
     }));
+    // Unprefixed URLs always resolve to English (localeDetection is off), so the redirect is permanent.
+    // Without this, next-intl answers with a temporary 307 and Google keeps the unprefixed URL in play.
+    const unprefixed = [
+      { source: "/", destination: "/en/", permanent: true },
+      ...["services", "luxury-transportation", "blog"].map((s) => ({ source: `/${s}/:path+`, destination: `/en/${s}/:path+/`, permanent: true })),
+      ...["services", "luxury-transportation", "blog", "fleet"].map((s) => ({ source: `/${s}`, destination: `/en/${s}/`, permanent: true })),
+    ];
+    return [...unprefixed, ...removed];
   },
   async headers() {
     return [
@@ -23,6 +31,11 @@ const nextConfig: NextConfig = {
           { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
           { key: "Cache-Control", value: "no-store" },
         ],
+      },
+      {
+        // Machine-readable files must not appear as search results (sitemap.xml was getting impressions).
+        source: "/:file(sitemap.xml|llms.txt)",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
       },
       {
         source: "/:path*",
