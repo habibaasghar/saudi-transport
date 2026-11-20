@@ -33,8 +33,9 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Machine-readable files must not appear as search results (sitemap.xml was getting impressions).
-        source: "/:file(sitemap.xml|llms.txt)",
+        // llms.txt must not appear as a search result. sitemap.xml is deliberately NOT noindexed: the sitemap is how
+        // Google discovers the 300+ URLs, and a noindex header on it is an avoidable risk for a site Google barely knows.
+        source: "/llms.txt",
         headers: [{ key: "X-Robots-Tag", value: "noindex" }],
       },
       {
