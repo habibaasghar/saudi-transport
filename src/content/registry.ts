@@ -27,6 +27,7 @@ import { applyLinkBoosts } from "./link-boosts";
 import { applyCityEnrichments } from "./enrich-cities";
 import { applyBatch2Enrichments } from "./enrich-batch2";
 import { applyBatch3Enrichments } from "./enrich-batch3";
+import { applyRouteEnrichments } from "./enrich-routes";
 
 export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB, ...priorityRoutesC, ...priorityRoutesD];
 
@@ -35,6 +36,7 @@ applyRoutePatches(pages);
 applyCityEnrichments(pages);
 applyBatch2Enrichments(pages);
 applyBatch3Enrichments(pages);
+applyRouteEnrichments(pages);
 applyLinkBoosts(pages);
 
 /**
