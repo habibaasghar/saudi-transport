@@ -7,6 +7,7 @@ import { jeddahMadinahPost } from "./jeddah-madinah-options";
 import { madinahAlulaPost } from "./madinah-alula-road";
 import { chauffeurVsTaxiPost } from "./chauffeur-vs-taxi";
 import { stariaPost } from "./staria-groups";
+import { applyGuideEnrichments } from "../enrich-batch4";
 
 const I = "services/intercity-transfers";
 const X = "services/cross-border-transfers";
@@ -331,5 +332,7 @@ export const blogPosts: BlogPost[] = [
     },
   },
 ];
+
+applyGuideEnrichments(blogPosts);
 
 export const getPost = (slug: string) => blogPosts.find((p) => p.slug === slug);

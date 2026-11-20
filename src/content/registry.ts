@@ -30,6 +30,7 @@ import { applyCityEnrichments } from "./enrich-cities";
 import { applyBatch2Enrichments } from "./enrich-batch2";
 import { applyBatch3Enrichments } from "./enrich-batch3";
 import { applyRouteEnrichments } from "./enrich-routes";
+import { applyBatch4Enrichments } from "./enrich-batch4";
 
 export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB, ...priorityRoutesC, ...priorityRoutesD, ...batch17JeddahRoutes, ...batch18Locations];
 
@@ -39,6 +40,7 @@ applyCityEnrichments(pages);
 applyBatch2Enrichments(pages);
 applyBatch3Enrichments(pages);
 applyRouteEnrichments(pages);
+applyBatch4Enrichments(pages);
 
 // Cross-link the Jeddah route cluster and new locations from existing hub, airport and neighbouring route pages.
 for (const p of pages) if (jeddahBacklinks[p.path]) p.related.push(...jeddahBacklinks[p.path]);
