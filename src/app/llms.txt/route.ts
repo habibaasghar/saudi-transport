@@ -1,6 +1,7 @@
 import { pages } from "@/content/registry";
 import { pageUrl, SITE_URL } from "@/lib/site";
 import { blogPosts } from "@/content/blog/posts";
+import { legalPages } from "@/content/legal";
 
 export const dynamic = "force-static";
 
@@ -37,6 +38,9 @@ export function GET() {
 
 ## Guides
 ${guides}
+
+## About, contact and policies
+${(["en", "ar"] as const).flatMap((l) => legalPages.map((p) => `- [${p.copy[l].nav}](${pageUrl(l, p.slug)})`)).join("\n")}
 
 ## Services (English)
 ${section("en")}

@@ -14,6 +14,7 @@ import { QuoteSection } from "./QuoteSection";
 import { SectionHead } from "./SectionHead";
 import { JsonLd } from "./JsonLd";
 import { ContactRow } from "./ContactCta";
+import { FleetCards } from "./Fleet";
 import { routePrefill } from "@/content/route-prefill";
 
 const href = (path: string) => `/${path}`;
@@ -36,6 +37,7 @@ function cityRoutes(page: ServicePage, exclude: Set<string>): ServicePage[] {
 
 export async function ServicePageView({ page, locale }: { page: ServicePage; locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "svc" });
+  const f = await getTranslations({ locale, namespace: "fleet" });
   const c = page.copy[locale];
   const crumbs = trail(page);
   const hero = getImage(page.path);
@@ -84,7 +86,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             <div className="hero__actions">
               <a href="#quote" className="btn btn--primary btn--lg">{t("getQuote")}</a>
             </div>
-            <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp", "call"]} className="hero__contact" />
+            <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp"]} className="hero__contact" />
             <p className="hero__note">{t("notice")}</p>
           </div>
         </section>
@@ -98,6 +100,15 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             </div>
           </div>
         </section>
+
+        {page.path === "fleet" && (
+          <section className="section section--sand fleet-page" aria-labelledby="fleet-cards-h">
+            <div className="wrap">
+              <SectionHead id="fleet-cards-h" eyebrow={c.eyebrow} title={f("title")} intro={`${f("partnerNote")} ${f("photoNote")}`} />
+              <FleetCards locale={locale} />
+            </div>
+          </section>
+        )}
 
         {kids.length > 0 && (
           <section className="section section--sand" aria-labelledby="kids-h">
@@ -244,7 +255,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
         <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} prefill={routePrefill[page.path] ? { pickup: routePrefill[page.path][locale][0], dropoff: routePrefill[page.path][locale][1] } : undefined} />
         <p className="wrap svc-reviewed">{t("reviewed")}: <time dateTime={page.updated}>{page.updated}</time></p>
       </main>
-      <Footer locale={locale} />
+      <Footer locale={locale} switchHref={href(page.path)} />
     </>
   );
 }

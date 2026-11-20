@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
-import { MailIcon, PhoneIcon, WhatsAppIcon } from "./Icons";
+import { MailIcon, WhatsAppIcon } from "./Icons";
 import type { ResolvedNavItem } from "@/lib/nav";
 
 type Props = {
@@ -16,15 +16,13 @@ type Props = {
   otherLocale: "en" | "ar";
   otherLabel: string;
   whatsappHref: string;
-  telHref: string;
   mailHref: string;
   whatsappLabel: string;
-  callLabel: string;
   emailLabel: string;
-  phoneDisplay: string;
+  whatsappDisplay: string;
 };
 
-export function MobileNav({ items, quoteLabel, quoteHref, switchHref, openLabel, closeLabel, navLabel, otherLocale, otherLabel, whatsappHref, telHref, mailHref, whatsappLabel, callLabel, emailLabel, phoneDisplay }: Props) {
+export function MobileNav({ items, quoteLabel, quoteHref, switchHref, openLabel, closeLabel, navLabel, otherLocale, otherLabel, whatsappHref, mailHref, whatsappLabel, emailLabel, whatsappDisplay }: Props) {
   const [open, setOpen] = useState(false);
   const [group, setGroup] = useState<string | null>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -111,11 +109,7 @@ export function MobileNav({ items, quoteLabel, quoteHref, switchHref, openLabel,
           <div className="mobile-nav__contact">
             <a href={whatsappHref} className="btn cta cta--whatsapp" target="_blank" rel="noopener noreferrer" onClick={close}>
               <WhatsAppIcon className="cta__icon" />
-              <span>{whatsappLabel}</span>
-            </a>
-            <a href={telHref} className="btn cta cta--ghost cta--call" onClick={close}>
-              <PhoneIcon className="cta__icon" />
-              <span>{callLabel} <bdi dir="ltr">{phoneDisplay}</bdi></span>
+              <span>{whatsappLabel} <bdi dir="ltr">{whatsappDisplay}</bdi></span>
             </a>
             <a href={mailHref} className="btn cta cta--ghost cta--email" onClick={close}>
               <MailIcon className="cta__icon" />

@@ -70,6 +70,7 @@ export async function POST(request: Request) {
         returnTime: payload.tripType === "round_trip" ? payload.returnTime || undefined : undefined,
         adults: Number(payload.passengers) || 1,
         largeBags: Number(payload.luggage) || 0,
+        childSeats: Number(payload.childSeats) || 0,
         vehiclePref: payload.vehicle || undefined, flightNo: payload.flight || undefined,
         customerNotes: payload.notes || undefined, locale: payload.locale, sourcePage: payload.source,
         source: "website",

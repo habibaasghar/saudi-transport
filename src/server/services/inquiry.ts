@@ -9,7 +9,7 @@ export type NewInquiry = {
   serviceKey?: string; pickup: string; dropoff: string; pickupDate: string; pickupTime: string;
   tripType?: "one_way" | "round_trip" | "multi_stop"; returnDate?: string; returnTime?: string;
   adults?: number; children?: number; infants?: number; largeBags?: number; smallBags?: number;
-  vehiclePref?: string; flightNo?: string; customerNotes?: string; locale?: string; sourcePage?: string;
+  childSeats?: number; vehiclePref?: string; flightNo?: string; customerNotes?: string; locale?: string; sourcePage?: string;
   source?: "website" | "whatsapp_ai" | "manual" | "email" | "phone";
   idempotencyKey?: string;
 };
@@ -87,8 +87,9 @@ export async function createInquiry(i: NewInquiry, meta: { ipHash?: string } = {
       returnDate: i.returnDate || null, returnTime: i.returnTime || null,
       adults: i.adults ?? 1, children: i.children ?? 0, infants: i.infants ?? 0,
       largeBags: i.largeBags ?? 0, smallBags: i.smallBags ?? 0,
+      childSeat: (i.childSeats ?? 0) > 0,
       vehiclePref: i.vehiclePref || null, flightNo: i.flightNo || null,
-      customerNotes: i.customerNotes || null, sourcePage: i.sourcePage || null,
+      customerNotes: [(i.childSeats ?? 0) > 0 ? `Child seats requested: ${i.childSeats}` : "", i.customerNotes ?? ""].filter(Boolean).join("\n") || null, sourcePage: i.sourcePage || null,
       idempotencyKey: i.idempotencyKey ?? null, dedupeHash: hash, ipHash: meta.ipHash ?? null,
     }).returning({ id: schema.inquiries.id });
 

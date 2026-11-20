@@ -8,6 +8,8 @@ import { formServiceKeys } from "@/lib/site";
 import { PREFILL_EVENT } from "@/lib/events";
 import { track } from "@/lib/analytics";
 import { whatsappHref } from "@/config/contact";
+import { Link } from "@/i18n/navigation";
+import { fleetCategories, otherVehicleValue } from "@/content/fleet";
 
 type Status = "idle" | "sending" | "success" | "notConfigured" | "rateLimited" | "failed";
 
@@ -20,6 +22,7 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
   const [status, setStatus] = useState<Status>("idle");
   const [receipt, setReceipt] = useState<{ reference?: string; wa: string } | null>(null);
   const [started, setStarted] = useState(false);
+  const sendingRef = useRef(false);
   const formRef = useRef<HTMLFormElement>(null);
   const statusRef = useRef<HTMLDivElement>(null);
   const [today] = useState(() => new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10));
@@ -27,7 +30,7 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
   const set = <K extends keyof EnquiryInput>(k: K, v: EnquiryInput[K]) => {
     if (!started) {
       setStarted(true);
-      track("form_start", { form: "quote" });
+      track("quote_form_start", { form: "quote", language: locale });
     }
     setData((d) => ({ ...d, [k]: v }));
   };
@@ -60,6 +63,8 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    // Duplicate-submission guard: a fast double click/tap must never send two enquiries.
+    if (sendingRef.current) return;
     const errs = validateEnquiry(data);
     setErrors(errs);
     const first = Object.keys(errs)[0];
@@ -68,7 +73,9 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
       formRef.current?.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;
     }
+    sendingRef.current = true;
     setStatus("sending");
+    track("quote_form_submit", { form: "quote", service: data.service, trip_type: data.tripType, language: locale });
     try {
       const res = await fetch("/api/enquiry/", {
         method: "POST",
@@ -90,6 +97,8 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
           }),
         );
         setReceipt({ reference: j.reference, wa });
+        // No names, phone numbers, emails or journey details are ever sent to analytics.
+        track("quote_form_success", { form: "quote", service: sent.service, trip_type: sent.tripType, language: locale });
         track("generate_lead", { form: "quote", service: sent.service, trip_type: sent.tripType, language: locale });
         setStatus("success");
         setData({ ...emptyEnquiry(), locale });
@@ -104,6 +113,7 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
     } catch {
       setStatus("failed");
     }
+    sendingRef.current = false;
     requestAnimationFrame(() => statusRef.current?.focus());
   }
 
@@ -196,16 +206,15 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
           )}
           {Field({ name: "passengers", label: t("fields.passengers"), type: "number", inputMode: "numeric", required: true, min: 1, max: 100 })}
           {Field({ name: "luggage", label: t("fields.luggage"), type: "number", inputMode: "numeric", min: 0, max: 100 })}
+          {Field({ name: "childSeats", label: t("fields.childSeats"), hint: t("fields.childSeatsHint"), type: "number", inputMode: "numeric", min: 0, max: 10 })}
           {data.service === "airport" &&
             Field({ name: "flight", label: t("fields.flight"), hint: t("fields.flightHint"), maxLength: 12, autoComplete: "off", dir: "ltr" })}
           <div className="field field--wide">
             <label htmlFor={id("vehicle")}>{t("fields.vehicle")}</label>
             <select id={id("vehicle")} name="vehicle" value={data.vehicle} onChange={(e) => set("vehicle", e.target.value)} aria-describedby={`${uid}-vehicle-h`}>
               <option value="">{t("fields.vehicleAny")}</option>
-              <option value="Sedan">{t("fields.vehicleSedan")}</option>
-              <option value="GMC Yukon">{t("fields.vehicleGmc")}</option>
-              <option value="Hyundai Staria">{t("fields.vehicleStaria")}</option>
-              <option value="Other / larger group">{t("fields.vehicleOther")}</option>
+              {fleetCategories.map((v) => <option key={v.key} value={v.value}>{v.name[locale as "en" | "ar"] ?? v.name.en}</option>)}
+              <option value={otherVehicleValue}>{t("fields.vehicleOther")}</option>
             </select>
             <p id={`${uid}-vehicle-h`} className="field__hint">{t("fields.vehicleHint")}</p>
           </div>
@@ -240,9 +249,10 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
           aria-invalid={errors.consent ? true : undefined}
           aria-describedby={errors.consent ? `${uid}-consent-e` : undefined}
         />
-        <label htmlFor={id("consent")}>{t("fields.consent")}</label>
+        <label htmlFor={id("consent")}>{t.rich("fields.consent", { privacy: (chunks) => <Link href="/privacy-policy">{chunks}</Link> })}</label>
       </div>
       {errors.consent && <p id={`${uid}-consent-e`} className="field__error">{t("errors.consent")}</p>}
+      <p className="form__legal">{t.rich("legal", { terms: (chunks) => <Link href="/terms-and-conditions">{chunks}</Link> })}</p>
 
       <button type="submit" className="btn btn--primary btn--lg btn--block" disabled={status === "sending"}>
         {status === "sending" ? t("sending") : t("submit")}

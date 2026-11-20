@@ -46,6 +46,7 @@ async function toEmail(lead: Lead, key: string, to: string): Promise<boolean> {
     ["Return time", lead.returnTime],
     ["Passengers", lead.passengers],
     ["Luggage", lead.luggage],
+    ["Child seats", lead.childSeats && lead.childSeats !== "0" ? lead.childSeats : ""],
     ["Vehicle", lead.vehicle],
     ["Flight", lead.flight],
     ["Notes", lead.notes],
