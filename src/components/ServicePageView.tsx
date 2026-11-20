@@ -86,7 +86,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             <div className="hero__actions">
               <a href="#quote" className="btn btn--primary btn--lg">{t("getQuote")}</a>
             </div>
-            <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp", "call"]} className="hero__contact" />
+            <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp"]} className="hero__contact" />
             <p className="hero__note">{t("notice")}</p>
           </div>
         </section>

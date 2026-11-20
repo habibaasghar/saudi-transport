@@ -128,7 +128,7 @@ function ContactDetails({ locale }: { locale: Locale }) {
   return (
     <>
       <p className="info-page__contact">
-        <span><bdi dir="ltr">{CONTACT.phoneDisplay}</bdi> · WhatsApp</span>
+        <span><bdi dir="ltr">{CONTACT.whatsappDisplay}</bdi> · WhatsApp</span>
         <span><bdi dir="ltr">{CONTACT.email}</bdi></span>
       </p>
       <ContactRow locale={locale} variant="outline" />

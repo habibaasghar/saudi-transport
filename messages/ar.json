@@ -400,12 +400,11 @@
   },
   "contact": {
     "whatsapp": "راسل فريقنا عبر واتساب",
-    "call": "اتصل الآن",
+    "whatsappNumber": "واتساب",
     "email": "راسلنا عبر البريد الإلكتروني",
     "quote": "اطلب عرض سعر",
     "book": "احجز نقلك الخاص",
     "whatsappAria": "تواصل مع RideSaudi عبر واتساب (يفتح في تبويب جديد)",
-    "callAria": "اتصل بـ RideSaudi على {number}",
     "emailAria": "راسل RideSaudi على {email}",
     "whatsappGeneral": "مرحبًا، أرغب في طلب عرض سعر لنقل خاص عبر RideSaudi.",
     "whatsappTopic": "مرحبًا، أحتاج إلى نقل خاص: {topic}. يرجى تزويدي بالتوفر وعرض السعر.",

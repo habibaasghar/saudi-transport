@@ -50,11 +50,10 @@ export async function Footer({ locale, switchHref = "/" }: { locale: Locale; swi
           <p className="footer__tag">{t("tagline")}</p>
           <div className="footer__contact">
             <h2>{c("footerHeading")}</h2>
-            <p className="footer__phone"><bdi dir="ltr">{CONTACT.phoneDisplay}</bdi></p>
+            <p className="footer__phone">{c("whatsappNumber")}: <bdi dir="ltr">{CONTACT.whatsappDisplay}</bdi></p>
             <p className="footer__mail"><bdi dir="ltr">{CONTACT.email}</bdi></p>
             <div className="cta-row">
               <ContactCta kind="whatsapp" locale={locale} size="sm" />
-              <ContactCta kind="call" locale={locale} size="sm" variant="ghost" />
               <ContactCta kind="email" locale={locale} size="sm" variant="ghost" />
             </div>
           </div>

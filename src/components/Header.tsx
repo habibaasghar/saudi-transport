@@ -7,7 +7,7 @@ import { navItems, type ResolvedNavItem } from "@/lib/nav";
 import { getPage } from "@/content/registry";
 import { DesktopNav } from "./DesktopNav";
 import { ContactCta } from "./ContactCta";
-import { CONTACT, mailHref, telHref, whatsappHref } from "@/config/contact";
+import { CONTACT, mailHref, whatsappHref } from "@/config/contact";
 
 export async function Header({ locale, quoteHref = "/#quote", switchHref = "/" }: { locale: Locale; quoteHref?: string; switchHref?: string }) {
   const t = await getTranslations("nav");
@@ -39,7 +39,6 @@ export async function Header({ locale, quoteHref = "/#quote", switchHref = "/" }
           </Link>
           <DesktopNav items={items} navLabel={a("primaryNav")} />
           <div className="site-header__actions">
-            <ContactCta kind="call" locale={locale} variant="outline" size="sm" iconOnly className="site-header__call" />
             <ContactCta kind="whatsapp" locale={locale} size="sm" iconOnly className="site-header__wa" />
             <Link href={switchHref} locale={other} hrefLang={other} lang={other} className="lang-switch" aria-label={`${a("languageSwitch")}: ${l(other)}`}>
               {l("switchTo")}
@@ -60,12 +59,10 @@ export async function Header({ locale, quoteHref = "/#quote", switchHref = "/" }
               switchHref={switchHref}
               otherLabel={l("switchTo")}
               whatsappHref={whatsappHref(c("whatsappGeneral"))}
-              telHref={telHref}
               mailHref={mailHref(c("emailSubject"))}
               whatsappLabel={c("whatsapp")}
-              callLabel={c("call")}
               emailLabel={c("email")}
-              phoneDisplay={CONTACT.phoneDisplay}
+              whatsappDisplay={CONTACT.whatsappDisplay}
             />
           </div>
         </div>

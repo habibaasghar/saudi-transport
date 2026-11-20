@@ -39,7 +39,7 @@ export async function BlogIndexView({ locale }: { locale: Locale }) {
             <p className="eyebrow eyebrow--light">{l.eyebrow}</p>
             <h1 id="blog-h1">{l.indexH1}</h1>
             <p className="svc-hero__sub">{l.indexSub}</p>
-            <ContactRow locale={locale} topic={l.indexH1} kinds={["whatsapp", "call"]} className="hero__contact" />
+            <ContactRow locale={locale} topic={l.indexH1} kinds={["whatsapp"]} className="hero__contact" />
             <p className="hero__note">{t("notice")}</p>
           </div>
         </section>

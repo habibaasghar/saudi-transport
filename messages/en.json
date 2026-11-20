@@ -400,12 +400,11 @@
   },
   "contact": {
     "whatsapp": "WhatsApp Our Team",
-    "call": "Call Now",
+    "whatsappNumber": "WhatsApp",
     "email": "Email Us",
     "quote": "Request a Quote",
     "book": "Book Your Private Transfer",
     "whatsappAria": "Chat with RideSaudi on WhatsApp (opens in a new tab)",
-    "callAria": "Call RideSaudi on {number}",
     "emailAria": "Email RideSaudi at {email}",
     "whatsappGeneral": "Hello, I would like to request a private transfer quotation through RideSaudi.",
     "whatsappTopic": "Hello, I need a private transfer: {topic}. Please share availability and quotation.",
