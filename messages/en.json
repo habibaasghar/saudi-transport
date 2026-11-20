@@ -284,7 +284,19 @@
       "returnDate": "Return date",
       "returnTime": "Return pickup time",
       "childSeats": "Child seats",
-      "childSeatsHint": "How many child seats you need (0 if none)."
+      "childSeatsHint": "How many child seats you need (0 if none).",
+      "company": "Company name (optional)",
+      "duration": "How long you need the car",
+      "durationEvent": "How long you need the vehicles",
+      "durationPlaceholder": "Choose a duration",
+      "durationHours": "{h} hours",
+      "durationFullDay": "Full day",
+      "durationMultiDay": "Several days",
+      "durationHint": "Total time with the car and its driver. Your quotation confirms what is included.",
+      "guests": "Number of guests",
+      "vehicles": "Vehicles needed (optional)",
+      "vehiclesHint": "Leave empty if you would like us to suggest how many.",
+      "notesItinerary": "Itinerary, stops or special requirements (optional)"
     },
     "submit": "Send enquiry",
     "sending": "Sending…",
@@ -421,5 +433,10 @@
     "related": "Related pages",
     "fleet": "Vehicles and fleet",
     "services": "All services"
+  },
+  "sticky": {
+    "quote": "Get a quote",
+    "whatsapp": "WhatsApp",
+    "aria": "Quick contact"
   }
 }

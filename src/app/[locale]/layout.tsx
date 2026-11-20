@@ -25,6 +25,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   const clientMessages = { form: all.form, quick: all.quick, nav: all.nav, a11y: all.a11y };
   const isRtl = rtlLocales.includes(locale);
   const c = await getTranslations({ locale, namespace: "contact" });
+  const s = await getTranslations({ locale, namespace: "sticky" });
 
   return (
     <html
@@ -35,7 +36,13 @@ export default async function LocaleLayout({ children, params }: { children: Rea
       <body>
         <NextIntlClientProvider messages={clientMessages}>{children}</NextIntlClientProvider>
         <Analytics />
-        <FloatingWhatsApp href={whatsappHref(c("whatsappGeneral"))} label={c("whatsapp")} aria={c("whatsappAria")} />
+        <FloatingWhatsApp
+          href={whatsappHref(c("whatsappGeneral"))}
+          label={c("whatsapp")}
+          aria={c("whatsappAria")}
+          locale={locale}
+          bar={{ quote: s("quote"), whatsapp: s("whatsapp"), aria: s("aria") }}
+        />
       </body>
     </html>
   );

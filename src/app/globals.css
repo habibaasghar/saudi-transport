@@ -396,6 +396,22 @@ tbody th { font-weight: 600; color: var(--palm); }
 html.nav-open .wa-float { display: none; }
 @media (min-width: 700px) { .wa-float__label { display: inline; } }
 @media (prefers-reduced-motion: reduce) { .wa-float, .cta { transition: none; } }
+
+/* Mobile quick-contact bar: replaces the floating button below 700px. */
+.sticky-bar { display: none; }
+@media (max-width: 699px) {
+  .wa-float { display: none; }
+  .sticky-bar { position: fixed; inset-inline: 0; bottom: 0; z-index: 40; display: grid; grid-template-columns: 1.4fr 1fr; gap: .5rem; padding: .5rem max(.75rem, env(safe-area-inset-right)) max(.5rem, env(safe-area-inset-bottom)) max(.75rem, env(safe-area-inset-left)); background: var(--night); box-shadow: 0 -8px 24px -12px rgba(11, 31, 58, .6); transition: transform .2s, opacity .2s; }
+  .sticky-bar a { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 48px; border-radius: 10px; font: 700 1rem/1 var(--font-body); text-decoration: none; }
+  .sticky-bar__quote { background: var(--dune); color: var(--night); }
+  .sticky-bar__wa { background: #1fa855; color: #fff; }
+  .sticky-bar__icon { width: 22px; height: 22px; }
+  .sticky-bar--hidden { opacity: 0; pointer-events: none; transform: translateY(100%); }
+  html.nav-open .sticky-bar { display: none; }
+  /* Room for the bar so it never covers the end of the footer. */
+  body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+}
+@media (prefers-reduced-motion: reduce) { .sticky-bar { transition: none; } }
 .more__sub { font-size: 1rem; margin: 0 0 .75rem; }
 
 /* Fleet categories (verified facts only; see src/content/fleet.ts) */

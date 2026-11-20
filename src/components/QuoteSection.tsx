@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
@@ -26,9 +25,8 @@ export async function QuoteSection({ locale, defaultService, topic, prefill }: {
             <p className="quote__more"><Link href="/contact">{c("allOptions")}</Link></p>
           </div>
         </div>
-        <Suspense fallback={null}>
-          <EnquiryForm locale={locale} defaultService={defaultService} prefill={prefill} />
-        </Suspense>
+        {/* Rendered on the server too (no Suspense / search params), so the form is in the HTML before JS loads. */}
+        <EnquiryForm locale={locale} defaultService={defaultService} prefill={prefill} />
       </div>
     </section>
   );

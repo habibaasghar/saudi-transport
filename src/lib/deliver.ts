@@ -1,4 +1,4 @@
-import type { EnquiryInput } from "./enquiry";
+import { extrasSummary, type EnquiryInput } from "./enquiry";
 
 type Lead = Omit<EnquiryInput, "website" | "startedAt"> & { receivedAt: string };
 
@@ -49,13 +49,16 @@ async function toEmail(lead: Lead, key: string, to: string): Promise<boolean> {
     ["Child seats", lead.childSeats && lead.childSeats !== "0" ? lead.childSeats : ""],
     ["Vehicle", lead.vehicle],
     ["Flight", lead.flight],
+    ["Child seats", lead.childSeats && lead.childSeats !== "0" ? lead.childSeats : ""],
+    ["Details", extrasSummary(lead)],
     ["Notes", lead.notes],
     ["Language", lead.locale],
     ["Sent from", lead.source],
+    ["Came from", Object.entries(lead.attribution ?? {}).map(([k, v]) => `${k}=${v}`).join(", ")],
   ];
   const html = `<h2>New RideSaudi enquiry</h2><table cellpadding="6" style="border-collapse:collapse">${rows
     .filter(([, v]) => v)
-    .map(([k, v]) => `<tr><td><b>${k}</b></td><td>${esc(v)}</td></tr>`)
+    .map(([k, v]) => `<tr><td><b>${k}</b></td><td>${esc(v).replace(/\n/g, "<br>")}</td></tr>`)
     .join("")}</table>`;
   try {
     const res = await fetch("https://api.resend.com/emails", {

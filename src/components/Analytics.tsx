@@ -3,6 +3,7 @@
 import Script from "next/script";
 import { useEffect } from "react";
 import { track } from "@/lib/analytics";
+import { captureAttribution } from "@/lib/attribution";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
 const VALID = /^G-[A-Z0-9]{4,}$/.test(GA_ID);
@@ -10,6 +11,7 @@ const VALID = /^G-[A-Z0-9]{4,}$/.test(GA_ID);
 /** Loads GA4 only when NEXT_PUBLIC_GA_ID is set, and reports WhatsApp / phone / email clicks site-wide. */
 export function Analytics() {
   useEffect(() => {
+    captureAttribution();
     const onClick = (e: MouseEvent) => {
       const a = (e.target as Element | null)?.closest?.("a[href]") as HTMLAnchorElement | null;
       if (!a) return;

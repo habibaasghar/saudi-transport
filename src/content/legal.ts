@@ -16,7 +16,8 @@ const U = "2026-11-19";
 
 export const privacyPolicy: LegalPage = {
   slug: "privacy-policy",
-  updated: U,
+  // Bumped separately from U: the policy now mentions stored attribution data (how the visitor arrived).
+  updated: "2026-11-21",
   copy: {
     en: {
       nav: "Privacy Policy",
@@ -38,6 +39,7 @@ export const privacyPolicy: LegalPage = {
             "Anything you add in the special requirements box, so please do not include payment card details, passport numbers or other sensitive data there.",
             "Messages you send us by WhatsApp or email, and our replies.",
             "Technical information needed to keep the form secure, such as the page the enquiry was sent from, the language you used and a scrambled (hashed) form of your IP address to detect abuse and duplicate submissions. We do not store your plain IP address with your enquiry.",
+            "How you reached the website, so we know which pages and campaigns bring enquiries: the first page you opened, the name of the website that linked to us (not the full address), and any campaign tags or advertising click codes that were in the link. This is kept with your enquiry and is not sent to analytics tools.",
           ],
         },
         {
@@ -121,6 +123,7 @@ export const privacyPolicy: LegalPage = {
             "أي شيء تضيفه في خانة المتطلبات الخاصة، لذا نرجو ألا تكتب فيها بيانات بطاقات الدفع أو أرقام الجوازات أو أي بيانات حساسة أخرى.",
             "الرسائل التي ترسلها إلينا عبر واتساب أو البريد الإلكتروني، وردودنا عليها.",
             "معلومات تقنية لازمة لحماية النموذج، مثل الصفحة التي أُرسل منها الطلب واللغة المستخدمة وصيغة مشفّرة (مُجزَّأة) من عنوان IP لرصد إساءة الاستخدام والإرسال المكرر. ولا نحتفظ بعنوان IP الصريح مع طلبك.",
+            "كيف وصلت إلى الموقع، لنعرف أي الصفحات والحملات تجلب الطلبات: أول صفحة فتحتها، واسم الموقع الذي أحالك إلينا (دون الرابط الكامل)، وأي وسوم حملات أو رموز نقرات إعلانية كانت في الرابط. وتُحفظ هذه المعلومات مع طلبك ولا تُرسل إلى أدوات التحليل.",
           ],
         },
         {

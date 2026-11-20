@@ -1,0 +1,57 @@
+keyword,language,intent,volume_sa_monthly,kd,data_source,target_url,url_status,priority,business_relevance
+airport transfer riyadh,en,transactional,40,,earlier Ahrefs export (docs/service-architecture.md),/services/airport-transfers/riyadh-airport/,live,P1,high
+jeddah airport transfer,en,transactional,60,,earlier Ahrefs export,/services/airport-transfers/jeddah-airport/,live,P1,high
+airport transfer jeddah to makkah,en,transactional,40,,earlier Ahrefs export,/services/umrah-transport/jeddah-airport-to-makkah/,live,P1,high
+airport transfer dammam,en,transactional,,,not verified,/services/airport-transfers/dammam-airport/,live,P2,high
+airport transfer madinah,en,transactional,,,not verified,/services/airport-transfers/madinah-airport/,live,P2,high
+alula airport transfer,en,transactional,,,not verified,/services/airport-transfers/alula-airport/,live,P2,medium
+qassim airport transfer,en,transactional,,,not verified,/services/airport-transfers/qassim-airport/,not built (needs service confirmation),P3,medium
+al ahsa airport transfer,en,transactional,,,not verified,/services/airport-transfers/al-ahsa-airport/,not built (needs service confirmation),P3,low
+private airport transfer saudi arabia,en,commercial,,,not verified,/services/airport-transfers/,live,P1,high
+meet and greet airport transfer,en,commercial,,,not verified,/services/airport-transfers/private-airport-pickup/,live,P2,medium
+airport transfer for families,en,commercial,,,not verified,/services/airport-transfers/family-airport-transfer/,live,P2,medium
+hourly chauffeur service saudi arabia,en,transactional,,,not verified,/services/chauffeur-services/hourly-driver/,live,P1,high
+chauffeur service riyadh,en,transactional,,,not verified (SERP: OneClickDrive / Blacklane / Transfeero),/services/city-transport/riyadh/,live,P1,high
+car with driver riyadh,en,transactional,,,not verified,/services/city-transport/riyadh/,live,P1,high
+full day chauffeur service saudi arabia,en,transactional,,,not verified,/services/chauffeur-services/full-day-driver/,live,P1,high
+private driver saudi arabia,en,commercial,30,,earlier Ahrefs export,/services/chauffeur-services/,live,P1,high
+personal driver for a day,en,transactional,,,not verified,/services/chauffeur-services/personal-driver/,live,P2,medium
+corporate transportation saudi arabia,en,commercial,,,not verified,/services/corporate-transportation/,not built (three overlapping pages today),P1,high
+executive chauffeur service,en,commercial,,,not verified,/luxury-transportation/executive-transport/,live,P2,high
+business chauffeur riyadh,en,transactional,,,not verified,/services/chauffeur-services/business-chauffeur/,live,P2,high
+event transportation saudi arabia,en,commercial,,,not verified,/services/event-transportation/,live,P1,high
+event transportation riyadh,en,transactional,,,not verified (SERP: Yelo Plus / Swvl / taxiserviceksa),/services/event-transportation/riyadh/,live,P1,high
+conference transportation saudi arabia,en,commercial,,,not verified,/services/event-transportation/conference-transport/,live,P1,high
+exhibition transportation riyadh,en,commercial,,,not verified,/services/event-transportation/conference-transport/,live (merged; split only on GSC evidence),P2,high
+wedding transportation jeddah,en,commercial,,,not verified,/services/event-transportation/wedding-transport/,live,P2,medium
+vip event transportation,en,commercial,,,not verified,/services/event-transportation/vip-event-chauffeur/,live,P2,medium
+group event transportation,en,commercial,,,not verified,/services/event-transportation/group-event-transport/,live,P2,medium
+luxury chauffeur service saudi arabia,en,commercial,,,not verified,/luxury-transportation/luxury-chauffeur/,live,P1,high
+vip transportation saudi arabia,en,commercial,,,not verified,/luxury-transportation/vip-car-service/,live,P1,high
+gmc yukon with driver riyadh,en,transactional,,,not verified (SERP: OneClickDrive vehicle listings),/fleet/gmc-yukon/,not built (needs partner vehicle confirmation),P1,high
+mercedes s class chauffeur riyadh,en,transactional,,,not verified,/fleet/mercedes-s-class/,not built (needs partner vehicle confirmation),P2,high
+hyundai staria with driver,en,transactional,,,not verified,/fleet/hyundai-staria/,not built (needs partner vehicle confirmation),P2,medium
+luxury suv with driver,en,commercial,,,not verified,/luxury-transportation/luxury-suv/,live,P2,medium
+riyadh to jeddah private transfer,en,transactional,,,not verified (SERP: Daytrip / taxiserviceksa),/services/intercity-transfers/riyadh-to-jeddah/,live (both directions on one page),P1,high
+riyadh to dammam taxi,en,transactional,,,not verified,/services/intercity-transfers/riyadh-to-dammam/,live,P1,high
+jeddah to madinah taxi,en,transactional,,,not verified,/services/intercity-transfers/jeddah-to-madinah/,live,P1,high
+makkah to madinah taxi,en,transactional,150,0,earlier Ahrefs export,/services/intercity-transfers/makkah-to-madinah/,live,P1,high
+riyadh to alula private car,en,transactional,,,not verified (SERP: Blacklane city-to-city),/services/intercity-transfers/riyadh-to-alula/,live,P2,medium
+dammam to bahrain transfer,en,transactional,,,not verified,/services/intercity-transfers/dammam-to-bahrain/,live,P1,high
+riyadh to doha transfer,en,transactional,,,not verified,/services/intercity-transfers/riyadh-to-doha/,live,P2,medium
+riyadh to dubai chauffeur,en,transactional,,,not verified,/services/intercity-transfers/riyadh-to-dubai/,live,P2,medium
+saudi arabia to bahrain private transfer,en,commercial,,,not verified,/services/cross-border-transfers/bahrain/,live,P1,high
+umrah taxi service,en,transactional,300,57,earlier Ahrefs export,/services/umrah-transport/,live,P1,high
+umrah taxi,en,transactional,250,29,earlier Ahrefs export,/services/umrah-transport/,live,P1,high
+hotel transfer riyadh,en,transactional,,,not verified,/services/special-transportation/hotel-transportation/,live,P3,medium
+group transportation saudi arabia,en,commercial,,,not verified,/services/group-transportation/,live,P2,medium
+نقل من مطار الرياض,ar,transactional,,,not verified,/ar/services/airport-transfers/riyadh-airport/,live,P1,high
+توصيل مطار الملك خالد,ar,transactional,,,not verified,/ar/services/airport-transfers/riyadh-airport/,live,P1,high
+تأجير سيارة مع سائق الرياض,ar,transactional,,,not verified (SERP: OneClickDrive AR),/ar/services/city-transport/riyadh/,live,P1,high
+سائق بالساعة في الرياض,ar,transactional,,,not verified,/ar/services/chauffeur-services/hourly-driver/,live,P1,high
+سائق خاص ليوم كامل,ar,transactional,,,not verified,/ar/services/chauffeur-services/full-day-driver/,live,P2,high
+نقل VIP في السعودية,ar,commercial,,,not verified,/ar/luxury-transportation/vip-car-service/,live,P2,high
+نقل مناسبات في الرياض,ar,transactional,,,not verified,/ar/services/event-transportation/riyadh/,live,P2,high
+نقل من الرياض إلى جدة,ar,transactional,,,not verified,/ar/services/intercity-transfers/riyadh-to-jeddah/,live,P1,high
+خدمة النقل للمؤتمرات والمعارض,ar,commercial,,,not verified,/ar/services/event-transportation/conference-transport/,live,P2,high
+مطلوب سائق خاص,ar,job seeker (not a customer),150-250,,earlier Ahrefs export,none,excluded on purpose,-,none
