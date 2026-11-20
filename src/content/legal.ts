@@ -36,7 +36,7 @@ export const privacyPolicy: LegalPage = {
             "Contact details: your name, WhatsApp or phone number and, if you give it, your email address.",
             "Journey details: service type, pickup and drop-off locations, travel date and time, one-way or return, number of passengers, luggage, child seats, vehicle preference and flight number for airport journeys.",
             "Anything you add in the special requirements box, so please do not include payment card details, passport numbers or other sensitive data there.",
-            "Messages you send us by WhatsApp, email or phone, and our replies.",
+            "Messages you send us by WhatsApp or email, and our replies.",
             "Technical information needed to keep the form secure, such as the page the enquiry was sent from, the language you used and a scrambled (hashed) form of your IP address to detect abuse and duplicate submissions. We do not store your plain IP address with your enquiry.",
           ],
         },
@@ -66,7 +66,7 @@ export const privacyPolicy: LegalPage = {
         },
         {
           h: "Analytics and cookies",
-          p: ["If website analytics is switched on, it counts page visits and clicks on the WhatsApp, phone, email and quote form buttons. It does not receive your name, phone number, email address, journey details or anything you type into the form. You can block analytics cookies in your browser settings without affecting your ability to request a quote."],
+          p: ["If website analytics is switched on, it counts page visits and clicks on the WhatsApp, email and quote form buttons. It does not receive your name, phone number, email address, journey details or anything you type into the form. You can block analytics cookies in your browser settings without affecting your ability to request a quote."],
         },
         {
           h: "How long we keep your information",
@@ -119,7 +119,7 @@ export const privacyPolicy: LegalPage = {
             "بيانات التواصل: اسمك ورقم واتساب أو الهاتف، وبريدك الإلكتروني إن ذكرته.",
             "تفاصيل الرحلة: نوع الخدمة، وموقعا الانطلاق والوصول، وتاريخ السفر ووقته، وذهاب فقط أو ذهاب وعودة، وعدد الركاب والحقائب ومقاعد الأطفال، والمركبة المفضلة، ورقم الرحلة الجوية في رحلات المطار.",
             "أي شيء تضيفه في خانة المتطلبات الخاصة، لذا نرجو ألا تكتب فيها بيانات بطاقات الدفع أو أرقام الجوازات أو أي بيانات حساسة أخرى.",
-            "الرسائل التي ترسلها إلينا عبر واتساب أو البريد الإلكتروني أو الهاتف، وردودنا عليها.",
+            "الرسائل التي ترسلها إلينا عبر واتساب أو البريد الإلكتروني، وردودنا عليها.",
             "معلومات تقنية لازمة لحماية النموذج، مثل الصفحة التي أُرسل منها الطلب واللغة المستخدمة وصيغة مشفّرة (مُجزَّأة) من عنوان IP لرصد إساءة الاستخدام والإرسال المكرر. ولا نحتفظ بعنوان IP الصريح مع طلبك.",
           ],
         },
@@ -149,7 +149,7 @@ export const privacyPolicy: LegalPage = {
         },
         {
           h: "التحليلات وملفات الارتباط",
-          p: ["إذا كانت تحليلات الموقع مفعّلة فإنها تحصي زيارات الصفحات والنقرات على أزرار واتساب والهاتف والبريد ونموذج طلب السعر. ولا تصلها اسمك أو رقم هاتفك أو بريدك أو تفاصيل رحلتك أو أي شيء تكتبه في النموذج. ويمكنك حظر ملفات ارتباط التحليلات من إعدادات متصفحك دون أن يؤثر ذلك على طلب عرض السعر."],
+          p: ["إذا كانت تحليلات الموقع مفعّلة فإنها تحصي زيارات الصفحات والنقرات على أزرار واتساب والبريد ونموذج طلب السعر. ولا تصلها اسمك أو رقم هاتفك أو بريدك أو تفاصيل رحلتك أو أي شيء تكتبه في النموذج. ويمكنك حظر ملفات ارتباط التحليلات من إعدادات متصفحك دون أن يؤثر ذلك على طلب عرض السعر."],
         },
         {
           h: "مدة الاحتفاظ بمعلوماتك",
@@ -204,7 +204,7 @@ export const termsAndConditions: LegalPage = {
         },
         {
           h: "Enquiry versus confirmed reservation",
-          p: ["Sending the quote request form, a WhatsApp message, an email or a call is an enquiry. It is not a booking, it does not reserve a vehicle and it does not oblige either side. Your journey becomes a confirmed reservation only when you have received a quotation from RideSaudi, you have accepted it, and RideSaudi has sent you a written confirmation."],
+          p: ["Sending the quote request form, a WhatsApp message or an email is an enquiry. It is not a booking, it does not reserve a vehicle and it does not oblige either side. Your journey becomes a confirmed reservation only when you have received a quotation from RideSaudi, you have accepted it, and RideSaudi has sent you a written confirmation."],
         },
         {
           h: "Quotations and validity",
@@ -277,7 +277,7 @@ export const termsAndConditions: LegalPage = {
         },
         {
           h: "الطلب والحجز المؤكد",
-          p: ["إرسال نموذج طلب السعر أو رسالة واتساب أو بريد إلكتروني أو الاتصال هاتفيًا يُعدّ طلبًا واستفسارًا فقط. فهو ليس حجزًا ولا يحجز مركبة ولا يُلزم أيًّا من الطرفين. ولا تصبح رحلتك حجزًا مؤكدًا إلا بعد أن يصلك عرض سعر من RideSaudi وتقبله وترسل لك RideSaudi تأكيدًا كتابيًا."],
+          p: ["إرسال نموذج طلب السعر أو رسالة واتساب أو بريد إلكتروني يُعدّ طلبًا واستفسارًا فقط. فهو ليس حجزًا ولا يحجز مركبة ولا يُلزم أيًّا من الطرفين. ولا تصبح رحلتك حجزًا مؤكدًا إلا بعد أن يصلك عرض سعر من RideSaudi وتقبله وترسل لك RideSaudi تأكيدًا كتابيًا."],
         },
         {
           h: "عروض الأسعار ومدة سريانها",
@@ -347,9 +347,9 @@ export const contactPage: LegalPage = {
     en: {
       nav: "Contact",
       title: "Contact RideSaudi: Quotes, Bookings and Support",
-      description: "Contact RideSaudi on WhatsApp, phone or email to request a private transfer quotation or get help with an existing enquiry, in English or Arabic.",
+      description: "Contact RideSaudi on WhatsApp or email to request a private transfer quotation or get help with an existing enquiry, in English or Arabic.",
       h1: "Contact RideSaudi",
-      intro: "The fastest way to get a private transfer quotation is the quote request on our website. You can also write to us on WhatsApp, call, or email, in English or Arabic.",
+      intro: "The fastest way to get a private transfer quotation is the quote request on our website. You can also write to us on WhatsApp or by email, in English or Arabic. WhatsApp is our only phone line; we do not take voice calls.",
       sections: [
         {
           h: "Ways to reach us",
@@ -379,9 +379,9 @@ export const contactPage: LegalPage = {
     ar: {
       nav: "اتصل بنا",
       title: "تواصل مع RideSaudi: عروض الأسعار والحجز والدعم",
-      description: "تواصل مع RideSaudi عبر واتساب أو الهاتف أو البريد الإلكتروني لطلب عرض سعر لتوصيل خاص أو للمساعدة في طلب قائم، بالعربية أو الإنجليزية.",
+      description: "تواصل مع RideSaudi عبر واتساب أو البريد الإلكتروني لطلب عرض سعر لتوصيل خاص أو للمساعدة في طلب قائم، بالعربية أو الإنجليزية.",
       h1: "تواصل مع RideSaudi",
-      intro: "أسرع طريقة للحصول على عرض سعر لتوصيل خاص هي نموذج طلب السعر في موقعنا. ويمكنك أيضًا مراسلتنا عبر واتساب أو الاتصال أو البريد الإلكتروني، بالعربية أو الإنجليزية.",
+      intro: "أسرع طريقة للحصول على عرض سعر لتوصيل خاص هي نموذج طلب السعر في موقعنا. ويمكنك أيضًا مراسلتنا عبر واتساب أو البريد الإلكتروني، بالعربية أو الإنجليزية. وواتساب هو رقمنا الوحيد؛ ولا نستقبل مكالمات صوتية.",
       sections: [
         {
           h: "طرق التواصل",
