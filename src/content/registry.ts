@@ -21,12 +21,30 @@ import { batch15CitiesAirports } from "./batch15-cities-airports";
 import { batch16ReverseAlulaRoutes } from "./batch16-reverse-alula-routes";
 import { batch17JeddahRoutes, jeddahBacklinks } from "./batch17-jeddah-routes";
 import { batch18Locations, locationBacklinks } from "./batch18-locations";
+import { priorityRoutes } from "./priority-routes";
+import { applyRoutePatches, priorityRoutesB } from "./priority-routes-b";
+import { priorityRoutesC } from "./priority-routes-c";
+import { priorityRoutesD } from "./priority-routes-d";
+import { applyLinkBoosts } from "./link-boosts";
+import { applyCityEnrichments } from "./enrich-cities";
+import { applyBatch2Enrichments } from "./enrich-batch2";
+import { applyBatch3Enrichments } from "./enrich-batch3";
+import { applyRouteEnrichments } from "./enrich-routes";
 
-export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...batch17JeddahRoutes, ...batch18Locations];
+export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB, ...priorityRoutesC, ...priorityRoutesD, ...batch17JeddahRoutes, ...batch18Locations];
 
-// Cross-link the Jeddah route cluster from the existing hub, airport and neighbouring route pages.
+// Verified-fact upgrades for pages that stay in their original files (must run before FAQ scoping).
+applyRoutePatches(pages);
+applyCityEnrichments(pages);
+applyBatch2Enrichments(pages);
+applyBatch3Enrichments(pages);
+applyRouteEnrichments(pages);
+
+// Cross-link the Jeddah route cluster and new locations from existing hub, airport and neighbouring route pages.
 for (const p of pages) if (jeddahBacklinks[p.path]) p.related.push(...jeddahBacklinks[p.path]);
 for (const p of pages) if (locationBacklinks[p.path]) p.related.push(...locationBacklinks[p.path]);
+
+applyLinkBoosts(pages);
 
 /**
  * SEO-RULES.md: no FAQ may appear verbatim on two pages. Generic questions that several pages

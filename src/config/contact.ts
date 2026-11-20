@@ -4,17 +4,13 @@
  * Do not hardcode these values anywhere else.
  */
 export const CONTACT = {
-  /** E.164 number, used for tel: links and structured data. */
-  phone: "+966543544560",
-  /** Human-readable form of the same number (always render left-to-right). */
-  phoneDisplay: "+966 54 354 4560",
-  /** Digits only, as required by wa.me. */
-  whatsapp: "966543544560",
+  /** WhatsApp-only number (no phone calls). Digits only, as required by wa.me. */
+  whatsapp: "966538547672",
+  /** Human-readable form of the WhatsApp number (always render left-to-right). */
+  whatsappDisplay: "+966 53 854 7672",
   email: "inforidesaudi@gmail.com",
   website: "https://ridesaudi.com/",
 } as const;
-
-export const telHref = `tel:${CONTACT.phone}`;
 
 /** WhatsApp chat link with an optional URL-encoded pre-filled message. */
 export function whatsappHref(message?: string): string {

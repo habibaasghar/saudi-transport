@@ -3,7 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import type { ServicePage } from "@/content/types";
-import { childrenOf, getPage, trail } from "@/content/registry";
+import { childrenOf, getPage, pages, trail } from "@/content/registry";
+import { blogPosts } from "@/content/blog/posts";
 import { getImage } from "@/content/images";
 import { pageSchema } from "@/lib/schema";
 import { Header } from "./Header";
@@ -14,17 +15,38 @@ import { SectionHead } from "./SectionHead";
 import { JsonLd } from "./JsonLd";
 import { ContactRow } from "./ContactCta";
 import { RouteTracker } from "./RouteTracker";
+import { FleetCards } from "./Fleet";
 import { routePrefill } from "@/content/route-prefill";
 
 const href = (path: string) => `/${path}`;
+const ROUTE_PREFIX = "services/intercity-transfers/";
+const CITY_PREFIX = "services/city-transport/";
+
+/** On a city hub, every route page that starts or ends in that city (by slug), not already linked as related or child. */
+function cityRoutes(page: ServicePage, exclude: Set<string>): ServicePage[] {
+  if (!page.path.startsWith(CITY_PREFIX)) return [];
+  const hub = page.path.slice(CITY_PREFIX.length);
+  /** City hub slugs that are spelled differently in route slugs. */
+  const city = ({ buraidah: "buraydah" } as Record<string, string>)[hub] ?? hub;
+  if (!hub || hub.includes("/")) return [];
+  return pages.filter((p) => {
+    if (!p.path.startsWith(ROUTE_PREFIX) || exclude.has(p.path)) return false;
+    const [o, d] = p.path.slice(ROUTE_PREFIX.length).split("-to-");
+    return o === city || d === city;
+  });
+}
 
 export async function ServicePageView({ page, locale }: { page: ServicePage; locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "svc" });
+  const f = await getTranslations({ locale, namespace: "fleet" });
   const c = page.copy[locale];
   const crumbs = trail(page);
   const hero = getImage(page.path);
   const kids = childrenOf(page.path);
   const related = page.related.map(getPage).filter((p): p is ServicePage => Boolean(p));
+  const routes = cityRoutes(page, new Set([...page.related, ...kids.map((k) => k.path)]));
+  /** Guides that cite this page link back to it, so informational and commercial pages reinforce each other. */
+  const guides = blogPosts.filter((b) => b.links.includes(page.path));
 
   return (
     <>
@@ -66,7 +88,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             <div className="hero__actions">
               <a href="#quote" className="btn btn--primary btn--lg">{t("getQuote")}</a>
             </div>
-            <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp", "call"]} className="hero__contact" />
+            <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp"]} className="hero__contact" />
             <p className="hero__note">{t("notice")}</p>
           </div>
         </section>
@@ -76,9 +98,19 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             <div className="answer">
               <h2 id="answer-h" className="answer__label">{t("answerLabel")}</h2>
               <p>{c.answer}</p>
+              <p className="answer__exclusive">{t("exclusive")}</p>
             </div>
           </div>
         </section>
+
+        {page.path === "fleet" && (
+          <section className="section section--sand fleet-page" aria-labelledby="fleet-cards-h">
+            <div className="wrap">
+              <SectionHead id="fleet-cards-h" eyebrow={c.eyebrow} title={f("title")} intro={`${f("partnerNote")} ${f("photoNote")}`} />
+              <FleetCards locale={locale} />
+            </div>
+          </section>
+        )}
 
         {kids.length > 0 && (
           <section className="section section--sand" aria-labelledby="kids-h">
@@ -125,7 +157,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
                 <div className="wrap">
                   <h2 id="table-h" className="table-title">{c.table.h}</h2>
                   <div className="table-wrap" tabIndex={0} role="region" aria-labelledby="table-h">
-                    <table>
+                    <table className={c.table.head.length <= 2 ? "table--fit" : undefined}>
                       <thead>
                         <tr>{c.table.head.map((h) => <th key={h} scope="col">{h}</th>)}</tr>
                       </thead>
@@ -185,6 +217,29 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
           </section>
         )}
 
+        {(routes.length > 0 || guides.length > 0) && (
+          <section className="section section--white" aria-labelledby="more-h">
+            <div className="wrap">
+              <SectionHead id="more-h" eyebrow={t("relatedEyebrow")} title={routes.length > 0 ? t("cityRoutes") : t("guides")} />
+              {routes.length > 0 && (
+                <ul className="chips">
+                  {routes.map((r) => (
+                    <li key={r.path}><Link href={href(r.path)}>{r.copy[locale].nav}</Link></li>
+                  ))}
+                </ul>
+              )}
+              {routes.length > 0 && guides.length > 0 && <h3 className="more__sub">{t("guides")}</h3>}
+              {guides.length > 0 && (
+                <ul className="chips">
+                  {guides.map((b) => (
+                    <li key={b.slug}><Link href={`/blog/${b.slug}`}>{b.copy[locale].nav}</Link></li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </section>
+        )}
+
         <section className="section section--white" aria-labelledby="faq-h">
           <div className="wrap faq">
             <SectionHead id="faq-h" eyebrow={t("faqEyebrow")} title={t("faqTitle")} />
@@ -202,7 +257,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
         <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} prefill={routePrefill[page.path] ? { pickup: routePrefill[page.path][locale][0], dropoff: routePrefill[page.path][locale][1] } : undefined} />
         <p className="wrap svc-reviewed">{t("reviewed")}: <time dateTime={page.updated}>{page.updated}</time></p>
       </main>
-      <Footer locale={locale} />
+      <Footer locale={locale} switchHref={href(page.path)} />
     </>
   );
 }

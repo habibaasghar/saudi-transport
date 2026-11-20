@@ -140,7 +140,7 @@ export const batch14OriginRoutes: ServicePage[] = [
     parent: I,
     variant: "default",
     service: "intercity",
-    related: [`${I}/riyadh-to-dammam`, `${I}/dammam-to-riyadh`, `${C}/al-khobar`, `${C}/dhahran`, `${I}/dammam-to-bahrain`, `${C}/riyadh`],
+    related: [`${I}/al-khobar-to-riyadh`, `${I}/riyadh-to-dammam`, `${I}/dammam-to-riyadh`, `${C}/al-khobar`, `${C}/dhahran`, `${I}/dammam-to-bahrain`, `${C}/riyadh`],
     updated: U,
     copy: {
       en: {
@@ -155,7 +155,7 @@ export const batch14OriginRoutes: ServicePage[] = [
           { h: "How this differs from Riyadh to Dammam", p: ["The highway from Riyadh is shared with the Dammam journey for most of the way; the difference is the last stretch and the reason for travelling. Al Khobar is where many of the area's waterfront hotels are, Dhahran is where energy-sector offices and the university are, and the causeway to Bahrain begins on the Khobar side. The Riyadh to Dammam page covers the general route and the comparison with the train."] },
           { h: "Where people are dropped in Al Khobar and Dhahran", p: ["In Al Khobar, typical destinations are Corniche and waterfront hotels and the city's business towers. In Dhahran, they are company offices, King Fahd University of Petroleum and Minerals, the King Abdulaziz Center for World Culture (Ithra) and the Dhahran Expo exhibition halls. Company and residential compounds control their own entry, so arrange access with your host and tell us which gate to use."] },
           { h: "Continuing to Bahrain", p: ["Because the King Fahd Causeway starts near Al Khobar, some travellers stay a night on the Saudi side and cross the next day, and others ask for one continuous journey. Either can be requested. Entry documents are each passenger's responsibility, and whether a given vehicle and driver can cross is confirmed in the quotation; see Dammam to Bahrain."] },
-          { h: "Coming back to Riyadh", p: ["A same-day return works for a single meeting; for a longer stay, request the return for another date. If you are based on the coast and travelling to the capital, the Dammam to Riyadh page is written for that direction."] },
+          { h: "Coming back to Riyadh", p: ["A same-day return works for a single meeting; for a longer stay, request the return for another date. If you are based in Al Khobar or Dhahran and travelling to the capital, the Al Khobar to Riyadh page is written for that direction."] },
         ],
         checklist: { h: "Include this in your Riyadh to Al Khobar enquiry", items: ["Riyadh pickup address and departure time", "Exact destination in Al Khobar or Dhahran, with gate or building", "Passengers and luggage", "Whether the car should wait, return the same day or return later", "Any onward journey to Bahrain"] },
         faqs: [
@@ -177,7 +177,7 @@ export const batch14OriginRoutes: ServicePage[] = [
           { h: "ما الفرق عن رحلة الرياض إلى الدمام", p: ["الطريق السريع من الرياض مشترك مع رحلة الدمام في معظمه، والفرق في الجزء الأخير وفي سبب السفر. ففي الخبر كثير من فنادق الواجهة البحرية، وفي الظهران مكاتب قطاع الطاقة والجامعة، ومن جهة الخبر يبدأ الجسر إلى البحرين. أما صفحة الرياض إلى الدمام فتغطي الطريق عمومًا والمقارنة بالقطار."] },
           { h: "أين يُنزَل الركاب في الخبر والظهران", p: ["في الخبر تكون الوجهات المعتادة فنادق الكورنيش والواجهة البحرية وأبراج الأعمال. وفي الظهران مكاتب الشركات وجامعة الملك فهد للبترول والمعادن ومركز الملك عبدالعزيز الثقافي العالمي (إثراء) وصالات معارض الظهران. وتتحكم المجمعات السكنية ومقار الشركات في الدخول إليها، فرتّب الدخول مع مضيفك وأخبرنا بالبوابة المطلوبة."] },
           { h: "متابعة الطريق إلى البحرين", p: ["لأن جسر الملك فهد يبدأ قرب الخبر، يبيت بعض المسافرين ليلة في الجانب السعودي ويعبرون في اليوم التالي، ويطلب آخرون رحلة واحدة متصلة. ويمكن طلب أي من الخيارين. ووثائق الدخول مسؤولية كل راكب، وإمكانية عبور مركبة وسائق محددين تُؤكَّد في عرض السعر؛ راجع صفحة الدمام إلى البحرين."] },
-          { h: "العودة إلى الرياض", p: ["تناسب العودة في اليوم نفسه اجتماعًا واحدًا؛ وللإقامة الأطول اطلب العودة في تاريخ آخر. وإن كنت مقيمًا على الساحل ومسافرًا إلى العاصمة فصفحة الدمام إلى الرياض مكتوبة لذلك الاتجاه."] },
+          { h: "العودة إلى الرياض", p: ["تناسب العودة في اليوم نفسه اجتماعًا واحدًا؛ وللإقامة الأطول اطلب العودة في تاريخ آخر. وإن كنت مقيمًا في الخبر أو الظهران ومسافرًا إلى العاصمة فصفحة الخبر إلى الرياض مكتوبة لذلك الاتجاه."] },
         ],
         checklist: { h: "ما الذي تضيفه إلى طلب الرياض إلى الخبر", items: ["عنوان الاستلام في الرياض ووقت الانطلاق", "الوجهة بدقة في الخبر أو الظهران مع البوابة أو المبنى", "الركاب والحقائب", "هل تنتظر السيارة أم تعود في اليوم نفسه أم في تاريخ لاحق", "أي متابعة للرحلة إلى البحرين"] },
         faqs: [

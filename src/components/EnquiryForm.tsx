@@ -1,46 +1,45 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
-import { emptyEnquiry, validateEnquiry, type EnquiryInput, type FieldErrors } from "@/lib/enquiry";
+import { DURATIONS, emptyEnquiry, usesCompany, usesDuration, usesVehicleCount, validateEnquiry, type EnquiryInput, type FieldErrors } from "@/lib/enquiry";
+import { readAttribution } from "@/lib/attribution";
 import { formServiceKeys } from "@/lib/site";
 import { PREFILL_EVENT } from "@/lib/events";
 import { track } from "@/lib/analytics";
 import { whatsappHref } from "@/config/contact";
+import { Link } from "@/i18n/navigation";
+import { fleetCategories, otherVehicleValue } from "@/content/fleet";
 
 type Status = "idle" | "sending" | "success" | "notConfigured" | "rateLimited" | "failed";
+
+// Today's local date, read only in the browser. The server snapshot is undefined, so the statically
+// rendered HTML never carries a build-time date that would mismatch on hydration.
+const noSubscribe = () => () => {};
+const localToday = () => new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
 
 export function EnquiryForm({ locale, defaultService, prefill }: { locale: string; defaultService?: string; prefill?: { pickup: string; dropoff: string } }) {
   const t = useTranslations("form");
   const uid = useId();
-  const params = useSearchParams();
   const [data, setData] = useState<EnquiryInput>({ ...emptyEnquiry(), locale, service: defaultService ?? "", pickup: prefill?.pickup ?? "", dropoff: prefill?.dropoff ?? "" });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [receipt, setReceipt] = useState<{ reference?: string; wa: string } | null>(null);
   const [started, setStarted] = useState(false);
+  const sendingRef = useRef(false);
   const formRef = useRef<HTMLFormElement>(null);
   const statusRef = useRef<HTMLDivElement>(null);
-  const [today] = useState(() => new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10));
+  const today = useSyncExternalStore(noSubscribe, localToday, () => undefined);
 
   const set = <K extends keyof EnquiryInput>(k: K, v: EnquiryInput[K]) => {
     if (!started) {
       setStarted(true);
-      track("form_start", { form: "quote" });
+      track("quote_form_start", { form: "quote", language: locale });
     }
     setData((d) => ({ ...d, [k]: v }));
   };
 
   const [startedAt, setStartedAt] = useState(() => Date.now());
-
-  // ?service=airport from service cards (adjust state during render when the param changes)
-  const qs = params.get("service");
-  const [seenQs, setSeenQs] = useState<string | null>(null);
-  if (qs !== seenQs) {
-    setSeenQs(qs);
-    if (qs && (formServiceKeys as readonly string[]).includes(qs)) setData((d) => ({ ...d, service: qs }));
-  }
 
   // Values handed over from the hero panel
   useEffect(() => {
@@ -60,6 +59,8 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    // Duplicate-submission guard: a fast double click/tap must never send two enquiries.
+    if (sendingRef.current) return;
     const errs = validateEnquiry(data);
     setErrors(errs);
     const first = Object.keys(errs)[0];
@@ -68,12 +69,14 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
       formRef.current?.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;
     }
+    sendingRef.current = true;
     setStatus("sending");
+    track("quote_form_submit", { form: "quote", service: data.service, trip_type: data.tripType, language: locale });
     try {
       const res = await fetch("/api/enquiry/", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ ...data, startedAt, source: window.location.pathname }),
+        body: JSON.stringify({ ...data, startedAt, source: window.location.pathname, attribution: readAttribution() }),
       });
       if (res.ok) {
         const j = await res.json().catch(() => ({}));
@@ -90,6 +93,8 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
           }),
         );
         setReceipt({ reference: j.reference, wa });
+        // No names, phone numbers, emails or journey details are ever sent to analytics.
+        track("quote_form_success", { form: "quote", service: sent.service, trip_type: sent.tripType, language: locale });
         track("generate_lead", { form: "quote", service: sent.service, trip_type: sent.tripType, language: locale });
         // Fired only after the backend accepted the enquiry (never on a button click).
         track("form_submit", { form: "quote", service: sent.service, language: locale });
@@ -107,6 +112,7 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
     } catch {
       setStatus("failed");
     }
+    sendingRef.current = false;
     requestAnimationFrame(() => statusRef.current?.focus());
   }
 
@@ -180,6 +186,8 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
             </select>
             {errors.service && <p id={`${uid}-service-e`} className="field__error">{t(`errors.${errors.service}`)}</p>}
           </div>
+          {usesCompany(data.service) &&
+            Field({ name: "company", label: t("fields.company"), autoComplete: "organization", maxLength: 160, wide: true })}
           {Field({ name: "pickup", label: t("fields.pickup"), required: true, autoComplete: "off", maxLength: 160 })}
           {Field({ name: "dropoff", label: t("fields.dropoff"), required: true, autoComplete: "off", maxLength: 160 })}
           <div className="field field--wide">
@@ -197,25 +205,45 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
               {Field({ name: "returnTime", label: t("fields.returnTime"), type: "time", required: true })}
             </>
           )}
-          {Field({ name: "passengers", label: t("fields.passengers"), type: "number", inputMode: "numeric", required: true, min: 1, max: 100 })}
+          {usesDuration(data.service) && (
+            <div className="field field--wide">
+              <label htmlFor={id("hours")}>
+                {t(data.service === "event" ? "fields.durationEvent" : "fields.duration")}
+                {data.service === "hourly" && <span aria-hidden="true"> *</span>}
+              </label>
+              <select
+                id={id("hours")}
+                name="hours"
+                value={data.hours}
+                onChange={(e) => set("hours", e.target.value)}
+                required={data.service === "hourly"}
+                aria-invalid={errors.hours ? true : undefined}
+                aria-describedby={`${uid}-hours-h${errors.hours ? ` ${uid}-hours-e` : ""}`}
+              >
+                <option value="">{t("fields.durationPlaceholder")}</option>
+                {DURATIONS.map((h) => (
+                  <option key={h} value={h}>
+                    {h === "full_day" ? t("fields.durationFullDay") : h === "multi_day" ? t("fields.durationMultiDay") : t("fields.durationHours", { h: Number(h) })}
+                  </option>
+                ))}
+              </select>
+              <p id={`${uid}-hours-h`} className="field__hint">{t("fields.durationHint")}</p>
+              {errors.hours && <p id={`${uid}-hours-e`} className="field__error">{t(`errors.${errors.hours}`)}</p>}
+            </div>
+          )}
+          {Field({ name: "passengers", label: t(data.service === "event" ? "fields.guests" : "fields.passengers"), type: "number", inputMode: "numeric", required: true, min: 1, max: 100 })}
+          {usesVehicleCount(data.service) &&
+            Field({ name: "vehicles", label: t("fields.vehicles"), hint: t("fields.vehiclesHint"), type: "number", inputMode: "numeric", min: 1, max: 50 })}
           {Field({ name: "luggage", label: t("fields.luggage"), type: "number", inputMode: "numeric", min: 0, max: 100 })}
+          {Field({ name: "childSeats", label: t("fields.childSeats"), hint: t("fields.childSeatsHint"), type: "number", inputMode: "numeric", min: 0, max: 10 })}
           {data.service === "airport" &&
             Field({ name: "flight", label: t("fields.flight"), hint: t("fields.flightHint"), maxLength: 12, autoComplete: "off", dir: "ltr" })}
           <div className="field field--wide">
             <label htmlFor={id("vehicle")}>{t("fields.vehicle")}</label>
             <select id={id("vehicle")} name="vehicle" value={data.vehicle} onChange={(e) => set("vehicle", e.target.value)} aria-describedby={`${uid}-vehicle-h`}>
               <option value="">{t("fields.vehicleAny")}</option>
-              <option value="Sedan">{t("fields.vehicleSedan")}</option>
-              <option value="GMC Yukon">{t("fields.vehicleGmc")}</option>
-              <option value="Hyundai Staria">{t("fields.vehicleStaria")}</option>
-              <option value="Toyota Camry">{t("fields.vehicleCamry")}</option>
-              <option value="Hyundai Sonata">{t("fields.vehicleSonata")}</option>
-              <option value="Ford Taurus">{t("fields.vehicleTaurus")}</option>
-              <option value="GMC Suburban">{t("fields.vehicleSuburban")}</option>
-              <option value="Chevrolet Tahoe">{t("fields.vehicleTahoe")}</option>
-              <option value="Toyota Prado">{t("fields.vehiclePrado")}</option>
-              <option value="Luxury SUV / VIP">{t("fields.vehicleLuxury")}</option>
-              <option value="Other / larger group">{t("fields.vehicleOther")}</option>
+              {fleetCategories.map((v) => <option key={v.key} value={v.value}>{v.name[locale as "en" | "ar"] ?? v.name.en}</option>)}
+              <option value={otherVehicleValue}>{t("fields.vehicleOther")}</option>
             </select>
             <p id={`${uid}-vehicle-h`} className="field__hint">{t("fields.vehicleHint")}</p>
           </div>
@@ -229,7 +257,7 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
           {Field({ name: "phone", label: t("fields.phone"), hint: t("fields.phoneHint"), type: "tel", inputMode: "tel", required: true, autoComplete: "tel", maxLength: 20, dir: "ltr" })}
           {Field({ name: "email", label: t("fields.email"), type: "email", inputMode: "email", autoComplete: "email", maxLength: 160, dir: "ltr", wide: true })}
           <div className="field field--wide">
-            <label htmlFor={id("notes")}>{t("fields.notes")}</label>
+            <label htmlFor={id("notes")}>{t(usesDuration(data.service) ? "fields.notesItinerary" : "fields.notes")}</label>
             <textarea id={id("notes")} name="notes" rows={4} maxLength={1500} value={data.notes} onChange={(e) => set("notes", e.target.value)} />
           </div>
         </div>
@@ -250,9 +278,10 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
           aria-invalid={errors.consent ? true : undefined}
           aria-describedby={errors.consent ? `${uid}-consent-e` : undefined}
         />
-        <label htmlFor={id("consent")}>{t("fields.consent")}</label>
+        <label htmlFor={id("consent")}>{t.rich("fields.consent", { privacy: (chunks) => <Link href="/privacy-policy">{chunks}</Link> })}</label>
       </div>
       {errors.consent && <p id={`${uid}-consent-e`} className="field__error">{t("errors.consent")}</p>}
+      <p className="form__legal">{t.rich("legal", { terms: (chunks) => <Link href="/terms-and-conditions">{chunks}</Link> })}</p>
 
       <button type="submit" className="btn btn--primary btn--lg btn--block" disabled={status === "sending"}>
         {status === "sending" ? t("sending") : t("submit")}
@@ -261,6 +290,30 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
       <div ref={statusRef} tabIndex={-1} role="status" aria-live="polite" className="form__status">
         {messageKey && (
           <p className={status === "success" ? "ok" : "bad"}>{t(`status.${messageKey}`)}</p>
+        )}
+        {(status === "failed" || status === "notConfigured") && Object.keys(errors).length === 0 && (
+          /* Safety net: if online delivery fails, the customer can still send the same details on WhatsApp. */
+          <p>
+            <a
+              href={whatsappHref(
+                t("whatsappFallback", {
+                  service: data.service ? t(`services.${data.service}` as never) : "-",
+                  pickup: data.pickup,
+                  dropoff: data.dropoff,
+                  date: data.date,
+                  time: data.time,
+                  pax: data.passengers,
+                  bags: data.luggage,
+                  name: data.name,
+                }),
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--primary"
+            >
+              {t("sendOnWhatsApp")}
+            </a>
+          </p>
         )}
         {status === "success" && receipt && (
           <p>

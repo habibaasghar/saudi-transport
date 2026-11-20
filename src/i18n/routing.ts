@@ -6,6 +6,9 @@ export const routing = defineRouting({
   localePrefix: "always",
   // Never redirect based on Accept-Language/IP; both versions stay crawlable.
   localeDetection: false,
+  // No hreflang HTTP Link header: it pointed x-default at unprefixed URLs that redirect, contradicting the
+  // <link rel="alternate"> tags in the HTML. Hreflang is declared once, in the HTML and the sitemap.
+  alternateLinks: false,
 });
 
 export type Locale = (typeof routing.locales)[number];

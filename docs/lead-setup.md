@@ -21,3 +21,13 @@ Env changes apply on the next deployment: Vercel -> Deployments -> Redeploy.
 
 ## Test
 Submit the form on any page. You should see the row in Supabase and/or the email within seconds. If both channels fail the visitor sees an error instead of a false success.
+
+## 5. Acknowledgement email to the customer (optional)
+When a customer gives an email address, they can get an automatic "we received your enquiry" email (English or Arabic, matching the page). It says plainly that the enquiry is not a confirmed booking. It needs the database (step 1) and one sender:
+- **Gmail (simplest):** in the inforidesaudi@gmail.com Google account, turn on 2-Step Verification and create an App Password. Vercel env: `EMAIL_PROVIDER=gmail`, `SMTP_USERNAME=inforidesaudi@gmail.com`, `SMTP_PASSWORD=<the 16-character app password>`.
+- **Resend:** `EMAIL_PROVIDER=resend` plus `RESEND_API_KEY` and a verified sender domain in `EMAIL_FROM`.
+Leave `EMAIL_PROVIDER` unset (or `none`) to send nothing. The business alert in step 2 is separate and unchanged, so you never get two alerts for one lead.
+
+## What each enquiry now records
+- Service-specific details: duration (hourly, chauffeur, event), company name (corporate), number of vehicles (event, corporate). Stored in the inquiry's special requirements and shown in the alert email.
+- Where the lead came from: first page opened, referring website (host name only), and any `utm_*` tags or ad click IDs (`gclid`, `gbraid`, `wbraid`, `msclkid`, `fbclid`) in the link. Stored on the inquiry's "created" activity and shown in the alert email as "Came from". Never sent to analytics.

@@ -1,6 +1,7 @@
 import { pages } from "@/content/registry";
 import { pageUrl, SITE_URL } from "@/lib/site";
 import { blogPosts } from "@/content/blog/posts";
+import { legalPages } from "@/content/legal";
 
 export const dynamic = "force-static";
 
@@ -25,14 +26,16 @@ export function GET() {
 - Website: ${SITE_URL}/
 - Languages: English (/en/) and Arabic (/ar/, right-to-left)
 - Booking model: enquiry first, quotation, then confirmation
-- Vehicles that can be requested, each with a driver: sedans (Toyota Camry, Hyundai Sonata, Ford Taurus), SUVs (GMC Yukon, GMC Suburban, Chevrolet Tahoe, Toyota Prado), Hyundai Staria van, luxury and VIP SUVs. Models and availability are confirmed per quotation, subject to partner availability
+- RideSaudi is a booking and enquiry service: journeys are carried out by the transport partners it books with, and RideSaudi does not claim to own every vehicle or employ every driver
+- Every journey is private: the vehicle is reserved for one customer party only. RideSaudi does not sell shared seats or combine separate bookings in one car.
+- Vehicles that can be requested, each with a driver supplied by transport partners: sedans (Toyota Camry, Hyundai Sonata, Ford Taurus), SUVs (GMC Yukon, GMC Suburban, Chevrolet Tahoe, Toyota Prado), Hyundai Staria van, luxury and VIP SUVs. Models and availability are confirmed per quotation
 - Route availability is confirmed per quotation, not published as a fleet or route list
 - Not affiliated with any religious or government authority; does not issue Umrah visas or permits
 
 ## Riyadh coverage
 - Riyadh city hub: private car with a driver by trip, hour or day, plus airport, sightseeing, events and intercity routes: ${SITE_URL}/en/services/city-transport/riyadh/ (Arabic: ${SITE_URL}/ar/services/city-transport/riyadh/)
 - Routes from Riyadh are quoted individually and can be requested in either direction: Dammam, Jeddah, Makkah, Madinah, Al Ahsa, AlUla, Taif, Abha, Tabuk, Hail, Buraydah, Jubail, Yanbu, Hafar Al Batin, and cross-border to Doha, Dubai, Manama and Kuwait City.
-- Distances, durations and prices are not published; entry rules for cross-border journeys must be checked with official authorities.
+- Prices are not published. Road distance and driving time are stated on a route page only where they have been checked; entry rules for cross-border journeys must be checked with official authorities.
 
 ## Jeddah coverage
 - Jeddah city hub and King Abdulaziz Airport transfers: ${SITE_URL}/en/services/city-transport/jeddah/ and ${SITE_URL}/en/services/airport-transfers/jeddah-airport/
@@ -41,6 +44,9 @@ export function GET() {
 
 ## Guides
 ${guides}
+
+## About, contact and policies
+${(["en", "ar"] as const).flatMap((l) => legalPages.map((p) => `- [${p.copy[l].nav}](${pageUrl(l, p.slug)})`)).join("\n")}
 
 ## Services (English)
 ${section("en")}

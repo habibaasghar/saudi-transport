@@ -35,7 +35,7 @@ const footerRiyadh = [
   "services/intercity-transfers/riyadh-to-dubai",
 ] as const;
 
-export async function Footer({ locale }: { locale: Locale }) {
+export async function Footer({ locale, switchHref = "/" }: { locale: Locale; switchHref?: string }) {
   const t = await getTranslations("footer");
   const n = await getTranslations("nav");
   const a = await getTranslations("a11y");
@@ -50,11 +50,10 @@ export async function Footer({ locale }: { locale: Locale }) {
           <p className="footer__tag">{t("tagline")}</p>
           <div className="footer__contact">
             <h2>{c("footerHeading")}</h2>
-            <p className="footer__phone"><bdi dir="ltr">{CONTACT.phoneDisplay}</bdi></p>
+            <p className="footer__phone">{c("whatsappNumber")}: <bdi dir="ltr">{CONTACT.whatsappDisplay}</bdi></p>
             <p className="footer__mail"><bdi dir="ltr">{CONTACT.email}</bdi></p>
             <div className="cta-row">
               <ContactCta kind="whatsapp" locale={locale} size="sm" />
-              <ContactCta kind="call" locale={locale} size="sm" variant="ghost" />
               <ContactCta kind="email" locale={locale} size="sm" variant="ghost" />
             </div>
           </div>
@@ -86,8 +85,9 @@ export async function Footer({ locale }: { locale: Locale }) {
           <div>
             <h2>{t("legal")}</h2>
             <ul>
-              <li>{t("privacy")} <small>({t("soon")})</small></li>
-              <li>{t("terms")} <small>({t("soon")})</small></li>
+              <li><Link href="/privacy-policy">{t("privacy")}</Link></li>
+              <li><Link href="/terms-and-conditions">{t("terms")}</Link></li>
+              <li><Link href="/contact">{t("contactPage")}</Link></li>
             </ul>
             <h2>{t("language")}</h2>
             <ul>
@@ -96,7 +96,7 @@ export async function Footer({ locale }: { locale: Locale }) {
                   {x === locale ? (
                     <span aria-current="true">{l(x)}</span>
                   ) : (
-                    <Link href="/" locale={x} hrefLang={x} lang={x}>{l(x)}</Link>
+                    <Link href={switchHref} locale={x} hrefLang={x} lang={x}>{l(x)}</Link>
                   )}
                 </li>
               ))}

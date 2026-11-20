@@ -19,7 +19,7 @@ export async function Hero({ locale }: { locale: string }) {
             <Link href="/#quote" className="btn btn--primary btn--lg">{t("ctaQuote")}</Link>
             <Link href="/#services" className="btn btn--ghost btn--lg">{t("ctaServices")}</Link>
           </div>
-          <ContactRow locale={locale} kinds={["whatsapp", "call"]} className="hero__contact" />
+          <ContactRow locale={locale} kinds={["whatsapp"]} className="hero__contact" />
           <p className="hero__note">{t("note")}</p>
         </div>
         <QuickStart />

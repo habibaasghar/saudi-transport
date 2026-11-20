@@ -1,6 +1,6 @@
-import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 import { EnquiryForm } from "./EnquiryForm";
 import { ContactRow } from "./ContactCta";
 
@@ -9,6 +9,7 @@ export async function QuoteSection({ locale, defaultService, topic, prefill }: {
   const t = await getTranslations("cta");
   const f = await getTranslations("form");
   const c = await getTranslations("contact");
+  const ft = await getTranslations("footer");
   return (
     <section id="quote" className="section section--dusk" aria-labelledby="quote-h">
       <div className="wrap quote">
@@ -17,14 +18,15 @@ export async function QuoteSection({ locale, defaultService, topic, prefill }: {
           <h2 id="quote-h">{t("title")}</h2>
           <p className="lede">{t("text")}</p>
           <p className="quote__notice">{f("intro")}</p>
+          <p className="quote__legal"><Link href="/terms-and-conditions">{ft("terms")}</Link> · <Link href="/privacy-policy">{ft("privacy")}</Link></p>
           <div className="quote__contact">
             <p className="quote__contact-title">{c("quoteAlt")}</p>
             <ContactRow locale={locale} topic={topic} variant="ghost" />
+            <p className="quote__more"><Link href="/contact">{c("allOptions")}</Link></p>
           </div>
         </div>
-        <Suspense fallback={null}>
-          <EnquiryForm locale={locale} defaultService={defaultService} prefill={prefill} />
-        </Suspense>
+        {/* Rendered on the server too (no Suspense / search params), so the form is in the HTML before JS loads. */}
+        <EnquiryForm locale={locale} defaultService={defaultService} prefill={prefill} />
       </div>
     </section>
   );

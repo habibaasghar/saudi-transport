@@ -1,8 +1,8 @@
 import { getTranslations } from "next-intl/server";
-import { CONTACT, mailHref, telHref, whatsappHref } from "@/config/contact";
-import { MailIcon, PhoneIcon, WhatsAppIcon } from "./Icons";
+import { CONTACT, mailHref, whatsappHref } from "@/config/contact";
+import { MailIcon, WhatsAppIcon } from "./Icons";
 
-export type CtaKind = "whatsapp" | "call" | "email";
+export type CtaKind = "whatsapp" | "email";
 type Variant = "solid" | "ghost" | "outline" | "text";
 
 type Props = {
@@ -20,14 +20,13 @@ type Props = {
 /** One contact button. All labels, messages and links come from messages/*.json + config/contact.ts. */
 export async function ContactCta({ kind, locale, topic, variant = "ghost", size = "md", iconOnly = false, className = "" }: Props) {
   const t = await getTranslations({ locale, namespace: "contact" });
-  const label = t(kind === "whatsapp" ? "whatsapp" : kind === "call" ? "call" : "email");
+  const label = t(kind === "whatsapp" ? "whatsapp" : "email");
   const message = topic ? t("whatsappTopic", { topic }) : t("whatsappGeneral");
   const subject = topic ? t("emailSubjectTopic", { topic }) : t("emailSubject");
 
-  const href = kind === "whatsapp" ? whatsappHref(message) : kind === "call" ? telHref : mailHref(subject);
-  const aria =
-    kind === "whatsapp" ? t("whatsappAria") : kind === "call" ? t("callAria", { number: CONTACT.phoneDisplay }) : t("emailAria", { email: CONTACT.email });
-  const Icon = kind === "whatsapp" ? WhatsAppIcon : kind === "call" ? PhoneIcon : MailIcon;
+  const href = kind === "whatsapp" ? whatsappHref(message) : mailHref(subject);
+  const aria = kind === "whatsapp" ? t("whatsappAria") : t("emailAria", { email: CONTACT.email });
+  const Icon = kind === "whatsapp" ? WhatsAppIcon : MailIcon;
   const cls = ["btn", `btn--${size}`, `cta cta--${kind}${kind === "whatsapp" ? "" : ` cta--${variant}`}`, iconOnly ? "cta--icon" : "", className].filter(Boolean).join(" ");
 
   return (
@@ -44,13 +43,13 @@ export async function ContactCta({ kind, locale, topic, variant = "ghost", size 
   );
 }
 
-/** Group of the three contact buttons. */
+/** Group of contact buttons (WhatsApp and email). */
 export async function ContactRow({
   locale,
   topic,
   variant = "ghost",
   size = "md",
-  kinds = ["whatsapp", "call", "email"],
+  kinds = ["whatsapp", "email"],
   className = "",
 }: {
   locale: string;

@@ -13,12 +13,11 @@ export function organizationSchema() {
     name: "RideSaudi",
     url: SITE_URL,
     email: CONTACT.email,
-    telephone: CONTACT.phone,
     contactPoint: [
       {
         "@type": "ContactPoint",
         contactType: "customer service",
-        telephone: CONTACT.phone,
+        url: `https://wa.me/${CONTACT.whatsapp}`,
         email: CONTACT.email,
         availableLanguage: ["English", "Arabic"],
         areaServed: "SA",

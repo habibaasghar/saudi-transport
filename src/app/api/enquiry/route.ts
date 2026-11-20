@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
-import { NextResponse } from "next/server";
-import { sanitizeEnquiry, validateEnquiry } from "@/lib/enquiry";
+import { after, NextResponse } from "next/server";
+import { extrasSummary, sanitizeEnquiry, validateEnquiry } from "@/lib/enquiry";
+import { sendInquiryAck } from "@/server/email/inquiry-emails";
 import { deliverLead } from "@/lib/deliver";
 import { rateLimit } from "@/lib/rate-limit";
 import { SITE_URL } from "@/lib/site";
@@ -70,13 +71,25 @@ export async function POST(request: Request) {
         returnTime: payload.tripType === "round_trip" ? payload.returnTime || undefined : undefined,
         adults: Number(payload.passengers) || 1,
         largeBags: Number(payload.luggage) || 0,
+        childSeats: Number(payload.childSeats) || 0,
         vehiclePref: payload.vehicle || undefined, flightNo: payload.flight || undefined,
         customerNotes: payload.notes || undefined, locale: payload.locale, sourcePage: payload.source,
+        specialRequirements: extrasSummary(payload) || undefined, attribution: payload.attribution,
         source: "website",
       }, { ipHash: createHash("sha256").update(ip + salt).digest("hex").slice(0, 32) });
       reference = result.reference;
       duplicate = result.duplicate;
       stored = true;
+
+      // Customer acknowledgement: only for a new, stored enquiry with an email address. Sent after the
+      // response so the visitor never waits; the outcome is recorded in email_logs and never fails the enquiry.
+      if (!duplicate && payload.email) {
+        const job = () => sendInquiryAck(result.id, payload.email, {
+          reference: result.reference, name: payload.name, pickup: payload.pickup, dropoff: payload.dropoff,
+          date: payload.date, time: payload.time, passengers: Number(payload.passengers) || 1, locale: payload.locale,
+        }).catch(() => undefined);
+        try { after(job); } catch { await job(); }
+      }
     } catch (err) {
       console.error("[enquiry] database write failed", err instanceof Error ? err.message : err);
     }

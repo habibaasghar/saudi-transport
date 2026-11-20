@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -38,7 +39,7 @@ export async function BlogIndexView({ locale }: { locale: Locale }) {
             <p className="eyebrow eyebrow--light">{l.eyebrow}</p>
             <h1 id="blog-h1">{l.indexH1}</h1>
             <p className="svc-hero__sub">{l.indexSub}</p>
-            <ContactRow locale={locale} topic={l.indexH1} kinds={["whatsapp", "call"]} className="hero__contact" />
+            <ContactRow locale={locale} topic={l.indexH1} kinds={["whatsapp"]} className="hero__contact" />
             <p className="hero__note">{t("notice")}</p>
           </div>
         </section>
@@ -63,7 +64,7 @@ export async function BlogIndexView({ locale }: { locale: Locale }) {
         </section>
         <QuoteSection locale={locale} topic={l.indexH1} />
       </main>
-      <Footer locale={locale} />
+      <Footer locale={locale} switchHref="/blog" />
     </>
   );
 }
@@ -106,14 +107,40 @@ export async function BlogPostView({ post, locale }: { post: BlogPost; locale: L
         </section>
 
         {c.sections.map((s, i) => (
-          <section key={s.h} className={`section ${i % 2 === 0 ? "section--sand" : "section--white"} prose-section`} aria-labelledby={`s${i}-h`}>
-            <div className="wrap prose">
-              <h2 id={`s${i}-h`}>{s.h}</h2>
-              <div className="prose__body">
-                {s.p.map((para) => <p key={para}>{para}</p>)}
+          <Fragment key={s.h}>
+            <section className={`section ${i % 2 === 0 ? "section--sand" : "section--white"} prose-section`} aria-labelledby={`s${i}-h`}>
+              <div className="wrap prose">
+                <h2 id={`s${i}-h`}>{s.h}</h2>
+                <div className="prose__body">
+                  {s.p.map((para) => <p key={para}>{para}</p>)}
+                  {s.list && (
+                    <ul className="ticks">
+                      {s.list.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  )}
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+            {i === 0 && c.table && (
+              <section className="section section--white" aria-labelledby="table-h">
+                <div className="wrap">
+                  <h2 id="table-h" className="table-title">{c.table.h}</h2>
+                  <div className="table-wrap" tabIndex={0} role="region" aria-labelledby="table-h">
+                    <table className={c.table.head.length <= 2 ? "table--fit" : undefined}>
+                      <thead>
+                        <tr>{c.table.head.map((h) => <th key={h} scope="col">{h}</th>)}</tr>
+                      </thead>
+                      <tbody>
+                        {c.table.rows.map((r) => (
+                          <tr key={r[0]}>{r.map((cell, j) => (j === 0 ? <th key={j} scope="row">{cell}</th> : <td key={j}>{cell}</td>))}</tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+            )}
+          </Fragment>
         ))}
 
         <section className="section section--palm" aria-labelledby="plan-h">
@@ -151,7 +178,7 @@ export async function BlogPostView({ post, locale }: { post: BlogPost; locale: L
         <QuoteSection locale={locale} topic={c.h1} />
         <p className="wrap svc-reviewed">{l.updated}: <time dateTime={post.updated}>{post.updated}</time></p>
       </main>
-      <Footer locale={locale} />
+      <Footer locale={locale} switchHref={`/blog/${post.slug}`} />
     </>
   );
 }
