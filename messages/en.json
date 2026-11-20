@@ -145,7 +145,7 @@
     "suitableFor": "Suitable for",
     "availability": "Availability is confirmed in your quotation.",
     "partnerNote": "Every vehicle comes with a driver, supplied by the transport partners RideSaudi books with.",
-    "photoNote": "Photographs are shown only for vehicles actually used for RideSaudi bookings, once verified.",
+    "photoNote": "Photographs show the vehicle models for illustration. The actual vehicle for your date is confirmed in your quotation.",
     "viewFleet": "View fleet details"
   },
   "how": {
@@ -271,7 +271,7 @@
       "vehicleCamry": "Toyota Camry (sedan)",
       "vehicleSonata": "Hyundai Sonata (sedan)",
       "vehicleTaurus": "Ford Taurus (sedan)",
-      "vehicleSuburban": "GMC Suburban (SUV)",
+      "vehicleSuburban": "Chevrolet Suburban (SUV)",
       "vehicleTahoe": "Chevrolet Tahoe (SUV)",
       "vehiclePrado": "Toyota Prado (SUV)",
       "vehicleLuxury": "Luxury SUV / VIP",

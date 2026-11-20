@@ -416,6 +416,7 @@ html.nav-open .wa-float { display: none; }
 
 /* Fleet categories (verified facts only; see src/content/fleet.ts) */
 .fleet__item { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; gap: .6rem; }
+.fleet__item img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; background: #f1f4f8; border-radius: calc(var(--radius) - 4px); }
 .fleet__item h3 { font-size: 1.5rem; }
 .fleet__cat { color: var(--clay); font-weight: 600; }
 .fleet__item dl { margin: .25rem 0; }

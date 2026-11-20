@@ -8,11 +8,12 @@ import type { Locale } from "@/i18n/routing";
  *    confirmed availability through RideSaudi's transport partners.
  *  - `capacity` is a number only where the owner confirmed it. Otherwise it stays `null` and the page says the
  *    capacity is confirmed for the actual vehicle in the quotation.
- *  - `photo` stays `undefined` until a photograph of a vehicle actually used for RideSaudi bookings is supplied
- *    (public/images/fleet/..., with alt text in both languages). Never use a stock image as a fleet photograph.
+ *  - `photo` (public/images/fleet/..., alt text in both languages) is illustrative of the model only. The owner supplied
+ *    web photos of the models on 2026-11-21; the pages say the actual vehicle is confirmed in the quotation, and they are
+ *    never described as RideSaudi-owned vehicles.
  *  - RideSaudi does not claim to own the vehicles: they are supplied with a driver by transport partners.
  *
- * Owner confirmed in chat on 2026-11-21: Toyota Camry, Hyundai Sonata, Ford Taurus, GMC Yukon, GMC Suburban,
+ * Owner confirmed in chat on 2026-11-21: Toyota Camry, Hyundai Sonata, Ford Taurus, GMC Yukon, Chevrolet Suburban,
  * Chevrolet Tahoe, Toyota Prado, Hyundai Staria and luxury / VIP SUVs, all through transport partners and subject to
  * availability. Capacities stay null (confirmed per quotation) except the Staria. Still NOT shown: Toyota Hiace and vans
  * other than the Staria. See docs/phase1/FLEET_VERIFICATION_MATRIX.csv.
@@ -20,7 +21,7 @@ import type { Locale } from "@/i18n/routing";
 type L = Record<Locale, string>;
 
 export type FleetCategory = {
-  key: "sedan" | "toyota-camry" | "hyundai-sonata" | "ford-taurus" | "gmc-yukon" | "gmc-suburban" | "chevrolet-tahoe" | "toyota-prado" | "hyundai-staria" | "luxury-suv-vip";
+  key: "sedan" | "toyota-camry" | "hyundai-sonata" | "ford-taurus" | "gmc-yukon" | "chevrolet-suburban" | "chevrolet-tahoe" | "toyota-prado" | "hyundai-staria" | "luxury-suv-vip";
   /** Value stored in the enquiry's vehicle preference (kept stable: it is saved in the CRM). */
   value: string;
   name: L;
@@ -49,6 +50,7 @@ export const fleetCategories: FleetCategory[] = [
     name: { en: "GMC Yukon", ar: "جمس يوكن" },
     category: { en: "Full-size SUV with driver", ar: "دفع رباعي كبيرة مع سائق" },
     capacity: null,
+    photo: { src: "/images/fleet/gmc-yukon-at4-exterior.webp", width: 892, height: 762, alt: { en: "GMC Yukon full-size SUV parked in a desert landscape", ar: "جمس يوكن دفع رباعي كبيرة في أرض صحراوية" } },
     suitableFor: {
       en: ["Families and executives who want more space", "Long intercity routes such as Riyadh to Dammam or Makkah to Madinah", "Airport arrivals with luggage"],
       ar: ["العائلات والتنفيذيون الذين يريدون مساحة أوسع", "المسارات الطويلة بين المدن مثل الرياض إلى الدمام ومكة المكرمة إلى المدينة المنورة", "الوصول من المطار مع الحقائب"],
@@ -60,6 +62,7 @@ export const fleetCategories: FleetCategory[] = [
     name: { en: "Toyota Camry", ar: "تويوتا كامري" },
     category: { en: "Private sedan with driver", ar: "سيدان خاصة مع سائق" },
     capacity: null,
+    photo: { src: "/images/fleet/toyota-camry-exterior.webp", width: 860, height: 460, alt: { en: "Toyota Camry sedan in a three-quarter front view", ar: "سيدان تويوتا كامري من زاوية أمامية جانبية" } },
     suitableFor: {
       en: ["Business travellers and couples", "Airport transfers with light luggage", "City-to-city journeys"],
       ar: ["رجال الأعمال والأزواج", "التوصيل من المطار وإليه بحقائب خفيفة", "الرحلات بين المدن"],
@@ -71,6 +74,7 @@ export const fleetCategories: FleetCategory[] = [
     name: { en: "Hyundai Sonata", ar: "هيونداي سوناتا" },
     category: { en: "Private sedan with driver", ar: "سيدان خاصة مع سائق" },
     capacity: null,
+    photo: { src: "/images/fleet/hyundai-sonata-exterior.webp", width: 1400, height: 536, alt: { en: "Hyundai Sonata sedan driving on a mountain road", ar: "سيدان هيونداي سوناتا على طريق جبلي" } },
     suitableFor: {
       en: ["Individuals and business travellers", "Short and medium city-to-city trips", "Airport arrivals with light luggage"],
       ar: ["الأفراد ورجال الأعمال", "الرحلات القصيرة والمتوسطة بين المدن", "الوصول من المطار بحقائب خفيفة"],
@@ -88,11 +92,12 @@ export const fleetCategories: FleetCategory[] = [
     },
   },
   {
-    key: "gmc-suburban",
-    value: "GMC Suburban",
-    name: { en: "GMC Suburban", ar: "جمس سوبربان" },
+    key: "chevrolet-suburban",
+    value: "Chevrolet Suburban",
+    name: { en: "Chevrolet Suburban", ar: "شيفروليه سوبربان" },
     category: { en: "Full-size SUV with driver", ar: "دفع رباعي كبيرة مع سائق" },
     capacity: null,
+    photo: { src: "/images/fleet/chevrolet-suburban-exterior.webp", width: 858, height: 357, alt: { en: "Chevrolet Suburban full-size SUV beside the sea", ar: "شيفروليه سوبربان دفع رباعي كبيرة قرب البحر" } },
     suitableFor: {
       en: ["Families and groups who want extra room", "Long intercity routes", "Airport arrivals with luggage"],
       ar: ["العائلات والمجموعات التي تريد مساحة إضافية", "المسارات الطويلة بين المدن", "الوصول من المطار مع الحقائب"],
@@ -104,6 +109,7 @@ export const fleetCategories: FleetCategory[] = [
     name: { en: "Chevrolet Tahoe", ar: "شيفروليه تاهو" },
     category: { en: "Full-size SUV with driver", ar: "دفع رباعي كبيرة مع سائق" },
     capacity: null,
+    photo: { src: "/images/fleet/chevrolet-tahoe-exterior.webp", width: 700, height: 370, alt: { en: "Chevrolet Tahoe full-size SUV in black", ar: "شيفروليه تاهو دفع رباعي كبيرة باللون الأسود" } },
     suitableFor: {
       en: ["Families and executives", "Long routes such as Riyadh to Dammam", "Airport arrivals with luggage"],
       ar: ["العائلات والتنفيذيون", "المسارات الطويلة مثل الرياض إلى الدمام", "الوصول من المطار مع الحقائب"],
@@ -115,6 +121,7 @@ export const fleetCategories: FleetCategory[] = [
     name: { en: "Toyota Prado", ar: "تويوتا برادو" },
     category: { en: "SUV with driver", ar: "دفع رباعي مع سائق" },
     capacity: null,
+    photo: { src: "/images/fleet/toyota-prado-exterior.webp", width: 1000, height: 750, alt: { en: "Toyota Prado SUV in black", ar: "تويوتا برادو دفع رباعي باللون الأسود" } },
     suitableFor: {
       en: ["Mountain roads such as Abha, Al Baha and Taif", "Families who want an SUV", "Mixed road and city journeys"],
       ar: ["الطرق الجبلية مثل أبها والباحة والطائف", "العائلات التي تريد سيارة دفع رباعي", "الرحلات المختلطة بين الطرق والمدن"],

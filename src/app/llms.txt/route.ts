@@ -28,7 +28,7 @@ export function GET() {
 - Booking model: enquiry first, quotation, then confirmation
 - RideSaudi is a booking and enquiry service: journeys are carried out by the transport partners it books with, and RideSaudi does not claim to own every vehicle or employ every driver
 - Every journey is private: the vehicle is reserved for one customer party only. RideSaudi does not sell shared seats or combine separate bookings in one car.
-- Vehicles that can be requested, each with a driver supplied by transport partners: sedans (Toyota Camry, Hyundai Sonata, Ford Taurus), SUVs (GMC Yukon, GMC Suburban, Chevrolet Tahoe, Toyota Prado), Hyundai Staria van, luxury and VIP SUVs. Models and availability are confirmed per quotation
+- Vehicles that can be requested, each with a driver supplied by transport partners: sedans (Toyota Camry, Hyundai Sonata, Ford Taurus), SUVs (GMC Yukon, Chevrolet Suburban, Chevrolet Tahoe, Toyota Prado), Hyundai Staria van, luxury and VIP SUVs. Models and availability are confirmed per quotation
 - Route availability is confirmed per quotation, not published as a fleet or route list
 - Not affiliated with any religious or government authority; does not issue Umrah visas or permits
 

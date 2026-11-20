@@ -9,7 +9,7 @@ export async function Hero({ locale }: { locale: string }) {
   const a = await getTranslations("a11y");
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <Image className="hero__art" src="/images/riyadh.webp" alt={a("heroArt")} fill priority fetchPriority="high" sizes="100vw" style={{ objectFit: "cover" }} />
+      <Image className="hero__art" src="/images/locations/riyadh.webp" alt={a("heroArt")} fill priority fetchPriority="high" sizes="100vw" style={{ objectFit: "cover" }} />
       <div className="wrap hero__grid">
         <div className="hero__copy">
           <p className="eyebrow eyebrow--light">{t("eyebrow")}</p>
