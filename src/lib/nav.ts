@@ -9,8 +9,9 @@ const I = `${S}/intercity-transfers`;
 const A = `${S}/airport-transfers`;
 const C = `${S}/city-transport`;
 const U = `${S}/umrah-transport`;
+const HT = `${S}/recovery-heavy-transport`;
 
-export type NavKey = "services" | "routes" | "airports" | "cities" | "umrah" | "luxury" | "events" | "contact";
+export type NavKey = "services" | "routes" | "airports" | "cities" | "umrah" | "luxury" | "events" | "heavy" | "contact";
 export type NavItem = { key: NavKey; href: string; children?: readonly string[]; /** Hidden on narrower desktop widths to keep the bar on one line. */ optional?: boolean };
 
 export const navItems: readonly NavItem[] = [
@@ -56,6 +57,11 @@ export const navItems: readonly NavItem[] = [
   },
   { key: "luxury", href: "/luxury-transportation" },
   { key: "events", href: "/services/event-transportation" },
+  {
+    key: "heavy",
+    href: `/${HT}`,
+    children: [HT, `${HT}/satha-car-recovery`, `${HT}/car-transport-between-cities`, `${HT}/lowbed-transport`, `${HT}/heavy-equipment-transport`, `${HT}/excavator-transport`, `${HT}/wheel-loader-transport`, `${HT}/forklift-transport`, `${HT}/crane-transport`],
+  },
   { key: "contact", href: "/#quote", optional: true },
 ];
 

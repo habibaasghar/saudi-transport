@@ -30,7 +30,8 @@
     "riyadh": "Riyadh",
     "routes": "Routes",
     "airports": "Airports",
-    "cities": "Cities"
+    "cities": "Cities",
+    "heavy": "Heavy Transport"
   },
   "lang": {
     "en": "English",
@@ -445,5 +446,114 @@
     "quote": "Get a quote",
     "whatsapp": "WhatsApp",
     "aria": "Quick contact"
+  },
+  "heavy": {
+    "cta": "Request Heavy Transport Quote",
+    "notice": "Every job is quoted first: no fixed prices, nothing dispatched until you confirm.",
+    "whatsappTopic": "Hello RideSaudi, I need a quote for: {topic}. Load, pickup and destination: ",
+    "quoteEyebrow": "Heavy transport quotation",
+    "quoteTitle": "Tell us what needs moving",
+    "quoteText": "Weight, size and the two locations decide the right truck or trailer. Share them once and we come back with the suitable option and a quotation.",
+    "quoteNotice": "This is a quotation request, not a confirmed booking. Availability, the trailer type and any permits are confirmed in your quotation.",
+    "steps": {
+      "eyebrow": "How a heavy transport job is arranged",
+      "title": "From your load details to a confirmed move",
+      "one": {
+        "title": "Send the load details",
+        "text": "Machine or vehicle, approximate weight, size, pickup and destination, and the date you need it moved. Photos help."
+      },
+      "two": {
+        "title": "We match the truck or trailer",
+        "text": "Satha, flatbed or lowbed is chosen from your load, along with loading equipment and any permit or escort the move needs."
+      },
+      "three": {
+        "title": "Quotation, then the move",
+        "text": "You receive the price and the arrangement. Nothing is dispatched until you confirm it."
+      }
+    },
+    "form": {
+      "title": "Heavy transport quotation request",
+      "load": "What needs moving",
+      "route": "Pickup and destination",
+      "you": "Your details",
+      "service": "Service required",
+      "servicePlaceholder": "Select a service",
+      "choose": "Choose",
+      "services": {
+        "satha": "Satha / car recovery",
+        "towing": "Vehicle towing",
+        "car_transport": "Car transport between cities",
+        "lowbed": "Lowbed transport",
+        "heavy_machinery": "Heavy machinery transport",
+        "excavator": "Excavator transport",
+        "wheel_loader": "Wheel loader (shovel / shuwel) transport",
+        "forklift": "Forklift transport",
+        "crane": "Crane transport",
+        "flatbed": "Flatbed trailer transport",
+        "oversized": "Oversized / exceptional load",
+        "machinery_relocation": "Industrial machinery relocation",
+        "other_heavy": "Other heavy equipment"
+      },
+      "machineType": "Machine or equipment type",
+      "machineTypeHint": "For example: crawler excavator, wheel loader, forklift, mobile crane, generator.",
+      "vehicleType": "Vehicle type",
+      "vehicleTypeHint": "For example: sedan, SUV, pickup, sports car.",
+      "makeModel": "Make and model (optional)",
+      "condition": "Vehicle condition",
+      "conditions": {
+        "runs": "Runs and can be driven",
+        "not_running": "Does not start / not running",
+        "accident": "Accident damaged"
+      },
+      "weight": "Approximate weight (tonnes)",
+      "weightHint": "The operating weight from the machine plate or brochure is fine.",
+      "length": "Length (m)",
+      "width": "Width (m)",
+      "height": "Height (m)",
+      "dimsHint": "Transport position: boom, bucket or mast folded down if possible.",
+      "loading": "Loading method",
+      "unloading": "Unloading method",
+      "methods": {
+        "drive_on": "Drives on by itself (ramps)",
+        "crane": "Crane lift",
+        "forklift": "Forklift",
+        "winch": "Winch",
+        "not_sure": "Not sure"
+      },
+      "pickup": "Pickup city and exact location",
+      "locationHint": "District, site name or a Google Maps link.",
+      "dropoff": "Destination city and exact location",
+      "date": "Required transport date",
+      "name": "Full name",
+      "company": "Company name (optional)",
+      "phone": "WhatsApp number",
+      "phoneHint": "Include the country code, for example +966.",
+      "email": "Email (optional)",
+      "notes": "Additional requirements (optional)",
+      "photosHint": "After sending, you can share photos or documents of the load on WhatsApp with your reference number.",
+      "consent": "I agree that RideSaudi may use these details to respond to my request, as described in the <privacy>Privacy Policy</privacy>.",
+      "submit": "Request Heavy Transport Quote",
+      "sending": "Sending…",
+      "reference": "Your reference: {ref}.",
+      "photosWhatsApp": "Send photos on WhatsApp",
+      "sendOnWhatsApp": "Send these details on WhatsApp",
+      "whatsappMessage": "Hello RideSaudi, heavy transport request {ref}. Service: {service}. Load: {load}. Weight: {weight} t. From: {pickup}. To: {dropoff}. Date: {date}. I will send photos here.",
+      "status": {
+        "success": "Thank you. Your request was received. We will reply with the suitable truck or trailer and a quotation.",
+        "notConfigured": "Online requests are not available right now. Please send the details on WhatsApp.",
+        "rateLimited": "Too many requests in a short time. Please wait a few minutes or use WhatsApp.",
+        "failed": "Your request could not be sent. Please check the fields or send the details on WhatsApp."
+      },
+      "errors": {
+        "summary": "Please check the highlighted fields.",
+        "required": "This field is required.",
+        "service": "Please choose a service.",
+        "phone": "Please enter a valid number with country code.",
+        "email": "Please enter a valid email address.",
+        "date": "Please choose today or a later date.",
+        "number": "Numbers only, for example 22.5",
+        "consent": "Please accept so we can reply to your request."
+      }
+    }
   }
 }

@@ -6,6 +6,8 @@ export const esc = (s: string | number | null | undefined) =>
 export type AckEmailData = {
   reference: string; name: string; pickup: string; dropoff: string; date: string; time: string;
   passengers: number; locale?: string | null;
+  /** Heavy transport / satha requests: the load replaces the time and passenger rows. */
+  load?: string;
 };
 
 type Rendered = { subject: string; html: string; text: string };
@@ -36,7 +38,9 @@ const row = (k: string, v: string | number) =>
  */
 export function inquiryAck(d: AckEmailData): Rendered {
   if (d.locale === "ar") {
-    const rows: [string, string | number][] = [["الرقم المرجعي", d.reference], ["من", d.pickup], ["إلى", d.dropoff], ["التاريخ", d.date], ["الوقت", d.time], ["عدد الركاب", d.passengers]];
+    const rows: [string, string | number][] = d.load
+      ? [["الرقم المرجعي", d.reference], ["الحمولة", d.load], ["من", d.pickup], ["إلى", d.dropoff], ["التاريخ المطلوب", d.date]]
+      : [["الرقم المرجعي", d.reference], ["من", d.pickup], ["إلى", d.dropoff], ["التاريخ", d.date], ["الوقت", d.time], ["عدد الركاب", d.passengers]];
     const html = layout({
       rtl: true, title: "استلمنا طلبك",
       bodyHtml: `<h2 style="margin:0 0 12px;font-size:18px">شكرًا ${esc(d.name)}، استلمنا طلبك</h2>
@@ -47,7 +51,9 @@ export function inquiryAck(d: AckEmailData): Rendered {
     const text = [`شكرًا ${d.name}، استلمنا طلبك.`, "هذا طلب استفسار وليس حجزًا مؤكدًا. سنرسل لك عرض السعر وتأكيد التوفر قبل ترتيب أي شيء.", "", ...rows.map(([k, v]) => `${k}: ${v}`), "", "يمكنك الرد على هذه الرسالة لإضافة أي تفاصيل، مع ذكر الرقم المرجعي."].join("\n");
     return { subject: `استلمنا طلبك ${d.reference} - RideSaudi`, html, text };
   }
-  const rows: [string, string | number][] = [["Reference", d.reference], ["From", d.pickup], ["To", d.dropoff], ["Date", d.date], ["Time", d.time], ["Passengers", d.passengers]];
+  const rows: [string, string | number][] = d.load
+    ? [["Reference", d.reference], ["Load", d.load], ["From", d.pickup], ["To", d.dropoff], ["Required date", d.date]]
+    : [["Reference", d.reference], ["From", d.pickup], ["To", d.dropoff], ["Date", d.date], ["Time", d.time], ["Passengers", d.passengers]];
   const html = layout({
     title: "We received your enquiry",
     bodyHtml: `<h2 style="margin:0 0 12px;font-size:18px">Thank you ${esc(d.name)}, we received your enquiry</h2>

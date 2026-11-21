@@ -17,6 +17,34 @@ import { ContactRow } from "./ContactCta";
 import { RouteTracker } from "./RouteTracker";
 import { FleetCards } from "./Fleet";
 import { routePrefill } from "@/content/route-prefill";
+import { HeavyQuoteSection, HeavySteps, HeavyWhatsApp } from "./HeavyQuoteSection";
+
+type Table = { h: string; head: string[]; rows: string[][] };
+
+/** Comparison table block (AIO-friendly, server-rendered). */
+function TableBlock({ table, id }: { table: Table; id: string }) {
+  return (
+    <section className="section section--sand" aria-labelledby={id}>
+      <div className="wrap">
+        <h2 id={id} className="table-title">{table.h}</h2>
+        <div className="table-wrap" tabIndex={0} role="region" aria-labelledby={id}>
+          <table className={table.head.length <= 2 ? "table--fit" : undefined}>
+            <thead>
+              <tr>{table.head.map((h) => <th key={h} scope="col">{h}</th>)}</tr>
+            </thead>
+            <tbody>
+              {table.rows.map((r) => (
+                <tr key={r[0]}>
+                  {r.map((cell, j) => (j === 0 ? <th key={j} scope="row">{cell}</th> : <td key={j}>{cell}</td>))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const href = (path: string) => `/${path}`;
 const ROUTE_PREFIX = "services/intercity-transfers/";
@@ -39,6 +67,9 @@ function cityRoutes(page: ServicePage, exclude: Set<string>): ServicePage[] {
 export async function ServicePageView({ page, locale }: { page: ServicePage; locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "svc" });
   const f = await getTranslations({ locale, namespace: "fleet" });
+  const h = await getTranslations({ locale, namespace: "heavy" });
+  /** Heavy transport / satha pages: own CTA wording, WhatsApp message, process steps and quotation form. */
+  const heavy = page.variant === "industrial";
   const c = page.copy[locale];
   const crumbs = trail(page);
   const hero = getImage(page.path);
@@ -86,10 +117,14 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             <h1 id="svc-h1">{c.h1}</h1>
             <p className="svc-hero__sub">{c.summary}</p>
             <div className="hero__actions">
-              <a href="#quote" className="btn btn--primary btn--lg">{t("getQuote")}</a>
+              <a href="#quote" className="btn btn--primary btn--lg">{heavy ? h("cta") : t("getQuote")}</a>
             </div>
-            <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp"]} className="hero__contact" />
-            <p className="hero__note">{t("notice")}</p>
+            {heavy ? (
+              <HeavyWhatsApp locale={locale} topic={c.h1} className="hero__contact" />
+            ) : (
+              <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp"]} className="hero__contact" />
+            )}
+            <p className="hero__note">{heavy ? h("notice") : t("notice")}</p>
           </div>
         </section>
 
@@ -98,7 +133,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             <div className="answer">
               <h2 id="answer-h" className="answer__label">{t("answerLabel")}</h2>
               <p>{c.answer}</p>
-              <p className="answer__exclusive">{t("exclusive")}</p>
+              {!heavy && <p className="answer__exclusive">{t("exclusive")}</p>}
             </div>
           </div>
         </section>
@@ -152,27 +187,8 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
                 </div>
               </div>
             </section>
-            {i === 0 && c.table && (
-              <section className="section section--sand" aria-labelledby="table-h">
-                <div className="wrap">
-                  <h2 id="table-h" className="table-title">{c.table.h}</h2>
-                  <div className="table-wrap" tabIndex={0} role="region" aria-labelledby="table-h">
-                    <table className={c.table.head.length <= 2 ? "table--fit" : undefined}>
-                      <thead>
-                        <tr>{c.table.head.map((h) => <th key={h} scope="col">{h}</th>)}</tr>
-                      </thead>
-                      <tbody>
-                        {c.table.rows.map((r) => (
-                          <tr key={r[0]}>
-                            {r.map((cell, j) => (j === 0 ? <th key={cell} scope="row">{cell}</th> : <td key={cell}>{cell}</td>))}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </section>
-            )}
+            {i === 0 && c.table && <TableBlock table={c.table} id="table-h" />}
+            {c.tables?.filter((x) => x.after === i).map((x, k) => <TableBlock key={x.h} table={x} id={`table-${i}-${k}-h`} />)}
           </div>
         ))}
 
@@ -184,13 +200,13 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
                 <ul className="ticks ticks--light">
                   {c.checklist.items.map((it) => <li key={it}>{it}</li>)}
                 </ul>
-                <a href="#quote" className="btn btn--primary">{t("getQuote")}</a>
+                <a href="#quote" className="btn btn--primary">{heavy ? h("cta") : t("getQuote")}</a>
               </div>
             </div>
           </section>
         )}
 
-        <HowItWorks />
+        {heavy ? <HeavySteps locale={locale} /> : <HowItWorks />}
 
         {related.length > 0 && (
           <section className="section section--sand" aria-labelledby="rel-h">
@@ -254,7 +270,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
           </div>
         </section>
 
-        <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} prefill={routePrefill[page.path] ? { pickup: routePrefill[page.path][locale][0], dropoff: routePrefill[page.path][locale][1] } : undefined} />
+        {heavy ? <HeavyQuoteSection locale={locale} service={page.heavyService} topic={c.h1} /> : <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} prefill={routePrefill[page.path] ? { pickup: routePrefill[page.path][locale][0], dropoff: routePrefill[page.path][locale][1] } : undefined} />}
         <p className="wrap svc-reviewed">{t("reviewed")}: <time dateTime={page.updated}>{page.updated}</time></p>
       </main>
       <Footer locale={locale} switchHref={href(page.path)} />

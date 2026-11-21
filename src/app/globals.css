@@ -293,6 +293,11 @@ html[lang="ar"] .svc-hero h1 { max-width: 22ch; line-height: 1.35; }
 .svc--luxury .eyebrow--light { letter-spacing: .3em; }
 .svc--event .svc-hero { background: linear-gradient(135deg, var(--palm), #0f3a5f); }
 .svc--umrah .svc-hero { background: linear-gradient(160deg, #102b4d, var(--night)); }
+/* Heavy transport / satha: darker steel hero with a hazard-amber accent, distinct from the passenger pages. */
+.svc--industrial .svc-hero { background: linear-gradient(135deg, #0b1f3a 0%, #1c2733 60%, #2a2f36 100%); border-bottom: 4px solid #f5a524; }
+.svc--industrial .eyebrow--light { color: #f5a524; letter-spacing: .14em; }
+.svc--industrial .card__num { color: #c27c0e; }
+.svc--industrial .table-wrap th[scope="col"] { background: #1c2733; color: #fff; }
 .svc--umrah .svc-hero::after { content: ""; position: absolute; inset-inline-end: -4rem; bottom: -4rem; width: 22rem; height: 22rem; border-radius: 50%; border: 1px solid rgba(56, 189, 248, .35); z-index: -1; }
 
 .crumbs { margin-bottom: 2rem; font-size: .875rem; }

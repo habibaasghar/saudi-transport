@@ -55,6 +55,9 @@ export const images: Record<string, PageImage> = {
 
 /** Page path -> image. Pages not listed here have no picture (honest gap, not a placeholder). */
 export const pageImages: Record<string, PageImage> = {
+  // Heavy transport: owner-supplied web photos, re-cropped, renamed and metadata-stripped (docs/heavy-transport/IMAGE_PLAN.md).
+  "services/recovery-heavy-transport/satha-car-recovery": img("heavy-transport/hydraulic-satha-sports-car-loaded", 572, 317, "Orange sports car secured on a sliding-bed satha recovery truck", "سيارة رياضية برتقالية مثبتة على سطحة هيدروليك منزلقة", "50% 60%", "low resolution, owner-supplied web photo"),
+  "services/recovery-heavy-transport/car-transport-between-cities": img("heavy-transport/flatbed-car-carrier-suv-highway", 311, 251, "Red SUV carried on a flatbed car carrier on a highway at sunset", "سيارة جيب حمراء محمولة على سطحة نقل سيارات على طريق سريع عند الغروب", "50% 55%", "low resolution, likely AI-generated illustration"),
   "services/city-transport/riyadh": images.riyadh,
   "services/airport-transfers/riyadh-airport": images.airportRuh,
   "services/tourism-transport/riyadh-sightseeing": images.diriyah,

@@ -19,10 +19,12 @@ export type Copy = {
   checklist?: { h: string; items: string[] };
   /** Optional comparison table (AIO-friendly). */
   table?: { h: string; head: string[]; rows: string[][] };
+  /** Further comparison tables, shown after the section with the same index (`after`). */
+  tables?: { after: number; h: string; head: string[]; rows: string[][] }[];
   faqs: { q: string; a: string }[];
 };
 
-export type Variant = "default" | "luxury" | "event" | "umrah";
+export type Variant = "default" | "luxury" | "event" | "umrah" | "industrial";
 
 export type ServicePage = {
   /** Path without locale or slashes, e.g. "services/airport-transfers/jeddah-airport". */
@@ -30,7 +32,9 @@ export type ServicePage = {
   parent?: string;
   variant: Variant;
   /** Pre-selects this service in the enquiry form. */
-  service: "airport" | "chauffeur" | "intercity" | "hourly" | "corporate" | "vip" | "umrah" | "event" | "luxury";
+  service: "airport" | "chauffeur" | "intercity" | "hourly" | "corporate" | "vip" | "umrah" | "event" | "luxury" | "heavy";
+  /** Heavy transport pages: pre-selects this service in the heavy quotation form (src/lib/heavy-quote.ts). */
+  heavyService?: string;
   /** Paths of related pages (must exist in the registry). */
   related: string[];
   /** ISO date of last substantive content review. */

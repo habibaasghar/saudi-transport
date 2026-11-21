@@ -42,6 +42,12 @@ export function GET() {
 - Private intercity routes from Jeddah, each requestable in both directions: Riyadh, Dammam, AlUla, Jazan, Abha, Makkah, Madinah, Taif and Yanbu. Each direction has its own page (for example /en/services/intercity-transfers/jeddah-to-dammam/ and /en/services/intercity-transfers/dammam-to-jeddah/; Arabic under /ar/).
 - Distances quoted on route pages are approximate public mapping figures before stops; prices and availability are confirmed per quotation.
 
+## Heavy transport, satha recovery and machinery haulage
+- Category hub: ${SITE_URL}/en/services/recovery-heavy-transport/ (Arabic: ${SITE_URL}/ar/services/recovery-heavy-transport/)
+- Satha (flatbed recovery truck) for broken-down and accident cars, car transport between cities, lowbed and flatbed trailer transport, excavator, wheel loader (shuwel), forklift and crane transport, oversized loads and industrial machinery relocation.
+- Focus regions: Riyadh (with Al Kharj, Sudair, Diriyah), Jeddah (with Makkah, Rabigh, KAEC, Yanbu) and Dammam (with Al Khobar, Dhahran, Jubail, Qatif, Ras Tanura, Al Ahsa); intercity moves across Saudi Arabia quoted per job.
+- Every job is quoted from the load's weight, dimensions and route. No fixed prices, response times or 24/7 dispatch are published. No roadside repairs, fuel delivery or jump-starts. Exceptional-load permits are checked per load against current Roads General Authority rules.
+
 ## Guides
 ${guides}
 
