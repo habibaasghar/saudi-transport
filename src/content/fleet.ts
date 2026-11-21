@@ -144,6 +144,7 @@ export const fleetCategories: FleetCategory[] = [
     name: { en: "Hyundai Staria", ar: "هيونداي ستاريا" },
     category: { en: "Family van with driver", ar: "حافلة عائلية مع سائق" },
     capacity: { passengers: 7, luggageAtLeast: 10 },
+    photo: { src: "/images/fleet/hyundai-staria-exterior.webp", width: 1200, height: 675, alt: { en: "Hyundai Staria van in black, front three-quarter view", ar: "هيونداي ستاريا فان باللون الأسود من زاوية أمامية جانبية" } },
     suitableFor: {
       en: ["Larger families and small groups travelling together", "Umrah families with luggage", "Airport arrivals and long routes in one vehicle"],
       ar: ["العائلات الكبيرة والمجموعات الصغيرة المسافرة معًا", "عائلات العمرة مع الحقائب", "الوصول من المطار والمسارات الطويلة في مركبة واحدة"],
