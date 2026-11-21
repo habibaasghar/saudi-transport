@@ -133,6 +133,7 @@ export const fleetCategories: FleetCategory[] = [
     name: { en: "Luxury SUV / VIP", ar: "دفع رباعي فاخر / VIP" },
     category: { en: "Luxury and VIP vehicle with chauffeur", ar: "مركبة فاخرة وVIP مع سائق" },
     capacity: null,
+    photo: { src: "/images/fleet/luxury-suv-vip-exterior.webp", width: 904, height: 564, alt: { en: "Luxury SUV in dark grey, a Lexus LX 600 shown as an example of the category", ar: "سيارة دفع رباعي فاخرة باللون الرمادي الداكن، لكزس LX 600 كمثال على الفئة" } },
     suitableFor: {
       en: ["Senior guests, executives and delegations", "Business events and occasions", "Premium airport and intercity transfers"],
       ar: ["كبار الضيوف والتنفيذيون والوفود", "فعاليات الأعمال والمناسبات", "التوصيل الفاخر من المطار وبين المدن"],
