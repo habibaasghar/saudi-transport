@@ -26,7 +26,7 @@ export const stariaPost: BlogPost = {
   copy: {
     en: {
       nav: "Hyundai Staria for families and groups",
-      title: "Hyundai Staria with Driver for Families and Groups",
+      title: "Hyundai Staria with Driver for Families & Groups",
       description: "When to book a Hyundai Staria with a driver in Saudi Arabia: up to 7 passengers with 10 or more bags, for Umrah families, airport arrivals and long routes.",
       h1: "Hyundai Staria with a driver: when it is the right vehicle for your group",
       answer:

@@ -28,7 +28,7 @@ export const howToBookPost: BlogPost = {
   copy: {
     en: {
       nav: "How to book a private car with driver",
-      title: "How to Book a Private Car with Driver in Saudi Arabia",
+      title: "How to Book a Private Car with Driver in KSA",
       description: "A step-by-step guide to booking a private car with a driver in Saudi Arabia: what to send, how to read the quotation, questions to ask, paying and changes.",
       h1: "How to book a private car with a driver in Saudi Arabia, step by step",
       answer:

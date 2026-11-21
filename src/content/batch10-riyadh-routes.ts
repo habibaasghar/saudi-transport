@@ -253,7 +253,7 @@ export const batch10RiyadhRoutes: ServicePage[] = [
     copy: {
       en: {
         nav: "Riyadh to Buraydah",
-        title: "Riyadh to Buraydah and Qassim Private Car with Driver",
+        title: "Riyadh to Buraydah & Qassim Private Car",
         description: "Request a private car with a driver from Riyadh to Buraydah, Unaizah or the Qassim region, one way or as a day trip. Get a RideSaudi quotation.",
         h1: "Riyadh to Buraydah and Qassim by private car, to the heart of the date-palm region",
         eyebrow: "Intercity · Riyadh ⇄ Buraydah",

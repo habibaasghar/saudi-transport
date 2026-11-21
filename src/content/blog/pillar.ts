@@ -32,7 +32,7 @@ export const pillarPost: BlogPost = {
   copy: {
     en: {
       nav: "Private transport in Saudi Arabia",
-      title: "Private Transport in Saudi Arabia: Complete Guide",
+      title: "Private Transport in Saudi Arabia: Full Guide",
       description: "How private transfers work in Saudi Arabia: airport pickups, intercity routes, Umrah journeys, vehicles, real driving times, and how to book.",
       h1: "Private transport in Saudi Arabia: how it works and how to plan it",
       answer:
@@ -138,7 +138,7 @@ export const pillarPost: BlogPost = {
     },
     ar: {
       nav: "التوصيل الخاص في السعودية",
-      title: "التوصيل الخاص في السعودية: دليل شامل لتخطيط رحلتك",
+      title: "التوصيل الخاص في السعودية: دليل شامل",
       description: "كيف يعمل التوصيل الخاص في السعودية: الاستقبال من المطار، والمشاوير بين المدن، ورحلات العمرة، واختيار السيارة، والمسافات الحقيقية، وطريقة الحجز.",
       h1: "التوصيل الخاص في السعودية: كيف يعمل وكيف تخطط له",
       answer:

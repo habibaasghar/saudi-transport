@@ -31,7 +31,7 @@ export const jeddahMadinahPost: BlogPost = {
   copy: {
     en: {
       nav: "Jeddah to Madinah: your options",
-      title: "Jeddah to Madinah: Train, Flight, Bus or Private Car?",
+      title: "Jeddah to Madinah: Train, Flight, Bus or Car?",
       description: "Jeddah to Madinah compared by where you start, the airport on arrival or a Jeddah address: Haramain train, flight, bus or a private car, honestly weighed.",
       h1: "Jeddah to Madinah: train, flight, bus or private car?",
       answer:
@@ -97,7 +97,7 @@ export const jeddahMadinahPost: BlogPost = {
     },
     ar: {
       nav: "من جدة إلى المدينة: الخيارات",
-      title: "من جدة إلى المدينة: القطار أم الطيران أم السيارة الخاصة؟",
+      title: "جدة إلى المدينة: القطار أم الطيران أم السيارة؟",
       description: "مقارنة الطريق من جدة إلى المدينة بحسب نقطة انطلاقك، المطار عند الوصول أو عنوان في جدة: قطار الحرمين أو الطيران أو الحافلة أو السيارة الخاصة.",
       h1: "من جدة إلى المدينة: القطار أم الطيران أم الحافلة أم السيارة الخاصة؟",
       answer:

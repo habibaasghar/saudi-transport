@@ -195,7 +195,7 @@ export const batch15CitiesAirports: ServicePage[] = [
     copy: {
       en: {
         nav: "Qassim Airport Transfers",
-        title: "Qassim Airport (ELQ) Transfers: Buraydah & Unaizah",
+        title: "Qassim Airport (ELQ) Private Transfers",
         description: "Request a private transfer between Qassim's Prince Naif bin Abdulaziz International Airport (ELQ) and Buraydah, Unaizah or Ar Rass. Share your flight details.",
         h1: "Qassim Airport (ELQ) private transfers to Buraydah, Unaizah and the region",
         eyebrow: "Airport Transfers · Qassim",

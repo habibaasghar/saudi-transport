@@ -32,7 +32,7 @@ export const jeddahAirportMakkahPost: BlogPost = {
   copy: {
     en: {
       nav: "Jeddah airport to Makkah: your options",
-      title: "Jeddah Airport to Makkah: Train, Bus, Taxi or Car?",
+      title: "Jeddah Airport to Makkah: Train, Taxi or Car?",
       description: "Compare the Haramain train, intercity bus, taxi and a pre-booked private car from Jeddah airport to Makkah: who each suits and what to check first.",
       h1: "Jeddah airport to Makkah: train, bus, taxi or private car?",
       answer:
@@ -119,7 +119,7 @@ export const jeddahAirportMakkahPost: BlogPost = {
     },
     ar: {
       nav: "من مطار جدة إلى مكة: الخيارات",
-      title: "من مطار جدة إلى مكة: مقارنة القطار والحافلة والسيارة",
+      title: "مطار جدة إلى مكة: القطار أم التاكسي أم السيارة؟",
       description: "قارن بين قطار الحرمين والحافلة والتاكسي والسيارة الخاصة المحجوزة مسبقًا من مطار جدة إلى مكة: لمن يناسب كل خيار وما الذي تتحقق منه أولًا.",
       h1: "من مطار جدة إلى مكة: القطار أم الحافلة أم التاكسي أم سيارة خاصة؟",
       answer:

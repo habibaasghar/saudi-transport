@@ -67,7 +67,7 @@ export const batch3Routes: ServicePage[] = [
     copy: {
       en: {
         nav: "Private Airport Pickup",
-        title: "Private Airport Pickup in Saudi Arabia: What to Arrange",
+        title: "Private Airport Pickup in Saudi Arabia",
         description: "How a pre-booked private airport pickup works in Saudi Arabia: what to share, how to be met, and how to request a quotation from RideSaudi.",
         h1: "Private airport pickup: how to be met and taken straight to your destination",
         eyebrow: "Airport Transfers · Private Pickup",
@@ -88,7 +88,7 @@ export const batch3Routes: ServicePage[] = [
       },
       ar: {
         nav: "استقبال خاص من المطار",
-        title: "الاستقبال الخاص من المطار في السعودية: ما الذي ترتّبه",
+        title: "استقبال خاص من المطار في السعودية",
         description: "كيف يعمل الاستقبال الخاص من المطار بحجز مسبق في السعودية: ما تشاركه وكيف تُستقبل وكيف تطلب عرض سعر من RideSaudi.",
         h1: "الاستقبال الخاص من المطار: تُستقبل وتُنقل مباشرة إلى وجهتك",
         eyebrow: "التوصيل من المطار · استقبال خاص",
@@ -280,7 +280,7 @@ export const batch3Routes: ServicePage[] = [
     copy: {
       en: {
         nav: "Private Intercity Chauffeur",
-        title: "Private Chauffeur for a Multi-City Trip in Saudi Arabia",
+        title: "Private Intercity Chauffeur for Multi-City Trips",
         description: "Hire a private chauffeur who stays with you across several Saudi cities in one trip. Plan stops, days and luggage; get a quotation from RideSaudi.",
         h1: "A private chauffeur who travels with you from city to city",
         eyebrow: "Intercity · Private Chauffeur",

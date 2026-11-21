@@ -23,7 +23,7 @@ export const reversePages: ServicePage[] = [
     copy: {
       en: {
         nav: "Abha to Riyadh",
-        title: "Abha to Riyadh Private Car: Suburban, Yukon or Staria",
+        title: "Abha to Riyadh Private Car: Suburban or Yukon",
         description: "Request a private car with a driver from Abha or Khamis Mushait to Riyadh, King Khalid Airport or a business address. Executive SUV, VIP or family vehicle, quoted per trip.",
         h1: "Abha to Riyadh by private car, from the Asir highlands to the capital",
         eyebrow: "Intercity · Abha to Riyadh",
@@ -46,7 +46,7 @@ export const reversePages: ServicePage[] = [
       },
       ar: {
         nav: "أبها إلى الرياض",
-        title: "من أبها إلى الرياض بسيارة خاصة: سوبربان أو يوكن أو ستاريا",
+        title: "توصيل من أبها إلى الرياض: سوبربان أو يوكن",
         description: "اطلب سيارة بسائق من أبها أو خميس مشيط إلى الرياض أو مطار الملك خالد أو عنوان عمل. دفع رباعي تنفيذي أو مركبة كبار الشخصيات أو عائلية بسعر لكل رحلة.",
         h1: "من أبها إلى الرياض بسيارة خاصة، من مرتفعات عسير إلى العاصمة",
         eyebrow: "بين المدن · أبها إلى الرياض",

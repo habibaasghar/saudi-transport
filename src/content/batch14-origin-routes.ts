@@ -33,7 +33,7 @@ export const batch14OriginRoutes: ServicePage[] = [
     copy: {
       en: {
         nav: "Dammam to Riyadh",
-        title: "Dammam to Riyadh Private Car: GMC, Staria or Sedan",
+        title: "Dammam to Riyadh Private Car: GMC or Staria",
         description: "Request a private GMC Yukon, Hyundai Staria or sedan with a driver from Dammam, Al Khobar, Dhahran or King Fahd Airport to Riyadh. About 400 km. Get a quotation.",
         h1: "Dammam to Riyadh by private car, door to door from the Eastern Province",
         eyebrow: "Intercity · Eastern Province to Riyadh",
@@ -56,7 +56,7 @@ export const batch14OriginRoutes: ServicePage[] = [
       },
       ar: {
         nav: "الدمام إلى الرياض",
-        title: "من الدمام إلى الرياض: جمس أو ستاريا أو سيدان بسائق",
+        title: "توصيل من الدمام إلى الرياض: جمس أو ستاريا",
         description: "اطلب جمس يوكن أو هيونداي ستاريا أو سيدان بسائق من الدمام أو الخبر أو الظهران أو مطار الملك فهد إلى الرياض. نحو 400 كم. استلم عرض سعر.",
         h1: "من الدمام إلى الرياض بسيارة خاصة، من الباب إلى الباب",
         eyebrow: "بين المدن · من المنطقة الشرقية إلى الرياض",
@@ -145,7 +145,7 @@ export const batch14OriginRoutes: ServicePage[] = [
     copy: {
       en: {
         nav: "Riyadh to Al Khobar",
-        title: "Riyadh to Al Khobar & Dhahran Private Car with Driver",
+        title: "Riyadh to Al Khobar & Dhahran Private Car",
         description: "Request a private car with a driver from Riyadh to a hotel or office in Al Khobar or Dhahran, with the option to continue to Bahrain. Get a quotation.",
         h1: "Riyadh to Al Khobar and Dhahran by private car",
         eyebrow: "Intercity · Riyadh to the Gulf coast",

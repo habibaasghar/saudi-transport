@@ -35,7 +35,7 @@ export const blogPosts: BlogPost[] = [
     copy: {
       en: {
         nav: "Cross-border transfer checklist",
-        title: "What to Check Before Booking a Cross-Border Private Transfer",
+        title: "Saudi Cross-Border Private Transfer Checklist",
         description: "A practical checklist for private road transfers from Saudi Arabia to Bahrain, Qatar, the UAE or Kuwait: documents, vehicle, timing and what to tell your provider.",
         h1: "What to check before booking a cross-border private transfer from Saudi Arabia",
         answer: "Before you book a private road transfer from Saudi Arabia to Bahrain, Qatar, the UAE or Kuwait, confirm each passenger's entry requirements with the official authorities, ask whether the specific vehicle and driver can cross, leave flexible time for the border, and give your provider exact addresses and passenger details. A transport provider cannot grant you permission to enter a country.",
@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
     copy: {
       en: {
         nav: "Private car vs flight vs rental",
-        title: "Private Car with Driver vs Flight vs Rental Car for Saudi Intercity Trips",
+        title: "Private Car vs Flight vs Rental: Saudi Intercity",
         description: "Compare a private car with a driver, a domestic flight and a self-drive rental for trips between Saudi cities: who each suits, and what to weigh.",
         h1: "Private car with a driver, flight or rental car: which suits your Saudi intercity trip?",
         answer: "A private car with a driver suits groups, families, travellers with luggage and trips with several stops, because it goes door to door and you do not drive. A domestic flight suits a solo traveller on a long route with little luggage. A self-drive rental suits confident drivers who want full control. Compare total door-to-door time and the number of people.",
@@ -106,7 +106,7 @@ export const blogPosts: BlogPost[] = [
       },
       ar: {
         nav: "سيارة خاصة أم طيران أم تأجير",
-        title: "سيارة خاصة مع سائق أم طيران أم سيارة مستأجرة للتنقل بين المدن السعودية",
+        title: "سيارة مع سائق أم طيران أم استئجار بين المدن؟",
         description: "قارن بين سيارة خاصة مع سائق ورحلة طيران داخلية وسيارة مستأجرة للتنقل بين المدن السعودية: لمن يناسب كل خيار وما الذي تزنه.",
         h1: "سيارة خاصة مع سائق أم طيران أم سيارة مستأجرة: أيها يناسب رحلتك بين المدن السعودية؟",
         answer: "تناسب السيارة الخاصة مع السائق المجموعات والعائلات والمسافرين بحقائب والرحلات متعددة التوقفات لأنها من الباب إلى الباب ولا تقود بنفسك. ويناسب الطيران الداخلي مسافرًا منفردًا على مسار طويل وحقائب قليلة. وتناسب السيارة المستأجرة سائقًا واثقًا يريد التحكم الكامل. قارن الزمن الكلي من الباب إلى الباب وعدد الأشخاص.",
@@ -143,7 +143,7 @@ export const blogPosts: BlogPost[] = [
     copy: {
       en: {
         nav: "Choosing a vehicle by passengers and luggage",
-        title: "Sedan, GMC Yukon or Staria? Choosing by Passengers and Bags",
+        title: "Sedan, GMC Yukon or Staria? Pick by Group Size",
         description: "How to choose between a sedan, a GMC Yukon and a Hyundai Staria for family, group or Umrah travel in Saudi Arabia, by passengers, luggage and route.",
         h1: "Sedan, GMC Yukon or Hyundai Staria: which vehicle suits your group?",
         answer:
@@ -214,7 +214,7 @@ export const blogPosts: BlogPost[] = [
       },
       ar: {
         nav: "اختيار السيارة حسب الركاب والحقائب",
-        title: "سيدان أم جمس يوكن أم ستاريا؟ اختر حسب الركاب والحقائب",
+        title: "سيدان أم جمس أم ستاريا؟ اختر حسب الركاب والحقائب",
         description: "كيف تختار بين سيدان وجمس يوكن وهيونداي ستاريا لسفر العائلات والمجموعات والعمرة في السعودية، بحسب عدد الركاب والحقائب والمسار.",
         h1: "سيدان أم جمس يوكن أم هيونداي ستاريا: أي سيارة تناسب مجموعتك؟",
         answer:
@@ -293,7 +293,7 @@ export const blogPosts: BlogPost[] = [
     copy: {
       en: {
         nav: "Airport pickup tips",
-        title: "Airport Pickup in Saudi Arabia: What to Arrange Before You Land",
+        title: "Saudi Airport Pickup Tips: What to Arrange",
         description: "A short checklist for travellers arriving at Riyadh, Jeddah or Dammam airports who want a pre-booked private car: what to send, what to confirm and what not to assume.",
         h1: "Arranging an airport pickup in Saudi Arabia: what to sort out before you land",
         answer: "To arrange a smooth private airport pickup in Saudi Arabia, send your flight number, arrival date, passenger and luggage numbers and exact destination in advance, and ask the provider to confirm vehicle, meeting point and how a delayed flight is handled. Do not assume meet-and-greet or flight tracking unless they are confirmed in writing.",
@@ -312,7 +312,7 @@ export const blogPosts: BlogPost[] = [
       },
       ar: {
         nav: "نصائح الاستقبال من المطار",
-        title: "الاستقبال من المطار في السعودية: ما الذي ترتبه قبل أن تهبط",
+        title: "الاستقبال من المطار بالسعودية: نصائح قبل الوصول",
         description: "قائمة قصيرة للقادمين إلى مطارات الرياض أو جدة أو الدمام ويريدون سيارة خاصة بحجز مسبق: ما تُرسله وما تؤكده وما لا تفترضه.",
         h1: "ترتيب الاستقبال من المطار في السعودية: ما الذي تنجزه قبل الهبوط",
         answer: "لاستقبال خاص سلس من المطار في السعودية، أرسل مسبقًا رقم رحلتك وتاريخ الوصول وعدد الركاب والحقائب ووجهتك بدقة، واطلب من المزوّد تأكيد المركبة ونقطة اللقاء وكيفية التعامل مع تأخر الرحلة. ولا تفترض الاستقبال بالاسم أو تتبع الرحلة ما لم يؤكد ذلك كتابةً.",

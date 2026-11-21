@@ -17,7 +17,7 @@ export const batch5: ServicePage[] = [
     copy: {
       en: {
         nav: "Event Transportation Riyadh",
-        title: "Event Transportation in Riyadh: Guests, Delegates & VIPs",
+        title: "Riyadh Event Transportation: Conferences & VIPs",
         description: "Pre-booked private transport for events in Riyadh: conferences, exhibitions, weddings and entertainment. Plan around venues and traffic; get a quotation.",
         h1: "Event transportation in Riyadh, planned around a very large city",
         eyebrow: "Event Transportation · Riyadh",
@@ -38,7 +38,7 @@ export const batch5: ServicePage[] = [
       },
       ar: {
         nav: "نقل الفعاليات في الرياض",
-        title: "نقل الفعاليات في الرياض: الضيوف والمندوبون وكبار الشخصيات",
+        title: "نقل الفعاليات في الرياض: الضيوف وكبار الشخصيات",
         description: "نقل خاص بحجز مسبق للفعاليات في الرياض: المؤتمرات والمعارض والأعراس والترفيه. خطط حول المواقع والازدحام واطلب عرض سعر.",
         h1: "نقل الفعاليات في الرياض، مخطط لمدينة واسعة جدًا",
         eyebrow: "نقل الفعاليات · الرياض",
@@ -70,7 +70,7 @@ export const batch5: ServicePage[] = [
     copy: {
       en: {
         nav: "Event Transportation Jeddah",
-        title: "Event Transportation in Jeddah: Guests, Delegates & VIPs",
+        title: "Jeddah Event Transport: Festivals & Weddings",
         description: "Pre-booked private transport for events in Jeddah: festivals, conferences, weddings and sporting occasions along the coast. Get a quotation.",
         h1: "Event transportation in Jeddah, from the airport to the waterfront",
         eyebrow: "Event Transportation · Jeddah",
@@ -91,7 +91,7 @@ export const batch5: ServicePage[] = [
       },
       ar: {
         nav: "نقل الفعاليات في جدة",
-        title: "نقل الفعاليات في جدة: الضيوف والمندوبون وكبار الشخصيات",
+        title: "نقل الفعاليات في جدة: المهرجانات والأعراس",
         description: "نقل خاص بحجز مسبق للفعاليات في جدة: المهرجانات والمؤتمرات والأعراس والمناسبات الرياضية على الساحل. استلم عرض سعر.",
         h1: "نقل الفعاليات في جدة، من المطار إلى الواجهة البحرية",
         eyebrow: "نقل الفعاليات · جدة",
@@ -123,7 +123,7 @@ export const batch5: ServicePage[] = [
     copy: {
       en: {
         nav: "Event Transportation Dammam",
-        title: "Event Transportation in Dammam and the Eastern Province",
+        title: "Dammam & Al Khobar Event Transportation",
         description: "Pre-booked private transport for events in Dammam, Al Khobar and Dhahran: conferences, corporate gatherings and weddings. Get a quotation.",
         h1: "Event transportation in Dammam, Al Khobar and Dhahran",
         eyebrow: "Event Transportation · Dammam",
@@ -176,7 +176,7 @@ export const batch5: ServicePage[] = [
     copy: {
       en: {
         nav: "Concert Transportation",
-        title: "Concert Transportation in Saudi Arabia: Get There and Back",
+        title: "Concert Transportation in Saudi Arabia",
         description: "Pre-booked private transport to concerts in Saudi Arabia: plan arrival, drop-off and the return after the show. Groups and VIPs; request a quotation.",
         h1: "Concert transportation: the return journey is the hard part",
         eyebrow: "Event Transportation · Concerts",
@@ -548,7 +548,7 @@ export const batch5: ServicePage[] = [
     copy: {
       en: {
         nav: "Van & Minibus Transportation",
-        title: "Van and Minibus Transportation with a Driver in Saudi Arabia",
+        title: "Van & Minibus with Driver in Saudi Arabia",
         description: "Request a van or minibus with a driver in Saudi Arabia for groups, large families and teams. Share numbers and luggage; get a quotation.",
         h1: "Van and minibus transportation for larger parties",
         eyebrow: "Family & Group · Vans & Minibuses",
@@ -761,7 +761,7 @@ export const batch5: ServicePage[] = [
     copy: {
       en: {
         nav: "Business Travel Transportation",
-        title: "Business Travel and Corporate Staff Transportation in Saudi Arabia",
+        title: "Business Travel Transportation in Saudi Arabia",
         description: "Transportation for business travellers, visiting teams and corporate employees in Saudi Arabia: airport runs, site transfers and regular staff movements.",
         h1: "Business travel and corporate transportation, handled once and repeated",
         eyebrow: "Special Transportation · Business",
@@ -814,7 +814,7 @@ export const batch5: ServicePage[] = [
     copy: {
       en: {
         nav: "Travel Agency Transportation",
-        title: "Ground Transportation for Travel Agencies in Saudi Arabia",
+        title: "Ground Transport for Travel Agencies in KSA",
         description: "Ground transport arrangements for travel agencies and tour operators in Saudi Arabia: transfers, groups and Umrah programmes. Describe your needs.",
         h1: "Ground transportation for travel agencies and tour operators",
         eyebrow: "Special Transportation · Travel Agencies",
@@ -920,7 +920,7 @@ export const batch5: ServicePage[] = [
     copy: {
       en: {
         nav: "Senior-Friendly Transportation",
-        title: "Transportation for Elderly Travellers in Saudi Arabia",
+        title: "Senior & Elderly Transport in Saudi Arabia",
         description: "Planning private transport for elderly travellers in Saudi Arabia: unhurried pickups, fewer changes and clear drop-off points. Describe needs for a quotation.",
         h1: "Transport planned around an elderly traveller's pace",
         eyebrow: "Special Transportation · Elderly Travellers",
@@ -973,7 +973,7 @@ export const batch5: ServicePage[] = [
     copy: {
       en: {
         nav: "Fleet",
-        title: "Vehicles with Driver: Camry, Yukon, Suburban, Tahoe, Prado, Staria",
+        title: "Vehicles with Driver: GMC Yukon, Staria, Camry",
         description: "Vehicles you can request: Camry, Sonata, Taurus, GMC Yukon and Suburban, Tahoe, Prado, Hyundai Staria and luxury or VIP SUVs, each with a driver. Confirmed per quotation.",
         h1: "Choose the vehicle for your journey: sedan, family SUV, Staria or VIP",
         eyebrow: "Fleet",
@@ -994,7 +994,7 @@ export const batch5: ServicePage[] = [
       },
       ar: {
         nav: "المركبات",
-        title: "مركبات مع سائق: كامري ويوكن وسوبربان وتاهو وبرادو وستاريا",
+        title: "مركبات مع سائق: جمس يوكن وستاريا وكامري",
         description: "مركبات يمكن طلبها: كامري وسوناتا وتوروس وجمس يوكن وسوبربان وتاهو وبرادو وهيونداي ستاريا وسيارات فاخرة أو VIP، مع سائق. تُؤكَّد لكل عرض سعر.",
         h1: "اختر المركبة المناسبة لرحلتك: سيدان أو دفع رباعي عائلي أو ستاريا أو VIP",
         eyebrow: "المركبات",
