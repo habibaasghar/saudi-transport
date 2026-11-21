@@ -28,7 +28,7 @@ export const batch18Locations: ServicePage[] = [
     copy: {
       en: {
         nav: "Khamis Mushait",
-        title: "Khamis Mushait Private Car with Driver: Camry, Yukon, Prado",
+        title: "Khamis Mushait Private Car with Driver",
         description: "Request a private car with a driver in Khamis Mushait for Abha airport transfers, business trips and long routes to Riyadh and Jeddah. Quoted per trip.",
         h1: "Private car with a driver in Khamis Mushait, Asir",
         eyebrow: "Locations · Khamis Mushait",
@@ -52,7 +52,7 @@ export const batch18Locations: ServicePage[] = [
       },
       ar: {
         nav: "خميس مشيط",
-        title: "سيارة خاصة بسائق في خميس مشيط: كامري ويوكن وبرادو",
+        title: "سيارة خاصة مع سائق في خميس مشيط",
         description: "اطلب سيارة بسائق في خميس مشيط للتوصيل من مطار أبها ورحلات العمل والمسارات الطويلة إلى الرياض وجدة. بسعر لكل رحلة.",
         h1: "سيارة خاصة بسائق في خميس مشيط بمنطقة عسير",
         eyebrow: "المواقع · خميس مشيط",
@@ -87,7 +87,7 @@ export const batch18Locations: ServicePage[] = [
     copy: {
       en: {
         nav: "Al Baha",
-        title: "Al Baha Private Car with Driver from Jeddah: Yukon or Prado",
+        title: "Al Baha Private Car with Driver from Jeddah",
         description: "Request a private car with a driver to or around Al Baha from Jeddah or King Abdulaziz Airport, with planning notes for Raghadan Forest and Dhee Ain. Quoted per trip.",
         h1: "Private car with a driver to Al Baha, in the Sarawat mountains",
         eyebrow: "Locations · Al Baha",
@@ -111,7 +111,7 @@ export const batch18Locations: ServicePage[] = [
       },
       ar: {
         nav: "الباحة",
-        title: "سيارة خاصة بسائق إلى الباحة من جدة: يوكن أو برادو",
+        title: "سيارة خاصة مع سائق إلى الباحة من جدة",
         description: "اطلب سيارة بسائق إلى الباحة أو داخلها من جدة أو مطار الملك عبدالعزيز، مع ملاحظات تخطيط لغابة رغدان وذي عين. بسعر لكل رحلة.",
         h1: "سيارة خاصة بسائق إلى الباحة في جبال السروات",
         eyebrow: "المواقع · الباحة",
@@ -146,7 +146,7 @@ export const batch18Locations: ServicePage[] = [
     copy: {
       en: {
         nav: "King Abdullah Economic City",
-        title: "King Abdullah Economic City (KAEC) Private Car from Jeddah",
+        title: "KAEC (King Abdullah Economic City) Private Car",
         description: "Request a private car with a driver between King Abdullah Economic City, Jeddah airport and Makkah. Executive sedan, GMC Yukon or Staria, quoted per trip.",
         h1: "Private car with a driver to King Abdullah Economic City, north of Jeddah",
         eyebrow: "Locations · KAEC",
@@ -170,7 +170,7 @@ export const batch18Locations: ServicePage[] = [
       },
       ar: {
         nav: "مدينة الملك عبدالله الاقتصادية",
-        title: "سيارة خاصة إلى مدينة الملك عبدالله الاقتصادية من جدة",
+        title: "سيارة مع سائق إلى مدينة الملك عبدالله الاقتصادية",
         description: "اطلب سيارة بسائق بين مدينة الملك عبدالله الاقتصادية ومطار جدة ومكة. سيدان تنفيذي أو جمس يوكن أو ستاريا بسعر لكل رحلة.",
         h1: "سيارة خاصة بسائق إلى مدينة الملك عبدالله الاقتصادية شمال جدة",
         eyebrow: "المواقع · مدينة الملك عبدالله الاقتصادية",

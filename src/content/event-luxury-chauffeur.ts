@@ -19,7 +19,7 @@ export const eventLuxuryChauffeurPages: ServicePage[] = [
     copy: {
       en: {
         nav: "Event Transportation",
-        title: "Event Transportation in Saudi Arabia: Guests & Delegates",
+        title: "Event Transportation in Saudi Arabia",
         description:
           "Plan pre-booked private transport for weddings, conferences, exhibitions and corporate events in Saudi Arabia. Share your schedule and request a quotation.",
         h1: "Event transportation, planned around your schedule",
@@ -187,7 +187,7 @@ export const eventLuxuryChauffeurPages: ServicePage[] = [
     copy: {
       en: {
         nav: "Wedding Transportation",
-        title: "Wedding Transportation in Saudi Arabia: Guests & Family",
+        title: "Wedding Transportation in Saudi Arabia",
         description:
           "Arrange pre-booked private transport for wedding guests, family and the wedding party in Saudi Arabia. Share your venue and timings for a quotation.",
         h1: "Wedding transportation for guests, family and the wedding party",
@@ -347,7 +347,7 @@ export const eventLuxuryChauffeurPages: ServicePage[] = [
     copy: {
       en: {
         nav: "Luxury Transportation",
-        title: "Luxury Car Transportation in Saudi Arabia with a Chauffeur",
+        title: "Luxury Transportation in Saudi Arabia",
         description:
           "Request luxury chauffeur transportation in Saudi Arabia: executive, VIP and premium vehicle journeys, airport transfers and events. Get a quotation.",
         h1: "Luxury transportation in Saudi Arabia, arranged with care",

@@ -79,7 +79,7 @@ export const batch13EasternProvince: ServicePage[] = [
     copy: {
       en: {
         nav: "Dammam to Al Ahsa",
-        title: "Dammam to Al Ahsa (Hofuf) Private Car with Driver",
+        title: "Dammam to Al Ahsa (Hofuf) Private Car",
         description: "Request a private car with a driver between Dammam, Al Khobar and Al Ahsa (Hofuf), in either direction. Plan the journey and get a RideSaudi quotation.",
         h1: "Dammam to Al Ahsa by private car",
         eyebrow: "Intercity · Eastern Province",

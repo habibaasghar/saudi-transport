@@ -124,7 +124,7 @@ export const priorityRoutesD: ServicePage[] = [
       },
       ar: {
         nav: "العلا إلى المدينة",
-        title: "توصيل من العلا إلى المدينة المنورة بسيارة خاصة مع سائق",
+        title: "توصيل من العلا إلى المدينة المنورة بسيارة خاصة",
         description: "سيارة خاصة مع سائق من منتجعك أو مطار العلا إلى فندقك في المدينة المنورة: نحو 337 كم في أقل من أربع ساعات. السيارة لك ولمرافقيك فقط.",
         h1: "من العلا إلى المدينة بسيارة خاصة، من المنتجع إلى المسجد النبوي",
         eyebrow: "بين المدن · العلا ← المدينة",
@@ -415,7 +415,7 @@ export const priorityRoutesD: ServicePage[] = [
     copy: {
       en: {
         nav: "Al Khobar to Riyadh",
-        title: "Al Khobar & Dhahran to Riyadh Private Car with Driver",
+        title: "Al Khobar to Riyadh Private Car with Driver",
         description: "Private car with a driver from Al Khobar or Dhahran to any address in Riyadh or Riyadh airport: about 424 km, around four and a half hours. Request a quote.",
         h1: "Al Khobar and Dhahran to Riyadh by private car, door to door",
         eyebrow: "Intercity · Al Khobar → Riyadh",
@@ -499,7 +499,7 @@ export const priorityRoutesD: ServicePage[] = [
       },
       ar: {
         nav: "الخبر إلى الرياض",
-        title: "توصيل من الخبر والظهران إلى الرياض بسيارة خاصة مع سائق",
+        title: "توصيل من الخبر والظهران إلى الرياض بسيارة خاصة",
         description: "سيارة خاصة مع سائق من الخبر أو الظهران إلى أي عنوان في الرياض أو مطار الرياض: نحو 424 كم في قرابة أربع ساعات ونصف. اطلب عرض سعر.",
         h1: "من الخبر والظهران إلى الرياض بسيارة خاصة، من الباب إلى الباب",
         eyebrow: "بين المدن · الخبر ← الرياض",

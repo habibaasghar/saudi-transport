@@ -20,7 +20,7 @@ export const alulaPages: ServicePage[] = [
     copy: {
       en: {
         nav: "AlUla to Jeddah",
-        title: "AlUla to Jeddah Private Car with Driver, Hotel to Airport",
+        title: "AlUla to Jeddah Private Car to Hotel or Airport",
         description: "Request a private car with a driver from your AlUla resort or hotel to Jeddah or King Abdulaziz Airport. Plan an early start and a safe margin for your flight.",
         h1: "AlUla to Jeddah by private car, from desert resort to flight",
         eyebrow: "Intercity · AlUla to Jeddah",
@@ -43,7 +43,7 @@ export const alulaPages: ServicePage[] = [
       },
       ar: {
         nav: "العلا إلى جدة",
-        title: "من العلا إلى جدة بسيارة خاصة بسائق، من المنتجع إلى المطار",
+        title: "توصيل من العلا إلى جدة والمطار بسيارة خاصة",
         description: "اطلب سيارة بسائق من منتجعك أو فندقك في العلا إلى جدة أو مطار الملك عبدالعزيز. خطط لانطلاق مبكر وهامش آمن قبل موعد رحلتك.",
         h1: "من العلا إلى جدة بسيارة خاصة، من منتجع الصحراء إلى رحلة الطيران",
         eyebrow: "بين المدن · العلا إلى جدة",

@@ -196,7 +196,7 @@ export const batch12GapRoutes: ServicePage[] = [
     copy: {
       en: {
         nav: "Jeddah to AlUla",
-        title: "Jeddah to AlUla Private Car Transfer, One Way or Return",
+        title: "Jeddah to AlUla Private Car, One Way or Return",
         description: "Request a private car with a driver from Jeddah or King Abdulaziz Airport to AlUla and back. Planning notes for a very long road journey, with a quotation.",
         h1: "Jeddah to AlUla by private car, planned as a long journey",
         eyebrow: "Intercity · Jeddah ⇄ AlUla",

@@ -105,7 +105,7 @@ export const batch2Pages: ServicePage[] = [
     copy: {
       en: {
         nav: "Conference & Exhibition Transport",
-        title: "Conference and Exhibition Transportation in Saudi Arabia",
+        title: "Conference & Exhibition Transport in KSA",
         description: "Pre-booked transport for conference delegates, speakers and exhibition visitors in Riyadh, Jeddah, Dammam and elsewhere. Request a quotation.",
         h1: "Conference and exhibition transportation for delegates and speakers",
         eyebrow: "Event Transportation · Conferences & Exhibitions",
@@ -184,7 +184,7 @@ export const batch2Pages: ServicePage[] = [
     copy: {
       en: {
         nav: "Event Airport Transfers",
-        title: "Airport Transfers for Event Guests in Saudi Arabia",
+        title: "Airport Transfers for Event Guests in KSA",
         description: "Plan airport pickups for event guests, delegates and VIPs arriving on different flights. Pre-booked private transfers; request a quotation.",
         h1: "Airport transfers for event guests arriving on different flights",
         eyebrow: "Event Transportation · Airport Arrivals",
@@ -266,7 +266,7 @@ export const batch2Pages: ServicePage[] = [
     copy: {
       en: {
         nav: "Makkah Ziyarat Transport",
-        title: "Makkah Ziyarat Transport: Private Car with Driver",
+        title: "Makkah Ziyarat Private Car with Driver",
         description: "Arrange private transport for visiting historic and religious sites around Makkah. Transport only; no guided tours. Request a quotation.",
         h1: "Private transport for Makkah ziyarat",
         eyebrow: "Umrah Transport · Makkah Ziyarat",
@@ -353,7 +353,7 @@ export const batch2Pages: ServicePage[] = [
     copy: {
       en: {
         nav: "Madinah Ziyarat Transport",
-        title: "Madinah Ziyarat Transport: Private Car with Driver",
+        title: "Madinah Ziyarat Private Car: Quba & Uhud",
         description: "Arrange private transport for visiting historic and religious sites around Madinah, such as Quba and Uhud. Transport only. Request a quotation.",
         h1: "Private transport for Madinah ziyarat",
         eyebrow: "Umrah Transport · Madinah Ziyarat",

@@ -122,7 +122,7 @@ export const batch6: ServicePage[] = [
     copy: {
       en: {
         nav: "Makkah City Transport",
-        title: "Private Transport in Makkah for Pilgrims and Visitors",
+        title: "Makkah Private Car with Driver for Pilgrims",
         description: "Pre-book a private car with a driver inside Makkah for pilgrims: hotels, ziyarat and transfers, planned around access near the Haram. Get a quotation.",
         h1: "Private transport inside Makkah, planned around the Haram",
         eyebrow: "City Transport · Makkah",
@@ -175,7 +175,7 @@ export const batch6: ServicePage[] = [
     copy: {
       en: {
         nav: "Madinah City Transport",
-        title: "Private Transport in Madinah for Visitors and Pilgrims",
+        title: "Madinah Private Car with Driver for Visitors",
         description: "Pre-book a private car with a driver in Madinah: hotels near the Prophet's Mosque, Quba, Uhud and onward trips. Get a quotation from RideSaudi.",
         h1: "Private transport in Madinah, around the Prophet's Mosque",
         eyebrow: "City Transport · Madinah",
@@ -706,7 +706,7 @@ export const batch6: ServicePage[] = [
     copy: {
       en: {
         nav: "Multi-Stop Private Transportation",
-        title: "Multi-Stop Private Transportation in Saudi Arabia",
+        title: "Multi-Stop Private Transport in Saudi Arabia",
         description: "A private car with a driver for a journey with several planned stops, in a city or between cities. Order the stops, estimate waits, get a quotation.",
         h1: "Multi-stop private transportation: one journey, several destinations",
         eyebrow: "Tourism Transport · Multi-Stop",

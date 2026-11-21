@@ -32,7 +32,7 @@ export const batch16ReverseAlulaRoutes: ServicePage[] = [
     copy: {
       en: {
         nav: "Madinah to Makkah",
-        title: "Madinah to Makkah Private Car: GMC, Staria or Sedan",
+        title: "Madinah to Makkah Private Car with Miqat Stop",
         description: "Request a private GMC Yukon, Hyundai Staria or sedan with a driver from your Madinah hotel to Makkah, with a stop at the Dhul Hulaifah Miqat. Get a quotation.",
         h1: "Madinah to Makkah by private car, with a Miqat stop at Dhul Hulaifah",
         eyebrow: "Intercity · Madinah to Makkah",
@@ -55,7 +55,7 @@ export const batch16ReverseAlulaRoutes: ServicePage[] = [
       },
       ar: {
         nav: "المدينة إلى مكة",
-        title: "من المدينة المنورة إلى مكة: جمس أو ستاريا أو سيدان بسائق",
+        title: "توصيل من المدينة إلى مكة مع الوقوف بالميقات",
         description: "اطلب جمس يوكن أو هيونداي ستاريا أو سيدان بسائق من فندقك في المدينة المنورة إلى مكة المكرمة مع التوقف في ميقات ذي الحليفة. استلم عرض سعر.",
         h1: "من المدينة المنورة إلى مكة المكرمة بسيارة خاصة مع التوقف في ميقات ذي الحليفة",
         eyebrow: "بين المدن · المدينة إلى مكة",
@@ -142,7 +142,7 @@ export const batch16ReverseAlulaRoutes: ServicePage[] = [
     copy: {
       en: {
         nav: "AlUla to Riyadh",
-        title: "AlUla to Riyadh Private Car: GMC, Staria or Sedan",
+        title: "AlUla to Riyadh Private Car: GMC or Staria",
         description: "Request a private GMC Yukon, Hyundai Staria or sedan with a driver from your AlUla hotel or resort to Riyadh. About 1,040 km by road. Get a quotation.",
         h1: "AlUla to Riyadh by private car, a full day across the north",
         eyebrow: "Intercity · AlUla to Riyadh",
@@ -164,7 +164,7 @@ export const batch16ReverseAlulaRoutes: ServicePage[] = [
       },
       ar: {
         nav: "العلا إلى الرياض",
-        title: "من العلا إلى الرياض: جمس أو ستاريا أو سيدان بسائق",
+        title: "توصيل من العلا إلى الرياض: جمس أو ستاريا",
         description: "اطلب جمس يوكن أو هيونداي ستاريا أو سيدان بسائق من فندقك أو منتجعك في العلا إلى الرياض. نحو 1040 كم بالطريق. استلم عرض سعر.",
         h1: "من العلا إلى الرياض بسيارة خاصة، يوم كامل عبر الشمال",
         eyebrow: "بين المدن · العلا إلى الرياض",

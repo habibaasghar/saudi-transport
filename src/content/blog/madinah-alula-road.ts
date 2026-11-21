@@ -29,7 +29,7 @@ export const madinahAlulaPost: BlogPost = {
   copy: {
     en: {
       nav: "Madinah to AlUla by road",
-      title: "Madinah to AlUla by Road: Distance, Time and Planning Tips",
+      title: "Madinah to AlUla by Road: Distance & Time",
       description: "Planning the drive from Madinah to AlUla: about 338 km and under four hours, which road, when to leave, Hegra access and how to combine both cities.",
       h1: "Madinah to AlUla by road: how to plan the journey",
       answer:
@@ -102,7 +102,7 @@ export const madinahAlulaPost: BlogPost = {
     },
     ar: {
       nav: "من المدينة إلى العلا برًّا",
-      title: "من المدينة إلى العلا بالسيارة: المسافة والوقت والتخطيط",
+      title: "من المدينة إلى العلا بالسيارة: المسافة والوقت",
       description: "تخطيط الطريق من المدينة المنورة إلى العلا: نحو 338 كم في أقل من أربع ساعات، أي طريق تسلك، ومتى تنطلق، وزيارة الحِجر، والجمع بين المدينتين.",
       h1: "من المدينة إلى العلا برًّا: كيف تخطط للرحلة",
       answer:

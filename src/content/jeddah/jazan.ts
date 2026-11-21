@@ -21,7 +21,7 @@ export const jazanPages: ServicePage[] = [
     copy: {
       en: {
         nav: "Jeddah to Jazan",
-        title: "Jeddah to Jazan Private Car: GMC, Staria or Sedan",
+        title: "Jeddah to Jazan Private Car: GMC or Staria",
         description: "Request a private GMC Yukon, Hyundai Staria or sedan with a driver from Jeddah or King Abdulaziz Airport to Jazan along the Red Sea road, one way or return.",
         h1: "Jeddah to Jazan by private car, down the Red Sea coast",
         eyebrow: "Intercity · Jeddah to Jazan",
@@ -45,7 +45,7 @@ export const jazanPages: ServicePage[] = [
       },
       ar: {
         nav: "جدة إلى جازان",
-        title: "من جدة إلى جازان: سيارة خاصة بسائق، جمس أو ستاريا أو سيدان",
+        title: "توصيل من جدة إلى جازان: جمس أو ستاريا أو سيدان",
         description: "اطلب جمس يوكن أو هيونداي ستاريا أو سيدان بسائق من جدة أو مطار الملك عبدالعزيز إلى جازان عبر طريق ساحل البحر الأحمر، ذهابًا فقط أو ذهابًا وعودة.",
         h1: "من جدة إلى جازان بسيارة خاصة على امتداد ساحل البحر الأحمر",
         eyebrow: "بين المدن · جدة إلى جازان",
@@ -80,7 +80,7 @@ export const jazanPages: ServicePage[] = [
     copy: {
       en: {
         nav: "Jazan to Jeddah",
-        title: "Jazan to Jeddah Private Car with Driver, Coast Road North",
+        title: "Jazan to Jeddah Private Car with Driver",
         description: "Request a private car with a driver from Jazan, its hotels or the port to Jeddah, King Abdulaziz Airport or onward to Makkah. Sedan, GMC Yukon or Hyundai Staria.",
         h1: "Jazan to Jeddah by private car, north along the coast",
         eyebrow: "Intercity · Jazan to Jeddah",
@@ -103,7 +103,7 @@ export const jazanPages: ServicePage[] = [
       },
       ar: {
         nav: "جازان إلى جدة",
-        title: "من جازان إلى جدة بسيارة خاصة بسائق، شمالًا عبر طريق الساحل",
+        title: "توصيل من جازان إلى جدة بسيارة خاصة مع سائق",
         description: "اطلب سيارة بسائق من جازان أو فنادقها أو الميناء إلى جدة أو مطار الملك عبدالعزيز أو مواصلة إلى مكة. سيدان أو جمس يوكن أو هيونداي ستاريا.",
         h1: "من جازان إلى جدة بسيارة خاصة شمالًا على امتداد الساحل",
         eyebrow: "بين المدن · جازان إلى جدة",

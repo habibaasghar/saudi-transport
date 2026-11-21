@@ -474,7 +474,7 @@ export const airportPages: ServicePage[] = [
     copy: {
       en: {
         nav: "Madinah Airport Transfer",
-        title: "Madinah Airport Transfer: Private Car with Driver",
+        title: "Madinah Airport (MED) Private Transfer to Hotel",
         description:
           "Pre-book a private transfer from Prince Mohammad bin Abdulaziz International Airport (MED) to your hotel in Madinah. Request a quotation.",
         h1: "Madinah airport transfer to your hotel",

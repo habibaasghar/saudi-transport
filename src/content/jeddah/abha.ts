@@ -46,7 +46,7 @@ export const abhaPages: ServicePage[] = [
       },
       ar: {
         nav: "جدة إلى أبها",
-        title: "من جدة إلى أبها: سيارة خاصة بسائق، جمس أو ستاريا أو سيدان",
+        title: "توصيل من جدة إلى أبها: جمس أو ستاريا أو سيدان",
         description: "اطلب جمس يوكن أو هيونداي ستاريا أو سيدان بسائق من جدة أو مطار الملك عبدالعزيز إلى أبها في جبال عسير، ذهابًا فقط أو ذهابًا وعودة.",
         h1: "من جدة إلى أبها بسيارة خاصة، من الساحل إلى جبال عسير",
         eyebrow: "بين المدن · جدة إلى أبها",
@@ -81,7 +81,7 @@ export const abhaPages: ServicePage[] = [
     copy: {
       en: {
         nav: "Abha to Jeddah",
-        title: "Abha to Jeddah Private Car with Driver, Down the Mountain",
+        title: "Abha to Jeddah Private Car with Driver",
         description: "Request a private car with a driver from your Abha hotel or Asir resort to Jeddah, King Abdulaziz Airport or onward to Makkah. Sedan, GMC Yukon or Hyundai Staria.",
         h1: "Abha to Jeddah by private car, down from the Asir mountains",
         eyebrow: "Intercity · Abha to Jeddah",
@@ -104,7 +104,7 @@ export const abhaPages: ServicePage[] = [
       },
       ar: {
         nav: "أبها إلى جدة",
-        title: "من أبها إلى جدة بسيارة خاصة بسائق، نزولًا من الجبال",
+        title: "توصيل من أبها إلى جدة بسيارة خاصة مع سائق",
         description: "اطلب سيارة بسائق من فندقك في أبها أو منتجع في عسير إلى جدة أو مطار الملك عبدالعزيز أو مواصلة إلى مكة. سيدان أو جمس يوكن أو هيونداي ستاريا.",
         h1: "من أبها إلى جدة بسيارة خاصة نزولًا من جبال عسير",
         eyebrow: "بين المدن · أبها إلى جدة",

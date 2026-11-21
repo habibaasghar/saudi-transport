@@ -21,7 +21,7 @@ export const dammamPages: ServicePage[] = [
     copy: {
       en: {
         nav: "Jeddah to Dammam",
-        title: "Jeddah to Dammam Private Car: GMC, Staria or Sedan",
+        title: "Jeddah to Dammam Private Car: GMC or Staria",
         description: "Request a private GMC Yukon, Hyundai Staria or sedan with a driver from Jeddah or King Abdulaziz Airport to Dammam and the Eastern Province, one way or return.",
         h1: "Jeddah to Dammam by private car, across the whole Kingdom",
         eyebrow: "Intercity · Jeddah to Dammam",
@@ -46,7 +46,7 @@ export const dammamPages: ServicePage[] = [
       },
       ar: {
         nav: "جدة إلى الدمام",
-        title: "من جدة إلى الدمام: سيارة خاصة بسائق، جمس أو ستاريا أو سيدان",
+        title: "توصيل من جدة إلى الدمام: جمس أو ستاريا أو سيدان",
         description: "اطلب جمس يوكن أو هيونداي ستاريا أو سيدان بسائق من جدة أو مطار الملك عبدالعزيز إلى الدمام والمنطقة الشرقية، ذهابًا فقط أو ذهابًا وعودة.",
         h1: "من جدة إلى الدمام بسيارة خاصة، رحلة تقطع المملكة من الغرب إلى الشرق",
         eyebrow: "بين المدن · جدة إلى الدمام",
@@ -82,7 +82,7 @@ export const dammamPages: ServicePage[] = [
     copy: {
       en: {
         nav: "Dammam to Jeddah",
-        title: "Dammam to Jeddah Private Car with Driver, Return West",
+        title: "Dammam to Jeddah Private Transfer with Driver",
         description: "Request a private car with a driver from Dammam, Al Khobar or the Eastern Province to Jeddah, King Abdulaziz Airport or onward to Makkah. Sedan, GMC Yukon or Staria.",
         h1: "Dammam to Jeddah by private car, built around your arrival time",
         eyebrow: "Intercity · Dammam to Jeddah",
@@ -105,7 +105,7 @@ export const dammamPages: ServicePage[] = [
       },
       ar: {
         nav: "الدمام إلى جدة",
-        title: "من الدمام إلى جدة بسيارة خاصة بسائق، العودة غربًا",
+        title: "توصيل من الدمام إلى جدة بسيارة خاصة مع سائق",
         description: "اطلب سيارة بسائق من الدمام أو الخبر أو المنطقة الشرقية إلى جدة أو مطار الملك عبدالعزيز أو مواصلة إلى مكة. سيدان أو جمس يوكن أو ستاريا.",
         h1: "من الدمام إلى جدة بسيارة خاصة، بموعد انطلاق محسوب على وقت وصولك",
         eyebrow: "بين المدن · الدمام إلى جدة",
