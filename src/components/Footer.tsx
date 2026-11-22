@@ -6,6 +6,7 @@ import { getPage } from "@/content/registry";
 import { navItems } from "@/lib/nav";
 import { ContactCta } from "./ContactCta";
 import { CONTACT } from "@/config/contact";
+import { FooterSocial } from "./SocialLinks";
 
 const footerServices = [
   "services/airport-transfers",
@@ -61,6 +62,7 @@ export async function Footer({ locale, switchHref = "/" }: { locale: Locale; swi
               <ContactCta kind="email" locale={locale} size="sm" variant="ghost" />
             </div>
           </div>
+          <FooterSocial />
         </div>
         <nav aria-label={a("footerNav")} className="footer__cols">
           <div>

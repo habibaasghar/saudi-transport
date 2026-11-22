@@ -57,15 +57,15 @@ Full list with per-URL reasons: `RIDESAUDI-URL-INDEXABILITY-MAP.csv`.
 | Class | Count | Decision |
 |---|---|---|
 | 1 – Important commercial page, must be indexed | 60 | Keep; first request-indexing batches |
-| 2 – Needs unique content enrichment | 13 | Keep indexable; add verified route detail (Riyadh→Jubail, Yanbu, Hail, Buraydah, Tabuk, AlUla; Makkah/Madinah ziyarat) |
-| 3 – Overlapping intent, consolidation candidate | 18 | Keep for now; owner decides (section 6) |
+| 2 – Needs unique content enrichment | 13 | **Enriched 2026-11-23** with verified distances, tables and page-specific sections |
+| 3 – Overlapping intent, consolidation candidate | 18 | **14 consolidated (308) 2026-11-23**; the other 4 (destinations / business-travel) kept |
 | 4 – Should be noindexed | 0 | None found. No page is thin (min. 701 words) or duplicate enough to justify noindex |
 | 5 – Redirected | 6 | Already 308; leave |
 | 6 – Keep unchanged, monitor | 123 | Request indexing after the High batch |
 
 No URL was deleted, noindexed or redirected in this pass.
 
-## 6. Proposed consolidations (NOT implemented — needs owner approval)
+## 6. Consolidations (IMPLEMENTED 2026-11-23 on owner instruction; one-hop 308, see `src/content/consolidated.ts`)
 
 | Source URL (EN + AR) | Proposed destination | Reason | Impact if approved |
 |---|---|---|---|

@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import { consolidated } from "./src/content/consolidated";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
@@ -21,7 +22,13 @@ const nextConfig: NextConfig = {
       ...["services", "luxury-transportation", "blog"].map((s) => ({ source: `/${s}/:path+`, destination: `/en/${s}/:path+/`, permanent: true })),
       ...["services", "luxury-transportation", "blog", "fleet"].map((s) => ({ source: `/${s}`, destination: `/en/${s}/`, permanent: true })),
     ];
-    return [...unprefixed, ...removed];
+    // Pages merged into a page with the same intent (src/content/consolidated.ts): one hop, both locales.
+    const merged = Object.entries(consolidated).map(([from, to]) => ({
+      source: `/:locale(en|ar)/${from}`,
+      destination: `/:locale/${to}/`,
+      permanent: true,
+    }));
+    return [...unprefixed, ...removed, ...merged];
   },
   async headers() {
     return [

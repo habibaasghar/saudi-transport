@@ -40,3 +40,10 @@ Google crawls a new site faster when other sites point to it. None of this can b
 - Do not resubmit the sitemap daily; once per deploy is enough.
 - Do not request indexing for the 6 redirected `*-driver` URLs.
 - Do not judge success by "200 + in sitemap". Only URL Inspection "URL is on Google" counts as indexed.
+
+## Update 2026-11-23 (after the follow-up deploy)
+
+1. Resubmit `https://www.ridesaudi.com/sitemap.xml` (it now lists 352 URLs; the 14 consolidated URLs are gone).
+2. Request indexing for the 13 enriched pages first (EN + AR): Riyadh to Jubail, Yanbu, Hail, Buraydah, Tabuk, AlUla; Makkah ziyarat; Madinah ziyarat.
+3. Request indexing for the 7 consolidation destinations: VIP airport transfer, business chauffeur, private intercity chauffeur, family transport, group transportation, VIP event chauffeur, event transportation (EN + AR).
+4. Do **not** request indexing for the 14 redirected URLs (`/luxury-transportation/luxury-airport-transfers/`, `executive-transport`, `luxury-intercity-transfers`, `luxury-family-transport`, `premium-group-transport`, `luxury-event-transport`, `/services/event-transportation/group-event-transport/`). They will move to "Page with redirect" in the coverage report; that is expected.
