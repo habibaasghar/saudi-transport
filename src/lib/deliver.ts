@@ -96,7 +96,8 @@ async function toEmail(lead: Lead, key: string, to: string): Promise<boolean> {
       }),
       signal: AbortSignal.timeout(8000),
     });
-    if (!res.ok) console.error("[enquiry] Resend alert failed", res.status);
+    // Resend explains rejections in the body (unverified domain, test-sender limits); it contains no lead data.
+    if (!res.ok) console.error("[enquiry] Resend alert failed", res.status, (await res.text().catch(() => "")).slice(0, 300));
     return res.ok;
   } catch (err) {
     console.error("[enquiry] Resend alert failed", err instanceof Error ? err.message : err);
