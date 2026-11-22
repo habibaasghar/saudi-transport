@@ -1,4 +1,5 @@
 import { extrasSummary, type EnquiryInput } from "./enquiry";
+import { smtpTransport } from "@/server/email/send";
 
 type Lead = Omit<EnquiryInput, "website" | "startedAt"> & { receivedAt: string };
 
@@ -11,7 +12,13 @@ export type DeliveryResult = { configured: boolean; delivered: boolean };
  *
  *  (The database is the system of record and is written by the API route, not here.)
  *  1. Email alert via Resend       (RESEND_API_KEY + LEAD_NOTIFY_EMAIL [+ LEAD_FROM_EMAIL])
- *  2. Generic JSON webhook         (ENQUIRY_WEBHOOK_URL [+ ENQUIRY_WEBHOOK_SECRET])
+ *  2. Email alert via Gmail / SMTP (EMAIL_PROVIDER=gmail|smtp + SMTP_* + ADMIN_NOTIFY_EMAIL or LEAD_NOTIFY_EMAIL).
+ *     This reuses the SMTP transport of the customer-acknowledgement mailer, but sends directly (no email_logs row),
+ *     so the business alert still goes out when the database is unreachable.
+ *  3. Generic JSON webhook         (ENQUIRY_WEBHOOK_URL [+ ENQUIRY_WEBHOOK_SECRET])
+ *
+ * If every configured channel fails, the full lead is written to the server log under "[enquiry] UNDELIVERED LEAD"
+ * so it can be recovered from the Vercel logs; the visitor is shown the WhatsApp fallback with their details.
  */
 export async function deliverLead(lead: Lead): Promise<DeliveryResult> {
   const jobs: Promise<boolean>[] = [];
@@ -19,6 +26,12 @@ export async function deliverLead(lead: Lead): Promise<DeliveryResult> {
   const resendKey = process.env.RESEND_API_KEY;
   const notify = process.env.LEAD_NOTIFY_EMAIL;
   if (resendKey && notify) jobs.push(toEmail(lead, resendKey, notify));
+
+  const provider = (process.env.EMAIL_PROVIDER || "").toLowerCase();
+  const smtpTo = process.env.LEAD_NOTIFY_EMAIL || process.env.ADMIN_NOTIFY_EMAIL;
+  if ((provider === "gmail" || provider === "smtp") && process.env.SMTP_USERNAME && smtpTo && !(resendKey && notify)) {
+    jobs.push(toSmtp(lead, smtpTo));
+  }
 
   const webhook = process.env.ENQUIRY_WEBHOOK_URL;
   if (webhook) jobs.push(toWebhook(lead, webhook));
@@ -28,10 +41,14 @@ export async function deliverLead(lead: Lead): Promise<DeliveryResult> {
   return { configured: true, delivered: results.some(Boolean) };
 }
 
+/** Last resort when the database AND every alert channel failed: keep the lead recoverable from the server log. */
+export function logUndelivered(lead: Lead | Record<string, unknown>) {
+  console.error("[enquiry] UNDELIVERED LEAD", JSON.stringify(lead));
+}
+
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
-async function toEmail(lead: Lead, key: string, to: string): Promise<boolean> {
-  const from = process.env.LEAD_FROM_EMAIL || "RideSaudi Leads <onboarding@resend.dev>";
+function alertContent(lead: Lead) {
   const rows: [string, string][] = [
     ["Name", lead.name],
     ["Phone / WhatsApp", lead.phone],
@@ -49,7 +66,6 @@ async function toEmail(lead: Lead, key: string, to: string): Promise<boolean> {
     ["Child seats", lead.childSeats && lead.childSeats !== "0" ? lead.childSeats : ""],
     ["Vehicle", lead.vehicle],
     ["Flight", lead.flight],
-    ["Child seats", lead.childSeats && lead.childSeats !== "0" ? lead.childSeats : ""],
     ["Details", extrasSummary(lead)],
     ["Notes", lead.notes],
     ["Language", lead.locale],
@@ -60,6 +76,13 @@ async function toEmail(lead: Lead, key: string, to: string): Promise<boolean> {
     .filter(([, v]) => v)
     .map(([k, v]) => `<tr><td><b>${k}</b></td><td>${esc(v).replace(/\n/g, "<br>")}</td></tr>`)
     .join("")}</table>`;
+  const text = rows.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join("\n");
+  return { html, text, subject: `New enquiry: ${lead.service} · ${lead.name}`.replace(/[\r\n]+/g, " ").slice(0, 200) };
+}
+
+async function toEmail(lead: Lead, key: string, to: string): Promise<boolean> {
+  const from = process.env.LEAD_FROM_EMAIL || "RideSaudi Leads <onboarding@resend.dev>";
+  const { html, subject } = alertContent(lead);
   try {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -67,14 +90,34 @@ async function toEmail(lead: Lead, key: string, to: string): Promise<boolean> {
       body: JSON.stringify({
         from,
         to: to.split(",").map((x) => x.trim()),
-        subject: `New enquiry: ${lead.service} · ${lead.name}`,
+        subject,
         html,
         ...(lead.email ? { reply_to: lead.email } : {}),
       }),
       signal: AbortSignal.timeout(8000),
     });
+    // Resend explains rejections in the body (unverified domain, test-sender limits); it contains no lead data.
+    if (!res.ok) console.error("[enquiry] Resend alert failed", res.status, (await res.text().catch(() => "")).slice(0, 300));
     return res.ok;
-  } catch {
+  } catch (err) {
+    console.error("[enquiry] Resend alert failed", err instanceof Error ? err.message : err);
+    return false;
+  }
+}
+
+async function toSmtp(lead: Lead, to: string): Promise<boolean> {
+  const user = process.env.SMTP_USERNAME || "";
+  const from = process.env.LEAD_FROM_EMAIL || process.env.EMAIL_FROM || `RideSaudi Leads <${user}>`;
+  const { html, text, subject } = alertContent(lead);
+  try {
+    const info = await smtpTransport().sendMail({
+      from, to: to.split(",").map((x) => x.trim()).filter(Boolean), subject, html, text,
+      ...(lead.email ? { replyTo: lead.email } : {}),
+    });
+    if (!info.accepted?.length) { console.error("[enquiry] SMTP alert rejected"); return false; }
+    return true;
+  } catch (err) {
+    console.error("[enquiry] SMTP alert failed", err instanceof Error ? err.message : err);
     return false;
   }
 }

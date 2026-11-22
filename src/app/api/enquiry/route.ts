@@ -2,11 +2,12 @@ import { createHash } from "node:crypto";
 import { after, NextResponse } from "next/server";
 import { extrasSummary, sanitizeEnquiry, validateEnquiry } from "@/lib/enquiry";
 import { sendInquiryAck } from "@/server/email/inquiry-emails";
-import { deliverLead } from "@/lib/deliver";
+import { deliverLead, logUndelivered } from "@/lib/deliver";
 import { rateLimit } from "@/lib/rate-limit";
 import { SITE_URL } from "@/lib/site";
 import { createInquiry } from "@/server/services/inquiry";
 import { allow } from "@/server/services/ratelimit";
+import { errorDetail } from "@/lib/error-detail";
 
 export const runtime = "nodejs";
 
@@ -91,7 +92,7 @@ export async function POST(request: Request) {
         try { after(job); } catch { await job(); }
       }
     } catch (err) {
-      console.error("[enquiry] database write failed", err instanceof Error ? err.message : err);
+      console.error("[enquiry] database write failed:", errorDetail(err));
     }
   }
 
@@ -102,6 +103,8 @@ export async function POST(request: Request) {
   if (stored || other.delivered || (duplicate && stored)) {
     return NextResponse.json({ ok: true, ...(reference ? { reference } : {}), ...(duplicate ? { duplicate: true } : {}) });
   }
-  if (!dbConfigured && !other.configured) return NextResponse.json({ error: "not_configured" }, { status: 503 });
+  if (!dbConfigured && !other.configured) { logUndelivered({ ...payload, receivedAt: new Date().toISOString() }); return NextResponse.json({ error: "not_configured" }, { status: 503 }); }
+  // Never silently discard a lead: keep it recoverable from the server log, then let the client show the WhatsApp fallback.
+  logUndelivered({ ...payload, receivedAt: new Date().toISOString() });
   return NextResponse.json({ error: "delivery_failed" }, { status: 502 });
 }

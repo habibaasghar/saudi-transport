@@ -11,6 +11,7 @@ import { Services } from "@/components/Services";
 import { Why } from "@/components/Why";
 import { Airport } from "@/components/Airport";
 import { Intercity } from "@/components/Intercity";
+import { HeavyHome } from "@/components/HeavyHome";
 import { Fleet } from "@/components/Fleet";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Trust } from "@/components/Trust";
@@ -102,6 +103,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <Why />
         <Airport />
         <Intercity locale={locale} />
+        <HeavyHome locale={locale} />
         <Fleet locale={locale} />
         <HowItWorks />
         <Trust />

@@ -1,8 +1,11 @@
 // Indexability audit (SEO-RULES.md 7A). Run against a production build: `npx next start -p 3457`, then
 // `node scripts/indexability-audit.mjs [baseUrl]`. Every bucket must print 0.
 const base = process.argv[2] || "http://localhost:3457", prod = "https://www.ridesaudi.com";
-const sm = await (await fetch(base + "/sitemap.xml")).text();
-const urls = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+// /sitemap.xml is a sitemap index: fetch every child sitemap (served from the same base).
+let sm = await (await fetch(base + "/sitemap.xml")).text();
+const children = [...sm.matchAll(/<sitemap>\s*<loc>([^<]+)<\/loc>/g)].map(m => m[1].replace(prod, base));
+for (const c of children) { const r = await fetch(c); if (r.status !== 200) console.log("child sitemap", c, r.status); sm += await r.text(); }
+const urls = [...sm.matchAll(/<url>\s*<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
 const inSitemap = new Set(urls);
 const smHref = [...sm.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
 const bad = { status: [], robots: [], xrobots: [], canonical: [], hreflang: [], linkHeader: [], fewInlinks: [], smHrefNotInSitemap: [] };

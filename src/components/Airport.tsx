@@ -1,12 +1,24 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { confirmed, servicePath } from "@/lib/site";
+import { servicePath } from "@/lib/site";
+import { getPage } from "@/content/registry";
 import type { Locale } from "@/i18n/routing";
 import { SectionHead } from "./SectionHead";
+
+/** Airport pages with their own live, indexable page (linked from the home page so crawlers reach them first). */
+const HOME_AIRPORTS = [
+  "services/airport-transfers/jeddah-airport",
+  "services/airport-transfers/riyadh-airport",
+  "services/airport-transfers/madinah-airport",
+  "services/airport-transfers/dammam-airport",
+  "services/umrah-transport/jeddah-airport-to-makkah",
+  "services/airport-transfers/taif-airport",
+];
 
 export async function Airport() {
   const t = await getTranslations("airport");
   const locale = (await getLocale()) as Locale;
+  const airports = HOME_AIRPORTS.map(getPage).filter((p) => p !== undefined);
   return (
     <section id="airport" className="section section--sand section--split" aria-labelledby="airport-h">
       <div className="wrap split">
@@ -17,12 +29,12 @@ export async function Airport() {
             <li>{t("points.two")}</li>
             <li>{t("points.three")}</li>
           </ul>
-          {confirmed.airports.length > 0 && (
+          {airports.length > 0 && (
             <>
               <h3 className="mini-title">{t("listTitle")}</h3>
               <ul className="chips">
-                {confirmed.airports.map((a) => (
-                  <li key={a.code}>{a.name[locale]} <span>{a.code}</span></li>
+                {airports.map((p) => (
+                  <li key={p.path}><Link href={`/${p.path}/`}>{p.copy[locale].nav}</Link></li>
                 ))}
               </ul>
             </>

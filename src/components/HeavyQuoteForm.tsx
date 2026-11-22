@@ -83,14 +83,18 @@ export function HeavyQuoteForm({ locale, defaultService }: { locale: string; def
         setStatus("success");
         setData({ ...emptyHeavy(), locale, service: data.service });
         setStartedAt(Date.now());
-      } else if (res.status === 503) setStatus("notConfigured");
-      else if (res.status === 429) setStatus("rateLimited");
-      else if (res.status === 422) {
-        const j = await res.json().catch(() => ({}));
-        setErrors(j.fields || {});
-        setStatus("failed");
-      } else setStatus("failed");
+      } else {
+        track("quote_submission_error", { form: "heavy_quote", status: res.status, language: locale });
+        if (res.status === 503) setStatus("notConfigured");
+        else if (res.status === 429) setStatus("rateLimited");
+        else if (res.status === 422) {
+          const j = await res.json().catch(() => ({}));
+          setErrors(j.fields || {});
+          setStatus("failed");
+        } else setStatus("failed");
+      }
     } catch {
+      track("quote_submission_error", { form: "heavy_quote", status: 0, language: locale });
       setStatus("failed");
     }
     sendingRef.current = false;

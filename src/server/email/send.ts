@@ -50,7 +50,7 @@ const EMAIL_RE = /^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']{2,}$/;
 const oneLine = (s: string) => s.replace(/[\r\n]+/g, " ").trim().slice(0, 200);
 
 let cached: { key: string; t: Transporter } | undefined;
-function smtpTransport(env = process.env): Transporter {
+export function smtpTransport(env = process.env): Transporter {
   const provider = (env.EMAIL_PROVIDER || "").toLowerCase();
   const host = env.SMTP_HOST || (provider === "gmail" ? "smtp.gmail.com" : "");
   const port = Number(env.SMTP_PORT || 587);

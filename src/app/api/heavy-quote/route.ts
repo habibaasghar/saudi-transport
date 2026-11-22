@@ -3,11 +3,12 @@ import { after, NextResponse } from "next/server";
 import { cargoSummary, sanitizeHeavy, validateHeavy } from "@/lib/heavy-quote";
 import { emptyEnquiry } from "@/lib/enquiry";
 import { sendInquiryAck } from "@/server/email/inquiry-emails";
-import { deliverLead } from "@/lib/deliver";
+import { deliverLead, logUndelivered } from "@/lib/deliver";
 import { rateLimit } from "@/lib/rate-limit";
 import { SITE_URL } from "@/lib/site";
 import { createInquiry } from "@/server/services/inquiry";
 import { allow } from "@/server/services/ratelimit";
+import { errorDetail } from "@/lib/error-detail";
 
 export const runtime = "nodejs";
 
@@ -73,7 +74,7 @@ export async function POST(request: Request) {
         try { after(job); } catch { await job(); }
       }
     } catch (err) {
-      console.error("[heavy-quote] database write failed", err instanceof Error ? err.message : err);
+      console.error("[heavy-quote] database write failed:", errorDetail(err));
     }
   }
 
@@ -92,6 +93,8 @@ export async function POST(request: Request) {
   if (stored || other.delivered) {
     return NextResponse.json({ ok: true, ...(reference ? { reference } : {}), ...(duplicate ? { duplicate: true } : {}) });
   }
-  if (!process.env.DATABASE_URL && !other.configured) return NextResponse.json({ error: "not_configured" }, { status: 503 });
+  if (!process.env.DATABASE_URL && !other.configured) { logUndelivered({ ...d, receivedAt: new Date().toISOString() }); return NextResponse.json({ error: "not_configured" }, { status: 503 }); }
+  // Never silently discard a lead: keep it recoverable from the server log, then let the client show the WhatsApp fallback.
+  logUndelivered({ ...d, receivedAt: new Date().toISOString() });
   return NextResponse.json({ error: "delivery_failed" }, { status: 502 });
 }

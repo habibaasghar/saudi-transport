@@ -38,6 +38,14 @@ export default function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
   if (path === "/admin" || path.startsWith("/admin/")) return admin(request);
 
+  // Mixed-case URLs (/EN/fleet/) -> one lowercase URL in a single hop, instead of a prefixed 404 (/en/EN/fleet/).
+  if (/[A-Z]/.test(path)) {
+    const url = request.nextUrl.clone();
+    const lower = path.toLowerCase();
+    url.pathname = lower.endsWith("/") ? lower : `${lower}/`;
+    return NextResponse.redirect(url, 301);
+  }
+
   // Legacy /{locale}/?service=x (already indexed) -> the real service page, query string dropped.
   const home = path.match(/^\/(en|ar)\/?$/);
   const svc = request.nextUrl.searchParams.get("service");
