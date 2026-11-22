@@ -9,7 +9,7 @@ export const CONTACT = {
   /** Human-readable form of the WhatsApp number (always render left-to-right). */
   whatsappDisplay: "+966 53 854 7672",
   email: "inforidesaudi@gmail.com",
-  website: "https://ridesaudi.com/",
+  website: "https://www.ridesaudi.com/",
 } as const;
 
 /** WhatsApp chat link with an optional URL-encoded pre-filled message. */

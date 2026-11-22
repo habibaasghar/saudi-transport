@@ -9,6 +9,8 @@
  *  - phone_click    : click on any tel: link           (contact intent)
  *  - email_click    : click on any mailto: link        (contact intent)
  *  - form_error : funnel diagnostics (field name only)
+ *  - quote_submission_error : the backend refused or failed the enquiry (HTTP status only; the visitor sees the WhatsApp fallback)
+ *  - quote_form_view : the quote form scrolled into view (once per page view)
  * Parameters never contain names, phone numbers, emails, addresses or free text.
  * Nothing is sent unless NEXT_PUBLIC_GA_ID is configured (see components/Analytics.tsx).
  */

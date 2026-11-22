@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "RideSaudi | Private Chauffeur Services in Saudi Arabia",
-    "description": "Pre-book private airport transfers, intercity journeys and chauffeur services across Saudi Arabia, each with a driver. Share your trip details and request a quote.",
-    "ogTitle": "RideSaudi | Private Chauffeur Services in Saudi Arabia",
+    "title": "Private Transfers with Driver in Saudi Arabia | RideSaudi",
+    "description": "Pre-book a private car with a driver for airport transfers, intercity journeys and chauffeur hire across Saudi Arabia: sedan, GMC Yukon or Hyundai Staria. Request a quote.",
+    "ogTitle": "Private Transfers with Driver in Saudi Arabia | RideSaudi",
     "ogDescription": "Pre-booked private chauffeur transportation for airport transfers, intercity journeys and premium travel across Saudi Arabia."
   },
   "a11y": {
@@ -40,8 +40,8 @@
   },
   "hero": {
     "eyebrow": "Pre-booked private transport · Saudi Arabia",
-    "title": "Private Chauffeur & Intercity Transfers Across Saudi Arabia",
-    "subtitle": "Pre-book private airport transfers, SUVs, vans and intercity journeys with a driver across Saudi Arabia. Share your travel details and receive a tailored quotation.",
+    "title": "Private Airport, Intercity & Chauffeur Transfers in Saudi Arabia",
+    "subtitle": "Pre-book a private car with a driver, never a shared ride, for airport pickups, intercity journeys and chauffeur hire across Saudi Arabia. Ask for a sedan, GMC Yukon or Hyundai Staria, share your trip details and receive a tailored quotation.",
     "ctaQuote": "Request a Private Transfer Quote",
     "ctaServices": "Explore Our Services",
     "note": "Pre-booked only. An enquiry is not a confirmed reservation."
@@ -120,15 +120,15 @@
       "three": "Your transfer is confirmed only after you receive a quotation and confirmation."
     },
     "cta": "Request an airport transfer quote",
-    "listTitle": "Airports we serve"
+    "listTitle": "Airport transfer pages"
   },
   "intercity": {
     "eyebrow": "Intercity Travel",
     "title": "The Kingdom is large. Cross it comfortably.",
     "text": "Private journeys between cities, arranged in advance. Name your starting point, destination and travel dates and RideSaudi will confirm what can be arranged.",
     "emptyTitle": "Tell us your route",
-    "emptyText": "We do not publish a fixed route list. Send your journey details and we will come back to you with a quotation if the route can be arranged.",
-    "listTitle": "Confirmed routes",
+    "emptyText": "Send your journey details and we will come back to you with a quotation if the route can be arranged.",
+    "listTitle": "Popular private routes",
     "cta": "Request an intercity quote"
   },
   "fleet": {

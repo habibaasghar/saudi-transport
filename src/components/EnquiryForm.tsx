@@ -41,6 +41,20 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
 
   const [startedAt, setStartedAt] = useState(() => Date.now());
 
+  // quote_form_view: once per page view, when at least a third of the form is on screen.
+  useEffect(() => {
+    const el = formRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((x) => x.isIntersecting)) {
+        track("quote_form_view", { form: "quote", language: locale });
+        io.disconnect();
+      }
+    }, { threshold: 0.33 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [locale]);
+
   // Values handed over from the hero panel
   useEffect(() => {
     const on = (e: Event) => {
@@ -98,18 +112,23 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
         track("generate_lead", { form: "quote", service: sent.service, trip_type: sent.tripType, language: locale });
         // Fired only after the backend accepted the enquiry (never on a button click).
         track("form_submit", { form: "quote", service: sent.service, language: locale });
-        track("quote_request", { service: sent.service, route: `${sent.pickup} > ${sent.dropoff}`, language: locale });
+        // Pickup/drop-off are free text (can be a home address), so they never go to analytics.
+        track("quote_request", { service: sent.service, language: locale });
         setStatus("success");
         setData({ ...emptyEnquiry(), locale });
         setStartedAt(Date.now());
-      } else if (res.status === 503) setStatus("notConfigured");
-      else if (res.status === 429) setStatus("rateLimited");
-      else if (res.status === 422) {
-        const j = await res.json().catch(() => ({}));
-        setErrors(j.fields || {});
-        setStatus("failed");
-      } else setStatus("failed");
+      } else {
+        track("quote_submission_error", { form: "quote", status: res.status, language: locale });
+        if (res.status === 503) setStatus("notConfigured");
+        else if (res.status === 429) setStatus("rateLimited");
+        else if (res.status === 422) {
+          const j = await res.json().catch(() => ({}));
+          setErrors(j.fields || {});
+          setStatus("failed");
+        } else setStatus("failed");
+      }
     } catch {
+      track("quote_submission_error", { form: "quote", status: 0, language: locale });
       setStatus("failed");
     }
     sendingRef.current = false;

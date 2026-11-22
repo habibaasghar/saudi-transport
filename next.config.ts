@@ -33,11 +33,14 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // llms.txt must not appear as a search result. sitemap.xml is deliberately NOT noindexed: the sitemap is how
-        // Google discovers the 300+ URLs, and a noindex header on it is an avoidable risk for a site Google barely knows.
+        // Machine files must not appear as search results (SEO-RULES 7A). GSC evidence 2026-11-18/22: sitemap.xml was
+        // shown for brand queries (avg position ~2.7) instead of the home page. X-Robots-Tag noindex does not stop
+        // Google from reading a sitemap; it only keeps the file itself out of the results.
         source: "/llms.txt",
         headers: [{ key: "X-Robots-Tag", value: "noindex" }],
       },
+      { source: "/sitemap.xml", headers: [{ key: "X-Robots-Tag", value: "noindex" }] },
+      { source: "/sitemaps/:file", headers: [{ key: "X-Robots-Tag", value: "noindex" }] },
       {
         source: "/:path*",
         headers: [
