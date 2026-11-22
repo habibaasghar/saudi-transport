@@ -38,8 +38,10 @@ import { applyBatch4Enrichments } from "./enrich-batch4";
 import { applyBatch5Enrichments } from "./enrich-batch5";
 import { applyHeavyCityDistances } from "./heavy/city-distances";
 import { consolidated, consolidationLinks, mergedSections } from "./consolidated";
+import { linkTargets } from "./inline-links";
+import { madinahToRiyadh, applyMakkahMadinahGrowth } from "./makkah-madinah";
 
-export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB, ...priorityRoutesC, ...priorityRoutesD, ...batch17JeddahRoutes, ...batch18Locations, ...heavyHubAndCars, ...heavyTrailers, ...heavyMachines, ...heavyCities];
+export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB, ...priorityRoutesC, ...priorityRoutesD, ...batch17JeddahRoutes, ...batch18Locations, ...heavyHubAndCars, ...heavyTrailers, ...heavyMachines, ...heavyCities, madinahToRiyadh];
 
 // Verified-fact upgrades for pages that stay in their original files (must run before FAQ scoping).
 applyRoutePatches(pages);
@@ -49,6 +51,7 @@ applyBatch3Enrichments(pages);
 applyRouteEnrichments(pages);
 applyBatch4Enrichments(pages);
 applyBatch5Enrichments(pages);
+applyMakkahMadinahGrowth(pages);
 applyHeavyCityDistances(pages);
 
 // Cross-link the Jeddah route cluster and new locations from existing hub, airport and neighbouring route pages.
@@ -130,6 +133,14 @@ export function validateRegistry() {
         continue;
       }
       if (c.faqs.length < 4) errors.push(`${p.path}/${l}: fewer than 4 FAQs`);
+      for (const s of c.sections) for (const t of [...s.p, ...(s.list ?? [])].flatMap(linkTargets)) {
+        if (!byPath.has(t)) errors.push(`${p.path}/${l}: inline link to unknown page ${t}`);
+        else if (t === p.path) errors.push(`${p.path}/${l}: inline link to itself`);
+        else inbound.add(t);
+      }
+      for (const t of [c.answer, c.description, c.title, c.h1, ...c.faqs.flatMap((f) => [f.q, f.a])]) {
+        if (linkTargets(t).length) errors.push(`${p.path}/${l}: link markup outside sections`);
+      }
       if (c.description.length > 175) errors.push(`${p.path}/${l}: description too long (${c.description.length})`);
       if (l === "ar" && /[A-Za-z]{4,}/.test(c.answer.replace(/RideSaudi|Umrah|Ihram/g, ""))) {
         errors.push(`${p.path}/ar: Latin text in Arabic answer`);

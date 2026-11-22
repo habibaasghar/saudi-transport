@@ -93,6 +93,7 @@ export const pageImages: Record<string, PageImage> = {
   "services/intercity-transfers/riyadh-to-jeddah": images.jeddah,
   "services/intercity-transfers/riyadh-to-makkah": images.makkah,
   "services/intercity-transfers/riyadh-to-madinah": images.madinah,
+  "services/intercity-transfers/madinah-to-riyadh": images.riyadh,
   "services/intercity-transfers/riyadh-to-doha": images.doha,
   "services/intercity-transfers/riyadh-to-dubai": images.dubai,
   "services/intercity-transfers/riyadh-to-manama": images.manama,
