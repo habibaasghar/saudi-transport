@@ -15,6 +15,8 @@ import { SectionHead } from "./SectionHead";
 import { JsonLd } from "./JsonLd";
 import { ContactRow } from "./ContactCta";
 import { RouteTracker } from "./RouteTracker";
+import { RichText } from "./RichText";
+import { stripLinks } from "@/content/inline-links";
 import { FleetCards } from "./Fleet";
 import { routePrefill } from "@/content/route-prefill";
 import { HeavyQuoteSection, HeavySteps, HeavyWhatsApp } from "./HeavyQuoteSection";
@@ -178,10 +180,10 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
               <div className="wrap prose">
                 <h2 id={`s${i}-h`}>{s.h}</h2>
                 <div className="prose__body">
-                  {s.p.map((para) => <p key={para}>{para}</p>)}
+                  {s.p.map((para) => <p key={stripLinks(para)}><RichText text={para} /></p>)}
                   {s.list && (
                     <ul className="ticks">
-                      {s.list.map((li) => <li key={li}>{li}</li>)}
+                      {s.list.map((li) => <li key={stripLinks(li)}><RichText text={li} /></li>)}
                     </ul>
                   )}
                 </div>

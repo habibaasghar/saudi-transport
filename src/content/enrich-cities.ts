@@ -107,54 +107,7 @@ export const cityEnrichments: Record<string, Record<Locale, Add>> = {
       ],
     },
   },
-  [`${C}/makkah`]: {
-    en: {
-      sections: [
-        { h: "Getting to and from the Haram area", p: ["Hotels around Abraj Al Bait, Jabal Omar, Ajyad and Aziziyah sit close to the Masjid al-Haram, and vehicle access near the Haram is restricted at busy times. Pickups are therefore often arranged at a nearby point that is open to cars rather than at the hotel door; confirm the meeting point with us before you travel."] },
-        { h: "Peak seasons", p: ["Ramadan, the last ten nights, the Hajj season and school holidays bring heavy traffic and tighter access. Book early, allow extra time between check-out and a flight or train, and tell us your dates so the quotation reflects the season."] },
-        { h: "Who can enter", p: ["Only Muslims may enter Makkah's central area, and non-Muslim travellers are directed away from it by the road system. Hajj-period movement is also controlled by permits issued by the authorities, which RideSaudi does not issue; check the official guidance for your dates."] },
-      ],
-      faqs: [
-        { q: "Can the car wait at my hotel door near the Haram?", a: "Not always. Access near the Haram is controlled, so the pickup point is agreed in advance and confirmed in the quotation." },
-        { q: "Can you help with Hajj permits?", a: "No. Permits and Hajj movement rules are set and issued by the authorities; we arrange transport only once you hold what your journey requires." },
-      ],
-    },
-    ar: {
-      sections: [
-        { h: "الوصول من منطقة الحرم وإليها", p: ["تقع الفنادق حول أبراج البيت وجبل عمر وأجياد والعزيزية قرب المسجد الحرام، ويُقيَّد وصول المركبات قرب الحرم في أوقات الزحام. لذلك يُرتَّب الاستلام غالبًا عند نقطة قريبة مفتوحة للسيارات لا عند باب الفندق؛ فأكّد معنا نقطة اللقاء قبل سفرك."] },
-        { h: "مواسم الذروة", p: ["يشهد رمضان والعشر الأواخر وموسم الحج والإجازات المدرسية زحامًا شديدًا وتقييدًا أكبر للوصول. احجز مبكرًا واترك وقتًا إضافيًا بين الخروج من الفندق والرحلة الجوية أو القطار، وأخبرنا بتواريخك ليراعي عرض السعر الموسم."] },
-        { h: "من يمكنه الدخول", p: ["لا يدخل المنطقة المركزية في مكة المكرمة إلا المسلمون، وتوجّه شبكة الطرق غير المسلمين بعيدًا عنها. كما تُنظَّم الحركة في موسم الحج بتصاريح تصدرها الجهات المختصة ولا تصدرها RideSaudi؛ فراجع الإرشادات الرسمية لتواريخك."] },
-      ],
-      faqs: [
-        { q: "هل يمكن للسيارة الانتظار عند باب فندقي قرب الحرم؟", a: "ليس دائمًا. فالوصول قرب الحرم منظّم، لذا يُتفق على نقطة الاستلام مسبقًا وتُؤكَّد في عرض السعر." },
-        { q: "هل تساعدون في تصاريح الحج؟", a: "لا. التصاريح وقواعد الحركة في الحج تضعها الجهات المختصة وتصدرها؛ ونحن نرتب النقل بعد أن تحصل على ما تتطلبه رحلتك." },
-      ],
-    },
-  },
-  [`${C}/madinah`]: {
-    en: {
-      sections: [
-        { h: "Staying near the Prophet's Mosque", p: ["Most visitors stay in the Markaziyah area around the Prophet's Mosque, where vehicle access is limited around prayer times and busy periods. Pickups are usually agreed at an accessible nearby point; tell us your hotel name and we will confirm the practical meeting place."] },
-        { h: "Ziyarat and day visits", p: ["Common visits include Quba Mosque, Masjid al-Qiblatain, the Uhud area and the date markets. A short ziyarat circuit is easy to combine in one booking if you list the stops in order and how long you want at each."] },
-        { h: "Arriving by air or train", p: ["Prince Mohammad bin Abdulaziz International Airport (MED) and the Haramain railway station are the two usual arrival points. Send the flight or train time so the pickup matches your arrival, and allow for luggage and prayer times when planning the next stop."] },
-      ],
-      faqs: [
-        { q: "Can I plan a ziyarat tour in Madinah in one booking?", a: "Yes. List the places in the order you want and the time at each. The quotation covers the whole circuit." },
-        { q: "Do you meet arrivals at the Madinah train station?", a: "You can request it with your train time. Availability is confirmed in the quotation." },
-      ],
-    },
-    ar: {
-      sections: [
-        { h: "الإقامة قرب المسجد النبوي", p: ["يقيم أغلب الزوار في منطقة المركزية حول المسجد النبوي، حيث يتقيّد وصول المركبات عند أوقات الصلاة والزحام. ويُتفق عادةً على الاستلام من نقطة قريبة يسهل الوصول إليها؛ فأخبرنا باسم فندقك لنؤكد نقطة اللقاء العملية."] },
-        { h: "الزيارات والرحلات القصيرة", p: ["من الزيارات الشائعة مسجد قباء ومسجد القبلتين ومنطقة أحد وأسواق التمور. ويسهل جمع جولة زيارات قصيرة في حجز واحد إذا ذكرت المحطات بالترتيب والمدة التي تريدها عند كل منها."] },
-        { h: "الوصول بالطائرة أو القطار", p: ["مطار الأمير محمد بن عبدالعزيز الدولي (MED) ومحطة قطار الحرمين هما نقطتا الوصول المعتادتان. أرسل موعد الرحلة أو القطار ليتوافق الاستقبال مع وصولك، واحسب للحقائب وأوقات الصلاة عند تخطيط المحطة التالية."] },
-      ],
-      faqs: [
-        { q: "هل أخطط جولة زيارات في المدينة المنورة بحجز واحد؟", a: "نعم. اذكر الأماكن بالترتيب الذي تريد والوقت عند كل منها، ويشمل عرض السعر الجولة كاملة." },
-        { q: "هل تستقبلون القادمين في محطة قطار المدينة المنورة؟", a: "يمكنك طلب ذلك مع ذكر موعد قطارك. وتُؤكَّد الإتاحة في عرض السعر." },
-      ],
-    },
-  },
+  // Makkah and Madinah: superseded by the full hub rewrite in ./makkah-madinah.ts (2026-11-23).
   [`${C}/abha`]: {
     en: {
       sections: [
