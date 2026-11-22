@@ -1,9 +1,9 @@
 import type { ServicePage } from "../types";
-import { CRANE, EXCAVATOR, FLATBED, FORKLIFT, HEAVY, HT, LOADER, LOWBED, OVERSIZED, RELOCATION, heavyPage } from "./shared";
+import { CARS, CRANE, EXCAVATOR, FLATBED, FORKLIFT, HEAVY, HT, LOADER, LOWBED, OVERSIZED, RELOCATION, heavyPage } from "./shared";
 
 /** Trailer- and load-led pages: lowbed, flatbed, oversized loads, industrial relocation. */
 export const heavyTrailers: ServicePage[] = [
-  heavyPage(LOWBED, HT, "lowbed", [EXCAVATOR, LOADER, CRANE, HEAVY, FLATBED, OVERSIZED], {
+  heavyPage(LOWBED, HT, "lowbed", [EXCAVATOR, LOADER, CRANE, HEAVY, FLATBED, OVERSIZED, `${HEAVY}/riyadh`, `${HEAVY}/jeddah`, `${HEAVY}/dammam`], {
     nav: "Lowbed Transport",
     title: "Lowbed Transport & Lowbed Trailer Hire in KSA",
     description: "Lowbed trailer transport for excavators, loaders, dozers and cranes across Saudi Arabia. Lowbed vs flatbed explained, and what to send for a lowbed quote.",
@@ -151,7 +151,7 @@ export const heavyTrailers: ServicePage[] = [
     ],
   }),
 
-  heavyPage(FLATBED, HT, "flatbed", [LOWBED, FORKLIFT, RELOCATION], {
+  heavyPage(FLATBED, HT, "flatbed", [LOWBED, FORKLIFT, RELOCATION, CARS, `${HEAVY}/riyadh`, `${HEAVY}/jeddah`, `${HEAVY}/dammam`], {
     nav: "Flatbed Trailer Transport",
     title: "Flatbed Trailer Transport in Saudi Arabia",
     description: "Flatbed trailer (tereella sat-ha) transport for steel, pipes, cabins, forklifts and machinery that fits standard height, between Saudi cities and sites.",
@@ -267,7 +267,7 @@ export const heavyTrailers: ServicePage[] = [
     ],
   }),
 
-  heavyPage(OVERSIZED, HT, "oversized", [LOWBED, CRANE, RELOCATION], {
+  heavyPage(OVERSIZED, HT, "oversized", [LOWBED, CRANE, RELOCATION, HEAVY, `${HEAVY}/dammam`, `${HEAVY}/riyadh`], {
     nav: "Oversized Load Transport",
     title: "Oversized & Exceptional Load Transport in KSA",
     description: "Oversized and exceptional loads in Saudi Arabia: when a permit is needed, escorts, route surveys and the details to send for a quote. No guesswork.",
@@ -383,7 +383,7 @@ export const heavyTrailers: ServicePage[] = [
     ],
   }),
 
-  heavyPage(RELOCATION, HT, "machinery_relocation", [FLATBED, OVERSIZED, FORKLIFT, HEAVY], {
+  heavyPage(RELOCATION, HT, "machinery_relocation", [FLATBED, OVERSIZED, FORKLIFT, HEAVY, `${HEAVY}/dammam`, `${HEAVY}/jeddah`], {
     nav: "Industrial Machinery Relocation",
     title: "Industrial Machinery & Factory Relocation KSA",
     description: "Moving factory machines, production lines, generators and workshop equipment between Saudi industrial cities: planning, lifting, transport and placement.",
