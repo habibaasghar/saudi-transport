@@ -125,9 +125,31 @@ Every form collects service, make/model, both locations, date, name, company, Wh
 - `Tow-Truck-Type.jpg`: Chinese police cones and signage.
 - Mercedes Actros reefer: wrong service, watermark, 300 px.
 
-**Added 2026-11-23: original illustrations.** 16 pages (hub, 9 service pages, 6 city pages) now use original vector illustrations drawn for RideSaudi, 1600×900 WebP in `public/images/heavy-transport/`. Alt text in EN and AR starts with "Illustration of" and each image is noted as an illustration in `src/content/images.ts`. No third-party photos and no branding. They depict the type of job, not a RideSaudi or partner truck. The 8 WhatsApp images from 2026-11-22 are city landmarks (Riyadh, Al Khobar, Madinah, Makkah, AlUla, Dubai, Manama), not heavy transport. The homepage now has a heavy transport section linking to the hub, the 6 city pages and 4 core services.
+**Update 2026-11-23: real photos replace the illustrations.**
 
-**Still needed (to replace illustrations with real photos).** Landscape, at least 1600×900, no other company's logo, ideally real Saudi jobs:
+The illustrations were removed at the owner's request (they looked cartoonish).
+
+Owner photos from the keen-mirzakhani-511ed5 worktree (public/public/vehicles) were re-cropped, renamed and converted to WebP, with metadata stripped:
+- **Crane on lowbed:** used on the hub, the lowbed page and the crane page (tighter crop).
+- **Wheel loader:** wheel-loader page.
+- **Flatbed with steel coils:** flatbed page; trailer-maker logos blurred.
+- **Forklifts:** forklift page; SANY logos blurred.
+
+The 6 heavy city pages use the real Riyadh, Jeddah and Al Khobar photos already on the site.
+
+**Rejected:**
+- tow truck (Chinese police markings);
+- Harvey's and TOWMAN tow trucks (company branding);
+- SITRAK and Actros promo shots;
+- the remaining cars and landmarks.
+
+**Internal links strengthened:**
+- every machine and trailer page links to the heavy-equipment city pages;
+- the car-transport page links to the satha city pages;
+- the hub links to all 6 city pages;
+- the site-wide footer links to the hub, the satha page, and satha Riyadh and heavy equipment Riyadh.
+
+**Still needed (pages with no photo yet: heavy equipment, excavator, oversized, machinery relocation).** Landscape, at least 1600×900, no other company's logo, ideally real Saudi jobs:
 
 | Page | Subject |
 |---|---|

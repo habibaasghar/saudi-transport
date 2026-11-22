@@ -1,5 +1,5 @@
 import type { ServicePage } from "../types";
-import { CARS, CRANE, EXCAVATOR, HEAVY, LOADER, LOWBED, OVERSIZED, RELOCATION, SATHA, heavyPage } from "./shared";
+import { CARS, CRANE, EXCAVATOR, FLATBED, FORKLIFT, HEAVY, LOADER, LOWBED, OVERSIZED, RELOCATION, SATHA, heavyPage } from "./shared";
 
 /**
  * City pages for the three priority regions (owner, 2026-11-22: Riyadh, Jeddah, Dammam and nearby areas).
@@ -7,7 +7,7 @@ import { CARS, CRANE, EXCAVATOR, HEAVY, LOADER, LOWBED, OVERSIZED, RELOCATION, S
  * no office, yard, fleet size or response time is claimed.
  */
 export const heavyCities: ServicePage[] = [
-  heavyPage(`${SATHA}/riyadh`, SATHA, "satha", [`${HEAVY}/riyadh`, CARS, `${SATHA}/jeddah`, `${SATHA}/dammam`], {
+  heavyPage(`${SATHA}/riyadh`, SATHA, "satha", [`${HEAVY}/riyadh`, CARS, FLATBED, `${SATHA}/jeddah`, `${SATHA}/dammam`], {
     nav: "Satha in Riyadh",
     title: "Satha Riyadh: Car Recovery & Towing",
     description: "Satha car recovery in Riyadh and nearby towns such as Al Kharj and Diriyah: broken-down and accident cars, hydraulic satha, and Riyadh to other cities.",
@@ -91,7 +91,7 @@ export const heavyCities: ServicePage[] = [
     ],
   }),
 
-  heavyPage(`${SATHA}/jeddah`, SATHA, "satha", [`${HEAVY}/jeddah`, CARS, `${SATHA}/riyadh`, `${SATHA}/dammam`], {
+  heavyPage(`${SATHA}/jeddah`, SATHA, "satha", [`${HEAVY}/jeddah`, CARS, FLATBED, `${SATHA}/riyadh`, `${SATHA}/dammam`], {
     nav: "Satha in Jeddah",
     title: "Satha Jeddah: Car Recovery & Transport",
     description: "Satha car recovery in Jeddah and nearby Makkah, Rabigh and KAEC: breakdowns, accident cars, cars from Jeddah port, and Jeddah to Riyadh car moves.",
@@ -173,7 +173,7 @@ export const heavyCities: ServicePage[] = [
     ],
   }),
 
-  heavyPage(`${SATHA}/dammam`, SATHA, "satha", [`${HEAVY}/dammam`, CARS, `${SATHA}/riyadh`, `${SATHA}/jeddah`], {
+  heavyPage(`${SATHA}/dammam`, SATHA, "satha", [`${HEAVY}/dammam`, CARS, FLATBED, `${SATHA}/riyadh`, `${SATHA}/jeddah`], {
     nav: "Satha in Dammam & Khobar",
     title: "Satha Dammam & Al Khobar Car Recovery",
     description: "Satha car recovery in Dammam, Al Khobar, Dhahran, Qatif, Jubail and Al Ahsa: breakdowns, accident cars, port cars and Eastern Province to Riyadh moves.",
@@ -255,7 +255,7 @@ export const heavyCities: ServicePage[] = [
     ],
   }),
 
-  heavyPage(`${HEAVY}/riyadh`, HEAVY, "lowbed", [LOWBED, EXCAVATOR, LOADER, `${HEAVY}/jeddah`, `${HEAVY}/dammam`, `${SATHA}/riyadh`], {
+  heavyPage(`${HEAVY}/riyadh`, HEAVY, "lowbed", [LOWBED, EXCAVATOR, LOADER, CRANE, FORKLIFT, `${HEAVY}/jeddah`, `${HEAVY}/dammam`, `${SATHA}/riyadh`], {
     nav: "Heavy Equipment Transport Riyadh",
     title: "Lowbed & Heavy Equipment Transport Riyadh",
     description: "Lowbed and heavy equipment transport in Riyadh: industrial cities, Al Kharj, Sudair and project sites, plus Riyadh to Dammam, Jubail, Jeddah and Qassim.",
@@ -337,7 +337,7 @@ export const heavyCities: ServicePage[] = [
     ],
   }),
 
-  heavyPage(`${HEAVY}/jeddah`, HEAVY, "lowbed", [LOWBED, CRANE, RELOCATION, `${HEAVY}/riyadh`, `${HEAVY}/dammam`, `${SATHA}/jeddah`], {
+  heavyPage(`${HEAVY}/jeddah`, HEAVY, "lowbed", [LOWBED, EXCAVATOR, CRANE, RELOCATION, FLATBED, `${HEAVY}/riyadh`, `${HEAVY}/dammam`, `${SATHA}/jeddah`], {
     nav: "Heavy Equipment Transport Jeddah",
     title: "Lowbed & Heavy Equipment Transport Jeddah",
     description: "Heavy equipment and lowbed transport in Jeddah: Jeddah Islamic Port, industrial city, KAEC, Rabigh and Yanbu, plus Jeddah to Riyadh and Makkah sites.",
@@ -419,7 +419,7 @@ export const heavyCities: ServicePage[] = [
     ],
   }),
 
-  heavyPage(`${HEAVY}/dammam`, HEAVY, "lowbed", [LOWBED, OVERSIZED, RELOCATION, `${HEAVY}/riyadh`, `${HEAVY}/jeddah`, `${SATHA}/dammam`], {
+  heavyPage(`${HEAVY}/dammam`, HEAVY, "lowbed", [LOWBED, OVERSIZED, RELOCATION, CRANE, LOADER, `${HEAVY}/riyadh`, `${HEAVY}/jeddah`, `${SATHA}/dammam`], {
     nav: "Heavy Equipment Transport Dammam & Jubail",
     title: "Heavy Equipment Transport Dammam & Jubail",
     description: "Lowbed and heavy equipment transport in Dammam, Jubail, Al Khobar, Ras Tanura, Abqaiq and Al Ahsa: port, industrial cities and plant sites.",

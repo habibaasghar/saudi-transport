@@ -19,6 +19,8 @@ const footerServices = [
   "services/tourism-transport",
   "services/group-transportation",
   "services/special-transportation",
+  "services/recovery-heavy-transport",
+  "services/recovery-heavy-transport/satha-car-recovery",
   "fleet",
 ];
 
@@ -33,6 +35,8 @@ const footerRiyadh = [
   "services/intercity-transfers/riyadh-to-madinah",
   "services/intercity-transfers/riyadh-to-doha",
   "services/intercity-transfers/riyadh-to-dubai",
+  "services/recovery-heavy-transport/satha-car-recovery/riyadh",
+  "services/recovery-heavy-transport/heavy-equipment-transport/riyadh",
 ] as const;
 
 export async function Footer({ locale, switchHref = "/" }: { locale: Locale; switchHref?: string }) {

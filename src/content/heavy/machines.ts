@@ -143,7 +143,7 @@ export const heavyMachines: ServicePage[] = [
     ],
   }),
 
-  heavyPage(EXCAVATOR, HEAVY, "excavator", [LOWBED, LOADER, HEAVY], {
+  heavyPage(EXCAVATOR, HEAVY, "excavator", [LOWBED, LOADER, CRANE, `${HEAVY}/riyadh`, `${HEAVY}/jeddah`, `${HEAVY}/dammam`], {
     nav: "Excavator Transport",
     title: "Excavator Transport in Saudi Arabia",
     description: "Excavator transport in Saudi Arabia, from mini excavators to large crawler machines: lowbed or flatbed choice, boom position, securing and what to send for a quote.",
@@ -261,7 +261,7 @@ export const heavyMachines: ServicePage[] = [
     ],
   }),
 
-  heavyPage(LOADER, HEAVY, "wheel_loader", [LOWBED, EXCAVATOR, HEAVY], {
+  heavyPage(LOADER, HEAVY, "wheel_loader", [LOWBED, EXCAVATOR, FORKLIFT, `${HEAVY}/riyadh`, `${HEAVY}/jeddah`, `${HEAVY}/dammam`], {
     nav: "Wheel Loader (Shuwel) Transport",
     title: "Wheel Loader (Shuwel) Transport in Saudi Arabia",
     description: "Shuwel (wheel loader) transport in Saudi Arabia: compact to large loaders on lowbed or flatbed, articulation lock, bucket securing, and quote details.",
@@ -377,7 +377,7 @@ export const heavyMachines: ServicePage[] = [
     ],
   }),
 
-  heavyPage(FORKLIFT, HEAVY, "forklift", [FLATBED, RELOCATION, HEAVY], {
+  heavyPage(FORKLIFT, HEAVY, "forklift", [FLATBED, RELOCATION, LOADER, `${HEAVY}/riyadh`, `${HEAVY}/jeddah`, `${HEAVY}/dammam`], {
     nav: "Forklift Transport",
     title: "Forklift Transport in Saudi Arabia",
     description: "Forklift transport between warehouses, ports and sites in Saudi Arabia: warehouse, rough-terrain and container forklifts, telehandlers and scissor lifts.",
@@ -495,7 +495,7 @@ export const heavyMachines: ServicePage[] = [
     ],
   }),
 
-  heavyPage(CRANE, HEAVY, "crane", [LOWBED, OVERSIZED, HEAVY], {
+  heavyPage(CRANE, HEAVY, "crane", [LOWBED, OVERSIZED, EXCAVATOR, `${HEAVY}/riyadh`, `${HEAVY}/jeddah`, `${HEAVY}/dammam`], {
     nav: "Crane Transport",
     title: "Crane Transport & Crane Relocation in KSA",
     description: "Transport for crawler cranes, small mobile cranes and tower crane sections in Saudi Arabia: lowbed and extendable trailers, components and permits.",

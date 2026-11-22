@@ -53,32 +53,26 @@ export const images: Record<string, PageImage> = {
   borders: img("cross-border/border-crossings", 1600, 1600, "Illustration of a causeway road over the sea at sunset", "رسم توضيحي لطريق جسر فوق البحر عند الغروب", undefined, "illustration"),
 };
 
-/** Original heavy transport illustration, 1600x900, focused on the vehicle at the bottom of the frame. */
-const hi = (file: string, en: string, ar: string): PageImage => img(`heavy-transport/${file}`, 1600, 900, en, ar, "50% 75%", "original illustration");
-
 /** Page path -> image. Pages not listed here have no picture (honest gap, not a placeholder). */
 export const pageImages: Record<string, PageImage> = {
   // Heavy transport: owner-supplied web photos, re-cropped, renamed and metadata-stripped (docs/heavy-transport/IMAGE_PLAN.md).
   "services/recovery-heavy-transport/satha-car-recovery": img("heavy-transport/hydraulic-satha-sports-car-loaded", 572, 317, "Orange sports car secured on a sliding-bed satha recovery truck", "سيارة رياضية برتقالية مثبتة على سطحة هيدروليك منزلقة", "50% 60%", "low resolution, owner-supplied web photo"),
   "services/recovery-heavy-transport/car-transport-between-cities": img("heavy-transport/flatbed-car-carrier-suv-highway", 311, 251, "Red SUV carried on a flatbed car carrier on a highway at sunset", "سيارة جيب حمراء محمولة على سطحة نقل سيارات على طريق سريع عند الغروب", "50% 55%", "low resolution, likely AI-generated illustration"),
-  // Heavy transport illustrations: original vector artwork drawn for RideSaudi (no third-party photos, no branding).
-  // They show the type of job, never a specific RideSaudi or partner truck. Replace with real job photos when supplied.
-  "services/recovery-heavy-transport": hi("heavy-transport-satha-and-lowbed-highway", "Illustration of a lowbed carrying an excavator and a satha carrying a car on a desert highway", "رسم توضيحي للوبد يحمل حفارة وسطحة تحمل سيارة على طريق صحراوي"),
-  "services/recovery-heavy-transport/lowbed-transport": hi("lowbed-trailer-excavator-chained", "Illustration of a crawler excavator chained down on a multi-axle lowbed trailer", "رسم توضيحي لحفارة مجنزرة مثبتة بالسلاسل على لوبد متعدد المحاور"),
-  "services/recovery-heavy-transport/flatbed-trailer-transport": hi("flatbed-trailer-steel-pipes-strapped", "Illustration of steel pipes strapped on a flatbed trailer", "رسم توضيحي لأنابيب حديد مربوطة بالأحزمة على تريلا سطحة"),
-  "services/recovery-heavy-transport/oversized-load-transport": hi("oversized-load-pressure-vessel-escort", "Illustration of a wide pressure vessel on a trailer followed by an escort vehicle", "رسم توضيحي لخزان ضغط عريض على تريلا ترافقه سيارة مرافقة"),
-  "services/recovery-heavy-transport/industrial-machinery-relocation": hi("factory-machine-on-flatbed-relocation", "Illustration of a factory machine strapped on a flatbed outside an industrial plant", "رسم توضيحي لماكينة مصنع مربوطة على سطحة أمام منشأة صناعية"),
-  "services/recovery-heavy-transport/heavy-equipment-transport": hi("bulldozer-on-lowbed-desert-road", "Illustration of a bulldozer carried on a lowbed along a desert road", "رسم توضيحي لبلدوزر محمول على لوبد على طريق صحراوي"),
-  "services/recovery-heavy-transport/excavator-transport": hi("crawler-excavator-on-lowbed-ramps-down", "Illustration of a crawler excavator on a lowbed with the loading ramps lowered", "رسم توضيحي لحفارة مجنزرة على لوبد والسلالم الخلفية منزلة"),
-  "services/recovery-heavy-transport/wheel-loader-transport": hi("wheel-loader-shuwel-on-lowbed", "Illustration of a wheel loader (shuwel) secured on a lowbed trailer", "رسم توضيحي لشيول مثبت على لوبد"),
-  "services/recovery-heavy-transport/forklift-transport": hi("forklift-strapped-on-flatbed", "Illustration of two forklifts strapped on a flatbed outside a warehouse", "رسم توضيحي لرافعتين شوكيتين مربوطتين على سطحة أمام مستودع"),
-  "services/recovery-heavy-transport/crane-transport": hi("crane-boom-sections-on-extendable-trailer", "Illustration of lattice crane boom sections loaded on a long trailer", "رسم توضيحي لأجزاء ذراع كرين شبكي محملة على تريلا طويلة"),
-  "services/recovery-heavy-transport/satha-car-recovery/riyadh": hi("satha-car-recovery-riyadh-skyline", "Illustration of a satha carrying a red car with the Riyadh skyline behind", "رسم توضيحي لسطحة تحمل سيارة حمراء وخلفها أفق الرياض"),
-  "services/recovery-heavy-transport/satha-car-recovery/jeddah": hi("satha-car-recovery-jeddah-corniche", "Illustration of a satha carrying a white car beside the Jeddah waterfront at sunset", "رسم توضيحي لسطحة تحمل سيارة بيضاء بجانب واجهة جدة البحرية عند الغروب"),
-  "services/recovery-heavy-transport/satha-car-recovery/dammam": hi("satha-car-recovery-dammam-waterfront", "Illustration of a satha carrying a blue car near the Dammam port cranes", "رسم توضيحي لسطحة تحمل سيارة زرقاء قرب رافعات ميناء الدمام"),
-  "services/recovery-heavy-transport/heavy-equipment-transport/riyadh": hi("heavy-equipment-lowbed-riyadh", "Illustration of an excavator on a lowbed with the Riyadh skyline behind", "رسم توضيحي لحفارة على لوبد وخلفها أفق الرياض"),
-  "services/recovery-heavy-transport/heavy-equipment-transport/jeddah": hi("heavy-equipment-lowbed-jeddah", "Illustration of a wheel loader on a lowbed passing the Jeddah waterfront", "رسم توضيحي لشيول على لوبد يمر بواجهة جدة البحرية"),
-  "services/recovery-heavy-transport/heavy-equipment-transport/dammam": hi("heavy-equipment-lowbed-dammam-port", "Illustration of a bulldozer on a lowbed near the container cranes of Dammam port", "رسم توضيحي لبلدوزر على لوبد قرب رافعات الحاويات في ميناء الدمام"),
+  // Heavy transport photos: owner-supplied, re-cropped, renamed, metadata stripped; equipment-maker logos blurred.
+  // They show the type of job, never a RideSaudi or partner truck. Pages without a suitable photo have none.
+  "services/recovery-heavy-transport": img("heavy-transport/lowbed-truck-hauling-mobile-crane", 1419, 798, "Lowbed truck hauling a rough-terrain mobile crane on an open road", "شاحنة لوبد تنقل رافعة متحركة على طريق مفتوح", "60% 55%", "owner-supplied web photo"),
+  "services/recovery-heavy-transport/lowbed-transport": img("heavy-transport/lowbed-truck-hauling-mobile-crane", 1419, 798, "Multi-axle lowbed carrying a heavy mobile crane, with warning flags on the load", "لوبد متعدد المحاور يحمل رافعة متحركة ثقيلة مع أعلام تحذيرية على الحمولة", "45% 55%", "owner-supplied web photo"),
+  "services/recovery-heavy-transport/crane-transport": img("heavy-transport/rough-terrain-crane-loaded-on-lowbed", 1120, 630, "Rough-terrain crane secured on a lowbed trailer for road transport", "رافعة للطرق الوعرة مثبتة على لوبد للنقل البري", "40% 50%", "owner-supplied web photo"),
+  "services/recovery-heavy-transport/wheel-loader-transport": img("heavy-transport/wheel-loader-bucket-construction-site", 705, 350, "Wheel loader (shuwel) with a full bucket on a construction site", "شيول بجرافة ممتلئة في موقع إنشاءات", "55% 60%", "low resolution, owner-supplied web photo"),
+  "services/recovery-heavy-transport/flatbed-trailer-transport": img("heavy-transport/flatbed-trailer-steel-coils-highway", 654, 469, "Flatbed trailer carrying chained steel coils on a highway", "تريلا سطحة تحمل لفائف حديد مثبتة بالسلاسل على طريق سريع", "50% 60%", "low resolution, owner-supplied web photo, trailer logos blurred"),
+  "services/recovery-heavy-transport/forklift-transport": img("heavy-transport/heavy-duty-forklifts-yard", 577, 346, "Row of large heavy-duty forklifts parked in a yard", "صف من الرافعات الشوكية الكبيرة للأحمال الثقيلة في ساحة", "50% 60%", "low resolution, owner-supplied web photo, maker logos blurred"),
+  // City pages use the real city photographs already on the site.
+  "services/recovery-heavy-transport/satha-car-recovery/riyadh": images.riyadh,
+  "services/recovery-heavy-transport/satha-car-recovery/jeddah": images.jeddah,
+  "services/recovery-heavy-transport/satha-car-recovery/dammam": images.alKhobar,
+  "services/recovery-heavy-transport/heavy-equipment-transport/riyadh": images.riyadh,
+  "services/recovery-heavy-transport/heavy-equipment-transport/jeddah": images.jeddah,
+  "services/recovery-heavy-transport/heavy-equipment-transport/dammam": images.alKhobar,
   "services/city-transport/riyadh": images.riyadh,
   "services/airport-transfers/riyadh-airport": images.airportRuh,
   "services/tourism-transport/riyadh-sightseeing": images.diriyah,
