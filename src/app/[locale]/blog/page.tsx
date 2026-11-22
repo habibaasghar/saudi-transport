@@ -11,8 +11,8 @@ export function generateStaticParams() {
 }
 
 const meta = {
-  en: { title: "Private Transport Guides for Saudi Arabia | RideSaudi", description: "Practical guides on airport pickups, intercity private cars and cross-border road transfers from Saudi Arabia to Bahrain, Qatar, the UAE and Kuwait." },
-  ar: { title: "أدلة النقل الخاص في السعودية | RideSaudi", description: "أدلة عملية عن الاستقبال من المطار والسيارات الخاصة بين المدن والتوصيل البري عبر الحدود من السعودية إلى البحرين وقطر والإمارات والكويت." },
+  en: { title: "Private Transfer & Heavy Transport Guides | RideSaudi", description: "Practical guides on airport pickups, intercity private cars, cross-border road trips, car towing, satha recovery and heavy machinery transport in Saudi Arabia." },
+  ar: { title: "أدلة التوصيل الخاص والنقل الثقيل | RideSaudi", description: "أدلة عملية عن الاستقبال من المطار والسيارات الخاصة بين المدن والرحلات عبر الحدود وسحب السيارات بالسطحة ونقل المعدات الثقيلة في السعودية." },
 };
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {

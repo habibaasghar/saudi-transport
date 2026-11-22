@@ -1,5 +1,6 @@
 import { pages } from "@/content/registry";
 import { blogPosts } from "@/content/blog/posts";
+import { blogHubs } from "@/content/blog/hubs";
 import { legalPages } from "@/content/legal";
 import { routing, type Locale } from "@/i18n/routing";
 import { localeUrl, pageUrl, SITE_URL } from "@/lib/site";
@@ -38,6 +39,7 @@ export function sitemapEntries(): SitemapEntry[] {
     { path: "", updated: latest([...pages.map((p) => p.updated), blogUpdated]), urlFor: (l) => localeUrl(l) },
     ...pages.map((p) => ({ path: p.path, updated: p.updated, urlFor: (l: Locale) => pageUrl(l, p.path) })),
     { path: "blog", updated: blogUpdated, urlFor: (l: Locale) => pageUrl(l, "blog") },
+    ...blogHubs.map((h) => ({ path: `blog/${h.slug}`, updated: latest([h.updated, ...blogPosts.filter((b) => b.cluster === h.slug).map((b) => b.updated)]), urlFor: (l: Locale) => pageUrl(l, `blog/${h.slug}`) })),
     ...blogPosts.map((b) => ({ path: `blog/${b.slug}`, updated: b.updated, urlFor: (l: Locale) => pageUrl(l, `blog/${b.slug}`) })),
     ...legalPages.map((p) => ({ path: p.slug, updated: p.updated, urlFor: (l: Locale) => pageUrl(l, p.slug) })),
   ];

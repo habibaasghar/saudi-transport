@@ -8,6 +8,8 @@ import { madinahAlulaPost } from "./madinah-alula-road";
 import { chauffeurVsTaxiPost } from "./chauffeur-vs-taxi";
 import { stariaPost } from "./staria-groups";
 import { applyGuideEnrichments } from "../enrich-batch4";
+import { heavyGuides } from "./heavy-guides";
+import { transferGuides } from "./transfer-guides";
 
 const I = "services/intercity-transfers";
 const X = "services/cross-border-transfers";
@@ -335,4 +337,16 @@ export const blogPosts: BlogPost[] = [
 
 applyGuideEnrichments(blogPosts);
 
+// The original twelve guides are all private-transfer planning guides.
+for (const p of blogPosts) p.cluster ??= "private-transfers";
+blogPosts.push(...heavyGuides, ...transferGuides);
+
 export const getPost = (slug: string) => blogPosts.find((p) => p.slug === slug);
+
+/** Up to six related guides: hand-picked first, then newest guides in the same cluster. Never the whole list. */
+export function relatedPosts(post: BlogPost, max = 6): BlogPost[] {
+  const picked = (post.related ?? []).map(getPost).filter((p): p is BlogPost => Boolean(p));
+  const same = blogPosts.filter((p) => p.cluster === post.cluster && p.slug !== post.slug && !picked.includes(p));
+  same.sort((a, b) => (a.published < b.published ? 1 : -1));
+  return [...picked, ...same].slice(0, max);
+}
