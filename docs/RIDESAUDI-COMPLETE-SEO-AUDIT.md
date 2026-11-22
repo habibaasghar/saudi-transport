@@ -27,13 +27,13 @@ Related: Indexing Recovery Report, URL Indexability Map (CSV), Keyword→URL Map
 | 2 | **Critical** | 220 URLs "Discovered – not indexed", never crawled | GSC coverage export | Root causes diagnosed; on-site fixes done; off-site + GSC actions need **owner** |
 | 3 | High | Google indexes the old `http(s)://ridesaudi.com/` root; 3-hop redirect chain to `/en/` | GSC performance; curl | Vercel domain setting needs **owner** |
 | 4 | High | Home page did not link to top routes/airports; placeholder "no fixed route list" text | Live HTML | **Fixed** |
-| 5 | High | Arabic home title/H1 used "سائق خاص" (driver-job intent), against owner lead-quality goal | Live HTML + Phase 1 research | **Fixed** on home/nav/footer/form; 22 body-text mentions in older pages remain (contextual use, low risk) |
+| 5 | High | Arabic home title/H1 used "سائق خاص" (driver-job intent), against owner lead-quality goal | Live HTML + Phase 1 research | **Fixed** everywhere in titles, H1s, nav and meta (2026-11-23) |
 | 6 | High | GA4 not active → no conversion data | Live HTML | **Owner** (provide GA4 ID) |
-| 7 | Medium | 7 overlapping-intent groups (18 URLs, mostly luxury vs services) | Titles + inlinks | Documented; **owner decision** |
-| 8 | Medium | 13 pages with the highest template overlap (0.19–0.24) | Shingle analysis | Pending (needs verified route facts) |
+| 7 | Medium | 7 overlapping-intent groups (18 URLs, mostly luxury vs services) | Titles + inlinks | **Done 2026-11-23**: 14 URLs 308 to their destinations |
+| 8 | Medium | 13 pages with the highest template overlap (0.19–0.24) | Shingle analysis | **Done 2026-11-23**: verified distances, tables, unique sections; rendered overlap now 0.27–0.28 |
 | 9 | Medium | Analytics event sent free-text addresses | Code | **Fixed** |
 | 10 | Medium | Airport heroes are illustrations; several low-res images; no real vehicle photos | `images.ts` notes | Image plan for **owner** photos |
-| 11 | Medium | Heavy-transport city pairs overlap 0.35 (above 0.30 target), e.g. AR satha Jeddah vs Dammam | Shingle analysis | Pending (not in the 220 list) |
+| 11 | Medium | Heavy-transport city pairs overlap 0.35 (above 0.30 target), e.g. AR satha Jeddah vs Dammam | Shingle analysis | **Done 2026-11-23**: city distance tables and sections; now 0.24–0.29 |
 | 12 | Low | Sitemap file ranked for brand queries | GSC | **Fixed** (noindex header) |
 | 13 | Low | Single 366-URL sitemap; no per-cluster reporting | — | **Fixed** (sitemap index + 14 groups) |
 | 14 | Low | `/EN/...` produced `/en/EN/...` 404 | curl | **Fixed** |
@@ -53,7 +53,7 @@ No CrUX field data exists yet (too little traffic). Observed: static HTML from C
 2. Vercel Domains: `ridesaudi.com` → `https://www.ridesaudi.com` directly.
 3. GA4 measurement ID.
 4. Search Console: deploy-day steps and request-indexing batches (GSC Action Plan).
-5. Decide the 7 consolidation proposals (Indexing Recovery Report §6).
+5. ~~Decide the 7 consolidation proposals~~ done 2026-11-23 (owner delegated the decision).
 6. Confirm sedan model, GMC Yukon seats/luggage; supply real vehicle and airport photos (Image Asset Plan).
 7. Off-site signals: genuine directory listings / profiles linking to the site.
-8. Approve deploy of this branch.
+8. Approve deploy of the 2026-11-23 follow-up pass.
