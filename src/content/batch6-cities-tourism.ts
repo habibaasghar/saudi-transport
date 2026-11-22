@@ -113,6 +113,7 @@ export const batch6: ServicePage[] = [
   },
 
   {
+    // Copy below is replaced at registry load by the Makkah hub in ./makkah-madinah.ts (2026-11-23).
     path: `${C}/makkah`,
     parent: C,
     variant: "umrah",
@@ -166,6 +167,7 @@ export const batch6: ServicePage[] = [
   },
 
   {
+    // Copy below is replaced at registry load by the Madinah hub in ./makkah-madinah.ts (2026-11-23).
     path: `${C}/madinah`,
     parent: C,
     variant: "umrah",

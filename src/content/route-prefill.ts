@@ -21,6 +21,7 @@ export const routePrefill: Record<string, Pair> = {
   [`${I}/riyadh-to-jeddah`]: p(["Riyadh", "Jeddah"], ["الرياض", "جدة"]),
   [`${I}/riyadh-to-makkah`]: p(["Riyadh", "Makkah"], ["الرياض", "مكة المكرمة"]),
   [`${I}/riyadh-to-madinah`]: p(["Riyadh", "Madinah"], ["الرياض", "المدينة المنورة"]),
+  [`${I}/madinah-to-riyadh`]: p(["Madinah", "Riyadh"], ["المدينة المنورة", "الرياض"]),
   [`${I}/riyadh-to-al-ahsa`]: p(["Riyadh", "Al Ahsa"], ["الرياض", "الأحساء"]),
   [`${I}/riyadh-to-alula`]: p(["Riyadh", "AlUla"], ["الرياض", "العلا"]),
   [`${I}/riyadh-to-taif`]: p(["Riyadh", "Taif"], ["الرياض", "الطائف"]),
