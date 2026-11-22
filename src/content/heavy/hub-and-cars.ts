@@ -1,9 +1,9 @@
 import type { ServicePage } from "../types";
-import { CARS, EXCAVATOR, FLATBED, HEAVY, HT, LOADER, LOWBED, SATHA, heavyPage } from "./shared";
+import { CARS, CRANE, EXCAVATOR, FLATBED, HEAVY, HT, LOADER, LOWBED, SATHA, heavyPage } from "./shared";
 
 /** Category hub + vehicle (satha / car) pages. */
 export const heavyHubAndCars: ServicePage[] = [
-  heavyPage(HT, "services", undefined, [SATHA, LOWBED, HEAVY, EXCAVATOR, LOADER, CARS], {
+  heavyPage(HT, "services", undefined, [`${SATHA}/riyadh`, `${SATHA}/jeddah`, `${SATHA}/dammam`, `${HEAVY}/riyadh`, `${HEAVY}/jeddah`, `${HEAVY}/dammam`, EXCAVATOR, LOADER, CRANE], {
     nav: "Heavy Transport & Recovery",
     title: "Heavy Transport & Satha Recovery in Saudi Arabia",
     description: "Satha car recovery, lowbed and flatbed haulage, and excavator, shuwel, forklift and crane transport across Saudi Arabia. Send the load details for a quote.",
@@ -149,7 +149,7 @@ export const heavyHubAndCars: ServicePage[] = [
     ],
   }),
 
-  heavyPage(SATHA, HT, "satha", [CARS, HT, LOWBED], {
+  heavyPage(SATHA, HT, "satha", [CARS, HT, LOWBED, HEAVY], {
     nav: "Satha Car Recovery",
     title: "Satha Car Recovery & Towing in Saudi Arabia",
     description: "Satha (flatbed tow truck) for broken-down and accident cars in Riyadh, Jeddah, Dammam and between cities. Hydraulic satha on request. Send your location for a quote.",
@@ -293,7 +293,7 @@ export const heavyHubAndCars: ServicePage[] = [
     ],
   }),
 
-  heavyPage(CARS, HT, "car_transport", [SATHA, HT, FLATBED], {
+  heavyPage(CARS, HT, "car_transport", [SATHA, `${SATHA}/riyadh`, `${SATHA}/jeddah`, `${SATHA}/dammam`, FLATBED], {
     nav: "Car Transport Between Cities",
     title: "Car Transport Between Saudi Cities by Satha",
     description: "Ship a car between Saudi cities without driving it: Riyadh, Jeddah, Dammam and more on a satha or car carrier. Open or enclosed on request. Get a quote.",

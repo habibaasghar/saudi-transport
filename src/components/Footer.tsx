@@ -6,6 +6,7 @@ import { getPage } from "@/content/registry";
 import { navItems } from "@/lib/nav";
 import { ContactCta } from "./ContactCta";
 import { CONTACT } from "@/config/contact";
+import { FooterSocial } from "./SocialLinks";
 
 const footerServices = [
   "services/airport-transfers",
@@ -19,6 +20,8 @@ const footerServices = [
   "services/tourism-transport",
   "services/group-transportation",
   "services/special-transportation",
+  "services/recovery-heavy-transport",
+  "services/recovery-heavy-transport/satha-car-recovery",
   "fleet",
 ];
 
@@ -33,6 +36,8 @@ const footerRiyadh = [
   "services/intercity-transfers/riyadh-to-madinah",
   "services/intercity-transfers/riyadh-to-doha",
   "services/intercity-transfers/riyadh-to-dubai",
+  "services/recovery-heavy-transport/satha-car-recovery/riyadh",
+  "services/recovery-heavy-transport/heavy-equipment-transport/riyadh",
 ] as const;
 
 export async function Footer({ locale, switchHref = "/" }: { locale: Locale; switchHref?: string }) {
@@ -57,6 +62,7 @@ export async function Footer({ locale, switchHref = "/" }: { locale: Locale; swi
               <ContactCta kind="email" locale={locale} size="sm" variant="ghost" />
             </div>
           </div>
+          <FooterSocial />
         </div>
         <nav aria-label={a("footerNav")} className="footer__cols">
           <div>

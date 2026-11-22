@@ -35,6 +35,9 @@ import { applyBatch2Enrichments } from "./enrich-batch2";
 import { applyBatch3Enrichments } from "./enrich-batch3";
 import { applyRouteEnrichments } from "./enrich-routes";
 import { applyBatch4Enrichments } from "./enrich-batch4";
+import { applyBatch5Enrichments } from "./enrich-batch5";
+import { applyHeavyCityDistances } from "./heavy/city-distances";
+import { consolidated, consolidationLinks, mergedSections } from "./consolidated";
 
 export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB, ...priorityRoutesC, ...priorityRoutesD, ...batch17JeddahRoutes, ...batch18Locations, ...heavyHubAndCars, ...heavyTrailers, ...heavyMachines, ...heavyCities];
 
@@ -45,12 +48,20 @@ applyBatch2Enrichments(pages);
 applyBatch3Enrichments(pages);
 applyRouteEnrichments(pages);
 applyBatch4Enrichments(pages);
+applyBatch5Enrichments(pages);
+applyHeavyCityDistances(pages);
 
 // Cross-link the Jeddah route cluster and new locations from existing hub, airport and neighbouring route pages.
 for (const p of pages) if (jeddahBacklinks[p.path]) p.related.push(...jeddahBacklinks[p.path]);
 for (const p of pages) if (locationBacklinks[p.path]) p.related.push(...locationBacklinks[p.path]);
 
 applyLinkBoosts(pages);
+
+// Consolidated pages (./consolidated.ts): drop them and point every link at their destination.
+for (let i = pages.length - 1; i >= 0; i--) if (consolidated[pages[i].path]) pages.splice(i, 1);
+for (const p of pages) p.related = p.related.map((r) => consolidated[r] ?? r);
+for (const p of pages) if (consolidationLinks[p.path]) p.related.push(...consolidationLinks[p.path]);
+for (const p of pages) if (mergedSections[p.path]) for (const l of ["en", "ar"] as Locale[]) p.copy[l].sections.push(mergedSections[p.path][l]);
 
 /**
  * SEO-RULES.md: no FAQ may appear verbatim on two pages. Generic questions that several pages
