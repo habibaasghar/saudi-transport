@@ -12,6 +12,16 @@ export const CONTACT = {
   website: "https://www.ridesaudi.com/",
 } as const;
 
+/**
+ * Official RideSaudi social profiles. Use these exact URLs everywhere
+ * (never shorten or change them). Not added to schema sameAs on purpose.
+ */
+export const SOCIAL = {
+  instagram: "https://www.instagram.com/ridesaudiksa/",
+  facebook: "https://www.facebook.com/share/1JTxBa7Sen/",
+  tiktok: "https://www.tiktok.com/@ridesaudi",
+} as const;
+
 /** WhatsApp chat link with an optional URL-encoded pre-filled message. */
 export function whatsappHref(message?: string): string {
   const base = `https://wa.me/${CONTACT.whatsapp}`;

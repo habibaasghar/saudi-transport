@@ -62,7 +62,7 @@ export const fleetCategories: FleetCategory[] = [
     name: { en: "Toyota Camry", ar: "تويوتا كامري" },
     category: { en: "Private sedan with driver", ar: "سيدان خاصة مع سائق" },
     capacity: null,
-    photo: { src: "/images/fleet/toyota-camry-exterior.webp", width: 860, height: 460, alt: { en: "Toyota Camry sedan in a three-quarter front view", ar: "سيدان تويوتا كامري من زاوية أمامية جانبية" } },
+    photo: { src: "/images/fleet/toyota-camry-black-exterior.webp", width: 1100, height: 825, alt: { en: "Black Toyota Camry sedan in a three-quarter front view", ar: "سيدان تويوتا كامري سوداء من زاوية أمامية جانبية" } },
     suitableFor: {
       en: ["Business travellers and couples", "Airport transfers with light luggage", "City-to-city journeys"],
       ar: ["رجال الأعمال والأزواج", "التوصيل من المطار وإليه بحقائب خفيفة", "الرحلات بين المدن"],
@@ -86,6 +86,7 @@ export const fleetCategories: FleetCategory[] = [
     name: { en: "Ford Taurus", ar: "فورد توروس" },
     category: { en: "Private sedan with driver", ar: "سيدان خاصة مع سائق" },
     capacity: null,
+    photo: { src: "/images/fleet/ford-taurus-exterior.webp", width: 960, height: 600, alt: { en: "Black Ford Taurus sedan driving along a road", ar: "سيدان فورد توروس سوداء تسير على طريق" } },
     suitableFor: {
       en: ["Business travellers who want a larger sedan", "Airport and hotel transfers", "City-to-city journeys"],
       ar: ["رجال الأعمال الذين يريدون سيدان أوسع", "التوصيل بين المطار والفنادق", "الرحلات بين المدن"],
@@ -97,7 +98,7 @@ export const fleetCategories: FleetCategory[] = [
     name: { en: "Chevrolet Suburban", ar: "شيفروليه سوبربان" },
     category: { en: "Full-size SUV with driver", ar: "دفع رباعي كبيرة مع سائق" },
     capacity: null,
-    photo: { src: "/images/fleet/chevrolet-suburban-exterior.webp", width: 858, height: 357, alt: { en: "Chevrolet Suburban full-size SUV beside the sea", ar: "شيفروليه سوبربان دفع رباعي كبيرة قرب البحر" } },
+    photo: { src: "/images/fleet/chevrolet-suburban-black-exterior.webp", width: 1200, height: 630, alt: { en: "Black Chevrolet Suburban full-size SUV under trees", ar: "شيفروليه سوبربان دفع رباعي كبيرة سوداء تحت الأشجار" } },
     suitableFor: {
       en: ["Families and groups who want extra room", "Long intercity routes", "Airport arrivals with luggage"],
       ar: ["العائلات والمجموعات التي تريد مساحة إضافية", "المسارات الطويلة بين المدن", "الوصول من المطار مع الحقائب"],

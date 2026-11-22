@@ -11,12 +11,14 @@ import { Services } from "@/components/Services";
 import { Why } from "@/components/Why";
 import { Airport } from "@/components/Airport";
 import { Intercity } from "@/components/Intercity";
+import { HeavyHome } from "@/components/HeavyHome";
 import { Fleet } from "@/components/Fleet";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Trust } from "@/components/Trust";
 import { Faq } from "@/components/Faq";
 import { QuoteSection } from "@/components/QuoteSection";
 import { Footer } from "@/components/Footer";
+import { SocialSection } from "@/components/SocialLinks";
 import { JsonLd } from "@/components/JsonLd";
 import { routing, type Locale } from "@/i18n/routing";
 import { localeUrl, SITE_URL } from "@/lib/site";
@@ -101,11 +103,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <Why />
         <Airport />
         <Intercity locale={locale} />
+        <HeavyHome locale={locale} />
         <Fleet locale={locale} />
         <HowItWorks />
         <Trust />
         <Faq />
         <QuoteSection locale={locale} />
+        <SocialSection />
       </main>
       <Footer locale={locale} />
     </>

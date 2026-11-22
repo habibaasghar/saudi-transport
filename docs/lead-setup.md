@@ -3,10 +3,12 @@
 The form already validates, blocks spam (honeypot, timing, rate limit) and delivers to every channel you configure. Nothing is sent until you add at least one channel; until then visitors are told honestly that enquiries are not open yet.
 
 ## 1. Store every lead in Supabase (recommended)
-1. Supabase dashboard -> project `nxparehkrztumdjecint` -> SQL Editor -> paste and run `supabase/enquiries.sql`.
-2. Settings -> API -> copy the **service_role** key (secret; never put it in code or `config.js`).
-3. Vercel -> saudi-transport -> Settings -> Environment Variables (Production): `SUPABASE_SERVICE_ROLE_KEY` = that key. (`SUPABASE_URL` is optional; the project URL is the default.)
-4. Read leads in Supabase -> Table Editor -> `enquiries`. Change `status` as you work them (new / contacted / quoted / won / lost).
+> Updated 2026-11-22: the old `supabase/enquiries.sql` (an `enquiries` table) is **no longer used**. Both the passenger form (`/api/enquiry`) and the heavy transport form (`/api/heavy-quote`) write to the CRM tables in `drizzle/0000_core.sql` via `DATABASE_URL`.
+1. Supabase dashboard -> your project -> SQL Editor. Check whether the tables `inquiries`, `customers` and `rate_limits` exist (Table Editor). If not, paste and run `drizzle/0000_core.sql` once (it fails if the tables already exist; that is fine).
+2. Supabase -> Project Settings -> Database -> Connection string (URI, **Transaction pooler**, port 6543), with the database password filled in.
+3. Vercel -> saudi-transport -> Settings -> Environment Variables (Production): `DATABASE_URL` = that string. It must point to the same project where step 1 created the tables.
+4. Read leads in the CRM at `/admin/inquiries/` (or Supabase -> Table Editor -> `inquiries`).
+5. If leads still fail, Vercel -> Logs -> filter `/api/enquiry` or `/api/heavy-quote`: the line `database write failed:` now ends with the Postgres reason (e.g. `42P01 relation ... does not exist` = step 1 missing; `28P01 password authentication failed` = wrong password in `DATABASE_URL`; `ENOTFOUND` = wrong host).
 
 ## 2. Get an email for every lead (Resend)
 1. resend.com -> create API key.

@@ -442,12 +442,31 @@
     "fleet": "Vehicles and fleet",
     "services": "All services"
   },
+  "social": {
+    "footerHeading": "Follow RideSaudi",
+    "footerText": "Follow us for travel updates, premium transportation services and more.",
+    "homeHeading": "Stay Connected with RideSaudi",
+    "homeText": "Follow RideSaudi for updates, travel inspiration and premium private transportation.",
+    "contactHeading": "Connect with us",
+    "contactText": "Follow RideSaudi on social media.",
+    "listLabel": "RideSaudi social media",
+    "instagramAria": "RideSaudi on Instagram (opens in a new tab)",
+    "facebookAria": "RideSaudi on Facebook (opens in a new tab)",
+    "tiktokAria": "RideSaudi on TikTok (opens in a new tab)"
+  },
   "sticky": {
     "quote": "Get a quote",
     "whatsapp": "WhatsApp",
     "aria": "Quick contact"
   },
   "heavy": {
+    "home": {
+      "eyebrow": "Heavy transport and satha",
+      "title": "Satha recovery, lowbed and machinery transport across Saudi Arabia",
+      "text": "Broken-down car in Riyadh, an excavator to move from Jeddah port, or a machine for a site in Jubail: tell us the load, weight and both locations, and we come back with a suitable truck or trailer and a quotation before anything is booked.",
+      "listTitle": "Satha and heavy transport by city and service",
+      "cta": "See all heavy transport services"
+    },
     "cta": "Request Heavy Transport Quote",
     "notice": "Every job is quoted first: no fixed prices, nothing dispatched until you confirm.",
     "whatsappTopic": "Hello RideSaudi, I need a quote for: {topic}. Load, pickup and destination: ",

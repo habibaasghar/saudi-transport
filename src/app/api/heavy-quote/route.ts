@@ -8,6 +8,7 @@ import { rateLimit } from "@/lib/rate-limit";
 import { SITE_URL } from "@/lib/site";
 import { createInquiry } from "@/server/services/inquiry";
 import { allow } from "@/server/services/ratelimit";
+import { errorDetail } from "@/lib/error-detail";
 
 export const runtime = "nodejs";
 
@@ -73,7 +74,7 @@ export async function POST(request: Request) {
         try { after(job); } catch { await job(); }
       }
     } catch (err) {
-      console.error("[heavy-quote] database write failed", err instanceof Error ? err.message : err);
+      console.error("[heavy-quote] database write failed:", errorDetail(err));
     }
   }
 

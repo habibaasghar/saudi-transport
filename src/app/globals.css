@@ -444,3 +444,30 @@ html[lang="ar"] .fleet__label { text-transform: none; letter-spacing: 0; }
 .form__legal { font-size: .9rem; color: var(--muted); margin-top: .5rem; }
 .form__legal a { color: inherit; }
 .quote__legal { font-size: .95rem; margin-top: .5rem; } .quote__legal a, .quote__more a { color: inherit; text-decoration: underline; }
+
+/* Social links (src/components/SocialLinks.tsx): small brand-coloured icons, fixed sizes (no layout shift). */
+ul.social { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; margin: 0; padding: 0; }
+.social li { margin: 0; padding: 0; }
+.social .social__link { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; color: #fff; text-decoration: none; box-shadow: 0 0 0 1px rgba(255, 255, 255, .14); transition: transform .2s, box-shadow .2s, filter .2s; }
+.social--md .social__link { width: 44px; height: 44px; }
+.social__icon { width: 18px; height: 18px; }
+.social--md .social__icon { width: 22px; height: 22px; }
+.social .social__link:hover { color: #fff; text-decoration: none; transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 0 0 1px rgba(255, 255, 255, .2), 0 8px 18px -8px rgba(11, 31, 58, .55); }
+.social__link--instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+.social__link--facebook { background: #1877f2; }
+.social__link--tiktok { background: #010101; }
+@media (prefers-reduced-motion: reduce) { .social .social__link { transition: none; } .social .social__link:hover { transform: none; } }
+
+.footer__social { margin-top: 1.75rem; }
+.footer__social h2 { font-size: .95rem; margin-bottom: .5rem; }
+.footer__social p { margin-bottom: .85rem; max-width: 36ch; font-size: .9rem; color: rgba(255, 255, 255, .75); }
+
+.social-band { background: #f5f9fd; border-top: 1px solid var(--line); padding-block: clamp(2rem, 4vw, 2.75rem); }
+.social-band__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem 2rem; }
+.social-band h2 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); color: var(--night); margin-bottom: .35rem; }
+.social-band p { color: var(--muted); max-width: 52ch; font-size: 1rem; }
+
+.social-inline { margin-top: 2.25rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+.info-page .social-inline__h { font-size: 1.05rem; margin: 0 0 .3rem; }
+.info-page .social-inline p { color: var(--muted); font-size: .95rem; margin-bottom: .75rem; }
+.social-inline .social .social__link { box-shadow: none; }
