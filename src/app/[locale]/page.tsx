@@ -17,6 +17,7 @@ import { Trust } from "@/components/Trust";
 import { Faq } from "@/components/Faq";
 import { QuoteSection } from "@/components/QuoteSection";
 import { Footer } from "@/components/Footer";
+import { SocialSection } from "@/components/SocialLinks";
 import { JsonLd } from "@/components/JsonLd";
 import { routing, type Locale } from "@/i18n/routing";
 import { localeUrl, SITE_URL } from "@/lib/site";
@@ -106,6 +107,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <Trust />
         <Faq />
         <QuoteSection locale={locale} />
+        <SocialSection />
       </main>
       <Footer locale={locale} />
     </>

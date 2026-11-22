@@ -442,6 +442,18 @@
     "fleet": "المركبات",
     "services": "جميع الخدمات"
   },
+  "social": {
+    "footerHeading": "تابع RideSaudi",
+    "footerText": "تابعنا لآخر أخبار السفر وخدمات النقل الفاخرة والمزيد.",
+    "homeHeading": "ابقَ على تواصل مع RideSaudi",
+    "homeText": "تابع RideSaudi للاطلاع على آخر المستجدات وأفكار السفر وخدمات النقل الخاص الفاخرة.",
+    "contactHeading": "تواصل معنا",
+    "contactText": "تابع RideSaudi على منصات التواصل الاجتماعي.",
+    "listLabel": "حسابات RideSaudi على مواقع التواصل الاجتماعي",
+    "instagramAria": "RideSaudi على إنستغرام (يفتح في تبويب جديد)",
+    "facebookAria": "RideSaudi على فيسبوك (يفتح في تبويب جديد)",
+    "tiktokAria": "RideSaudi على تيك توك (يفتح في تبويب جديد)"
+  },
   "sticky": {
     "quote": "اطلب عرض سعر",
     "whatsapp": "واتساب",

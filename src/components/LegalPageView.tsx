@@ -11,6 +11,7 @@ import { Footer } from "./Footer";
 import { JsonLd } from "./JsonLd";
 import { ContactRow } from "./ContactCta";
 import { QuoteSection } from "./QuoteSection";
+import { SocialInline } from "./SocialLinks";
 
 /** Metadata for the privacy, terms and contact pages: indexable, self-canonical, reciprocal hreflang. */
 export function legalMetadata(slug: LegalPage["slug"], locale: Locale): Metadata {
@@ -104,6 +105,8 @@ export async function LegalPageView({ slug, locale }: { slug: LegalPage["slug"];
                 <ContactDetails locale={locale} />
               </section>
             )}
+
+            {slug === "contact" && <SocialInline />}
 
             <section>
               <h2>{l("related")}</h2>
