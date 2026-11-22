@@ -1,5 +1,5 @@
 import type { BlogPost } from "./types";
-import { D, H, ill } from "./heavy-guides-a";
+import { D, H, ph } from "./heavy-guides-a";
 
 /** Towing and heavy transport guides, part B (2026-11-23). Same rules as part A. */
 
@@ -9,7 +9,7 @@ export const dozerLoaderPost: BlogPost = {
   updated: D,
   cluster: "towing-heavy-transport",
   heavyService: "wheel_loader",
-  hero: ill("wheel-loader-shuwel-on-lowbed", "Illustration of a wheel loader (shuwel) secured on a lowbed trailer", "رسم توضيحي لشيول مثبت على لوبد"),
+  hero: ph("wheel-loader-bucket-construction-site", 705, 350, "Wheel loader (shuwel) working with its bucket on a construction site", "شيول يعمل بجردله في موقع إنشاء"),
   related: ["excavator-transportation-saudi-arabia", "lowbed-trailer-transport-saudi-arabia", "choose-heavy-equipment-transport-company-saudi-arabia"],
   links: [`${H}/wheel-loader-transport`, `${H}/heavy-equipment-transport`, `${H}/lowbed-transport`, `${H}/heavy-equipment-transport/riyadh`, `${H}/heavy-equipment-transport/dammam`],
   copy: {
@@ -90,7 +90,7 @@ export const craneIndustrialPost: BlogPost = {
   updated: D,
   cluster: "towing-heavy-transport",
   heavyService: "crane",
-  hero: ill("crane-boom-sections-on-extendable-trailer", "Illustration of lattice crane boom sections loaded on a long trailer", "رسم توضيحي لأجزاء ذراع كرين شبكي محملة على تريلا طويلة"),
+  hero: ph("rough-terrain-crane-loaded-on-lowbed", 1120, 630, "Rough-terrain crane secured on a lowbed trailer for road transport", "رافعة للطرق الوعرة مثبتة على لوبد للنقل البري"),
   related: ["lowbed-trailer-transport-saudi-arabia", "heavy-machinery-transportation-saudi-arabia", "choose-heavy-equipment-transport-company-saudi-arabia"],
   links: [`${H}/crane-transport`, `${H}/industrial-machinery-relocation`, `${H}/oversized-load-transport`, `${H}/forklift-transport`, `${H}/flatbed-trailer-transport`],
   copy: {
@@ -171,7 +171,6 @@ export const breakdownPost: BlogPost = {
   updated: D,
   cluster: "towing-heavy-transport",
   heavyService: "satha",
-  hero: ill("satha-car-recovery-riyadh-skyline", "Illustration of a satha carrying a red car with a city skyline behind", "رسم توضيحي لسطحة تحمل سيارة حمراء وخلفها أفق مدينة"),
   related: ["car-towing-service-saudi-arabia", "flatbed-vs-hydraulic-towing-saudi-arabia", "intercity-car-transport-saudi-arabia"],
   links: [`${H}/satha-car-recovery`, `${H}/satha-car-recovery/riyadh`, `${H}/satha-car-recovery/jeddah`, `${H}/satha-car-recovery/dammam`, H],
   copy: {
@@ -254,7 +253,6 @@ export const intercityCarPost: BlogPost = {
   updated: D,
   cluster: "towing-heavy-transport",
   heavyService: "car_transport",
-  hero: ill("heavy-transport-satha-and-lowbed-highway", "Illustration of a satha carrying a car and a lowbed on a desert highway", "رسم توضيحي لسطحة تحمل سيارة ولوبد على طريق صحراوي"),
   related: ["car-towing-service-saudi-arabia", "flatbed-vs-hydraulic-towing-saudi-arabia", "riyadh-to-jeddah-by-road-guide"],
   links: [`${H}/car-transport-between-cities`, `${H}/satha-car-recovery`, `${H}/satha-car-recovery/riyadh`, `${H}/satha-car-recovery/jeddah`, `${H}/satha-car-recovery/dammam`],
   copy: {
@@ -331,7 +329,6 @@ export const chooseProviderPost: BlogPost = {
   updated: D,
   cluster: "towing-heavy-transport",
   heavyService: "heavy_machinery",
-  hero: ill("heavy-equipment-lowbed-dammam-port", "Illustration of a bulldozer on a lowbed near the container cranes of a port", "رسم توضيحي لبلدوزر على لوبد قرب رافعات الحاويات في ميناء"),
   related: ["heavy-machinery-transportation-saudi-arabia", "lowbed-trailer-transport-saudi-arabia", "crane-industrial-equipment-transport-saudi-arabia"],
   links: [H, `${H}/heavy-equipment-transport`, `${H}/lowbed-transport`, `${H}/oversized-load-transport`, `${H}/industrial-machinery-relocation`],
   copy: {

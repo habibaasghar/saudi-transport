@@ -40,7 +40,7 @@ export const blogHubs: BlogHub[] = [
     updated: U,
     heavy: true,
     links: [H, `${H}/satha-car-recovery`, `${H}/car-transport-between-cities`, `${H}/heavy-equipment-transport`, `${H}/lowbed-transport`, `${H}/excavator-transport`, `${H}/wheel-loader-transport`, `${H}/crane-transport`, `${H}/industrial-machinery-relocation`, `${H}/oversized-load-transport`],
-    hero: { src: "/images/heavy-transport/heavy-equipment-lowbed-riyadh.webp", width: 1600, height: 900, alt: { en: "Illustration of an excavator on a lowbed with a city skyline behind", ar: "رسم توضيحي لحفارة على لوبد وخلفها أفق مدينة" }, focus: "50% 75%", note: "original illustration" },
+    hero: { src: "/images/heavy-transport/lowbed-truck-hauling-mobile-crane.webp", width: 1419, height: 798, alt: { en: "Lowbed truck hauling a rough-terrain mobile crane on an open road", ar: "شاحنة لوبد تنقل رافعة متحركة على طريق مفتوح" }, focus: "50% 55%" },
     copy: {
       en: {
         nav: "Towing & heavy transport guides",

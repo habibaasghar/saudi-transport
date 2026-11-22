@@ -17,7 +17,7 @@ export const businessChauffeurPost: BlogPost = {
   cluster: "private-transfers",
   hero: photo("toyota-camry-black-exterior", 1100, 825, "Black Toyota Camry sedan in a three-quarter front view", "سيدان تويوتا كامري سوداء من زاوية أمامية جانبية", "50% 55%"),
   related: ["riyadh-to-dammam-private-transfer", "luxury-suv-gmc-transfer-saudi-arabia", "private-car-with-driver-vs-taxi-saudi-arabia"],
-  links: [`${S}/chauffeur-services`, `${S}/chauffeur-services/business-chauffeur`, `${S}/chauffeur-services/multi-day-chauffeur`, "luxury-transportation/executive-transport", `${A}/riyadh-airport`, `${S}/city-transport/riyadh`],
+  links: [`${S}/chauffeur-services`, `${S}/chauffeur-services/business-chauffeur`, `${S}/chauffeur-services/multi-day-chauffeur`, `${A}/riyadh-airport`, `${S}/city-transport/riyadh`],
   copy: {
     en: {
       nav: "Chauffeur service for business trips in Riyadh",
@@ -97,7 +97,7 @@ export const gmcYukonPost: BlogPost = {
   cluster: "private-transfers",
   hero: photo("gmc-yukon-at4-exterior", 892, 762, "GMC Yukon full-size SUV parked in a desert landscape", "جمس يوكن دفع رباعي كبيرة في أرض صحراوية", "50% 60%"),
   related: ["choosing-vehicle-size-family-group-travel-saudi", "hyundai-staria-with-driver-family-group-travel", "private-airport-transfers-saudi-arabia"],
-  links: ["luxury-transportation/luxury-suv", "fleet", `${A}/vip-airport-transfer`, "luxury-transportation/luxury-intercity-transfers", `${I}/riyadh-to-jeddah`, `${S}/umrah-transport/family-umrah-transport`],
+  links: ["luxury-transportation/luxury-suv", "fleet", `${A}/vip-airport-transfer`, `${I}/private-intercity-chauffeur`, `${I}/riyadh-to-jeddah`, `${S}/umrah-transport/family-umrah-transport`],
   copy: {
     en: {
       nav: "When to book a GMC Yukon with chauffeur",
