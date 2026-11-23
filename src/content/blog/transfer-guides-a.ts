@@ -179,7 +179,7 @@ export const umrahPlanPost: BlogPost = {
   cluster: "private-transfers",
   hero: images.makkah,
   related: ["jeddah-airport-to-makkah-train-bus-taxi-private-car", "makkah-to-madinah-train-bus-or-private-car", "hyundai-staria-with-driver-family-group-travel"],
-  links: [`${S}/umrah-transport`, `${S}/umrah-transport/jeddah-airport-to-makkah`, `${I}/makkah-to-madinah`, `${I}/madinah-to-jeddah`, `${S}/umrah-transport/makkah-ziyarat`, `${S}/umrah-transport/madinah-ziyarat`, `${S}/umrah-transport/family-umrah-transport`],
+  links: [`${S}/umrah-transport`, `${S}/umrah-transport/jeddah-airport-to-makkah`, `${I}/makkah-to-madinah`, `${I}/madinah-to-jeddah`, `${S}/umrah-transport/makkah-ziyarat`, `${S}/umrah-transport/madinah-ziyarat`, `${S}/umrah-transport/family-umrah-transport`, `${S}/city-transport/makkah`, `${S}/city-transport/madinah`, `${I}/madinah-to-makkah`, `${I}/makkah-to-jeddah`, `${S}/airport-transfers/madinah-airport`],
   copy: {
     en: {
       nav: "Planning private transport for Umrah",

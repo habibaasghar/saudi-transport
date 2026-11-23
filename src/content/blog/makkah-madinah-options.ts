@@ -23,6 +23,7 @@ export const makkahMadinahPost: BlogPost = {
     `${I}/madinah-to-makkah`,
     `${S}/umrah-transport/family-umrah-transport`,
     `${S}/umrah-transport/madinah-ziyarat`,
+    `${S}/city-transport/makkah`,
     `${S}/city-transport/madinah`,
     `${S}/airport-transfers/madinah-airport`,
     `${S}/umrah-transport`,
