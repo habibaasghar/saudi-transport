@@ -8,10 +8,13 @@ import { SITE_URL } from "@/lib/site";
 import { createInquiry } from "@/server/services/inquiry";
 import { allow } from "@/server/services/ratelimit";
 import { errorDetail } from "@/lib/error-detail";
+import { quickToEnquiry, sanitizeQuick, validateQuick } from "@/lib/quick-quote";
 
 export const runtime = "nodejs";
 
 const MIN_FILL_MS = 3000;
+/** The quick form has three fields, so a real person can finish it faster than the full form. */
+const QUICK_MIN_FILL_MS = 1500;
 const MAX_BODY = 10_000;
 
 /**
@@ -32,19 +35,24 @@ export async function POST(request: Request) {
   if (text.length > MAX_BODY) return NextResponse.json({ error: "too_large" }, { status: 413 });
 
   let data;
+  let quick = false;
   try {
-    data = sanitizeEnquiry(JSON.parse(text));
+    const json: unknown = JSON.parse(text);
+    // Three-field quick quote (route, date, WhatsApp): validated on its own fields, then stored as a normal enquiry.
+    const q = sanitizeQuick(json);
+    quick = q !== null;
+    data = q ? quickToEnquiry(q) : sanitizeEnquiry(json);
   } catch {
     data = null;
   }
   if (!data) return NextResponse.json({ error: "invalid" }, { status: 400 });
 
   // Spam: honeypot filled or form submitted implausibly fast. Respond like a normal failure.
-  if (data.website || !data.startedAt || Date.now() - data.startedAt < MIN_FILL_MS) {
+  if (data.website || !data.startedAt || Date.now() - data.startedAt < (quick ? QUICK_MIN_FILL_MS : MIN_FILL_MS)) {
     return NextResponse.json({ error: "invalid" }, { status: 400 });
   }
 
-  const errors = validateEnquiry(data);
+  const errors = quick ? validateQuick({ route: data.pickup, date: data.date, phone: data.phone }) : validateEnquiry(data);
   if (Object.keys(errors).length) return NextResponse.json({ error: "validation", fields: errors }, { status: 422 });
 
   const { website: _h, startedAt: _s, ...payload } = data;

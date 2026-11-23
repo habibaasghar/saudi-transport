@@ -282,9 +282,9 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
         </div>
       </fieldset>
 
-      {/* Honeypot: hidden from people and assistive tech */}
-      <div className="hp" aria-hidden="true">
-        <label>Website<input type="text" name="website" tabIndex={-1} autoComplete="off" value={data.website} onChange={(e) => set("website", e.target.value)} /></label>
+      {/* Spam trap: never displayed (display: none) and carries no visible label, so people and screen readers never meet it. */}
+      <div className="hp" hidden>
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={data.website} onChange={(e) => set("website", e.target.value)} />
       </div>
 
       <div className="check">

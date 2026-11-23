@@ -18,7 +18,6 @@ export async function HowItWorks() {
             </li>
           ))}
         </ol>
-        <p className="steps__note">{t("note")}</p>
       </div>
     </section>
   );

@@ -186,8 +186,9 @@ export function HeavyQuoteForm({ locale, defaultService, prefill }: { locale: st
         </div>
       </fieldset>
 
-      <div className="hp" aria-hidden="true">
-        <label>Website<input type="text" name="website" tabIndex={-1} autoComplete="off" value={data.website} onChange={(e) => set("website", e.target.value)} /></label>
+      {/* Spam trap: never displayed (display: none) and carries no visible label. */}
+      <div className="hp" hidden>
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={data.website} onChange={(e) => set("website", e.target.value)} />
       </div>
 
       <div className="check">

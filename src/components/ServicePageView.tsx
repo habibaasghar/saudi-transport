@@ -20,6 +20,9 @@ import { stripLinks } from "@/content/inline-links";
 import { FleetCards } from "./Fleet";
 import { pagePrefill } from "@/content/location-prefill";
 import { HeavyQuoteSection, HeavySteps, HeavyWhatsApp } from "./HeavyQuoteSection";
+import { QuickQuoteForm } from "./QuickQuoteForm";
+import { PriceFrom } from "./PriceFrom";
+import { TrustDetails } from "./TrustDetails";
 
 type Table = { h: string; head: string[]; rows: string[][] };
 
@@ -80,6 +83,9 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
   const routes = cityRoutes(page, new Set([...page.related, ...kids.map((k) => k.path)]));
   /** Guides that cite this page link back to it, so informational and commercial pages reinforce each other. */
   const guides = blogPosts.filter((b) => b.links.includes(page.path));
+  const prefill = pagePrefill(page.path, locale);
+  /** Quick-quote route text, e.g. "Jeddah to Makkah"; airport pages pre-fill the airport only. */
+  const quickRoute = prefill ? [prefill.pickup, prefill.dropoff].filter(Boolean).join(locale === "ar" ? " إلى " : " to ") : "";
 
   return (
     <>
@@ -100,7 +106,8 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
               style={{ objectFit: "cover", objectPosition: hero.focus ?? "50% 50%" }}
             />
           )}
-          <div className="wrap">
+          <div className={`wrap${heavy ? "" : " svc-hero__grid"}`}>
+            <div className="svc-hero__copy">
             <nav aria-label={t("breadcrumb")} className="crumbs">
               <ol>
                 <li><Link href="/">{t("home")}</Link></li>
@@ -126,7 +133,10 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             ) : (
               <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp"]} className="hero__contact" />
             )}
-            <p className="hero__note">{heavy ? h("notice") : t("notice")}</p>
+            {/* The "enquiry is not a confirmed booking" notice appears once, next to the full form's submit button. */}
+            {heavy && <p className="hero__note">{h("notice")}</p>}
+            </div>
+            {!heavy && <QuickQuoteForm locale={locale} service={page.service} route={quickRoute} />}
           </div>
         </section>
 
@@ -139,6 +149,8 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             </div>
           </div>
         </section>
+
+        {!heavy && <PriceFrom path={page.path} locale={locale} />}
 
         {page.path === "fleet" && (
           <section className="section section--sand fleet-page" aria-labelledby="fleet-cards-h">
@@ -258,6 +270,8 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
           </section>
         )}
 
+        {!heavy && <TrustDetails locale={locale} />}
+
         <section className="section section--white" aria-labelledby="faq-h">
           <div className="wrap faq">
             <SectionHead id="faq-h" eyebrow={t("faqEyebrow")} title={t("faqTitle")} />
@@ -272,7 +286,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
           </div>
         </section>
 
-        {heavy ? <HeavyQuoteSection locale={locale} service={page.heavyService} topic={c.h1} prefill={pagePrefill(page.path, locale)} /> : <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} prefill={pagePrefill(page.path, locale)} />}
+        {heavy ? <HeavyQuoteSection locale={locale} service={page.heavyService} topic={c.h1} prefill={prefill} /> : <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} prefill={prefill} />}
         <p className="wrap svc-reviewed">{t("reviewed")}: <time dateTime={page.updated}>{page.updated}</time></p>
       </main>
       <Footer locale={locale} switchHref={href(page.path)} />

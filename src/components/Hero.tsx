@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { QuickStart } from "./QuickStart";
+import { QuickQuoteForm } from "./QuickQuoteForm";
 import { ContactRow } from "./ContactCta";
 
 export async function Hero({ locale }: { locale: string }) {
@@ -20,9 +20,8 @@ export async function Hero({ locale }: { locale: string }) {
             <Link href="/#services" className="btn btn--ghost btn--lg">{t("ctaServices")}</Link>
           </div>
           <ContactRow locale={locale} kinds={["whatsapp"]} className="hero__contact" />
-          <p className="hero__note">{t("note")}</p>
         </div>
-        <QuickStart />
+        <QuickQuoteForm locale={locale} />
       </div>
     </section>
   );

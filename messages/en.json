@@ -43,17 +43,7 @@
     "title": "Private Airport, Intercity & Chauffeur Transfers in Saudi Arabia",
     "subtitle": "Pre-book a private car with a driver, never a shared ride, for airport pickups, intercity journeys and chauffeur hire across Saudi Arabia. Ask for a sedan, GMC Yukon or Hyundai Staria, share your trip details and receive a tailored quotation.",
     "ctaQuote": "Request a Private Transfer Quote",
-    "ctaServices": "Explore Our Services",
-    "note": "Pre-booked only. An enquiry is not a confirmed reservation."
-  },
-  "quick": {
-    "title": "Begin your enquiry",
-    "service": "Service",
-    "pickup": "Pickup location",
-    "dropoff": "Drop-off location",
-    "date": "Date",
-    "continue": "Continue to quote request",
-    "hint": "Nothing is sent yet. You will review everything on the next step."
+    "ctaServices": "Explore Our Services"
   },
   "services": {
     "eyebrow": "Services",
@@ -165,8 +155,7 @@
         "title": "Travel as confirmed",
         "text": "Your journey follows the arrangement you have confirmed."
       }
-    },
-    "note": "Submitting the form is an enquiry, not a confirmed reservation."
+    }
   },
   "trust": {
     "eyebrow": "What you can expect",
@@ -252,7 +241,6 @@
   "form": {
     "eyebrow": "Quote request",
     "title": "Tell us about your journey",
-    "intro": "This is an enquiry. It is not a confirmed reservation. You will receive a quotation and confirmation before anything is arranged.",
     "journey": "Your journey",
     "you": "About you",
     "fields": {
@@ -355,9 +343,15 @@
     "soon": "To be published",
     "language": "Language",
     "copyright": "© {year} RideSaudi. All rights reserved.",
-    "riyadh": "Riyadh",
     "contactPage": "Contact page",
-    "legalNote": "RideSaudi arranges pre-booked private transport with transport partners."
+    "legalNote": "RideSaudi arranges pre-booked private transport with transport partners.",
+    "regions": "Regions",
+    "region": {
+      "hejaz": "Hejaz (West)",
+      "central": "Central (Najd)",
+      "eastern": "Eastern Province",
+      "northWest": "North-West"
+    }
   },
   "svc": {
     "home": "Home",
@@ -374,7 +368,6 @@
     "getQuote": "Request a Private Transfer Quote",
     "exclusive": "Private vehicle for your party only. RideSaudi does not sell shared seats or combine separate bookings in one car.",
     "whatsapp": "Book on WhatsApp",
-    "notice": "Pre-booked only. An enquiry is not a confirmed reservation.",
     "reviewed": "Last reviewed",
     "quoteTitle": "Request your quotation",
     "quoteText": "Share your journey details. You will receive a quotation before anything is arranged.",
@@ -574,5 +567,53 @@
         "consent": "Please accept so we can reply to your request."
       }
     }
+  },
+  "quickQuote": {
+    "title": "Quick quote in 3 fields",
+    "route": "Route",
+    "routePlaceholder": "e.g. Jeddah Airport to Makkah",
+    "date": "Travel date",
+    "phone": "Your WhatsApp number",
+    "submit": "Get my quote on WhatsApp",
+    "sending": "Sending…",
+    "reply": "We reply within 15 minutes on WhatsApp (8am–12am KSA).",
+    "privacy": "By sending, you agree to our <privacy>Privacy Policy</privacy>.",
+    "errors": {
+      "required": "Please fill in this field.",
+      "phone": "Enter a valid number with country code, e.g. +966 5x xxx xxxx.",
+      "date": "Choose today or a later date."
+    },
+    "successTitle": "Thanks, we have your route",
+    "reference": "Reference: {ref}",
+    "successText": "We will message you on WhatsApp to ask for the pickup time, passengers and luggage, then send your quotation.",
+    "addDetails": "Add the full trip details now",
+    "failed": "We could not send this online. Send the same details on WhatsApp instead:",
+    "rateLimited": "Too many attempts in a short time. Send your route on WhatsApp instead:",
+    "sendOnWhatsApp": "Send on WhatsApp",
+    "whatsappMessage": "Hello RideSaudi, I would like a quote. Route: {route}. Date: {date}."
+  },
+  "prices": {
+    "title": "Starting prices by vehicle",
+    "from": "Starting from SAR {amount}",
+    "vehicles": {
+      "sedan": "Sedan",
+      "gmc": "GMC Yukon",
+      "staria": "Hyundai Staria"
+    },
+    "note": "One-way starting price for this route. Your quotation gives the final price for your date, pickup point, waiting time and luggage.",
+    "updated": "Prices checked"
+  },
+  "trustBlock": {
+    "eyebrow": "Who you are dealing with",
+    "title": "Company details and how partners are checked",
+    "companyTitle": "Company details",
+    "legalName": "Registered name",
+    "cr": "Commercial Registration (CR)",
+    "vat": "VAT number",
+    "address": "Registered address",
+    "email": "Email",
+    "vettingTitle": "How transport partners are checked",
+    "reviewsTitle": "Customer reviews",
+    "reviewsLink": "Read reviews from customers"
   }
 }

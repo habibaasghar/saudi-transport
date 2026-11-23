@@ -8,6 +8,7 @@ import { ContactRow } from "./ContactCta";
 export async function QuoteSection({ locale, defaultService, topic, prefill }: { locale: Locale; defaultService?: string; topic?: string; prefill?: { pickup: string; dropoff: string } }) {
   const t = await getTranslations("cta");
   const f = await getTranslations("form");
+  const q = await getTranslations("quickQuote");
   const c = await getTranslations("contact");
   const ft = await getTranslations("footer");
   return (
@@ -17,7 +18,8 @@ export async function QuoteSection({ locale, defaultService, topic, prefill }: {
           <p className="eyebrow eyebrow--light">{f("eyebrow")}</p>
           <h2 id="quote-h">{t("title")}</h2>
           <p className="lede">{t("text")}</p>
-          <p className="quote__notice">{f("intro")}</p>
+          {/* Reply promise (owner-supplied 2026-11-23). The "not a confirmed booking" notice sits once, by the submit button. */}
+          <p className="quote__notice">{q("reply")}</p>
           <p className="quote__legal"><Link href="/terms-and-conditions">{ft("terms")}</Link> · <Link href="/privacy-policy">{ft("privacy")}</Link></p>
           <div className="quote__contact">
             <p className="quote__contact-title">{c("quoteAlt")}</p>

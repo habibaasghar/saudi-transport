@@ -344,7 +344,7 @@ export const batch6: ServicePage[] = [
         summary: "Private journeys in Tabuk and across the north-west.",
         sections: [
           { h: "A regional hub in a large region", p: ["Tabuk is the main city of the north-west and the base for visits to a large and sparsely populated region. Local city trips are short; regional trips are long. Be clear which you want."] },
-          { h: "Visitors and projects", p: ["Visitors come for the region's natural and historic sites, and business travellers for projects in the north-west. State where you need to go; whether a site can be served is confirmed in the quotation."] },
+          { h: "Visitors and projects", p: ["Visitors come for the region's natural and historic sites, and business travellers for projects in the north-west. State where you need to go; whether a site can be served is confirmed in the quotation.", "Many visitors pair Tabuk with AlUla, which lies to the south-east; once you are there, [AlUla private transportation](services/tourism-transport/alula) covers the airport, hotels and the spread-out heritage sites."] },
           { h: "Weather", p: ["The north-west can be cold in winter, with occasional snow in the nearby mountains, and hot in summer. Tell us your season and plans."] },
         ],
         checklist: { h: "Include this in your Tabuk enquiry", items: ["Pickup and destination or site", "Date and time", "City trip or regional trip", "Passengers and luggage", "Return plans"] },
@@ -365,7 +365,7 @@ export const batch6: ServicePage[] = [
         summary: "رحلات خاصة في تبوك وأنحاء الشمال الغربي.",
         sections: [
           { h: "مركز إقليمي في منطقة واسعة", p: ["تبوك المدينة الرئيسة في الشمال الغربي وقاعدة لزيارة منطقة واسعة قليلة السكان. والرحلات داخل المدينة قصيرة، أما الإقليمية فطويلة. كن واضحًا بشأن ما تريد."] },
-          { h: "الزوار والمشاريع", p: ["يأتي الزوار لمواقع المنطقة الطبيعية والتاريخية، ورجال الأعمال لمشاريع في الشمال الغربي. اذكر إلى أين تريد الذهاب؛ وتُؤكَّد في عرض السعر إمكانية خدمة الموقع."] },
+          { h: "الزوار والمشاريع", p: ["يأتي الزوار لمواقع المنطقة الطبيعية والتاريخية، ورجال الأعمال لمشاريع في الشمال الغربي. اذكر إلى أين تريد الذهاب؛ وتُؤكَّد في عرض السعر إمكانية خدمة الموقع.", "ويجمع كثير من الزوار بين تبوك والعلا الواقعة إلى الجنوب الشرقي منها؛ وعند الوصول، يغطي [النقل الخاص في العلا](services/tourism-transport/alula) المطار والفنادق ومواقع التراث المتباعدة."] },
           { h: "الطقس", p: ["قد يكون الشمال الغربي باردًا في الشتاء مع ثلوج متفرقة في الجبال القريبة، وحارًا في الصيف. أخبرنا بموسمك وخططك."] },
         ],
         checklist: { h: "ما الذي تضيفه إلى طلب تبوك", items: ["نقطتا الانطلاق والوصول أو الموقع", "التاريخ والوقت", "رحلة داخل المدينة أم إقليمية", "الركاب والحقائب", "خطط العودة"] },
@@ -556,7 +556,7 @@ export const batch6: ServicePage[] = [
         answer: "AlUla private transportation is a pre-booked car with a driver for moving between the airport, hotels and AlUla's sites, which are spread across desert and sandstone terrain. RideSaudi provides transport only. Entry to some sites is ticketed or controlled by official operators; coverage and availability are confirmed in the quotation.",
         summary: "A car and driver across AlUla's spread-out sites. Transport only.",
         sections: [
-          { h: "Distances between sites", p: ["AlUla's sights are not a single walkable area. The Old Town, rock formations such as Elephant Rock, cultural venues and the Hegra archaeological site are separated by desert roads. A driver makes the day feasible; group sites by area to avoid backtracking."] },
+          { h: "Distances between sites", p: ["AlUla's sights are not a single walkable area. The Old Town, rock formations such as Elephant Rock, cultural venues and the Hegra archaeological site are separated by desert roads. A driver makes the day feasible; group sites by area to avoid backtracking.", "Visitors arrive by air or by road, often from Madinah. If you are coming from the Prophet's city, the [Madinah to AlUla private transfer](services/intercity-transfers/madinah-to-alula) covers that drive door to door, and the same driver can be booked for your days in AlUla."] },
           { h: "Controlled access", p: ["Some sites, including Hegra, are visited through the official operator with ticketing or guided access. Check conditions and book there; RideSaudi does not sell tickets or provide guides. We provide the transport between them."] },
           { h: "Seasons and events", p: ["AlUla hosts events and festivals in cooler months, when accommodation and transport are in demand. Book early and see festival transportation. Desert days can be hot in summer and cold at night."] },
         ],
@@ -577,7 +577,7 @@ export const batch6: ServicePage[] = [
         answer: "النقل الخاص في العلا هو سيارة بسائق وبحجز مسبق للتنقل بين المطار والفنادق ومواقع العلا المنتشرة على تضاريس صحراوية وحجرية رملية. توفر RideSaudi النقل فقط. ويتم الدخول إلى بعض المواقع بتذاكر أو بتنظيم من الجهات الرسمية؛ وتُؤكَّد التغطية والإتاحة في عرض السعر.",
         summary: "سيارة وسائق عبر مواقع العلا المترامية. نقل فقط.",
         sections: [
-          { h: "المسافات بين المواقع", p: ["معالم العلا ليست منطقة واحدة يمكن السير فيها. فالبلدة القديمة والتشكيلات الصخرية مثل جبل الفيل والأماكن الثقافية وموقع الحِجر الأثري تفصل بينها طرق صحراوية. ويجعل السائق اليوم ممكنًا؛ رتّب المواقع بحسب المنطقة لتجنب الرجوع."] },
+          { h: "المسافات بين المواقع", p: ["معالم العلا ليست منطقة واحدة يمكن السير فيها. فالبلدة القديمة والتشكيلات الصخرية مثل جبل الفيل والأماكن الثقافية وموقع الحِجر الأثري تفصل بينها طرق صحراوية. ويجعل السائق اليوم ممكنًا؛ رتّب المواقع بحسب المنطقة لتجنب الرجوع.", "يصل الزوار جوًا أو برًا، وكثيرًا ما يأتون من المدينة المنورة. فإن كنت قادمًا منها، فإن [التوصيل الخاص من المدينة المنورة إلى العلا](services/intercity-transfers/madinah-to-alula) يغطي الطريق من الباب إلى الباب، ويمكن حجز السائق نفسه لأيامك في العلا."] },
           { h: "الدخول المنظم", p: ["تُزار بعض المواقع، ومنها الحِجر، عبر المشغل الرسمي بتذاكر أو بدخول مع مرشد. تحقق من الشروط واحجز هناك؛ فلا تبيع RideSaudi تذاكر ولا توفر مرشدين. نحن نوفر النقل بينها."] },
           { h: "المواسم والفعاليات", p: ["تستضيف العلا فعاليات ومهرجانات في الأشهر الأبرد، حين يزداد الطلب على الإقامة والنقل. احجز مبكرًا وراجع صفحة نقل المهرجانات. وقد تكون أيام الصحراء حارة في الصيف وباردة ليلًا."] },
         ],

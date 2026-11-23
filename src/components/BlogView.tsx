@@ -81,7 +81,6 @@ export async function BlogIndexView({ locale }: { locale: Locale }) {
             <h1 id="blog-h1">{l.indexH1}</h1>
             <p className="svc-hero__sub">{l.indexSub}</p>
             <ContactRow locale={locale} topic={l.indexH1} kinds={["whatsapp"]} className="hero__contact" />
-            <p className="hero__note">{t("notice")}</p>
           </div>
         </section>
         {blogHubs.map((h, i) => {

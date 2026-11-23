@@ -15,6 +15,7 @@ import { HeavyHome } from "@/components/HeavyHome";
 import { Fleet } from "@/components/Fleet";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Trust } from "@/components/Trust";
+import { TrustDetails } from "@/components/TrustDetails";
 import { Faq } from "@/components/Faq";
 import { QuoteSection } from "@/components/QuoteSection";
 import { Footer } from "@/components/Footer";
@@ -107,6 +108,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <Fleet locale={locale} />
         <HowItWorks />
         <Trust />
+        <TrustDetails locale={locale as Locale} />
         <Faq />
         <QuoteSection locale={locale} />
         <SocialSection />

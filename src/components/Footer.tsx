@@ -25,19 +25,14 @@ const footerServices = [
   "fleet",
 ];
 
-const footerRiyadh = [
-  "services/city-transport/riyadh",
-  "services/airport-transfers/riyadh-airport",
-  "services/tourism-transport/riyadh-sightseeing",
-  "services/event-transportation/riyadh",
-  "services/intercity-transfers/riyadh-to-dammam",
-  "services/intercity-transfers/riyadh-to-jeddah",
-  "services/intercity-transfers/riyadh-to-makkah",
-  "services/intercity-transfers/riyadh-to-madinah",
-  "services/intercity-transfers/riyadh-to-doha",
-  "services/intercity-transfers/riyadh-to-dubai",
-  "services/recovery-heavy-transport/satha-car-recovery/riyadh",
-  "services/recovery-heavy-transport/heavy-equipment-transport/riyadh",
+/** Sitewide region hubs: each region lists its city hubs and main airport, so every region gets a crawl path. */
+const C = "services/city-transport";
+const A = "services/airport-transfers";
+const footerRegions = [
+  { key: "hejaz", paths: [`${C}/jeddah`, `${C}/makkah`, `${C}/madinah`, "services/tourism-transport/taif", `${C}/yanbu`, `${A}/jeddah-airport`] },
+  { key: "central", paths: [`${C}/riyadh`, `${C}/buraidah`, `${A}/riyadh-airport`, `${A}/qassim-airport`] },
+  { key: "eastern", paths: [`${C}/dammam`, `${C}/al-khobar`, `${C}/jubail`, `${C}/al-ahsa`, `${A}/dammam-airport`] },
+  { key: "northWest", paths: [`${C}/tabuk`, "services/tourism-transport/alula", `${C}/hail`, `${A}/alula-airport`] },
 ] as const;
 
 export async function Footer({ locale, switchHref = "/" }: { locale: Locale; switchHref?: string }) {
@@ -80,13 +75,18 @@ export async function Footer({ locale, switchHref = "/" }: { locale: Locale; swi
               ))}
             </ul>
           </div>
-          <div>
-            <h2>{t("riyadh")}</h2>
-            <ul>
-              {footerRiyadh.map((p) => (
-                <li key={p}><Link href={`/${p}`}>{getPage(p)!.copy[locale].nav}</Link></li>
-              ))}
-            </ul>
+          <div className="footer__regions">
+            <h2>{t("regions")}</h2>
+            {footerRegions.map((r) => (
+              <div key={r.key}>
+                <h3>{t(`region.${r.key}`)}</h3>
+                <ul>
+                  {r.paths.map((p) => (
+                    <li key={p}><Link href={`/${p}`}>{getPage(p)!.copy[locale].nav}</Link></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
           <div>
             <h2>{t("legal")}</h2>

@@ -22,7 +22,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   setRequestLocale(locale);
   const all = await getMessages();
   // Only ship the namespaces Client Components actually use.
-  const clientMessages = { form: all.form, quick: all.quick, nav: all.nav, a11y: all.a11y };
+  const clientMessages = { form: all.form, quickQuote: all.quickQuote, nav: all.nav, a11y: all.a11y };
   const isRtl = rtlLocales.includes(locale);
   const c = await getTranslations({ locale, namespace: "contact" });
   const s = await getTranslations({ locale, namespace: "sticky" });
