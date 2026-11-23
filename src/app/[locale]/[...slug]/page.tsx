@@ -5,7 +5,8 @@ import { ServicePageView } from "@/components/ServicePageView";
 import { getPage, pages, validateRegistry } from "@/content/registry";
 import { routing, type Locale } from "@/i18n/routing";
 import { getImage } from "@/content/images";
-import { pageUrl, SITE_URL } from "@/lib/site";
+import { pageUrl } from "@/lib/site";
+import { ogImage } from "@/lib/og";
 
 validateRegistry();
 
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const c = page.copy[locale];
   const url = pageUrl(locale, page.path);
   const img = getImage(page.path);
-  const ogImages = img ? [{ url: `${SITE_URL}${img.src}`, width: img.width, height: img.height, alt: img.alt[locale] }] : undefined;
+  const og = ogImage(img, locale);
   return {
     title: { absolute: `${c.title} | RideSaudi` },
     description: c.description,
@@ -44,9 +45,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       description: c.description,
       locale: locale === "ar" ? "ar_SA" : "en_US",
       alternateLocale: locale === "ar" ? ["en_US"] : ["ar_SA"],
-      ...(ogImages ? { images: ogImages } : {}),
+      images: [og],
     },
-    twitter: { card: img ? "summary_large_image" : "summary", title: c.title, description: c.description, ...(ogImages ? { images: [ogImages[0].url] } : {}) },
+    twitter: { card: "summary_large_image", title: c.title, description: c.description, images: [og.url] },
     robots: { index: true, follow: true },
   };
 }

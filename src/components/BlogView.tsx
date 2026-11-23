@@ -40,13 +40,21 @@ function HeroImage({ img, locale }: { img: PageImage; locale: Locale }) {
   );
 }
 
+function HeroCaption({ img, locale }: { img?: PageImage; locale: Locale }) {
+  return img?.caption ? <p className="svc-hero__caption">{img.caption[locale]}</p> : null;
+}
+
 function GuideCards({ posts, locale, start = 0 }: { posts: BlogPost[]; locale: Locale; start?: number }) {
   const l = L[locale];
   return (
     <ul className="cards">
       {posts.map((p, i) => (
         <li key={p.slug} className="card">
-          <span className="card__num" aria-hidden="true">{String(start + i + 1).padStart(2, "0")}</span>
+          {p.hero ? (
+            <Image className="card__img" src={p.hero.src} alt="" width={p.hero.width} height={p.hero.height} sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" loading="lazy" style={{ objectPosition: p.hero.focus ?? "50% 50%" }} />
+          ) : (
+            <span className="card__num" aria-hidden="true">{String(start + i + 1).padStart(2, "0")}</span>
+          )}
           <h3>{p.copy[locale].nav}</h3>
           <p>{p.copy[locale].summary}</p>
           <Link className="card__link" href={`/blog/${p.slug}`}>
@@ -212,6 +220,7 @@ export async function BlogPostView({ post, locale }: { post: BlogPost; locale: L
       <main id="main" className={`svc svc--${heavy ? "industrial" : "default"}`}>
         <section className={`svc-hero${post.hero ? " svc-hero--img" : ""}`} aria-labelledby="post-h1">
           {post.hero && <HeroImage img={post.hero} locale={locale} />}
+          <HeroCaption img={post.hero} locale={locale} />
           <div className="wrap">
             <nav aria-label={l.crumb} className="crumbs">
               <ol>

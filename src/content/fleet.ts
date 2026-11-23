@@ -39,6 +39,9 @@ export const fleetCategories: FleetCategory[] = [
     name: { en: "Sedan", ar: "سيدان" },
     category: { en: "Private sedan with driver", ar: "سيدان خاصة مع سائق" },
     capacity: null,
+    // Visual audit 2026-11-23: the generic sedan card was the only fleet card without a picture. Sonata is one of the
+    // owner-confirmed sedans; the alt text says it is an example of the category.
+    photo: { src: "/images/fleet/gallery/hyundai-sonata-exterior-dusk.webp", width: 678, height: 452, alt: { en: "Silver Hyundai Sonata at dusk, an example of a private sedan", ar: "هيونداي سوناتا فضية عند الغسق، مثال على السيدان الخاصة" } },
     suitableFor: {
       en: ["Individuals, couples and business travellers", "Airport transfers with light luggage", "City-to-city journeys"],
       ar: ["الأفراد والأزواج ورجال الأعمال", "التوصيل من المطار وإليه بحقائب خفيفة", "الرحلات بين المدن"],

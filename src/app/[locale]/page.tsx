@@ -24,6 +24,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { routing, type Locale } from "@/i18n/routing";
 import { localeUrl, SITE_URL } from "@/lib/site";
 import { organizationSchema } from "@/lib/schema";
+import { ogImage } from "@/lib/og";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = (await params) as { locale: Locale };
@@ -46,9 +47,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: t("ogDescription"),
       locale: locale === "ar" ? "ar_SA" : "en_US",
       alternateLocale: locale === "ar" ? ["en_US"] : ["ar_SA"],
-      images: [{ url: `${SITE_URL}${images.riyadh.src}`, width: images.riyadh.width, height: images.riyadh.height, alt: images.riyadh.alt[locale] }],
+      images: [ogImage(images.riyadh, locale as Locale)],
     },
-    twitter: { card: "summary_large_image", title: t("ogTitle"), description: t("ogDescription"), images: [`${SITE_URL}${images.riyadh.src}`] },
+    twitter: { card: "summary_large_image", title: t("ogTitle"), description: t("ogDescription"), images: [ogImage(images.riyadh, locale as Locale).url] },
     robots: { index: true, follow: true },
   };
 }

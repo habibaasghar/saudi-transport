@@ -4,6 +4,7 @@ import { blogHubs } from "@/content/blog/hubs";
 import { legalPages } from "@/content/legal";
 import { routing, type Locale } from "@/i18n/routing";
 import { localeUrl, pageUrl, SITE_URL } from "@/lib/site";
+import { getImage, images } from "@/content/images";
 
 /**
  * Single source for every canonical, indexable URL (both languages, with hreflang alternates).
@@ -14,7 +15,8 @@ import { localeUrl, pageUrl, SITE_URL } from "@/lib/site";
 export const SITEMAP_GROUPS = ["pages", "routes", "airports", "cities", "luxury", "heavy", "guides"] as const;
 export type SitemapGroup = (typeof SITEMAP_GROUPS)[number];
 
-export type SitemapEntry = { group: SitemapGroup; locale: Locale; url: string; lastmod: string; alternates: [string, string][] };
+/** `image` is the absolute URL of the page's main (hero) photo, emitted as <image:image> for Google Images. */
+export type SitemapEntry = { group: SitemapGroup; locale: Locale; url: string; lastmod: string; alternates: [string, string][]; image?: string };
 
 const latest = (dates: string[]) => dates.reduce((a, b) => (b > a ? b : a), "");
 
@@ -35,16 +37,16 @@ function alternates(urlFor: (l: Locale) => string): [string, string][] {
 
 export function sitemapEntries(): SitemapEntry[] {
   const blogUpdated = latest(blogPosts.map((b) => b.updated));
-  const items: { path: string; updated: string; urlFor: (l: Locale) => string }[] = [
-    { path: "", updated: latest([...pages.map((p) => p.updated), blogUpdated]), urlFor: (l) => localeUrl(l) },
-    ...pages.map((p) => ({ path: p.path, updated: p.updated, urlFor: (l: Locale) => pageUrl(l, p.path) })),
+  const items: { path: string; updated: string; urlFor: (l: Locale) => string; image?: string }[] = [
+    { path: "", updated: latest([...pages.map((p) => p.updated), blogUpdated]), urlFor: (l) => localeUrl(l), image: images.riyadh.src },
+    ...pages.map((p) => ({ path: p.path, updated: p.updated, urlFor: (l: Locale) => pageUrl(l, p.path), image: getImage(p.path)?.src })),
     { path: "blog", updated: blogUpdated, urlFor: (l: Locale) => pageUrl(l, "blog") },
-    ...blogHubs.map((h) => ({ path: `blog/${h.slug}`, updated: latest([h.updated, ...blogPosts.filter((b) => b.cluster === h.slug).map((b) => b.updated)]), urlFor: (l: Locale) => pageUrl(l, `blog/${h.slug}`) })),
-    ...blogPosts.map((b) => ({ path: `blog/${b.slug}`, updated: b.updated, urlFor: (l: Locale) => pageUrl(l, `blog/${b.slug}`) })),
+    ...blogHubs.map((h) => ({ path: `blog/${h.slug}`, updated: latest([h.updated, ...blogPosts.filter((b) => b.cluster === h.slug).map((b) => b.updated)]), urlFor: (l: Locale) => pageUrl(l, `blog/${h.slug}`), image: h.hero?.src })),
+    ...blogPosts.map((b) => ({ path: `blog/${b.slug}`, updated: b.updated, urlFor: (l: Locale) => pageUrl(l, `blog/${b.slug}`), image: b.hero?.src })),
     ...legalPages.map((p) => ({ path: p.slug, updated: p.updated, urlFor: (l: Locale) => pageUrl(l, p.slug) })),
   ];
   return items.flatMap((it) =>
-    routing.locales.map((l) => ({ group: groupOf(it.path), locale: l, url: it.urlFor(l), lastmod: it.updated, alternates: alternates(it.urlFor) })),
+    routing.locales.map((l) => ({ group: groupOf(it.path), locale: l, url: it.urlFor(l), lastmod: it.updated, alternates: alternates(it.urlFor), ...(it.image ? { image: `${SITE_URL}${it.image}` } : {}) })),
   );
 }
 
@@ -55,9 +57,9 @@ const xmlEsc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").rep
 
 export function urlsetXml(entries: SitemapEntry[]): string {
   const body = entries.map((e) =>
-    `<url>\n<loc>${xmlEsc(e.url)}</loc>\n${e.alternates.map(([h, u]) => `<xhtml:link rel="alternate" hreflang="${h}" href="${xmlEsc(u)}" />`).join("\n")}\n<lastmod>${e.lastmod}</lastmod>\n</url>`,
+    `<url>\n<loc>${xmlEsc(e.url)}</loc>\n${e.alternates.map(([h, u]) => `<xhtml:link rel="alternate" hreflang="${h}" href="${xmlEsc(u)}" />`).join("\n")}\n<lastmod>${e.lastmod}</lastmod>${e.image ? `\n<image:image><image:loc>${xmlEsc(e.image)}</image:loc></image:image>` : ""}\n</url>`,
   ).join("\n");
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${body}\n</urlset>\n`;
 }
 
 export function sitemapIndexXml(): string {
