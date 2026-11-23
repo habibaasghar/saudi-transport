@@ -40,8 +40,9 @@ import { applyHeavyCityDistances } from "./heavy/city-distances";
 import { consolidated, consolidationLinks, mergedSections } from "./consolidated";
 import { linkTargets } from "./inline-links";
 import { madinahToRiyadh, applyMakkahMadinahGrowth } from "./makkah-madinah";
+import { jeddahToAlBaha, alBahaToJeddah, applyJeddahCluster } from "./jeddah-cluster";
 
-export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB, ...priorityRoutesC, ...priorityRoutesD, ...batch17JeddahRoutes, ...batch18Locations, ...heavyHubAndCars, ...heavyTrailers, ...heavyMachines, ...heavyCities, madinahToRiyadh];
+export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB, ...priorityRoutesC, ...priorityRoutesD, ...batch17JeddahRoutes, ...batch18Locations, ...heavyHubAndCars, ...heavyTrailers, ...heavyMachines, ...heavyCities, madinahToRiyadh, jeddahToAlBaha, alBahaToJeddah];
 
 // Verified-fact upgrades for pages that stay in their original files (must run before FAQ scoping).
 applyRoutePatches(pages);
@@ -52,6 +53,7 @@ applyRouteEnrichments(pages);
 applyBatch4Enrichments(pages);
 applyBatch5Enrichments(pages);
 applyMakkahMadinahGrowth(pages);
+applyJeddahCluster(pages);
 applyHeavyCityDistances(pages);
 
 // Cross-link the Jeddah route cluster and new locations from existing hub, airport and neighbouring route pages.
