@@ -12,7 +12,7 @@ export const batch6: ServicePage[] = [
     variant: "default",
     service: "chauffeur",
     related: ["services/airport-transfers", "services/chauffeur-services", T, "services/intercity-transfers"],
-    updated: U,
+    updated: "2026-11-23",
     copy: {
       en: {
         nav: "City Transport",
@@ -37,9 +37,9 @@ export const batch6: ServicePage[] = [
       },
       ar: {
         nav: "النقل داخل المدن",
-        title: "نقل خاص داخل المدن في أنحاء السعودية",
+        title: "توصيل خاص داخل المدن في أنحاء السعودية",
         description: "سيارات خاصة بسائق وبحجز مسبق داخل المدن السعودية: الرياض وجدة ومكة والمدينة والدمام والخبر وتبوك وأبها. اطلب عرض سعر.",
-        h1: "نقل خاص داخل المدن الرئيسة في المملكة",
+        h1: "توصيل خاص داخل المدن الرئيسة في المملكة",
         eyebrow: "النقل داخل المدن",
         answer: "النقل داخل المدن هو سيارة خاصة بسائق وبحجز مسبق للرحلات داخل مدينة سعودية: إلى الاجتماعات والفنادق والمواعيد والمطاعم والفعاليات. تُرتِّبه RideSaudi عند الطلب في أنحاء المملكة. وتشرح كل صفحة مدينة كيف تسير الرحلات محليًا؛ وتُؤكَّد التغطية والإتاحة في عرض السعر.",
         summary: "سيارة خاصة بسائق للرحلات داخل المدن السعودية.",
@@ -119,7 +119,7 @@ export const batch6: ServicePage[] = [
     variant: "umrah",
     service: "umrah",
     related: ["services/umrah-transport", "services/umrah-transport/makkah-ziyarat", "services/intercity-transfers/jeddah-to-makkah", C],
-    updated: U,
+    updated: "2026-11-23",
     copy: {
       en: {
         nav: "Makkah City Transport",
@@ -144,9 +144,9 @@ export const batch6: ServicePage[] = [
       },
       ar: {
         nav: "النقل داخل مكة المكرمة",
-        title: "نقل خاص داخل مكة المكرمة للمعتمرين والزوار",
+        title: "توصيل خاص داخل مكة المكرمة للمعتمرين والزوار",
         description: "احجز مسبقًا سيارة خاصة بسائق داخل مكة المكرمة للمعتمرين: الفنادق والزيارات والتوصيل مع التخطيط حول الوصول قرب الحرم. استلم عرض سعر.",
-        h1: "نقل خاص داخل مكة المكرمة، مخطط حول الحرم",
+        h1: "توصيل خاص داخل مكة المكرمة، مخطط حول الحرم",
         eyebrow: "النقل داخل المدن · مكة المكرمة",
         answer: "النقل الخاص في مكة المكرمة هو سيارة بسائق وبحجز مسبق لرحلات المعتمرين داخل المدينة وحولها: التنقل من الفنادق وزيارة المعالم والسفر اللاحق. ويقيَّد الوصول قرب الحرم في أوقات الازدحام، لذا يهم التخطيط. تُرتِّبه RideSaudi للزوار المسلمين عند الطلب؛ وتُؤكَّد الإتاحة في عرض السعر.",
         summary: "رحلات بحجز مسبق للمعتمرين في مكة المكرمة وحولها.",
@@ -173,7 +173,7 @@ export const batch6: ServicePage[] = [
     variant: "umrah",
     service: "umrah",
     related: ["services/airport-transfers/madinah-airport", "services/umrah-transport/madinah-ziyarat", "services/intercity-transfers/jeddah-to-madinah", C],
-    updated: U,
+    updated: "2026-11-23",
     copy: {
       en: {
         nav: "Madinah City Transport",
@@ -198,9 +198,9 @@ export const batch6: ServicePage[] = [
       },
       ar: {
         nav: "النقل داخل المدينة المنورة",
-        title: "نقل خاص داخل المدينة المنورة للزوار والمعتمرين",
+        title: "توصيل خاص داخل المدينة المنورة للزوار والمعتمرين",
         description: "احجز مسبقًا سيارة خاصة بسائق في المدينة المنورة: الفنادق قرب المسجد النبوي وقباء وأحد والسفر اللاحق. استلم عرض سعر من RideSaudi.",
-        h1: "نقل خاص داخل المدينة المنورة حول المسجد النبوي",
+        h1: "توصيل خاص داخل المدينة المنورة حول المسجد النبوي",
         eyebrow: "النقل داخل المدن · المدينة المنورة",
         answer: "النقل الخاص في المدينة المنورة هو سيارة بسائق وبحجز مسبق لرحلات الزوار داخل المدينة: الفنادق المحيطة بالمسجد النبوي والمطار والمعالم القريبة والسفر اللاحق. وقد يكون وصول السيارات قرب المنطقة المركزية مقيدًا. تُرتِّبه RideSaudi عند الطلب؛ وتُؤكَّد الإتاحة في عرض السعر.",
         summary: "رحلات بحجز مسبق للزوار في المدينة المنورة وحولها.",
@@ -545,7 +545,7 @@ export const batch6: ServicePage[] = [
     variant: "default",
     service: "chauffeur",
     related: [T, "services/event-transportation/festival-transport", `${T}/multi-stop-transport`, "services/chauffeur-services/multi-day-chauffeur", "services/intercity-transfers/riyadh-to-alula", "services/intercity-transfers/alula-to-riyadh", "services/intercity-transfers/alula-to-dammam"],
-    updated: U,
+    updated: "2026-11-23",
     copy: {
       en: {
         nav: "AlUla Private Transportation",
@@ -570,9 +570,9 @@ export const batch6: ServicePage[] = [
       },
       ar: {
         nav: "النقل الخاص في العلا",
-        title: "نقل خاص بسائق في العلا",
+        title: "توصيل خاص بسائق في العلا",
         description: "سيارات خاصة بسائق في العلا: المطار والفنادق والحِجر والبلدة القديمة والمواقع الصحراوية. نقل فقط؛ وتُحجز التذاكر عبر الجهات الرسمية.",
-        h1: "نقل خاص في العلا، وجهة صحراوية مترامية",
+        h1: "توصيل خاص في العلا، وجهة صحراوية مترامية",
         eyebrow: "النقل السياحي · العلا",
         answer: "النقل الخاص في العلا هو سيارة بسائق وبحجز مسبق للتنقل بين المطار والفنادق ومواقع العلا المنتشرة على تضاريس صحراوية وحجرية رملية. توفر RideSaudi النقل فقط. ويتم الدخول إلى بعض المواقع بتذاكر أو بتنظيم من الجهات الرسمية؛ وتُؤكَّد التغطية والإتاحة في عرض السعر.",
         summary: "سيارة وسائق عبر مواقع العلا المترامية. نقل فقط.",
@@ -651,7 +651,7 @@ export const batch6: ServicePage[] = [
     variant: "default",
     service: "chauffeur",
     related: [T, `${T}/taif`, `${T}/multi-stop-transport`, "services/chauffeur-services"],
-    updated: U,
+    updated: "2026-11-23",
     copy: {
       en: {
         nav: "Private Day Trip Transportation",
@@ -676,9 +676,9 @@ export const batch6: ServicePage[] = [
       },
       ar: {
         nav: "نقل الرحلات اليومية الخاصة",
-        title: "نقل خاص للرحلات اليومية في السعودية",
+        title: "توصيل خاص للرحلات اليومية في السعودية",
         description: "خطط لرحلة يومية خاصة من مدينة سعودية: سيارة بسائق لنزهة ذهابًا وإيابًا إلى مواقع قريبة. صف الرحلة لتصلك عرض سعر.",
-        h1: "نقل خاص للرحلات اليومية: انطلاق صباحًا وعودة قبل الليل",
+        h1: "توصيل خاص للرحلات اليومية: انطلاق صباحًا وعودة قبل الليل",
         eyebrow: "النقل السياحي · الرحلات اليومية",
         answer: "النقل الخاص للرحلات اليومية هو سيارة بسائق وبحجز مسبق لنزهة من مدينة الإقامة إلى وجهة والعودة في اليوم نفسه. توفر RideSaudi النقل فقط. وتُؤكَّد في عرض السعر الوجهات التي يمكن خدمتها وشروط اليوم.",
         summary: "نزهة ذهابًا وإيابًا من مدينتك في يوم واحد.",
@@ -704,7 +704,7 @@ export const batch6: ServicePage[] = [
     variant: "default",
     service: "chauffeur",
     related: [T, `${T}/day-trip-transport`, "services/chauffeur-services", "services/intercity-transfers/private-intercity-chauffeur"],
-    updated: U,
+    updated: "2026-11-23",
     copy: {
       en: {
         nav: "Multi-Stop Private Transportation",
@@ -728,10 +728,10 @@ export const batch6: ServicePage[] = [
         ],
       },
       ar: {
-        nav: "نقل خاص متعدد المحطات",
-        title: "نقل خاص متعدد المحطات في السعودية",
+        nav: "توصيل خاص متعدد المحطات",
+        title: "توصيل خاص متعدد المحطات في السعودية",
         description: "سيارة خاصة بسائق لرحلة بعدة محطات مخططة، داخل مدينة أو بين المدن. رتّب المحطات وقدّر الانتظار واطلب عرض سعر.",
-        h1: "نقل خاص متعدد المحطات: رحلة واحدة وعدة وجهات",
+        h1: "توصيل خاص متعدد المحطات: رحلة واحدة وعدة وجهات",
         eyebrow: "النقل السياحي · متعدد المحطات",
         answer: "النقل الخاص متعدد المحطات هو سيارة بسائق وبحجز مسبق لرحلة واحدة بعدة محطات مخططة، مثل مسار عبر عدة أماكن أو جولة مشاوير. تُرتِّبه RideSaudi عند الطلب. وتُتفق المحطات والانتظار والشروط في عرض السعر.",
         summary: "رحلة واحدة بعدة محطات مخططة بترتيب متفق عليه.",

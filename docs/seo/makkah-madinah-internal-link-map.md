@@ -88,3 +88,15 @@ Anchor rules applied:
 | Madinah → Makkah page → both hubs, reverse, airport, vehicles | Already linked (Madinah hub, Makkah hub, reverse, MED, fleet) |
 | Breadcrumbs | Existing on every page |
 | No orphans | `validateRegistry()` orphan check plus the indexability audit `fewInlinks` bucket = 0 across 354 URLs |
+
+## Pass 2 additions (2026-11-23)
+
+| Source | Destination | Anchor | Placement |
+|---|---|---|---|
+| /blog/umrah-private-transport-plan-jeddah-makkah-madinah/ | /services/city-transport/makkah/ | page nav label (Makkah hub) | Guide "related services" list |
+| same | /services/city-transport/madinah/ | Madinah hub nav label | same |
+| same | /services/intercity-transfers/madinah-to-makkah/ | route nav label | same |
+| same | /services/intercity-transfers/makkah-to-jeddah/ | route nav label | same |
+| same | /services/airport-transfers/madinah-airport/ | MED nav label | same |
+| The five pages above | /blog/umrah-private-transport-plan-jeddah-makkah-madinah/ | guide nav label | Service page "Guides" block (automatic back-link) |
+| /blog/makkah-to-madinah-train-bus-or-private-car/ ↔ /services/city-transport/makkah/ | both directions | nav labels | Guide related list / hub "Guides" block |

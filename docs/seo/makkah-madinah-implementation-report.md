@@ -57,3 +57,40 @@ This pass improves the pages that serve the highest-intent Makkah and Madinah se
 - GSC impressions and positions for the mapped keywords;
 - quote submissions per page (CRM `inquiries` table plus GA4 events once configured);
 - confirmed rides recorded in the CRM.
+
+---
+
+## Pass 2 — 2026-11-23 (later the same day)
+
+The owner pasted the same master brief again after pass 1 went live (a394199). Pass 1 had already covered every phase. There are no new GSC exports (the newest are from 2026-11-18), so the keyword map, competitor gap and roadmap stand. Re-ranking them needs fresh data, not a rewrite. Pass 2 fixes only what changed or stayed open since pass 1.
+
+### What changed
+
+| Area | Change | Files |
+|---|---|---|
+| Guide ↔ hub links | The Umrah transport-plan guide (added after pass 1) now links to the Makkah hub, the Madinah hub, Madinah → Makkah, Makkah → Jeddah and the Madinah airport page. Because each service page lists the guides that cite it, the guide now also appears on all five pages. | `src/content/blog/transfer-guides-a.ts` |
+| Guide ↔ hub links | The "Makkah to Madinah: train, bus or private car" guide now cites the Makkah hub, so it appears there too (before, it appeared only on the Madinah hub). | `src/content/blog/makkah-madinah-options.ts` |
+| Arabic wording | 48 uses of "نقل خاص" (also a licence-plate / commercial-vehicle term; Phase 1 research) changed to "توصيل خاص" in Arabic titles, H1s, nav labels, meta descriptions, answers and summaries on 25 pages. Among them: Makkah and Madinah ziyarat, family and group Umrah, the city-transport hub, AlUla, family transport, events, hotel, business and senior travel. The feminine "خاصة" and "تنقل خاص" were left alone. | `batch2.ts`, `batch4-luxury-chauffeur.ts`, `batch5-events-groups-special.ts`, `batch6-cities-tourism.ts`, `event-luxury-chauffeur.ts`, `umrah-intercity.ts` |
+| Sitemap lastmod | `updated` set to 2026-11-23 on the 25 pages whose Arabic copy changed | same files |
+
+### Checked and found already complete (no change)
+
+- **Quote form:** it already collects every field the brief lists: pickup, drop-off, date, time, passengers, luggage, vehicle (with "other"), one-way or return, return date and time, and contact details. It also sends GA4 events (`quote_form_submit`, `quote_form_success`, `generate_lead`), and WhatsApp/phone tracking is unchanged. Events record only once a GA4 ID is set in Vercel.
+- **Hubs, route pages, schema, hreflang:** unchanged since pass 1 and re-verified by the audit.
+
+### Verification
+
+- `tsc` and ESLint pass. `next build` passes.
+- `vitest`: 46/56 pass. The 10 failures are the database tests that need `DATABASE_URL`, which is not set in the worktree.
+- Indexability audit on the local production build: **398 URLs, every bucket 0**.
+- Rendered checks:
+  - The Umrah plan guide is listed on `/en/` and `/ar/` `city-transport/makkah`, `city-transport/madinah`, `madinah-to-makkah`, `makkah-to-jeddah` and `airport-transfers/madinah-airport`.
+  - The Arabic titles and H1s of family transport, AlUla, Makkah ziyarat, city transport and the Umrah hub render with "توصيل خاص".
+
+### Still waiting on the owner (unchanged from §4)
+
+- GMC Yukon and sedan seats and luggage, and real photos.
+- Station meeting practice.
+- Prices and the "ليموزين" decision.
+- GA4 ID.
+- A GSC export about 4 weeks after deploy, used to re-rank the roadmap.

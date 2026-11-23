@@ -10,7 +10,7 @@ export const batch2Pages: ServicePage[] = [
     variant: "event",
     service: "corporate",
     related: ["services/event-transportation/conference-transport", "luxury-transportation", "services/chauffeur-services", "services/airport-transfers"],
-    updated: UPDATED,
+    updated: "2026-11-23",
     copy: {
       en: {
         nav: "Corporate Event Transportation",
@@ -55,10 +55,10 @@ export const batch2Pages: ServicePage[] = [
       ar: {
         nav: "نقل فعاليات الشركات",
         title: "نقل فعاليات الشركات في السعودية",
-        description: "نقل خاص بحجز مسبق لفعاليات الشركات والفرق والتنفيذيين في السعودية. شاركنا جدولكم واطلبوا عرض سعر للشركات.",
+        description: "توصيل خاص بحجز مسبق لفعاليات الشركات والفرق والتنفيذيين في السعودية. شاركنا جدولكم واطلبوا عرض سعر للشركات.",
         h1: "نقل فعاليات الشركات للفرق والتنفيذيين والضيوف",
         eyebrow: "نقل الفعاليات · الشركات",
-        answer: "نقل فعاليات الشركات هو نقل خاص بحجز مسبق للفعاليات المؤسسية مثل الرحلات التنظيمية وإطلاق المنتجات وعشاءات العملاء واجتماعات مجالس الإدارة، ينقل التنفيذيين والموظفين والضيوف وفق جدول ثابت. تُسعِّر RideSaudi كل فعالية على حدة. أرسلوا التاريخ والمكان وعدد الحضور والتوقيتات، وتُؤكَّد السيارات والسعة في عرض السعر.",
+        answer: "نقل فعاليات الشركات هو توصيل خاص بحجز مسبق للفعاليات المؤسسية مثل الرحلات التنظيمية وإطلاق المنتجات وعشاءات العملاء واجتماعات مجالس الإدارة، ينقل التنفيذيين والموظفين والضيوف وفق جدول ثابت. تُسعِّر RideSaudi كل فعالية على حدة. أرسلوا التاريخ والمكان وعدد الحضور والتوقيتات، وتُؤكَّد السيارات والسعة في عرض السعر.",
         summary: "نقل بحجز مسبق لفعاليات الشركات والتنفيذيين وضيوف العملاء.",
         sections: [
           {
@@ -262,7 +262,7 @@ export const batch2Pages: ServicePage[] = [
     variant: "umrah",
     service: "umrah",
     related: ["services/umrah-transport", "services/umrah-transport/madinah-ziyarat", "services/umrah-transport/jeddah-airport-to-makkah", "services/chauffeur-services"],
-    updated: UPDATED,
+    updated: "2026-11-23",
     copy: {
       en: {
         nav: "Makkah Ziyarat Transport",
@@ -306,7 +306,7 @@ export const batch2Pages: ServicePage[] = [
         nav: "نقل زيارات مكة المكرمة",
         title: "نقل زيارات مكة المكرمة بسيارة خاصة مع سائق",
         description: "رتّب نقلًا خاصًا لزيارة المعالم التاريخية والدينية حول مكة المكرمة. نقل فقط دون جولات إرشادية. اطلب عرض سعر.",
-        h1: "نقل خاص لزيارات مكة المكرمة",
+        h1: "توصيل خاص لزيارات مكة المكرمة",
         eyebrow: "نقل المعتمرين · زيارات مكة",
         answer: "نقل زيارات مكة المكرمة هو سيارة خاصة بسائق وبحجز مسبق لزيارة المعالم التاريخية والدينية حول مكة، عادة خلال ساعات قليلة. توفر RideSaudi النقل فقط، ولا توفر مرشدين دينيين أو جولات إرشادية. أرسل المواقع والوقت، وتُؤكَّد الإتاحة في عرض السعر.",
         summary: "سيارة خاصة وسائق لزيارة المعالم حول مكة المكرمة. نقل فقط دون جولات إرشادية.",
@@ -349,7 +349,7 @@ export const batch2Pages: ServicePage[] = [
     variant: "umrah",
     service: "umrah",
     related: ["services/umrah-transport", "services/umrah-transport/makkah-ziyarat", "services/airport-transfers/madinah-airport", "services/chauffeur-services"],
-    updated: UPDATED,
+    updated: "2026-11-23",
     copy: {
       en: {
         nav: "Madinah Ziyarat Transport",
@@ -393,7 +393,7 @@ export const batch2Pages: ServicePage[] = [
         nav: "نقل زيارات المدينة المنورة",
         title: "نقل زيارات المدينة المنورة بسيارة خاصة مع سائق",
         description: "رتّب نقلًا خاصًا لزيارة المعالم التاريخية والدينية حول المدينة المنورة مثل قباء وأحد. نقل فقط. اطلب عرض سعر.",
-        h1: "نقل خاص لزيارات المدينة المنورة",
+        h1: "توصيل خاص لزيارات المدينة المنورة",
         eyebrow: "نقل المعتمرين · زيارات المدينة",
         answer: "نقل زيارات المدينة المنورة هو سيارة خاصة بسائق وبحجز مسبق لزيارة المعالم التاريخية والدينية في المدينة وحولها، عادة خلال ساعات قليلة. توفر RideSaudi النقل فقط دون مرشدين دينيين أو جولات إرشادية. أرسل المواقع والوقت، وتُؤكَّد الإتاحة في عرض السعر.",
         summary: "سيارة خاصة وسائق لزيارة المعالم حول المدينة المنورة. نقل فقط.",
