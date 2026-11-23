@@ -129,6 +129,8 @@ export const pageImages: Record<string, PageImage> = {
   "services/city-transport/madinah": images.madinah,
   // Owner-supplied photos added 2026-11-23 (re-cropped, renamed, metadata stripped; see docs/IMAGE-FOLDERS.md).
   "services/city-transport/al-baha": images.alBaha,
+  "services/intercity-transfers/jeddah-to-al-baha": images.alBaha,
+  "services/intercity-transfers/al-baha-to-jeddah": images.jeddah,
   "services/city-transport/king-abdullah-economic-city": images.kaec,
   "services/city-transport/al-ahsa": images.alAhsa,
   "services/intercity-transfers/riyadh-to-al-ahsa": images.jabalQarah,
