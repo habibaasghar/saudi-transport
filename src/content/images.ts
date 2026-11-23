@@ -9,6 +9,8 @@ export type PageImage = {
   focus?: string;
   /** True when the picture is an illustration or low resolution; tracked in docs/riyadh-image-inventory.md. */
   note?: string;
+  /** Short visible caption under the hero (used for vehicle photos, which show the model, not a RideSaudi car). */
+  caption?: Record<Locale, string>;
 };
 
 const img = (
@@ -59,7 +61,33 @@ export const images: Record<string, PageImage> = {
   kuwaitCity: img("cross-border/kuwait-towers", 1200, 699, "Kuwait Towers beside the sea in Kuwait City", "أبراج الكويت بجانب البحر في مدينة الكويت", undefined),
   causeway: img("cross-border/king-fahd-causeway", 1536, 700, "The King Fahd Causeway crossing the water between Saudi Arabia and Bahrain", "جسر الملك فهد على الماء بين السعودية والبحرين"),
   uaeHighway: img("cross-border/saudi-uae-highway", 1408, 768, "Illustration of an SUV on a desert highway at sunset", "رسم توضيحي لسيارة دفع رباعي على طريق صحراوي عند الغروب", undefined, "illustration"),
+  abuDhabi: img("cross-border/abu-dhabi", 1408, 768, "Abu Dhabi Corniche and skyline at sunset", "كورنيش أبوظبي وأفق المدينة عند الغروب", "50% 45%"),
+  abuDhabiAerial: img("cross-border/abu-dhabi-corniche", 900, 600, "Aerial view of the Abu Dhabi skyline above a white-sand beach", "منظر جوي لأفق أبوظبي فوق شاطئ رملي أبيض", undefined, "below 1200px wide"),
+  alulaHegra: img("locations/alula-hegra", 1080, 1350, "Qasr al-Farid, the single rock-cut tomb at Hegra near AlUla", "قصر الفريد، المقبرة المنحوتة في الصخر في الحجر قرب العلا", "50% 45%"),
+  dammamCoast: img("locations/al-khobar", 1600, 900, "Gulf coast waterfront of Al Khobar in the Dammam metropolitan area", "الواجهة البحرية للخبر على ساحل الخليج ضمن حاضرة الدمام", "40% 55%"),
+  heavyLowbed: img("heavy-transport/lowbed-truck-hauling-mobile-crane", 1419, 798, "Lowbed truck hauling a rough-terrain mobile crane on an open road", "شاحنة لوبد تنقل رافعة متحركة على طريق مفتوح", "60% 55%"),
   borders: img("cross-border/border-crossings", 1600, 1600, "Illustration of a causeway road over the sea at sunset", "رسم توضيحي لطريق جسر فوق البحر عند الغروب", undefined, "illustration"),
+};
+
+/**
+ * Vehicle model photos (public/images/fleet). They illustrate the MODEL only, never a RideSaudi-owned car, so every
+ * hero that uses one carries a visible caption saying the actual vehicle is confirmed in the quotation.
+ */
+const vehicleCaption: Record<Locale, string> = {
+  en: "Model shown as an example. Your actual vehicle is confirmed in the quotation.",
+  ar: "الصورة مثال على الطراز، وتُؤكَّد السيارة الفعلية في عرض السعر.",
+};
+const veh = (file: string, width: number, height: number, en: string, ar: string, focus?: string): PageImage => ({
+  src: `/images/fleet/${file}.webp`, width, height, alt: { en, ar }, focus, caption: vehicleCaption,
+});
+export const vehicles = {
+  suburban: veh("chevrolet-suburban-black-exterior", 1200, 630, "Black Chevrolet Suburban, an example of a full-size SUV with driver", "شيفروليه سوبربان سوداء، مثال على سيارة دفع رباعي كبيرة مع سائق", "55% 60%"),
+  escalade: veh("gallery/cadillac-escalade-front-exterior", 1199, 800, "Black Cadillac Escalade, an example of a luxury SUV", "كاديلاك إسكاليد سوداء، مثال على سيارة دفع رباعي فاخرة", "50% 55%"),
+  lexusLx: veh("luxury-suv-vip-exterior", 904, 564, "Dark grey Lexus LX 600, an example of a VIP SUV", "لكزس LX 600 رمادية داكنة، مثال على سيارة دفع رباعي لكبار الشخصيات", "55% 55%"),
+  staria: veh("hyundai-staria-exterior", 1200, 675, "Black Hyundai Staria, the people carrier used for families and small groups", "هيونداي ستاريا سوداء، المركبة المستخدمة للعائلات والمجموعات الصغيرة", "55% 55%"),
+  camry: veh("toyota-camry-black-exterior", 1100, 825, "Black Toyota Camry, an example of a sedan with driver", "تويوتا كامري سوداء، مثال على سيدان مع سائق", "50% 60%"),
+  sonata: veh("hyundai-sonata-exterior", 1400, 536, "Hyundai Sonata sedan on an open road, an example of a business sedan", "هيونداي سوناتا على طريق مفتوح، مثال على سيدان لرجال الأعمال", "55% 55%"),
+  yukon: veh("gmc-yukon-at4-exterior", 892, 762, "GMC Yukon full-size SUV in a desert landscape", "جمس يوكن دفع رباعي كبيرة في أرض صحراوية", "50% 55%"),
 };
 
 /** Page path -> image. Pages not listed here have no picture (honest gap, not a placeholder). */
@@ -107,20 +135,20 @@ export const pageImages: Record<string, PageImage> = {
   "services/intercity-transfers/makkah-to-taif": images.taif,
   "services/intercity-transfers/madinah-to-alula": images.alula,
   "services/intercity-transfers/jeddah-to-alula": images.alulaRock,
-  "services/airport-transfers/alula-airport": images.alula,
+  "services/airport-transfers/alula-airport": images.alulaHegra,
   "services/tourism-transport/alula": images.alulaRock,
   "services/intercity-transfers/riyadh-to-al-khobar": images.alKhobar,
   "services/intercity-transfers/dammam-to-riyadh": images.riyadh,
   "services/intercity-transfers/dammam-to-doha": images.doha,
   "services/intercity-transfers/dammam-to-dubai": images.dubai,
-  "services/intercity-transfers/riyadh-to-abu-dhabi": images.uaeHighway,
+  "services/intercity-transfers/riyadh-to-abu-dhabi": images.abuDhabi,
   "services/intercity-transfers/madinah-to-makkah": images.makkah,
   "services/intercity-transfers/taif-to-makkah": images.taif,
   "services/intercity-transfers/alula-to-riyadh": images.alulaRock,
   "services/intercity-transfers/alula-to-dammam": images.alula,
   "services/cross-border-transfers": images.borders,
   "services/cross-border-transfers/bahrain": images.causeway,
-  "services/cross-border-transfers/uae": images.uaeHighway,
+  "services/cross-border-transfers/uae": images.abuDhabiAerial,
   "services/city-transport/abha": images.abha,
   "services/city-transport/tabuk": images.tabuk,
   "services/city-transport/makkah": images.makkah,
@@ -156,6 +184,37 @@ export const pageImages: Record<string, PageImage> = {
   "services/intercity-transfers/taif-to-jeddah": images.jeddah,
   "services/intercity-transfers/abha-to-jeddah": images.jeddah,
   "services/intercity-transfers/jeddah-to-abha": images.abha,
+  // Visual audit 2026-11-23 (docs/RIDESAUDI-IMAGE-REPLACEMENT-PLAN.md): pages that had no picture but where an
+  // existing photo shows exactly the place or vehicle the page is about. Most hubs keep a plain hero: their cards carry photos.
+  "services/cross-border-transfers/qatar": images.doha,
+  "services/cross-border-transfers/kuwait": images.kuwaitCity,
+  "services/intercity-transfers/dammam-to-bahrain": images.causeway,
+  "services/city-transport/al-khobar": images.alKhobar,
+  "services/city-transport/dammam": images.dammamCoast,
+  "services/event-transportation/dammam": images.dammamCoast,
+  "services/event-transportation/riyadh": images.riyadh,
+  "services/event-transportation/jeddah": images.jeddah,
+  "services/intercity-transfers/makkah-to-jeddah": images.jeddah,
+  "services/intercity-transfers/makkah-to-riyadh": images.riyadh,
+  "services/intercity-transfers/al-khobar-to-riyadh": images.riyadh,
+  "services/intercity-transfers/alula-to-madinah": images.madinah,
+  "services/intercity-transfers": images.taif,
+  "services/airport-transfers/qassim-airport": images.buraydah,
+  "services/umrah-transport/jeddah-airport-to-makkah": images.makkah,
+  "services/umrah-transport/makkah-ziyarat": images.makkah,
+  "services/umrah-transport/madinah-ziyarat": images.madinah,
+  "services/umrah-transport/family-umrah-transport": images.madinah,
+  "services/tourism-transport": images.alulaHegra,
+  // Vehicle-led pages: the model photo matches the vehicle class the page offers (SUV pages never show a sedan).
+  "luxury-transportation": vehicles.escalade,
+  "luxury-transportation/luxury-suv": vehicles.lexusLx,
+  "luxury-transportation/vip-car-service": vehicles.suburban,
+  fleet: vehicles.suburban,
+  "services/airport-transfers/family-airport-transfer": vehicles.staria,
+  "services/group-transportation/family-transport": vehicles.staria,
+  "services/group-transportation/van-and-minibus": vehicles.staria,
+  "services/chauffeur-services/business-chauffeur": vehicles.camry,
+  "services/special-transportation/business-travel": vehicles.sonata,
 };
 
 export const getImage = (path: string) => pageImages[path];

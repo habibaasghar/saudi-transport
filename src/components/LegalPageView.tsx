@@ -12,6 +12,7 @@ import { JsonLd } from "./JsonLd";
 import { ContactRow } from "./ContactCta";
 import { QuoteSection } from "./QuoteSection";
 import { SocialInline } from "./SocialLinks";
+import { ogImage } from "@/lib/og";
 
 /** Metadata for the privacy, terms and contact pages: indexable, self-canonical, reciprocal hreflang. */
 export function legalMetadata(slug: LegalPage["slug"], locale: Locale): Metadata {
@@ -28,8 +29,8 @@ export function legalMetadata(slug: LegalPage["slug"], locale: Locale): Metadata
         "x-default": pageUrl(routing.defaultLocale, slug),
       },
     },
-    openGraph: { type: "website", siteName: "RideSaudi", url, title: c.title, description: c.description, locale: locale === "ar" ? "ar_SA" : "en_US", alternateLocale: locale === "ar" ? ["en_US"] : ["ar_SA"] },
-    twitter: { card: "summary", title: c.title, description: c.description },
+    openGraph: { type: "website", siteName: "RideSaudi", url, title: c.title, description: c.description, locale: locale === "ar" ? "ar_SA" : "en_US", alternateLocale: locale === "ar" ? ["en_US"] : ["ar_SA"], images: [ogImage(undefined, locale)] },
+    twitter: { card: "summary_large_image", title: c.title, description: c.description, images: [ogImage(undefined, locale).url] },
     robots: { index: true, follow: true },
   };
 }

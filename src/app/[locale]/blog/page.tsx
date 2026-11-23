@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { BlogIndexView } from "@/components/BlogView";
 import { routing, type Locale } from "@/i18n/routing";
 import { blogIndexUrl } from "@/lib/blog-schema";
+import { ogImage } from "@/lib/og";
 
 type Params = Promise<{ locale: string }>;
 
@@ -26,7 +27,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       canonical: blogIndexUrl(locale),
       languages: { ...Object.fromEntries(routing.locales.map((x) => [x, blogIndexUrl(x)])), "x-default": blogIndexUrl(routing.defaultLocale) },
     },
-    openGraph: { type: "website", siteName: "RideSaudi", url: blogIndexUrl(locale), title: m.title, description: m.description, locale: locale === "ar" ? "ar_SA" : "en_US" },
+    openGraph: { type: "website", siteName: "RideSaudi", url: blogIndexUrl(locale), title: m.title, description: m.description, locale: locale === "ar" ? "ar_SA" : "en_US", images: [ogImage(undefined, locale)] },
+    twitter: { card: "summary_large_image", title: m.title, description: m.description, images: [ogImage(undefined, locale).url] },
     robots: { index: true, follow: true },
   };
 }

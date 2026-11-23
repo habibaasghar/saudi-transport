@@ -6,6 +6,7 @@ import { blogHubs, getHub } from "@/content/blog/hubs";
 import { blogPosts, getPost } from "@/content/blog/posts";
 import { routing, type Locale } from "@/i18n/routing";
 import { blogPostUrl } from "@/lib/blog-schema";
+import { ogImage } from "@/lib/og";
 
 export const dynamicParams = false;
 
@@ -39,9 +40,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       locale: locale === "ar" ? "ar_SA" : "en_US",
       alternateLocale: locale === "ar" ? ["en_US"] : ["ar_SA"],
       ...(isPost ? { publishedTime: post.published, modifiedTime: post.updated } : {}),
-      ...(post.hero ? { images: [{ url: post.hero.src, width: post.hero.width, height: post.hero.height, alt: post.hero.alt[locale] }] } : {}),
+      images: [ogImage(post.hero, locale)],
     },
-    twitter: { card: post.hero ? "summary_large_image" : "summary", title: c.title, description: c.description },
+    twitter: { card: "summary_large_image", title: c.title, description: c.description, images: [ogImage(post.hero, locale).url] },
     robots: { index: true, follow: true },
   };
 }

@@ -10,6 +10,7 @@ import { stariaPost } from "./staria-groups";
 import { applyGuideEnrichments } from "../enrich-batch4";
 import { heavyGuides } from "./heavy-guides";
 import { transferGuides } from "./transfer-guides";
+import { images, vehicles, type PageImage } from "../images";
 
 const I = "services/intercity-transfers";
 const X = "services/cross-border-transfers";
@@ -340,6 +341,28 @@ applyGuideEnrichments(blogPosts);
 // The original twelve guides are all private-transfer planning guides.
 for (const p of blogPosts) p.cluster ??= "private-transfers";
 blogPosts.push(...heavyGuides, ...transferGuides);
+
+/**
+ * Visual audit 2026-11-23: guides that had no hero get an existing photo of the exact place or vehicle class they discuss.
+ * Guides with no matching photo (excavator, intercity car transport, flatbed vs hydraulic towing, roadside assistance)
+ * stay text-only until a real photo exists; see docs/RIDESAUDI-NEW-IMAGE-REQUIREMENTS.md.
+ */
+const guideHeroes: Record<string, PageImage> = {
+  "private-transport-saudi-arabia-guide": vehicles.suburban,
+  "jeddah-airport-to-makkah-train-bus-taxi-private-car": images.makkah,
+  "makkah-to-madinah-train-bus-or-private-car": images.madinah,
+  "how-to-book-private-car-with-driver-saudi-arabia": vehicles.camry,
+  "jeddah-to-madinah-train-flight-bus-or-car": images.jeddah,
+  "madinah-to-alula-by-road-guide": images.alulaRock,
+  "private-car-with-driver-vs-taxi-saudi-arabia": vehicles.sonata,
+  "hyundai-staria-with-driver-family-group-travel": vehicles.staria,
+  "cross-border-private-transfer-checklist": images.causeway,
+  "private-car-vs-flight-vs-rental-saudi-intercity": images.taif,
+  "choosing-vehicle-size-family-group-travel-saudi": vehicles.yukon,
+  "airport-pickup-tips-saudi-arrivals": images.airportRuh,
+  "choose-heavy-equipment-transport-company-saudi-arabia": images.heavyLowbed,
+};
+for (const p of blogPosts) if (!p.hero && guideHeroes[p.slug]) p.hero = guideHeroes[p.slug];
 
 export const getPost = (slug: string) => blogPosts.find((p) => p.slug === slug);
 

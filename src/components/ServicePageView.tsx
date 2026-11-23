@@ -5,7 +5,7 @@ import type { Locale } from "@/i18n/routing";
 import type { ServicePage } from "@/content/types";
 import { childrenOf, getPage, pages, trail } from "@/content/registry";
 import { blogPosts } from "@/content/blog/posts";
-import { getImage } from "@/content/images";
+import { getImage, type PageImage } from "@/content/images";
 import { pageSchema } from "@/lib/schema";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -66,6 +66,14 @@ function cityRoutes(page: ServicePage, exclude: Set<string>): ServicePage[] {
   });
 }
 
+/** Card picture when the linked page has a photo, otherwise the card number (never a placeholder image). */
+function CardImage({ img, locale, n }: { img?: PageImage; locale: Locale; n: number }) {
+  if (!img) return <span className="card__num" aria-hidden="true">{String(n).padStart(2, "0")}</span>;
+  return (
+    <Image className="card__img" src={img.src} alt={img.alt[locale]} width={img.width} height={img.height} sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" loading="lazy" style={{ objectPosition: img.focus ?? "50% 50%" }} />
+  );
+}
+
 export async function ServicePageView({ page, locale }: { page: ServicePage; locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "svc" });
   const f = await getTranslations({ locale, namespace: "fleet" });
@@ -100,6 +108,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
               style={{ objectFit: "cover", objectPosition: hero.focus ?? "50% 50%" }}
             />
           )}
+          {hero?.caption && <p className="svc-hero__caption">{hero.caption[locale]}</p>}
           <div className="wrap">
             <nav aria-label={t("breadcrumb")} className="crumbs">
               <ol>
@@ -156,10 +165,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
               <ul className="cards">
                 {kids.map((k, i) => (
                   <li key={k.path} className="card">
-                    <span className="card__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-                    {getImage(k.path) && (
-                      <Image className="card__img" src={getImage(k.path)!.src} alt={getImage(k.path)!.alt[locale]} width={getImage(k.path)!.width} height={getImage(k.path)!.height} sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" loading="lazy" />
-                    )}
+                    <CardImage img={getImage(k.path)} locale={locale} n={i + 1} />
                     <h3>{k.copy[locale].nav}</h3>
                     <p>{k.copy[locale].summary}</p>
                     <Link className="card__link" href={href(k.path)}>
@@ -217,10 +223,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
               <ul className="cards">
                 {related.map((r, i) => (
                   <li key={r.path} className="card">
-                    <span className="card__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-                    {getImage(r.path) && (
-                      <Image className="card__img" src={getImage(r.path)!.src} alt={getImage(r.path)!.alt[locale]} width={getImage(r.path)!.width} height={getImage(r.path)!.height} sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" loading="lazy" />
-                    )}
+                    <CardImage img={getImage(r.path)} locale={locale} n={i + 1} />
                     <h3>{r.copy[locale].nav}</h3>
                     <p>{r.copy[locale].summary}</p>
                     <Link className="card__link" href={href(r.path)}>
