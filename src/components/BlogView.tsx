@@ -8,6 +8,7 @@ import { blogPosts, relatedPosts } from "@/content/blog/posts";
 import { blogHubs, getHub, type BlogHub } from "@/content/blog/hubs";
 import type { BlogPost } from "@/content/blog/types";
 import type { PageImage } from "@/content/images";
+import { guidePrefill } from "@/content/location-prefill";
 import { blogHubSchema, blogIndexSchema, blogPostSchema } from "@/lib/blog-schema";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -204,6 +205,7 @@ export async function BlogPostView({ post, locale }: { post: BlogPost; locale: L
   const others = relatedPosts(post);
   const hub = post.cluster ? getHub(post.cluster) : undefined;
   const heavy = Boolean(hub?.heavy);
+  const form = guidePrefill(post.slug, locale);
   return (
     <>
       <JsonLd data={blogPostSchema(post, locale)} />
@@ -312,7 +314,7 @@ export async function BlogPostView({ post, locale }: { post: BlogPost; locale: L
           </div>
         </section>
 
-        {heavy ? <HeavyQuoteSection locale={locale} service={post.heavyService} topic={c.h1} /> : <QuoteSection locale={locale} topic={c.h1} />}
+        {heavy ? <HeavyQuoteSection locale={locale} service={post.heavyService} topic={c.h1} /> : <QuoteSection locale={locale} topic={c.h1} defaultService={form.service} prefill={form.prefill} />}
         <p className="wrap svc-reviewed">{l.updated}: <time dateTime={post.updated}>{post.updated}</time></p>
       </main>
       <Footer locale={locale} switchHref={`/blog/${post.slug}`} />

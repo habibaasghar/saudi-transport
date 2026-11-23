@@ -8,7 +8,7 @@ import { WhatsAppIcon } from "./Icons";
 import { SectionHead } from "./SectionHead";
 
 /** Final CTA + quotation form for heavy transport / satha pages. Server-rendered so the form is in the HTML. */
-export async function HeavyQuoteSection({ locale, service, topic }: { locale: Locale; service?: string; topic: string }) {
+export async function HeavyQuoteSection({ locale, service, topic, prefill }: { locale: Locale; service?: string; topic: string; prefill?: { pickup: string; dropoff: string } }) {
   const h = await getTranslations({ locale, namespace: "heavy" });
   const c = await getTranslations({ locale, namespace: "contact" });
   const ft = await getTranslations({ locale, namespace: "footer" });
@@ -29,7 +29,7 @@ export async function HeavyQuoteSection({ locale, service, topic }: { locale: Lo
           </div>
         </div>
         <NextIntlClientProvider locale={locale} messages={{ heavy: { form: all.heavy.form } }}>
-          <HeavyQuoteForm locale={locale} defaultService={service} />
+          <HeavyQuoteForm locale={locale} defaultService={service} prefill={prefill} />
         </NextIntlClientProvider>
       </div>
     </section>

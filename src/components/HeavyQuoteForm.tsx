@@ -18,10 +18,10 @@ const localToday = () => new Date(Date.now() - new Date().getTimezoneOffset() * 
  * never asks for machine dimensions, and a machinery request always asks for the weight.
  * No price is ever shown; the result is an enquiry with a reference number.
  */
-export function HeavyQuoteForm({ locale, defaultService }: { locale: string; defaultService?: string }) {
+export function HeavyQuoteForm({ locale, defaultService, prefill }: { locale: string; defaultService?: string; prefill?: { pickup: string; dropoff: string } }) {
   const t = useTranslations("heavy.form");
   const uid = useId();
-  const [data, setData] = useState<HeavyQuoteInput>({ ...emptyHeavy(), locale, service: defaultService ?? "" });
+  const [data, setData] = useState<HeavyQuoteInput>({ ...emptyHeavy(), locale, service: defaultService ?? "", pickup: prefill?.pickup ?? "", dropoff: prefill?.dropoff ?? "" });
   const [errors, setErrors] = useState<HeavyErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [receipt, setReceipt] = useState<{ reference?: string; wa: string } | null>(null);

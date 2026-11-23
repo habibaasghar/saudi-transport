@@ -18,7 +18,7 @@ import { RouteTracker } from "./RouteTracker";
 import { RichText } from "./RichText";
 import { stripLinks } from "@/content/inline-links";
 import { FleetCards } from "./Fleet";
-import { routePrefill } from "@/content/route-prefill";
+import { pagePrefill } from "@/content/location-prefill";
 import { HeavyQuoteSection, HeavySteps, HeavyWhatsApp } from "./HeavyQuoteSection";
 
 type Table = { h: string; head: string[]; rows: string[][] };
@@ -272,7 +272,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
           </div>
         </section>
 
-        {heavy ? <HeavyQuoteSection locale={locale} service={page.heavyService} topic={c.h1} /> : <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} prefill={routePrefill[page.path] ? { pickup: routePrefill[page.path][locale][0], dropoff: routePrefill[page.path][locale][1] } : undefined} />}
+        {heavy ? <HeavyQuoteSection locale={locale} service={page.heavyService} topic={c.h1} prefill={pagePrefill(page.path, locale)} /> : <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} prefill={pagePrefill(page.path, locale)} />}
         <p className="wrap svc-reviewed">{t("reviewed")}: <time dateTime={page.updated}>{page.updated}</time></p>
       </main>
       <Footer locale={locale} switchHref={href(page.path)} />
