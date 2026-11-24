@@ -5,14 +5,27 @@
  */
 
 export const HEAVY_SERVICES = [
-  "satha", "towing", "car_transport", "lowbed", "heavy_machinery", "excavator",
+  "satha", "hydraulic_satha", "towing", "truck_recovery", "car_transport", "lowbed", "heavy_machinery", "excavator",
   "wheel_loader", "forklift", "crane", "flatbed", "oversized", "machinery_relocation", "other_heavy",
 ] as const;
 export type HeavyService = (typeof HEAVY_SERVICES)[number];
 
 /** Services where the load is a car: no machine weight or dimensions are asked. */
-const VEHICLE_SERVICES: readonly string[] = ["satha", "towing", "car_transport"];
+const VEHICLE_SERVICES: readonly string[] = ["satha", "hydraulic_satha", "towing", "car_transport"];
 export const isVehicleService = (s: string) => VEHICLE_SERVICES.includes(s);
+
+/** A broken-down truck or bus needs its condition like a car, and its weight like a machine. */
+export const isTruckRecovery = (s: string) => s === "truck_recovery";
+export const asksCondition = (s: string) => isVehicleService(s) || isTruckRecovery(s);
+
+/** CTA wording and WhatsApp template per kind of job (messages: heavy.ctas, heavy.form.submits, heavy.wa). */
+export type HeavyGroup = "recovery" | "truck" | "lowbed" | "equipment" | "general";
+export function heavyGroup(s?: string): HeavyGroup {
+  if (!s || s === "other_heavy") return "general";
+  if (isTruckRecovery(s)) return "truck";
+  if (isVehicleService(s)) return "recovery";
+  return s === "lowbed" ? "lowbed" : "equipment";
+}
 
 export const CONDITIONS = ["runs", "not_running", "accident"] as const;
 export const LOAD_METHODS = ["drive_on", "crane", "forklift", "winch", "not_sure"] as const;
@@ -46,7 +59,7 @@ export type HeavyQuoteInput = {
   startedAt: number;
 };
 
-export type HeavyErrorCode = "required" | "service" | "phone" | "email" | "date" | "number" | "consent";
+export type HeavyErrorCode = "required" | "service" | "phone" | "email" | "date" | "number" | "weightOrModel" | "consent";
 export type HeavyErrors = Partial<Record<keyof HeavyQuoteInput, HeavyErrorCode>>;
 
 const PHONE_RE = /^\+?[0-9\s\-()]{7,20}$/;
@@ -76,11 +89,10 @@ export function validateHeavy(d: HeavyQuoteInput, today = new Date()): HeavyErro
     const start = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1);
     if (Number.isNaN(picked.getTime()) || picked < start) e.date = "date";
   }
-  if (isVehicleService(d.service)) {
-    if (!d.condition) e.condition = "required";
-  } else if (d.service) {
-    // Weight is the one figure every machinery quote depends on; dimensions are strongly asked for but optional.
-    if (!d.weight.trim()) e.weight = "required";
+  if (asksCondition(d.service) && !d.condition) e.condition = "required";
+  if (d.service && !isVehicleService(d.service)) {
+    // A machinery quote needs the weight class: either the weight itself or the model it can be looked up from.
+    if (!isTruckRecovery(d.service) && !d.weight.trim() && !d.makeModel.trim()) e.weight = "weightOrModel";
     for (const k of ["weight", "length", "width", "height"] as const) {
       if (d[k].trim() && !NUM_RE.test(d[k].trim())) e[k] = "number";
     }
@@ -105,7 +117,7 @@ export function sanitizeHeavy(raw: unknown): HeavyQuoteInput | null {
   }
   return {
     service, loadType: s("loadType", 80), makeModel: s("makeModel", 120),
-    condition: vehicle ? pick(s("condition", 20), CONDITIONS) : "",
+    condition: asksCondition(service) ? pick(s("condition", 20), CONDITIONS) : "",
     pickup: s("pickup", 200), dropoff: s("dropoff", 200), date: s("date", 10),
     // Machine fields never survive on a car request, so stale values never reach the CRM.
     weight: vehicle ? "" : s("weight", 8), length: vehicle ? "" : s("length", 8),

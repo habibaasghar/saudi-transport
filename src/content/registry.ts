@@ -27,6 +27,8 @@ import { priorityRoutesC } from "./priority-routes-c";
 import { priorityRoutesD } from "./priority-routes-d";
 import { applyLinkBoosts } from "./link-boosts";
 import { heavyHubAndCars } from "./heavy/hub-and-cars";
+import { heavyRecovery } from "./heavy/recovery";
+import { applyHeavyGrowth } from "./heavy/growth";
 import { heavyTrailers } from "./heavy/trailers";
 import { heavyMachines } from "./heavy/machines";
 import { heavyCities } from "./heavy/cities";
@@ -42,7 +44,7 @@ import { linkTargets } from "./inline-links";
 import { madinahToRiyadh, applyMakkahMadinahGrowth } from "./makkah-madinah";
 import { jeddahToAlBaha, alBahaToJeddah, applyJeddahCluster } from "./jeddah-cluster";
 
-export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB, ...priorityRoutesC, ...priorityRoutesD, ...batch17JeddahRoutes, ...batch18Locations, ...heavyHubAndCars, ...heavyTrailers, ...heavyMachines, ...heavyCities, madinahToRiyadh, jeddahToAlBaha, alBahaToJeddah];
+export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB, ...priorityRoutesC, ...priorityRoutesD, ...batch17JeddahRoutes, ...batch18Locations, ...heavyHubAndCars, ...heavyRecovery, ...heavyTrailers, ...heavyMachines, ...heavyCities, madinahToRiyadh, jeddahToAlBaha, alBahaToJeddah];
 
 // Verified-fact upgrades for pages that stay in their original files (must run before FAQ scoping).
 applyRoutePatches(pages);
@@ -55,6 +57,7 @@ applyBatch5Enrichments(pages);
 applyMakkahMadinahGrowth(pages);
 applyJeddahCluster(pages);
 applyHeavyCityDistances(pages);
+applyHeavyGrowth(pages);
 
 // Cross-link the Jeddah route cluster and new locations from existing hub, airport and neighbouring route pages.
 for (const p of pages) if (jeddahBacklinks[p.path]) p.related.push(...jeddahBacklinks[p.path]);

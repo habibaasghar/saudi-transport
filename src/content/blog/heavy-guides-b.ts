@@ -172,7 +172,7 @@ export const breakdownPost: BlogPost = {
   cluster: "towing-heavy-transport",
   heavyService: "satha",
   related: ["car-towing-service-saudi-arabia", "flatbed-vs-hydraulic-towing-saudi-arabia", "intercity-car-transport-saudi-arabia"],
-  links: [`${H}/satha-car-recovery`, `${H}/satha-car-recovery/riyadh`, `${H}/satha-car-recovery/jeddah`, `${H}/satha-car-recovery/dammam`, H],
+  links: [`${H}/satha-car-recovery`, `${H}/satha-car-recovery/riyadh`, `${H}/satha-car-recovery/jeddah`, `${H}/satha-car-recovery/dammam`, `${H}/truck-recovery`, H],
   copy: {
     en: {
       nav: "Car broke down on a Saudi highway",

@@ -44,7 +44,7 @@ export function GET() {
 
 ## Heavy transport, satha recovery and machinery haulage
 - Category hub: ${SITE_URL}/en/services/recovery-heavy-transport/ (Arabic: ${SITE_URL}/ar/services/recovery-heavy-transport/)
-- Satha (flatbed recovery truck) for broken-down and accident cars, car transport between cities, lowbed and flatbed trailer transport, excavator, wheel loader (shuwel), forklift and crane transport, oversized loads and industrial machinery relocation.
+- Recovery trucks (satha, flatbed tow truck) for broken-down and accident cars and SUVs, hydraulic (full-down) satha on request, truck and heavy vehicle recovery by lowbed or tow truck when a partner confirms it, car transport between cities, lowbed and flatbed trailer transport (arranged per move with tractor head and driver), excavator, wheel loader (shuwel), forklift and crane transport, oversized loads and industrial machinery relocation.
 - Focus regions: Riyadh (with Al Kharj, Sudair, Diriyah), Jeddah (with Makkah, Rabigh, KAEC, Yanbu) and Dammam (with Al Khobar, Dhahran, Jubail, Qatif, Ras Tanura, Al Ahsa); intercity moves across Saudi Arabia quoted per job.
 - Every job is quoted from the load's weight, dimensions and route. No fixed prices, response times or 24/7 dispatch are published. No roadside repairs, fuel delivery or jump-starts. Exceptional-load permits are checked per load against current Roads General Authority rules.
 

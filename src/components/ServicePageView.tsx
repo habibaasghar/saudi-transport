@@ -19,6 +19,7 @@ import { RichText } from "./RichText";
 import { stripLinks } from "@/content/inline-links";
 import { FleetCards } from "./Fleet";
 import { pagePrefill } from "@/content/location-prefill";
+import { heavyGroup } from "@/lib/heavy-quote";
 import { HeavyQuoteSection, HeavySteps, HeavyWhatsApp } from "./HeavyQuoteSection";
 import { QuickQuoteForm } from "./QuickQuoteForm";
 import { PriceFrom } from "./PriceFrom";
@@ -135,10 +136,10 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             <h1 id="svc-h1">{c.h1}</h1>
             <p className="svc-hero__sub">{c.summary}</p>
             <div className="hero__actions">
-              <a href="#quote" className="btn btn--primary btn--lg">{heavy ? h("cta") : t("getQuote")}</a>
+              <a href="#quote" className="btn btn--primary btn--lg">{heavy ? h(`ctas.${heavyGroup(page.heavyService)}`) : t("getQuote")}</a>
             </div>
             {heavy ? (
-              <HeavyWhatsApp locale={locale} topic={c.h1} className="hero__contact" />
+              <HeavyWhatsApp locale={locale} topic={c.h1} service={page.heavyService} className="hero__contact" />
             ) : (
               <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp"]} className="hero__contact" />
             )}
@@ -220,7 +221,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
                 <ul className="ticks ticks--light">
                   {c.checklist.items.map((it) => <li key={it}>{it}</li>)}
                 </ul>
-                <a href="#quote" className="btn btn--primary">{heavy ? h("cta") : t("getQuote")}</a>
+                <a href="#quote" className="btn btn--primary">{heavy ? h(`ctas.${heavyGroup(page.heavyService)}`) : t("getQuote")}</a>
               </div>
             </div>
           </section>

@@ -514,3 +514,6 @@ ul.social { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; margin
 .trust-details__facts { margin: 0; display: grid; gap: .6rem; }
 .trust-details__facts dt { font-size: .85rem; color: var(--muted); }
 .trust-details__facts dd { margin: 0; font-weight: 600; }
+
+.field--today { display: flex; align-items: flex-end; }
+.btn--today { background: #eaf6ff; color: #174a78; border: 1px solid #174a78; min-height: 48px; }

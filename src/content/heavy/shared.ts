@@ -14,6 +14,10 @@ export const CRANE = `${HT}/crane-transport`;
 export const OVERSIZED = `${HT}/oversized-load-transport`;
 export const RELOCATION = `${HT}/industrial-machinery-relocation`;
 
+/** Added 2026-11-24 (recovery pages). */
+export const HYDRAULIC = `${SATHA}/hydraulic-satha`;
+export const TRUCKS = `${HT}/truck-recovery`;
+
 export const UPDATED = "2026-11-22";
 
 export const heavyPage = (

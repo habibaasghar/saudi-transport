@@ -2,7 +2,7 @@
 
 import { useId, useRef, useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
-import { CONDITIONS, emptyHeavy, HEAVY_SERVICES, isVehicleService, LOAD_METHODS, validateHeavy, type HeavyErrors, type HeavyQuoteInput } from "@/lib/heavy-quote";
+import { asksCondition, CONDITIONS, emptyHeavy, HEAVY_SERVICES, heavyGroup, isTruckRecovery, isVehicleService, LOAD_METHODS, validateHeavy, type HeavyErrors, type HeavyQuoteInput } from "@/lib/heavy-quote";
 import { readAttribution } from "@/lib/attribution";
 import { track } from "@/lib/analytics";
 import { whatsappHref } from "@/config/contact";
@@ -32,7 +32,9 @@ export function HeavyQuoteForm({ locale, defaultService, prefill }: { locale: st
   const statusRef = useRef<HTMLDivElement>(null);
   const today = useSyncExternalStore(noSubscribe, localToday, () => undefined);
   const vehicle = isVehicleService(data.service);
+  const truck = isTruckRecovery(data.service);
   const machine = !!data.service && !vehicle;
+  const recovery = vehicle || truck;
 
   const set = <K extends keyof HeavyQuoteInput>(k: K, v: HeavyQuoteInput[K]) => {
     if (!started) {
@@ -146,17 +148,17 @@ export function HeavyQuoteForm({ locale, defaultService, prefill }: { locale: st
         <legend>{t("load")}</legend>
         <div className="grid">
           {Select({ name: "service", label: t("service"), options: HEAVY_SERVICES, prefix: "services", required: true, wide: true, placeholder: t("servicePlaceholder") })}
-          {Field({ name: "loadType", label: vehicle ? t("vehicleType") : t("machineType"), hint: vehicle ? t("vehicleTypeHint") : t("machineTypeHint"), required: true, maxLength: 80 })}
-          {Field({ name: "makeModel", label: t("makeModel"), maxLength: 120 })}
-          {vehicle && Select({ name: "condition", label: t("condition"), options: CONDITIONS, prefix: "conditions", required: true, wide: true, placeholder: t("choose") })}
+          {Field({ name: "loadType", label: recovery ? t("vehicleType") : t("machineType"), hint: truck ? t("truckTypeHint") : vehicle ? t("vehicleTypeHint") : t("machineTypeHint"), required: true, maxLength: 80 })}
+          {Field({ name: "makeModel", label: machine && !truck ? t("makeModelMachine") : t("makeModel"), maxLength: 120 })}
+          {asksCondition(data.service) && Select({ name: "condition", label: t("condition"), options: CONDITIONS, prefix: "conditions", required: true, wide: true, placeholder: t("choose") })}
           {machine && (
             <>
-              {Field({ name: "weight", label: t("weight"), hint: t("weightHint"), inputMode: "decimal", required: true, maxLength: 8, dir: "ltr", wide: true })}
+              {Field({ name: "weight", label: t("weight"), hint: t(truck ? "weightTruckHint" : "weightHint"), inputMode: "decimal", required: !truck && !data.makeModel.trim(), maxLength: 8, dir: "ltr", wide: true })}
               {Field({ name: "length", label: t("length"), inputMode: "decimal", maxLength: 8, dir: "ltr" })}
               {Field({ name: "width", label: t("width"), inputMode: "decimal", maxLength: 8, dir: "ltr" })}
               {Field({ name: "height", label: t("height"), hint: t("dimsHint"), inputMode: "decimal", maxLength: 8, dir: "ltr", wide: true })}
-              {Select({ name: "loading", label: t("loading"), options: LOAD_METHODS, prefix: "methods", placeholder: t("choose") })}
-              {Select({ name: "unloading", label: t("unloading"), options: LOAD_METHODS, prefix: "methods", placeholder: t("choose") })}
+              {!truck && Select({ name: "loading", label: t("loading"), options: LOAD_METHODS, prefix: "methods", placeholder: t("choose") })}
+              {!truck && Select({ name: "unloading", label: t("unloading"), options: LOAD_METHODS, prefix: "methods", placeholder: t("choose") })}
             </>
           )}
         </div>
@@ -168,6 +170,11 @@ export function HeavyQuoteForm({ locale, defaultService, prefill }: { locale: st
           {Field({ name: "pickup", label: t("pickup"), hint: t("locationHint"), required: true, maxLength: 200, autoComplete: "off", wide: true })}
           {Field({ name: "dropoff", label: t("dropoff"), required: true, maxLength: 200, autoComplete: "off", wide: true })}
           {Field({ name: "date", label: t("date"), type: "date", required: true, min: today })}
+          {recovery && today && data.date !== today && (
+            <div className="field field--today">
+              <button type="button" className="btn btn--sm btn--today" onClick={() => set("date", today)}>{t("today")}</button>
+            </div>
+          )}
         </div>
       </fieldset>
 
@@ -199,7 +206,7 @@ export function HeavyQuoteForm({ locale, defaultService, prefill }: { locale: st
       {errors.consent && <p id={`${uid}-consent-e`} className="field__error">{t("errors.consent")}</p>}
 
       <button type="submit" className="btn btn--primary btn--lg btn--block" disabled={status === "sending"}>
-        {status === "sending" ? t("sending") : t("submit")}
+        {status === "sending" ? t("sending") : t(`submits.${heavyGroup(data.service)}` as never)}
       </button>
 
       <div ref={statusRef} tabIndex={-1} role="status" aria-live="polite" className="form__status">

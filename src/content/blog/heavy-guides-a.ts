@@ -22,7 +22,7 @@ export const carTowingPost: BlogPost = {
   heavyService: "satha",
   hero: ph("hydraulic-satha-sports-car-loaded", 572, 317, "Sports car secured on a sliding-bed satha tow truck", "سيارة رياضية مثبتة على سطحة هيدروليك منزلقة", "50% 60%"),
   related: ["roadside-assistance-vehicle-recovery-saudi-arabia", "flatbed-vs-hydraulic-towing-saudi-arabia", "intercity-car-transport-saudi-arabia"],
-  links: [`${H}/satha-car-recovery`, `${H}/satha-car-recovery/riyadh`, `${H}/satha-car-recovery/jeddah`, `${H}/satha-car-recovery/dammam`, `${H}/car-transport-between-cities`],
+  links: [`${H}/satha-car-recovery`, `${H}/satha-car-recovery/riyadh`, `${H}/satha-car-recovery/jeddah`, `${H}/satha-car-recovery/dammam`, `${H}/car-transport-between-cities`, `${H}/satha-car-recovery/hydraulic-satha`, `${H}/truck-recovery`],
   copy: {
     en: {
       nav: "Car towing in Saudi Arabia",
@@ -108,7 +108,7 @@ export const flatbedVsHydraulicPost: BlogPost = {
   cluster: "towing-heavy-transport",
   heavyService: "satha",
   related: ["car-towing-service-saudi-arabia", "intercity-car-transport-saudi-arabia", "lowbed-trailer-transport-saudi-arabia"],
-  links: [`${H}/satha-car-recovery`, `${H}/flatbed-trailer-transport`, `${H}/car-transport-between-cities`, `${H}/satha-car-recovery/riyadh`],
+  links: [`${H}/satha-car-recovery`, `${H}/satha-car-recovery/hydraulic-satha`, `${H}/flatbed-trailer-transport`, `${H}/car-transport-between-cities`, `${H}/satha-car-recovery/riyadh`],
   copy: {
     en: {
       nav: "Flatbed vs hydraulic vs wheel-lift towing",
@@ -276,7 +276,7 @@ export const lowbedComparisonPost: BlogPost = {
   heavyService: "lowbed",
   hero: ph("flatbed-trailer-steel-coils-highway", 654, 469, "Flatbed trailer carrying chained steel coils on a highway", "تريلا سطحة تحمل لفائف حديد مثبتة بالسلاسل على طريق سريع"),
   related: ["heavy-machinery-transportation-saudi-arabia", "crane-industrial-equipment-transport-saudi-arabia", "bulldozer-wheel-loader-transport-saudi-arabia"],
-  links: [`${H}/lowbed-transport`, `${H}/flatbed-trailer-transport`, `${H}/oversized-load-transport`, `${H}/heavy-equipment-transport`, `${H}/heavy-equipment-transport/riyadh`],
+  links: [`${H}/lowbed-transport`, `${H}/truck-recovery`, `${H}/flatbed-trailer-transport`, `${H}/oversized-load-transport`, `${H}/heavy-equipment-transport`, `${H}/heavy-equipment-transport/riyadh`],
   copy: {
     en: {
       nav: "Lowbed vs flatbed vs extendable trailer",

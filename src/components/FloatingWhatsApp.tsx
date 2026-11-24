@@ -32,6 +32,11 @@ export function FloatingWhatsApp({ href, label, aria, locale, bar }: Props) {
     return () => io.disconnect();
   }, []);
 
+  // Heavy transport pages carry their own pre-filled message (vehicle, weight, locations): use it here too.
+  const applyHeavyMessage = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.href = document.querySelector<HTMLAnchorElement>("main a[data-wa-heavy]")?.href ?? href;
+  };
+
   // Pages without a quote section (contact, legal) send the visitor to the homepage form.
   const quoteHref = `/${locale}/#quote`;
   const onQuote = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -50,7 +55,7 @@ export function FloatingWhatsApp({ href, label, aria, locale, bar }: Props) {
   return (
     <>
       <a
-        href={href}
+        href={href} onClick={applyHeavyMessage}
         target="_blank"
         rel="noopener noreferrer"
         className={`wa-float${hidden ? " wa-float--hidden" : ""}`}
@@ -63,7 +68,7 @@ export function FloatingWhatsApp({ href, label, aria, locale, bar }: Props) {
       </a>
       <nav className={`sticky-bar${hidden ? " sticky-bar--hidden" : ""}`} aria-label={bar.aria} aria-hidden={hidden || undefined}>
         <a href={quoteHref} className="sticky-bar__quote" onClick={onQuote} tabIndex={hidden ? -1 : 0}>{bar.quote}</a>
-        <a href={href} className="sticky-bar__wa" target="_blank" rel="noopener noreferrer" aria-label={aria} tabIndex={hidden ? -1 : 0}>
+        <a href={href} onClick={applyHeavyMessage} className="sticky-bar__wa" target="_blank" rel="noopener noreferrer" aria-label={aria} tabIndex={hidden ? -1 : 0}>
           <WhatsAppIcon className="sticky-bar__icon" />
           <span>{bar.whatsapp}</span>
         </a>

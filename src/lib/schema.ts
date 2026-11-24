@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/routing";
 import type { ServicePage } from "@/content/types";
-import { trail } from "@/content/registry";
+import { childrenOf, trail } from "@/content/registry";
 import { getImage } from "@/content/images";
 import { pageUrl, localeUrl, SITE_URL } from "@/lib/site";
 import { CONTACT } from "@/config/contact";
@@ -24,6 +24,19 @@ export function organizationSchema() {
       },
     ],
   };
+}
+
+/** Heavy transport city pages state the places they cover in visible copy; mirror those (and nothing more) in areaServed. */
+const heavyAreas: Record<string, Record<Locale, string[]>> = {
+  riyadh: { en: ["Riyadh", "Al Kharj", "Diriyah"], ar: ["الرياض", "الخرج", "الدرعية"] },
+  jeddah: { en: ["Jeddah", "Makkah", "Rabigh"], ar: ["جدة", "مكة المكرمة", "رابغ"] },
+  dammam: { en: ["Dammam", "Al Khobar", "Jubail"], ar: ["الدمام", "الخبر", "الجبيل"] },
+};
+const HEAVY_HUB = "services/recovery-heavy-transport";
+function areaServed(path: string, locale: Locale) {
+  const areas = path.startsWith(`${HEAVY_HUB}/`) ? heavyAreas[path.split("/").pop() ?? ""] : undefined;
+  if (areas) return areas[locale].map((name) => ({ "@type": "City", name }));
+  return { "@type": "Country", name: locale === "ar" ? "المملكة العربية السعودية" : "Saudi Arabia" };
 }
 
 const home = (l: Locale) => (l === "ar" ? "الرئيسية" : "Home");
@@ -87,7 +100,10 @@ export function pageSchema(page: ServicePage, locale: Locale) {
       url,
       inLanguage: locale,
       provider: { "@id": `${SITE_URL}/#organization` },
-      areaServed: { "@type": "Country", name: locale === "ar" ? "المملكة العربية السعودية" : "Saudi Arabia" },
+      areaServed: areaServed(page.path, locale),
+      ...(page.path === HEAVY_HUB
+        ? { hasOfferCatalog: { "@type": "OfferCatalog", name: c.nav, itemListElement: childrenOf(page.path).map((k) => ({ "@type": "Offer", itemOffered: { "@type": "Service", "@id": `${pageUrl(locale, k.path)}#service`, name: k.copy[locale].nav, url: pageUrl(locale, k.path) } })) } }
+        : {}),
     });
   }
 

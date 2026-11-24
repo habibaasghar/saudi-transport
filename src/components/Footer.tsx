@@ -22,6 +22,8 @@ const footerServices = [
   "services/special-transportation",
   "services/recovery-heavy-transport",
   "services/recovery-heavy-transport/satha-car-recovery",
+  "services/recovery-heavy-transport/truck-recovery",
+  "services/recovery-heavy-transport/lowbed-transport",
   "fleet",
 ];
 

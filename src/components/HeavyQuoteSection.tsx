@@ -3,6 +3,7 @@ import { getMessages, getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 import { whatsappHref } from "@/config/contact";
+import { heavyGroup } from "@/lib/heavy-quote";
 import { HeavyQuoteForm } from "./HeavyQuoteForm";
 import { WhatsAppIcon } from "./Icons";
 import { SectionHead } from "./SectionHead";
@@ -25,7 +26,7 @@ export async function HeavyQuoteSection({ locale, service, topic, prefill }: { l
           <p className="quote__legal"><Link href="/terms-and-conditions">{ft("terms")}</Link> · <Link href="/privacy-policy">{ft("privacy")}</Link></p>
           <div className="quote__contact">
             <p className="quote__contact-title">{c("quoteAlt")}</p>
-            <HeavyWhatsApp locale={locale} topic={topic} />
+            <HeavyWhatsApp locale={locale} topic={topic} service={service} />
           </div>
         </div>
         <NextIntlClientProvider locale={locale} messages={{ heavy: { form: all.heavy.form } }}>
@@ -37,20 +38,21 @@ export async function HeavyQuoteSection({ locale, service, topic, prefill }: { l
 }
 
 /** WhatsApp button whose pre-filled message names the heavy transport service (not the private-transfer wording). */
-export async function HeavyWhatsApp({ locale, topic, className = "" }: { locale: Locale; topic: string; className?: string }) {
+export async function HeavyWhatsApp({ locale, topic, service, className = "" }: { locale: Locale; topic: string; service?: string; className?: string }) {
   const h = await getTranslations({ locale, namespace: "heavy" });
   const c = await getTranslations({ locale, namespace: "contact" });
   return (
     <div className={`cta-row ${className}`.trim()}>
       <a
-        href={whatsappHref(h("whatsappTopic", { topic }))}
+        href={whatsappHref(h(`wa.${heavyGroup(service)}`, { topic }))}
+        data-wa-heavy=""
         className="btn btn--md cta cta--whatsapp"
         aria-label={c("whatsappAria")}
         target="_blank"
         rel="noopener noreferrer"
       >
         <WhatsAppIcon className="cta__icon" />
-        <span>{c("whatsapp")}</span>
+        <span>{h("whatsappCta")}</span>
       </a>
     </div>
   );

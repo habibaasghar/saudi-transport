@@ -60,7 +60,7 @@ export const navItems: readonly NavItem[] = [
   {
     key: "heavy",
     href: `/${HT}`,
-    children: [HT, `${HT}/satha-car-recovery`, `${HT}/car-transport-between-cities`, `${HT}/lowbed-transport`, `${HT}/heavy-equipment-transport`, `${HT}/excavator-transport`, `${HT}/wheel-loader-transport`, `${HT}/forklift-transport`, `${HT}/crane-transport`],
+    children: [HT, `${HT}/satha-car-recovery`, `${HT}/satha-car-recovery/hydraulic-satha`, `${HT}/truck-recovery`, `${HT}/car-transport-between-cities`, `${HT}/lowbed-transport`, `${HT}/heavy-equipment-transport`, `${HT}/excavator-transport`, `${HT}/wheel-loader-transport`, `${HT}/forklift-transport`, `${HT}/crane-transport`],
   },
   { key: "contact", href: "/#quote", optional: true },
 ];

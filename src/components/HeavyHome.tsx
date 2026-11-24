@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getPage } from "@/content/registry";
 import { getImage } from "@/content/images";
-import { HT, SATHA, HEAVY, LOWBED, CARS } from "@/content/heavy/shared";
+import { HT, SATHA, HEAVY, LOWBED, CARS, HYDRAULIC, TRUCKS } from "@/content/heavy/shared";
 import type { Locale } from "@/i18n/routing";
 import { SectionHead } from "./SectionHead";
 
@@ -11,7 +11,7 @@ import { SectionHead } from "./SectionHead";
 const HOME_HEAVY = [
   `${SATHA}/riyadh`, `${SATHA}/jeddah`, `${SATHA}/dammam`,
   `${HEAVY}/riyadh`, `${HEAVY}/jeddah`, `${HEAVY}/dammam`,
-  SATHA, CARS, LOWBED, HEAVY,
+  SATHA, HYDRAULIC, TRUCKS, CARS, LOWBED, HEAVY,
 ];
 
 /** Homepage entry point into the heavy transport and satha category (contextual links, not just the menu). */

@@ -460,9 +460,7 @@
       "listTitle": "Satha and heavy transport by city and service",
       "cta": "See all heavy transport services"
     },
-    "cta": "Request Heavy Transport Quote",
     "notice": "Every job is quoted first: no fixed prices, nothing dispatched until you confirm.",
-    "whatsappTopic": "Hello RideSaudi, I need a quote for: {topic}. Load, pickup and destination: ",
     "quoteEyebrow": "Heavy transport quotation",
     "quoteTitle": "Tell us what needs moving",
     "quoteText": "Weight, size and the two locations decide the right truck or trailer. Share them once and we come back with the suitable option and a quotation.",
@@ -484,7 +482,7 @@
       }
     },
     "form": {
-      "title": "Heavy transport quotation request",
+      "title": "Recovery and heavy transport quotation request",
       "load": "What needs moving",
       "route": "Pickup and destination",
       "you": "Your details",
@@ -492,8 +490,10 @@
       "servicePlaceholder": "Select a service",
       "choose": "Choose",
       "services": {
-        "satha": "Satha / car recovery",
+        "satha": "Car or SUV recovery (satha)",
+        "hydraulic_satha": "Hydraulic / full-down satha",
         "towing": "Vehicle towing",
+        "truck_recovery": "Truck or heavy vehicle recovery",
         "car_transport": "Car transport between cities",
         "lowbed": "Lowbed transport",
         "heavy_machinery": "Heavy machinery transport",
@@ -518,10 +518,10 @@
         "accident": "Accident damaged"
       },
       "weight": "Approximate weight (tonnes)",
-      "weightHint": "The operating weight from the machine plate or brochure is fine.",
-      "length": "Length (m)",
-      "width": "Width (m)",
-      "height": "Height (m)",
+      "weightHint": "If you do not know it, leave this empty and give the make and model above.",
+      "length": "Length (m), if known",
+      "width": "Width (m), if known",
+      "height": "Height (m), if known",
       "dimsHint": "Transport position: boom, bucket or mast folded down if possible.",
       "loading": "Loading method",
       "unloading": "Unloading method",
@@ -544,7 +544,6 @@
       "notes": "Additional requirements (optional)",
       "photosHint": "After sending, you can share photos or documents of the load on WhatsApp with your reference number.",
       "consent": "I agree that RideSaudi may use these details to respond to my request, as described in the <privacy>Privacy Policy</privacy>.",
-      "submit": "Request Heavy Transport Quote",
       "sending": "Sending…",
       "reference": "Your reference: {ref}.",
       "photosWhatsApp": "Send photos on WhatsApp",
@@ -564,8 +563,35 @@
         "email": "Please enter a valid email address.",
         "date": "Please choose today or a later date.",
         "number": "Numbers only, for example 22.5",
-        "consent": "Please accept so we can reply to your request."
-      }
+        "consent": "Please accept so we can reply to your request.",
+        "weightOrModel": "Please enter the weight, or the make and model above."
+      },
+      "submits": {
+        "recovery": "Request a Recovery Quote",
+        "truck": "Request a Truck Recovery Quote",
+        "lowbed": "Get a Lowbed Transport Quote",
+        "equipment": "Request Heavy Equipment Transport",
+        "general": "Request Heavy Transport Quote"
+      },
+      "makeModelMachine": "Make and model",
+      "truckTypeHint": "For example: tractor head, rigid truck, dyna, bus, van. Say if it is loaded.",
+      "weightTruckHint": "Optional. Total weight with any cargo, if known.",
+      "today": "It is needed today"
+    },
+    "ctas": {
+      "recovery": "Request a Recovery Quote",
+      "truck": "Request a Truck Recovery Quote",
+      "lowbed": "Get a Lowbed Transport Quote",
+      "equipment": "Request Heavy Equipment Transport",
+      "general": "Request Heavy Transport Quote"
+    },
+    "whatsappCta": "Get a WhatsApp Quote",
+    "wa": {
+      "recovery": "Hello RideSaudi, I need a quote for: {topic}.\nVehicle (make/model): \nCondition (runs / not running / accident): \nPickup location: \nDestination: \nDate: ",
+      "truck": "Hello RideSaudi, I need a quote for: {topic}.\nVehicle (type/model/axles): \nEmpty or loaded: \nFault: \nPickup location and direction: \nDestination: \nDate: ",
+      "lowbed": "Hello RideSaudi, I need a quote for: {topic}.\nMachine (make/model): \nWeight (tonnes): \nL x W x H (m): \nPickup: \nDestination: \nDate: ",
+      "equipment": "Hello RideSaudi, I need a quote for: {topic}.\nLoad (type/model): \nWeight (tonnes): \nL x W x H (m): \nPickup: \nDestination: \nDate: ",
+      "general": "Hello RideSaudi, I need a quote for: {topic}.\nWhat needs moving: \nWeight if known: \nPickup: \nDestination: \nDate: "
     }
   },
   "quickQuote": {

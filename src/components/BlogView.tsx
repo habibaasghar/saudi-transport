@@ -236,7 +236,7 @@ export async function BlogPostView({ post, locale }: { post: BlogPost; locale: L
             <div className="hero__actions">
               <a href="#quote" className="btn btn--primary btn--lg">{l.getQuote}</a>
             </div>
-            {heavy && <HeavyWhatsApp locale={locale} topic={c.h1} className="hero__contact" />}
+            {heavy && <HeavyWhatsApp locale={locale} topic={c.h1} service={post.heavyService} className="hero__contact" />}
           </div>
         </section>
 
