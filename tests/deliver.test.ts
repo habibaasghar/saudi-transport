@@ -37,4 +37,14 @@ describe("deliverLead business alert", () => {
     expect(await deliverLead(lead())).toEqual({ configured: true, delivered: false });
     err.mockRestore();
   });
+
+  it("labels heavy transport alerts with their own check and urgency, not passenger questions", async () => {
+    delete process.env.RESEND_API_KEY; delete process.env.LEAD_NOTIFY_EMAIL; delete process.env.ENQUIRY_WEBHOOK_URL;
+    Object.assign(process.env, { EMAIL_PROVIDER: "gmail", SMTP_USERNAME: "s@example.com", ADMIN_NOTIFY_EMAIL: "o@example.com" });
+    sendMail.mockResolvedValue({ accepted: ["o@example.com"] });
+    await deliverLead({ ...lead(), service: "heavy_satha" }, { complete: true, line: "complete details.", tag: "URGENT" });
+    const msg = sendMail.mock.calls[0][0];
+    expect(msg.subject).toBe("URGENT New enquiry: heavy_satha · Test");
+    expect(msg.text).not.toMatch(/Ask for: .*(passengers|luggage)/);
+  });
 });

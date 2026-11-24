@@ -17,7 +17,17 @@ export function Analytics() {
       if (!a) return;
       const href = a.getAttribute("href") || "";
       const where = a.closest("header") ? "header" : a.closest("footer") ? "footer" : a.classList.contains("wa-float") ? "floating" : "content";
-      if (/^https:\/\/wa\.me\//.test(href)) track("whatsapp_click", { location: where });
+      if (/^https:\/\/wa\.me\//.test(href)) {
+        // Which service and language the click came from; a click is contact intent, never a booking.
+        const hero = document.querySelector<HTMLAnchorElement>("main a[data-wa-heavy]");
+        const heavy = hero?.dataset.waHeavy;
+        // Header and footer WhatsApp links carry the private-transfer message: on recovery and lowbed pages use the page's own.
+        if (where === "header" || where === "footer") {
+          a.dataset.waBase ??= href;
+          a.href = hero?.href ?? a.dataset.waBase;
+        }
+        track("whatsapp_click", { location: where, service: heavy ? `heavy_${heavy}` : "passenger", language: document.documentElement.lang });
+      }
       else if (href.startsWith("tel:")) track("phone_click", { location: where });
       else if (href.startsWith("mailto:")) track("email_click", { location: where });
     };

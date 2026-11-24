@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { cargoSummary, emptyHeavy, HEAVY_SERVICES, heavyGroup, sanitizeHeavy, validateHeavy } from "../src/lib/heavy-quote";
+import { cargoSummary, checkHeavy, emptyHeavy, isHeavyQuick, ksaToday, quickToHeavy, validateHeavyQuick, HEAVY_SERVICES, heavyGroup, sanitizeHeavy, validateHeavy } from "../src/lib/heavy-quote";
 import en from "../messages/en.json";
 import ar from "../messages/ar.json";
 
 const today = new Date("2026-11-22T10:00:00");
-const base = { ...emptyHeavy(), pickup: "Riyadh, 2nd Industrial City", dropoff: "Jubail", date: "2026-11-25", name: "Test", phone: "+966 50 000 0000", consent: true };
+const base = { ...emptyHeavy(), pickup: "Riyadh, 2nd Industrial City", dropoff: "Jubail", date: "2026-11-25", timing: "date", name: "Test", phone: "+966 50 000 0000", consent: true };
 
 describe("heavy quote validation", () => {
   it("requires weight or model for machinery but not dimensions", () => {
@@ -38,6 +38,7 @@ describe("heavy quote validation", () => {
 
   it("has a label, CTA, submit text and WhatsApp template for every service in both languages", () => {
     for (const m of [en, ar]) {
+      for (const g of ["business"] as const) expect(m.heavy.wa[g]).toContain("{topic}");
       for (const s of HEAVY_SERVICES) {
         expect(m.heavy.form.services[s], s).toBeTruthy();
         const g = heavyGroup(s);
@@ -70,5 +71,33 @@ describe("heavy quote sanitising", () => {
     expect(s).toContain("Approx. weight: 19 t");
     expect(s).toContain("8.2 x 2.9 x 3.5 m");
     expect(s).toContain("Company: ACME");
+  });
+});
+
+describe("lead qualification", () => {
+  it("dates an urgent recovery itself and needs a company name only for business requests", () => {
+    const d = sanitizeHeavy({ ...base, service: "satha", loadType: "Camry", condition: "not_running", timing: "now", date: "" })!;
+    expect(d.date).toBe(ksaToday());
+    expect(cargoSummary(d)).toContain("URGENT: needed now");
+    expect(validateHeavy({ ...base, service: "lowbed", loadType: "Dozer", weight: "30", business: true }, today).company).toBe("required");
+    const b = sanitizeHeavy({ ...base, service: "lowbed", loadType: "Dozer", weight: "30", business: true, company: "ACME", quantity: "3", frequency: "recurring" })!;
+    expect(cargoSummary(b)).toContain("Business request (recurring), quantity: 3");
+  });
+
+  it("keeps a page opened before the timing field existed working", () => {
+    expect(sanitizeHeavy({ ...base, timing: undefined, service: "satha", loadType: "Camry", condition: "runs" })!.timing).toBe("date");
+  });
+
+  it("accepts the short form and tells staff what to ask, never passenger details", () => {
+    expect(validateHeavyQuick({ loadType: "", pickup: "x", phone: "abc" })).toEqual({ loadType: "required", phone: "phone" });
+    const raw = { quick: true, service: "lowbed", loadType: "Excavator", pickup: "Jeddah", phone: "+966500000000", startedAt: 1 };
+    expect(isHeavyQuick(raw)).toBe(true);
+    const d = quickToHeavy(sanitizeHeavy(raw)!);
+    expect([d.dropoff, d.consent, d.date]).toEqual(["TBC", true, ksaToday()]);
+    const c = checkHeavy(d);
+    expect(c.complete).toBe(false);
+    expect(c.line).toContain("weight or model");
+    expect(c.line).not.toMatch(/passenger|luggage/);
+    expect(checkHeavy({ ...base, service: "excavator", loadType: "x", makeModel: "CAT 320" }).complete).toBe(true);
   });
 });

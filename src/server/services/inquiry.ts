@@ -16,6 +16,8 @@ export type NewInquiry = {
   attribution?: Record<string, string>;
   source?: "website" | "whatsapp_ai" | "manual" | "email" | "phone";
   idempotencyKey?: string;
+  /** Extra text in the duplicate check, so two different machines from one site are two enquiries. */
+  dedupeExtra?: string;
 };
 
 export type CreateResult = { id: string; reference: string; duplicate: boolean };
@@ -23,9 +25,9 @@ export type CreateResult = { id: string; reference: string; duplicate: boolean }
 const DEDUPE_WINDOW_MS = 10 * 60 * 1000;
 type Tx = Parameters<Parameters<Db["transaction"]>[0]>[0];
 
-export const dedupeHash = (i: Pick<NewInquiry, "email" | "phone" | "pickup" | "dropoff" | "pickupDate" | "pickupTime">) =>
+export const dedupeHash = (i: Pick<NewInquiry, "email" | "phone" | "pickup" | "dropoff" | "pickupDate" | "pickupTime" | "dedupeExtra">) =>
   createHash("sha256")
-    .update([(i.email || "").toLowerCase(), i.phone.replace(/\D/g, ""), i.pickup.toLowerCase(), i.dropoff.toLowerCase(), i.pickupDate, i.pickupTime].join("|"))
+    .update([(i.email || "").toLowerCase(), i.phone.replace(/\D/g, ""), i.pickup.toLowerCase(), i.dropoff.toLowerCase(), i.pickupDate, i.pickupTime, ...(i.dedupeExtra ? [i.dedupeExtra] : [])].join("|"))
     .digest("hex");
 
 /** RS-YYMM-NNNN, sequence kept per month in `counters` (atomic upsert inside the caller's TX). */

@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import type { ServicePage } from "@/content/types";
@@ -20,7 +21,8 @@ import { stripLinks } from "@/content/inline-links";
 import { FleetCards } from "./Fleet";
 import { pagePrefill } from "@/content/location-prefill";
 import { heavyGroup } from "@/lib/heavy-quote";
-import { HeavyQuoteSection, HeavySteps, HeavyWhatsApp } from "./HeavyQuoteSection";
+import { HeavyPromise, HeavyQuoteSection, HeavySteps, HeavyWhatsApp } from "./HeavyQuoteSection";
+import { HeavyQuickForm } from "./HeavyQuickForm";
 import { QuickQuoteForm } from "./QuickQuoteForm";
 import { PriceFrom } from "./PriceFrom";
 import { TrustDetails } from "./TrustDetails";
@@ -116,7 +118,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             />
           )}
           {hero?.caption && <p className="svc-hero__caption">{hero.caption[locale]}</p>}
-          <div className={`wrap${heavy ? "" : " svc-hero__grid"}`}>
+          <div className="wrap svc-hero__grid">
             <div className="svc-hero__copy">
             <nav aria-label={t("breadcrumb")} className="crumbs">
               <ol>
@@ -146,6 +148,11 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             {/* The "enquiry is not a confirmed booking" notice appears once, next to the full form's submit button. */}
             {heavy && <p className="hero__note">{h("notice")}</p>}
             </div>
+            {heavy && (
+              <NextIntlClientProvider locale={locale} messages={{ heavy: { quick: (await getMessages({ locale })).heavy.quick } }}>
+                <HeavyQuickForm locale={locale} service={page.heavyService} pickup={prefill?.pickup} />
+              </NextIntlClientProvider>
+            )}
             {!heavy && <QuickQuoteForm locale={locale} service={page.service} route={quickRoute} />}
           </div>
         </section>
@@ -159,6 +166,8 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             </div>
           </div>
         </section>
+
+        {heavy && <HeavyPromise locale={locale} />}
 
         {!heavy && <PriceFrom path={page.path} locale={locale} />}
 

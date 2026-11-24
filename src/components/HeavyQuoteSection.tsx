@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
-import { whatsappHref } from "@/config/contact";
+import { CONTACT, whatsappHref } from "@/config/contact";
 import { heavyGroup } from "@/lib/heavy-quote";
 import { HeavyQuoteForm } from "./HeavyQuoteForm";
 import { WhatsAppIcon } from "./Icons";
@@ -27,6 +27,7 @@ export async function HeavyQuoteSection({ locale, service, topic, prefill }: { l
           <div className="quote__contact">
             <p className="quote__contact-title">{c("quoteAlt")}</p>
             <HeavyWhatsApp locale={locale} topic={topic} service={service} />
+            <p className="quote__business">{h("businessLine")} <a href={whatsappHref(h("wa.business", { topic }))} target="_blank" rel="noopener noreferrer">{h("businessCta")}</a></p>
           </div>
         </div>
         <NextIntlClientProvider locale={locale} messages={{ heavy: { form: all.heavy.form } }}>
@@ -45,7 +46,7 @@ export async function HeavyWhatsApp({ locale, topic, service, className = "" }: 
     <div className={`cta-row ${className}`.trim()}>
       <a
         href={whatsappHref(h(`wa.${heavyGroup(service)}`, { topic }))}
-        data-wa-heavy=""
+        data-wa-heavy={heavyGroup(service)}
         className="btn btn--md cta cta--whatsapp"
         aria-label={c("whatsappAria")}
         target="_blank"
@@ -54,7 +55,23 @@ export async function HeavyWhatsApp({ locale, topic, service, className = "" }: 
         <WhatsAppIcon className="cta__icon" />
         <span>{h("whatsappCta")}</span>
       </a>
+      <span className="wa-number">{h("whatsappNumber")} <bdi dir="ltr">{CONTACT.whatsappDisplay}</bdi></span>
     </div>
+  );
+}
+
+/** Who does what, stated plainly: RideSaudi coordinates, a partner carries out the job, nothing moves before the price is accepted. */
+export async function HeavyPromise({ locale }: { locale: Locale }) {
+  const h = await getTranslations({ locale, namespace: "heavy.promise" });
+  return (
+    <section className="section section--sand heavy-promise" aria-labelledby="promise-h">
+      <div className="wrap">
+        <h2 id="promise-h" className="mini-title">{h("title")}</h2>
+        <ul className="ticks heavy-promise__list">
+          {(["one", "two", "three", "four"] as const).map((k) => <li key={k}>{h(k)}</li>)}
+        </ul>
+      </div>
+    </section>
   );
 }
 

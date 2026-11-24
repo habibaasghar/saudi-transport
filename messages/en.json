@@ -508,9 +508,7 @@
       },
       "machineType": "Machine or equipment type",
       "machineTypeHint": "For example: crawler excavator, wheel loader, forklift, mobile crane, generator.",
-      "vehicleType": "Vehicle type",
-      "vehicleTypeHint": "For example: sedan, SUV, pickup, sports car.",
-      "makeModel": "Make and model (optional)",
+      "vehicleTypeHint": "For example: Toyota Camry 2021, GMC Yukon 2020.",
       "condition": "Vehicle condition",
       "conditions": {
         "runs": "Runs and can be driven",
@@ -537,7 +535,6 @@
       "dropoff": "Destination city and exact location",
       "date": "Required transport date",
       "name": "Full name",
-      "company": "Company name (optional)",
       "phone": "WhatsApp number",
       "phoneHint": "Include the country code, for example +966.",
       "email": "Email (optional)",
@@ -576,7 +573,24 @@
       "makeModelMachine": "Make and model",
       "truckTypeHint": "For example: tractor head, rigid truck, dyna, bus, van. Say if it is loaded.",
       "weightTruckHint": "Optional. Total weight with any cargo, if known.",
-      "today": "It is needed today"
+      "vehicleFull": "Vehicle (make, model, year)",
+      "timing": "When is it needed?",
+      "timings": {
+        "now": "As soon as possible",
+        "today": "Later today",
+        "date": "On a set date"
+      },
+      "business": "This is a company, fleet or recurring request",
+      "companyRequired": "Company name",
+      "quantity": "Quantity",
+      "quantityHint": "For example: 3 excavators, or 10 cars a month.",
+      "frequency": "How often?",
+      "frequencies": {
+        "once": "One time",
+        "recurring": "Recurring",
+        "project": "Project with several moves"
+      },
+      "whatsappRecovery": "Hello RideSaudi, recovery request {ref}. Service: {service}. Vehicle: {load}. Condition: {condition}. From: {pickup}. To: {dropoff}. When: {timing} {date}. I will send the location and photos here."
     },
     "ctas": {
       "recovery": "Request a Recovery Quote",
@@ -591,7 +605,54 @@
       "truck": "Hello RideSaudi, I need a quote for: {topic}.\nVehicle (type/model/axles): \nEmpty or loaded: \nFault: \nPickup location and direction: \nDestination: \nDate: ",
       "lowbed": "Hello RideSaudi, I need a quote for: {topic}.\nMachine (make/model): \nWeight (tonnes): \nL x W x H (m): \nPickup: \nDestination: \nDate: ",
       "equipment": "Hello RideSaudi, I need a quote for: {topic}.\nLoad (type/model): \nWeight (tonnes): \nL x W x H (m): \nPickup: \nDestination: \nDate: ",
-      "general": "Hello RideSaudi, I need a quote for: {topic}.\nWhat needs moving: \nWeight if known: \nPickup: \nDestination: \nDate: "
+      "general": "Hello RideSaudi, I need a quote for: {topic}.\nWhat needs moving: \nWeight if known: \nPickup: \nDestination: \nDate: ",
+      "business": "Hello RideSaudi, we need a business quotation for: {topic}.\nCompany: \nContact person: \nVehicles or machines (type and quantity): \nFrom / to: \nOne-time or recurring: \nExpected date: "
+    },
+    "whatsappNumber": "WhatsApp:",
+    "businessLine": "Company, fleet or project with several moves?",
+    "businessCta": "Send a business request on WhatsApp",
+    "promise": {
+      "title": "How RideSaudi works",
+      "one": "RideSaudi takes your request and arranges it; an available transport partner carries out the job.",
+      "two": "You see the price and the type of truck before you agree.",
+      "three": "Nothing is sent until you confirm.",
+      "four": "You do not need to know the weight: a model name or a photo is enough to start."
+    },
+    "quick": {
+      "titles": {
+        "recovery": "Request a recovery quote",
+        "truck": "Request a truck recovery quote",
+        "lowbed": "Get a lowbed quote",
+        "equipment": "Get a transport quote",
+        "general": "What needs moving?"
+      },
+      "vehicle": "Vehicle",
+      "vehiclePh": "For example: Camry 2021, will not start",
+      "truckPh": "For example: tractor head, empty, engine failed",
+      "machine": "Machine or load",
+      "machinePh": "For example: CAT 320 excavator",
+      "pickup": "Where is it now?",
+      "pickupPh": "City, district or map link",
+      "dropoff": "Where should it go? (optional)",
+      "dropoffPh": "City, workshop or site",
+      "phone": "Your WhatsApp number",
+      "submit": "Get my quote on WhatsApp",
+      "sending": "Sending…",
+      "privacy": "By sending, you agree that we use these details to reply. See our <privacy>Privacy Policy</privacy>.",
+      "successTitle": "Request received",
+      "reference": "Your reference: {ref}",
+      "successRecovery": "This is a quotation request, not a dispatched truck. Send your map pin on WhatsApp so the price can be checked.",
+      "successCargo": "This is a quotation request. Send photos or the machine plate on WhatsApp so the right trailer can be checked.",
+      "sendPin": "Send location on WhatsApp",
+      "sendPhotos": "Send photos on WhatsApp",
+      "whatsappMessage": "Hello RideSaudi, quote request {ref}.\nVehicle or load: {load}\nFrom: {pickup}\nTo: {dropoff}\nI will send the location and photos here.",
+      "failed": "Your request could not be sent. Your details are ready to send on WhatsApp.",
+      "rateLimited": "Too many requests in a short time. Please use WhatsApp.",
+      "sendOnWhatsApp": "Send these details on WhatsApp",
+      "errors": {
+        "required": "This field is required.",
+        "phone": "Please enter a valid number with country code."
+      }
     }
   },
   "quickQuote": {

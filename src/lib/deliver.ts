@@ -4,6 +4,9 @@ import { smtpTransport } from "@/server/email/send";
 
 type Lead = Omit<EnquiryInput, "website" | "startedAt"> & { receivedAt: string };
 
+/** Heavy transport leads bring their own check (a lowbed job has no passengers or luggage) and an urgency tag. */
+export type LeadLabel = { complete: boolean; line: string; tag?: string };
+
 export type DeliveryResult = { configured: boolean; delivered: boolean };
 
 /**
@@ -21,17 +24,17 @@ export type DeliveryResult = { configured: boolean; delivered: boolean };
  * If every configured channel fails, the full lead is written to the server log under "[enquiry] UNDELIVERED LEAD"
  * so it can be recovered from the Vercel logs; the visitor is shown the WhatsApp fallback with their details.
  */
-export async function deliverLead(lead: Lead): Promise<DeliveryResult> {
+export async function deliverLead(lead: Lead, label?: LeadLabel): Promise<DeliveryResult> {
   const jobs: Promise<boolean>[] = [];
 
   const resendKey = process.env.RESEND_API_KEY;
   const notify = process.env.LEAD_NOTIFY_EMAIL;
-  if (resendKey && notify) jobs.push(toEmail(lead, resendKey, notify));
+  if (resendKey && notify) jobs.push(toEmail(lead, resendKey, notify, label));
 
   const provider = (process.env.EMAIL_PROVIDER || "").toLowerCase();
   const smtpTo = process.env.LEAD_NOTIFY_EMAIL || process.env.ADMIN_NOTIFY_EMAIL;
   if ((provider === "gmail" || provider === "smtp") && process.env.SMTP_USERNAME && smtpTo && !(resendKey && notify)) {
-    jobs.push(toSmtp(lead, smtpTo));
+    jobs.push(toSmtp(lead, smtpTo, label));
   }
 
   const webhook = process.env.ENQUIRY_WEBHOOK_URL;
@@ -49,10 +52,10 @@ export function logUndelivered(lead: Lead | Record<string, unknown>) {
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
-function alertContent(lead: Lead) {
-  const check = checkLead(lead);
+function alertContent(lead: Lead, label?: LeadLabel) {
+  const check = label ?? checkLead(lead);
   const rows: [string, string][] = [
-    ["Lead check", leadCheckLine(check).replace("Lead check: ", "")],
+    ["Lead check", label ? label.line : leadCheckLine(checkLead(lead)).replace("Lead check: ", "")],
     ["Name", lead.name],
     ["Phone / WhatsApp", lead.phone],
     ["Email", lead.email],
@@ -80,12 +83,12 @@ function alertContent(lead: Lead) {
     .map(([k, v]) => `<tr><td><b>${k}</b></td><td>${esc(v).replace(/\n/g, "<br>")}</td></tr>`)
     .join("")}</table>`;
   const text = rows.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join("\n");
-  return { html, text, subject: `${check.complete ? "New enquiry" : "Incomplete enquiry"}: ${lead.service} · ${lead.name}`.replace(/[\r\n]+/g, " ").slice(0, 200) };
+  return { html, text, subject: `${label?.tag ? `${label.tag} ` : ""}${check.complete ? "New enquiry" : "Incomplete enquiry"}: ${lead.service} · ${lead.name}`.replace(/[\r\n]+/g, " ").slice(0, 200) };
 }
 
-async function toEmail(lead: Lead, key: string, to: string): Promise<boolean> {
+async function toEmail(lead: Lead, key: string, to: string, label?: LeadLabel): Promise<boolean> {
   const from = process.env.LEAD_FROM_EMAIL || "RideSaudi Leads <onboarding@resend.dev>";
-  const { html, subject } = alertContent(lead);
+  const { html, subject } = alertContent(lead, label);
   try {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -108,10 +111,10 @@ async function toEmail(lead: Lead, key: string, to: string): Promise<boolean> {
   }
 }
 
-async function toSmtp(lead: Lead, to: string): Promise<boolean> {
+async function toSmtp(lead: Lead, to: string, label?: LeadLabel): Promise<boolean> {
   const user = process.env.SMTP_USERNAME || "";
   const from = process.env.LEAD_FROM_EMAIL || process.env.EMAIL_FROM || `RideSaudi Leads <${user}>`;
-  const { html, text, subject } = alertContent(lead);
+  const { html, text, subject } = alertContent(lead, label);
   try {
     const info = await smtpTransport().sendMail({
       from, to: to.split(",").map((x) => x.trim()).filter(Boolean), subject, html, text,

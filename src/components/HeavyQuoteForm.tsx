@@ -2,9 +2,9 @@
 
 import { useId, useRef, useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
-import { asksCondition, CONDITIONS, emptyHeavy, HEAVY_SERVICES, heavyGroup, isTruckRecovery, isVehicleService, LOAD_METHODS, validateHeavy, type HeavyErrors, type HeavyQuoteInput } from "@/lib/heavy-quote";
+import { asksCondition, CONDITIONS, emptyHeavy, FREQUENCIES, HEAVY_SERVICES, heavyGroup, isTruckRecovery, isVehicleService, LOAD_METHODS, TIMINGS, validateHeavy, type HeavyErrors, type HeavyQuoteInput } from "@/lib/heavy-quote";
 import { readAttribution } from "@/lib/attribution";
-import { track } from "@/lib/analytics";
+import { track, trackLead } from "@/lib/analytics";
 import { whatsappHref } from "@/config/contact";
 import { Link } from "@/i18n/navigation";
 
@@ -45,13 +45,15 @@ export function HeavyQuoteForm({ locale, defaultService, prefill }: { locale: st
   };
 
   const waText = (ref: string) =>
-    t("whatsappMessage", {
+    t(recovery ? "whatsappRecovery" : "whatsappMessage", {
+      condition: data.condition ? t(`conditions.${data.condition}` as never) : "-",
+      timing: data.timing ? t(`timings.${data.timing}` as never) : "-",
       ref,
       service: data.service ? t(`services.${data.service}` as never) : "-",
       load: [data.loadType, data.makeModel].filter(Boolean).join(" ") || "-",
       pickup: data.pickup || "-",
       dropoff: data.dropoff || "-",
-      date: data.date || "-",
+      date: data.date || (recovery ? "" : "-"),
       weight: data.weight || "-",
     });
 
@@ -80,7 +82,7 @@ export function HeavyQuoteForm({ locale, defaultService, prefill }: { locale: st
         setReceipt({ reference: j.reference, wa: whatsappHref(waText(j.reference ?? "-")) });
         // No names, phone numbers or locations are sent to analytics.
         track("quote_form_success", { form: "heavy_quote", service: data.service, language: locale });
-        track("generate_lead", { form: "heavy_quote", service: data.service, language: locale });
+        trackLead({ form: "heavy_quote", service: `heavy_${data.service}`, language: locale, complete: j.complete === true, business: data.business });
         track("quote_request", { service: `heavy_${data.service}`, language: locale });
         setStatus("success");
         setData({ ...emptyHeavy(), locale, service: data.service });
@@ -148,15 +150,15 @@ export function HeavyQuoteForm({ locale, defaultService, prefill }: { locale: st
         <legend>{t("load")}</legend>
         <div className="grid">
           {Select({ name: "service", label: t("service"), options: HEAVY_SERVICES, prefix: "services", required: true, wide: true, placeholder: t("servicePlaceholder") })}
-          {Field({ name: "loadType", label: recovery ? t("vehicleType") : t("machineType"), hint: truck ? t("truckTypeHint") : vehicle ? t("vehicleTypeHint") : t("machineTypeHint"), required: true, maxLength: 80 })}
-          {Field({ name: "makeModel", label: machine && !truck ? t("makeModelMachine") : t("makeModel"), maxLength: 120 })}
+          {Field({ name: "loadType", label: recovery ? t("vehicleFull") : t("machineType"), hint: truck ? t("truckTypeHint") : vehicle ? t("vehicleTypeHint") : t("machineTypeHint"), required: true, maxLength: 80 })}
+          {!recovery && Field({ name: "makeModel", label: t("makeModelMachine"), maxLength: 120 })}
           {asksCondition(data.service) && Select({ name: "condition", label: t("condition"), options: CONDITIONS, prefix: "conditions", required: true, wide: true, placeholder: t("choose") })}
           {machine && (
             <>
               {Field({ name: "weight", label: t("weight"), hint: t(truck ? "weightTruckHint" : "weightHint"), inputMode: "decimal", required: !truck && !data.makeModel.trim(), maxLength: 8, dir: "ltr", wide: true })}
-              {Field({ name: "length", label: t("length"), inputMode: "decimal", maxLength: 8, dir: "ltr" })}
-              {Field({ name: "width", label: t("width"), inputMode: "decimal", maxLength: 8, dir: "ltr" })}
-              {Field({ name: "height", label: t("height"), hint: t("dimsHint"), inputMode: "decimal", maxLength: 8, dir: "ltr", wide: true })}
+              {!truck && Field({ name: "length", label: t("length"), inputMode: "decimal", maxLength: 8, dir: "ltr" })}
+              {!truck && Field({ name: "width", label: t("width"), inputMode: "decimal", maxLength: 8, dir: "ltr" })}
+              {!truck && Field({ name: "height", label: t("height"), hint: t("dimsHint"), inputMode: "decimal", maxLength: 8, dir: "ltr", wide: true })}
               {!truck && Select({ name: "loading", label: t("loading"), options: LOAD_METHODS, prefix: "methods", placeholder: t("choose") })}
               {!truck && Select({ name: "unloading", label: t("unloading"), options: LOAD_METHODS, prefix: "methods", placeholder: t("choose") })}
             </>
@@ -169,12 +171,8 @@ export function HeavyQuoteForm({ locale, defaultService, prefill }: { locale: st
         <div className="grid">
           {Field({ name: "pickup", label: t("pickup"), hint: t("locationHint"), required: true, maxLength: 200, autoComplete: "off", wide: true })}
           {Field({ name: "dropoff", label: t("dropoff"), required: true, maxLength: 200, autoComplete: "off", wide: true })}
-          {Field({ name: "date", label: t("date"), type: "date", required: true, min: today })}
-          {recovery && today && data.date !== today && (
-            <div className="field field--today">
-              <button type="button" className="btn btn--sm btn--today" onClick={() => set("date", today)}>{t("today")}</button>
-            </div>
-          )}
+          {recovery && Select({ name: "timing", label: t("timing"), options: TIMINGS, prefix: "timings", required: true, placeholder: t("choose") })}
+          {(!recovery || data.timing === "date") && Field({ name: "date", label: t("date"), type: "date", required: true, min: today })}
         </div>
       </fieldset>
 
@@ -182,9 +180,15 @@ export function HeavyQuoteForm({ locale, defaultService, prefill }: { locale: st
         <legend>{t("you")}</legend>
         <div className="grid">
           {Field({ name: "name", label: t("name"), required: true, autoComplete: "name", maxLength: 160 })}
-          {Field({ name: "company", label: t("company"), autoComplete: "organization", maxLength: 160 })}
           {Field({ name: "phone", label: t("phone"), hint: t("phoneHint"), type: "tel", inputMode: "tel", required: true, autoComplete: "tel", maxLength: 20, dir: "ltr" })}
-          {Field({ name: "email", label: t("email"), type: "email", inputMode: "email", autoComplete: "email", maxLength: 160, dir: "ltr" })}
+          <div className="check field--wide">
+            <input id={id("business")} name="business" type="checkbox" checked={data.business} onChange={(e) => set("business", e.target.checked)} />
+            <label htmlFor={id("business")}>{t("business")}</label>
+          </div>
+          {data.business && Field({ name: "company", label: t("companyRequired"), required: true, autoComplete: "organization", maxLength: 160 })}
+          {data.business && Field({ name: "quantity", label: t("quantity"), hint: t("quantityHint"), maxLength: 40 })}
+          {data.business && Select({ name: "frequency", label: t("frequency"), options: FREQUENCIES, prefix: "frequencies", placeholder: t("choose") })}
+          {(data.business || !recovery) && Field({ name: "email", label: t("email"), type: "email", inputMode: "email", autoComplete: "email", maxLength: 160, dir: "ltr" })}
           <div className="field field--wide">
             <label htmlFor={id("notes")}>{t("notes")}</label>
             <textarea id={id("notes")} name="notes" rows={3} maxLength={1500} value={data.notes} onChange={(e) => set("notes", e.target.value)} aria-describedby={`${uid}-notes-h`} />

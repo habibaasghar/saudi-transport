@@ -517,5 +517,12 @@ ul.social { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; margin
 .trust-details__facts dt { font-size: .85rem; color: var(--muted); }
 .trust-details__facts dd { margin: 0; font-weight: 600; }
 
-.field--today { display: flex; align-items: flex-end; }
-.btn--today { background: #eaf6ff; color: #174a78; border: 1px solid #174a78; min-height: 48px; }
+
+
+
+.wa-number { display: block; font-weight: 600; margin-block-start: .35rem; }
+.quote__business { margin-block-start: 1rem; }
+.quote__business a { color: #7dd3fc; text-decoration: underline; }
+.heavy-promise { padding-block: 2rem; }
+.heavy-promise__list { display: grid; gap: .6rem; }
+@media (min-width: 800px) { .heavy-promise__list { grid-template-columns: 1fr 1fr; } }

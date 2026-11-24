@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/routing";
+import { CONTACT } from "@/config/contact";
 import type { Copy, Section, ServicePage } from "../types";
 import { CARS, CRANE, EXCAVATOR, FLATBED, FORKLIFT, HEAVY, HT, HYDRAULIC, LOADER, LOWBED, OVERSIZED, RELOCATION, SATHA, TRUCKS } from "./shared";
 
@@ -334,8 +335,61 @@ const patches: Record<string, Entry> = {
   },
 };
 
+/**
+ * Lead pass, 2026-11-24. Saudi autocomplete shows "رقم سطحة / رقم لوبد + city" (people look for a number), "car transport
+ * riyadh to jeddah (price)", "شحن سيارات" and "شركة نقل معدات ثقيلة". Business sections describe how a company request is
+ * handled; no clients, contracts or capacities are claimed.
+ */
+const NUM = CONTACT.whatsappDisplay;
+const leads: Record<string, Entry> = {
+  [HT]: {
+    en: { sections: [{ h: "Companies, fleets and projects", p: ["Contractors, rental yards, dealers, workshops and factories usually have more than one thing to move. Send a list instead of one request per item: the units, their models, both ends and the dates. Each line is checked for a suitable truck and quoted, so you can approve all of it or only part. Typical lists are [machinery between sites](services/recovery-heavy-transport/heavy-equipment-transport), [cars between branches](services/recovery-heavy-transport/car-transport-between-cities), [dead trucks to a workshop](services/recovery-heavy-transport/truck-recovery) and [a production line to a new plant](services/recovery-heavy-transport/industrial-machinery-relocation)."], list: ["Company name and one contact for questions", "Type, model and quantity of each unit", "Pickup and delivery places, with gate or site rules", "One-time, recurring, or a project with a start date"] }], faqs: [{ q: "Can a company send one request for many vehicles or machines?", a: "Yes. Tick the company option in the form or send the list on WhatsApp. Every line is quoted, and recurring moves can be described in the same request." }] },
+    ar: { sections: [{ h: "الشركات والأساطيل والمشاريع", p: ["المقاولون وشركات التأجير والمعارض والورش والمصانع لديهم غالبًا أكثر من نقلة. أرسل قائمة واحدة بدل طلب لكل قطعة: الوحدات وموديلاتها والطرفان والتواريخ. نتحقق من الشاحنة المناسبة لكل بند ونسعّره، فتوافق على القائمة كلها أو جزء منها. ومن القوائم المعتادة [معدات بين المواقع](services/recovery-heavy-transport/heavy-equipment-transport) و[سيارات بين الفروع](services/recovery-heavy-transport/car-transport-between-cities) و[شاحنات واقفة إلى الورشة](services/recovery-heavy-transport/truck-recovery) و[خط إنتاج إلى مصنع جديد](services/recovery-heavy-transport/industrial-machinery-relocation)."], list: ["اسم الشركة وشخص واحد للتواصل", "نوع كل وحدة وموديلها وعددها", "أماكن التحميل والتسليم وشروط البوابات", "مرة واحدة أم متكرر أم مشروع له تاريخ بداية"] }], faqs: [{ q: "هل ترسل الشركة طلبًا واحدًا لعدة مركبات أو معدات؟", a: "نعم. فعّل خيار الشركة في النموذج أو أرسل القائمة على واتساب. يُسعَّر كل بند، ويمكن وصف النقل المتكرر في الطلب نفسه." }] },
+  },
+  [SATHA]: {
+    en: { faqs: [{ q: "What is the satha contact number?", a: `Send your location and car details on WhatsApp to ${NUM}. This is RideSaudi's request number: we arrange the truck with a partner and confirm the price before it is sent.` }] },
+    ar: { faqs: [{ q: "ما رقم سطحة للتواصل؟", a: `أرسل موقعك وتفاصيل السيارة على واتساب ${NUM}. هذا رقم استقبال الطلبات، ونرتب السطحة مع شريك ونؤكد السعر قبل إرسالها.` }] },
+  },
+  [`${SATHA}/riyadh`]: {
+    en: { faqs: [{ q: "Is there a satha number for Riyadh?", a: `Riyadh requests are taken on WhatsApp at ${NUM}. Share the pin and the nearest exit, because most Riyadh ring-road pickups are found by exit number.` }] },
+    ar: { faqs: [{ q: "ما رقم سطحة الرياض؟", a: `طلبات الرياض على واتساب ${NUM}. أرسل الموقع وأقرب مخرج، فأغلب مواقع الدائري تُعرف برقم المخرج.` }] },
+  },
+  [`${SATHA}/jeddah`]: {
+    en: { faqs: [{ q: "Is there a tow truck number for Jeddah?", a: `Jeddah requests are taken on WhatsApp at ${NUM}. For a car at the port, add the terminal and whether its release papers are ready.` }] },
+    ar: { faqs: [{ q: "ما رقم سطحة جدة؟", a: `طلبات جدة على واتساب ${NUM}. وإذا كانت السيارة في الميناء فاذكر المحطة وهل أوراق الفسح جاهزة.` }] },
+  },
+  [`${SATHA}/dammam`]: {
+    en: { faqs: [{ q: "What is the satha Dammam contact number?", a: `Dammam, Al Khobar and Dhahran requests are taken on WhatsApp at ${NUM}. Say which of the three cities the car is in, because districts share names.` }] },
+    ar: { faqs: [{ q: "ما رقم سطحة الدمام والخبر؟", a: `طلبات الدمام والخبر والظهران على واتساب ${NUM}. اذكر في أي مدينة السيارة لأن أسماء بعض الأحياء متشابهة.` }] },
+  },
+  [LOWBED]: {
+    en: { faqs: [{ q: "How do I contact RideSaudi for a lowbed?", a: `On WhatsApp at ${NUM} or with the form on this page. A photo of the machine plate is enough to start.` }] },
+    ar: { faqs: [{ q: "ما رقم لوبد للتواصل؟", a: `واتساب ${NUM} أو النموذج في هذه الصفحة. وصورة لوحة المعدة تكفي للبداية.` }] },
+  },
+  [CARS]: {
+    en: {
+      title: "Car Transport & Car Shipping in Saudi Arabia",
+      description: "Car transport between Riyadh, Jeddah, Dammam and other Saudi cities on a satha or carrier, open or enclosed, running or not. What sets the price; get a quote.",
+      h1: "Car Transport and Car Shipping Between Saudi Cities",
+      sections: [{ h: "Car transport Riyadh to Jeddah, Dammam and other routes", p: ["The road distance sets the starting point for every quote: Riyadh to Dammam is about 410 km, Riyadh to Jeddah about 955 km, Riyadh to Makkah about 871 km and Jeddah to Madinah about 404 km. On the busy roads a car can share a carrier; on a quieter one it may travel alone, so a shorter trip is not always the cheaper one.", "To compare offers fairly, ask each provider the same five things: door to door or yard to yard, open or enclosed, shared or dedicated, the pickup day, and who checks the car at both ends. For pickup in a city see [Riyadh](services/recovery-heavy-transport/satha-car-recovery/riyadh), [Jeddah](services/recovery-heavy-transport/satha-car-recovery/jeddah) or [Dammam and Al Khobar](services/recovery-heavy-transport/satha-car-recovery/dammam)."] }, { h: "Dealers, rental companies and fleets", p: ["Branch transfers, auction purchases and end-of-lease returns are usually several cars. Send one list with the chassis type, city and date of each car; cars on the same road are grouped where a carrier allows it. Cars that do not start, or that are too low for a carrier ramp, should be marked because they need a [hydraulic deck](services/recovery-heavy-transport/satha-car-recovery/hydraulic-satha)."] }],
+      faqs: [{ q: "What decides the car transport price from Riyadh to Jeddah?", a: "The 955 km distance is fixed; shared or dedicated truck, open or enclosed, a running or non-running car and the flexibility of the date make the difference. You get one figure for your car." }],
+    },
+    ar: {
+      title: "شحن ونقل سيارات بين المدن: سطحة ومغلقة",
+      description: "شحن ونقل سيارات بين مدن السعودية: الرياض وجدة والدمام وغيرها على سطحة أو ناقلة، مكشوفة أو مغلقة، للشغالة والمعطلة. اعرف ما يحدد السعر واطلبه.",
+      h1: "شحن ونقل السيارات بين مدن السعودية",
+      sections: [{ h: "شحن سيارات من الرياض إلى جدة والدمام ومسارات أخرى", p: ["المسافة هي بداية أي تسعير: الرياض إلى الدمام نحو 410 كم، والرياض إلى جدة نحو 955 كم، والرياض إلى مكة المكرمة نحو 871 كم، وجدة إلى المدينة المنورة نحو 404 كم. في الطرق المزدحمة قد تشارك سيارتك ناقلة مع غيرها، وفي الطريق الهادئ قد تسافر وحدها، فليست المسافة الأقصر هي الأرخص دائمًا.", "وللمقارنة العادلة اسأل كل مزود خمسة أسئلة: من الباب للباب أم من حوش لحوش، ومكشوفة أم مغلقة، ومشتركة أم خاصة، ويوم الاستلام، ومن يفحص السيارة عند الطرفين. وللاستلام من مدينتك راجع [الرياض](services/recovery-heavy-transport/satha-car-recovery/riyadh) أو [جدة](services/recovery-heavy-transport/satha-car-recovery/jeddah) أو [الدمام والخبر](services/recovery-heavy-transport/satha-car-recovery/dammam)."] }, { h: "المعارض وشركات التأجير والأساطيل", p: ["نقل الفروع ومشتريات المزاد وإرجاع سيارات التأجير تكون غالبًا عدة سيارات. أرسل قائمة واحدة بنوع كل سيارة ومدينتها وتاريخها، وتُجمع سيارات الطريق الواحد إذا سمحت الناقلة. وعلّم السيارة التي لا تشتغل أو المنخفضة لأنها تحتاج [صندوقًا هيدروليك](services/recovery-heavy-transport/satha-car-recovery/hydraulic-satha)."] }],
+      faqs: [{ q: "ما الذي يحدد سعر نقل سيارة من الرياض إلى جدة؟", a: "المسافة ثابتة نحو 955 كم، ويختلف السعر بين مشتركة وخاصة، ومكشوفة ومغلقة، وسيارة شغالة أو معطلة، ومرونة الموعد. ويصلك رقم واحد لسيارتك." }],
+    },
+  },
+  [HEAVY]: {
+    en: { sections: [{ h: "For contractors and equipment rental companies", p: ["A site manager needs three answers before booking: which trailer, what day, and who deals with the gate. Send the equipment list, the site contact and the pass requirements in one message. Repeat deliveries between a yard and its sites can be described once, with the machine types and the usual roads, and then requested by date. If a machine breaks down on site and has to leave, say whether it tracks or must be winched."] }], faqs: [{ q: "Do you quote monthly or repeated equipment moves?", a: "Yes. Describe the machine types, the usual routes and how often they move. Each move is still confirmed with its trailer and date." }] },
+    ar: { sections: [{ h: "للمقاولين وشركات تأجير المعدات", p: ["مدير الموقع يحتاج ثلاث إجابات قبل الحجز: أي تريلا، وأي يوم، ومن يتعامل مع البوابة. أرسل قائمة المعدات ورقم مسؤول الموقع وشروط الدخول في رسالة واحدة. والتوصيل المتكرر بين الحوش والمواقع يكفي وصفه مرة واحدة بأنواع المعدات والطرق المعتادة ثم تطلبه بالتاريخ. وإذا تعطلت معدة في الموقع ويجب إخراجها فاذكر هل تمشي على الجنزير أم تحتاج سحبًا بالونش."] }], faqs: [{ q: "هل تسعّرون نقل معدات شهريًا أو متكررًا؟", a: "نعم. صف أنواع المعدات والطرق المعتادة وعدد المرات. وتُؤكد كل نقلة بتريلتها وتاريخها." }] },
+  },
+};
+
 export function applyHeavyGrowth(pages: ServicePage[]) {
-  for (const [path, entry] of Object.entries(patches)) {
+  for (const [path, entry] of [...Object.entries(patches), ...Object.entries(leads)]) {
     const page = pages.find((p) => p.path === path);
     if (!page) throw new Error(`heavyGrowth: unknown page ${path}`);
     page.updated = U;

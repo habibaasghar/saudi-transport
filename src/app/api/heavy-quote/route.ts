@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { after, NextResponse } from "next/server";
-import { cargoSummary, sanitizeHeavy, validateHeavy } from "@/lib/heavy-quote";
+import { cargoSummary, checkHeavy, isHeavyQuick, quickToHeavy, sanitizeHeavy, validateHeavy, validateHeavyQuick } from "@/lib/heavy-quote";
 import { emptyEnquiry } from "@/lib/enquiry";
 import { sendInquiryAck } from "@/server/email/inquiry-emails";
 import { deliverLead, logUndelivered } from "@/lib/deliver";
@@ -13,6 +13,7 @@ import { errorDetail } from "@/lib/error-detail";
 export const runtime = "nodejs";
 
 const MIN_FILL_MS = 3000;
+const QUICK_MIN_FILL_MS = 1500;
 const MAX_BODY = 10_000;
 
 /**
@@ -31,19 +32,24 @@ export async function POST(request: Request) {
   const text = await request.text();
   if (text.length > MAX_BODY) return NextResponse.json({ error: "too_large" }, { status: 413 });
   let d;
+  let quick = false;
   try {
-    d = sanitizeHeavy(JSON.parse(text));
+    const json: unknown = JSON.parse(text);
+    quick = isHeavyQuick(json);
+    d = sanitizeHeavy(json);
   } catch {
     d = null;
   }
   if (!d) return NextResponse.json({ error: "invalid" }, { status: 400 });
-  if (d.website || !d.startedAt || Date.now() - d.startedAt < MIN_FILL_MS) {
+  if (d.website || !d.startedAt || Date.now() - d.startedAt < (quick ? QUICK_MIN_FILL_MS : MIN_FILL_MS)) {
     return NextResponse.json({ error: "invalid" }, { status: 400 });
   }
-  const errors = validateHeavy(d);
+  const errors = quick ? validateHeavyQuick(d) : validateHeavy(d);
   if (Object.keys(errors).length) return NextResponse.json({ error: "validation", fields: errors }, { status: 422 });
 
-  const cargo = cargoSummary(d);
+  if (quick) d = quickToHeavy(d);
+  const check = checkHeavy(d);
+  const cargo = `Lead check: ${check.line}\n${cargoSummary(d)}`;
   const serviceKey = `heavy_${d.service}`;
   let reference: string | undefined;
   let duplicate = false;
@@ -60,7 +66,7 @@ export async function POST(request: Request) {
         pickup: d.pickup, dropoff: d.dropoff, pickupDate: d.date, pickupTime: "",
         vehiclePref: d.loadType + (d.makeModel ? ` (${d.makeModel})` : ""),
         customerNotes: d.notes || undefined, locale: d.locale, sourcePage: d.source,
-        specialRequirements: cargo, attribution: d.attribution, source: "website",
+        specialRequirements: cargo, dedupeExtra: [serviceKey, d.loadType, d.makeModel].join("|").toLowerCase(), attribution: d.attribution, source: "website",
       }, { ipHash: createHash("sha256").update(ip + (process.env.IP_HASH_SALT || "")).digest("hex").slice(0, 32) });
       reference = result.reference;
       duplicate = result.duplicate;
@@ -81,17 +87,25 @@ export async function POST(request: Request) {
   // Alert email / webhook reuse the passenger lead channel, with the cargo block in the notes.
   let other = { configured: false, delivered: false };
   if (!duplicate) {
-    other = await deliverLead({
+    const lead = {
       ...emptyEnquiry(),
       service: serviceKey, pickup: d.pickup, dropoff: d.dropoff, date: d.date, time: "", passengers: "", luggage: "", childSeats: "",
       vehicle: d.loadType, name: d.name, phone: d.phone, email: d.email, company: d.company,
       notes: [cargo, d.notes].filter(Boolean).join("\n\n"), consent: true, locale: d.locale, source: d.source,
       attribution: d.attribution, receivedAt: new Date().toISOString(),
-    });
+    };
+    const send = () => deliverLead(lead, { complete: check.complete, line: check.line, tag: [d.timing === "now" ? "URGENT" : "", d.business ? "BUSINESS" : ""].filter(Boolean).join(" ") });
+    if (stored) {
+      // The lead is already safe in the database: a customer on the roadside should not wait for the email server.
+      const job = () => send().then((r) => { if (r.configured && !r.delivered) console.error("[heavy-quote] alert email failed for", reference); }).catch((e) => console.error("[heavy-quote] alert email failed for", reference, errorDetail(e)));
+      try { after(job); } catch { await job(); }
+    } else {
+      other = await send();
+    }
   }
 
   if (stored || other.delivered) {
-    return NextResponse.json({ ok: true, ...(reference ? { reference } : {}), ...(duplicate ? { duplicate: true } : {}) });
+    return NextResponse.json({ ok: true, complete: check.complete, ...(reference ? { reference } : {}), ...(duplicate ? { duplicate: true } : {}) });
   }
   if (!process.env.DATABASE_URL && !other.configured) { logUndelivered({ ...d, receivedAt: new Date().toISOString() }); return NextResponse.json({ error: "not_configured" }, { status: 503 }); }
   // Never silently discard a lead: keep it recoverable from the server log, then let the client show the WhatsApp fallback.

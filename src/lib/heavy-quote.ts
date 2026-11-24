@@ -27,6 +27,13 @@ export function heavyGroup(s?: string): HeavyGroup {
   return s === "lowbed" ? "lowbed" : "equipment";
 }
 
+/** When a recovery is needed. "now" and "today" need no date from the customer. */
+export const TIMINGS = ["now", "today", "date"] as const;
+export const FREQUENCIES = ["once", "recurring", "project"] as const;
+
+/** Today in Saudi Arabia (UTC+3, no daylight saving). */
+export const ksaToday = (now = Date.now()) => new Date(now + 3 * 3600_000).toISOString().slice(0, 10);
+
 export const CONDITIONS = ["runs", "not_running", "accident"] as const;
 export const LOAD_METHODS = ["drive_on", "crane", "forklift", "winch", "not_sure"] as const;
 
@@ -50,6 +57,11 @@ export type HeavyQuoteInput = {
   company: string;
   phone: string;
   email: string;
+  timing: string;
+  /** Company or recurring request: adds company, quantity and frequency. */
+  business: boolean;
+  quantity: string;
+  frequency: string;
   notes: string;
   consent: boolean;
   locale: string;
@@ -69,7 +81,7 @@ const NUM_RE = /^\d{1,4}([.,]\d{1,2})?$/;
 export const emptyHeavy = (): HeavyQuoteInput => ({
   service: "", loadType: "", makeModel: "", condition: "", pickup: "", dropoff: "", date: "",
   weight: "", length: "", width: "", height: "", loading: "", unloading: "",
-  name: "", company: "", phone: "", email: "", notes: "", consent: false,
+  name: "", company: "", phone: "", email: "", timing: "", business: false, quantity: "", frequency: "", notes: "", consent: false,
   locale: "en", source: "", attribution: {}, website: "", startedAt: 0,
 });
 
@@ -83,7 +95,12 @@ export function validateHeavy(d: HeavyQuoteInput, today = new Date()): HeavyErro
   if (!d.phone.trim()) e.phone = "required";
   else if (!PHONE_RE.test(d.phone.trim())) e.phone = "phone";
   if (d.email.trim() && !EMAIL_RE.test(d.email.trim())) e.email = "email";
-  if (!d.date) e.date = "required";
+  const asksTiming = isVehicleService(d.service) || isTruckRecovery(d.service);
+  if (asksTiming && !(TIMINGS as readonly string[]).includes(d.timing)) e.timing = "required";
+  if (d.business && !d.company.trim()) e.company = "required";
+  if (asksTiming && d.timing !== "date") {
+    // "now" and "today" are dated by the server.
+  } else if (!d.date) e.date = "required";
   else {
     const picked = new Date(`${d.date}T00:00:00`);
     const start = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1);
@@ -109,6 +126,10 @@ export function sanitizeHeavy(raw: unknown): HeavyQuoteInput | null {
   const s = (k: string, max = 160) => (typeof r[k] === "string" ? (r[k] as string).trim().slice(0, max) : "");
   const service = s("service", 40);
   const vehicle = isVehicleService(service);
+  const recovery = asksCondition(service);
+  const business = r.business === true;
+  // A page opened before the timing field existed sends only a date.
+  const timing = recovery ? pick(s("timing", 10), TIMINGS) || (s("date", 10) && r.quick !== true ? "date" : "") : "";
   const att: Record<string, string> = {};
   if (r.attribution && typeof r.attribution === "object") {
     for (const [k, v] of Object.entries(r.attribution as Record<string, unknown>).slice(0, 12)) {
@@ -118,7 +139,8 @@ export function sanitizeHeavy(raw: unknown): HeavyQuoteInput | null {
   return {
     service, loadType: s("loadType", 80), makeModel: s("makeModel", 120),
     condition: asksCondition(service) ? pick(s("condition", 20), CONDITIONS) : "",
-    pickup: s("pickup", 200), dropoff: s("dropoff", 200), date: s("date", 10),
+    pickup: s("pickup", 200), dropoff: s("dropoff", 200), date: timing === "now" || timing === "today" ? ksaToday() : s("date", 10),
+    timing, business, quantity: business ? s("quantity", 40) : "", frequency: business ? pick(s("frequency", 12), FREQUENCIES) : "",
     // Machine fields never survive on a car request, so stale values never reach the CRM.
     weight: vehicle ? "" : s("weight", 8), length: vehicle ? "" : s("length", 8),
     width: vehicle ? "" : s("width", 8), height: vehicle ? "" : s("height", 8),
@@ -141,6 +163,8 @@ export function cargoSummary(d: HeavyQuoteInput): string {
   const dims = [d.length, d.width, d.height].some(Boolean)
     ? `${d.length || "?"} x ${d.width || "?"} x ${d.height || "?"} m (L x W x H)` : "";
   return [
+    d.timing === "now" ? "URGENT: needed now" : d.timing === "today" ? "Needed today" : "",
+    d.business ? `Business request${d.frequency ? ` (${d.frequency})` : ""}${d.quantity ? `, quantity: ${d.quantity}` : ""}` : "",
     `Heavy transport service: ${d.service}`,
     `Load: ${d.loadType}${d.makeModel ? ` (${d.makeModel})` : ""}`,
     d.company ? `Company: ${d.company}` : "",
@@ -150,4 +174,42 @@ export function cargoSummary(d: HeavyQuoteInput): string {
     d.loading ? `Loading: ${LABEL[d.loading]}` : "",
     d.unloading ? `Unloading: ${LABEL[d.unloading]}` : "",
   ].filter(Boolean).join("\n");
+}
+
+/** Three required fields (load, pickup, WhatsApp) plus an optional destination: the above-the-fold form. */
+export type HeavyQuickErrors = Partial<Record<"loadType" | "pickup" | "dropoff" | "phone", "required" | "phone">>;
+export function validateHeavyQuick(q: { loadType: string; pickup: string; phone: string }): HeavyQuickErrors {
+  const e: HeavyQuickErrors = {};
+  if (!q.loadType.trim()) e.loadType = "required";
+  if (!q.pickup.trim()) e.pickup = "required";
+  if (!q.phone.trim()) e.phone = "required";
+  else if (!PHONE_RE.test(q.phone.trim())) e.phone = "phone";
+  return e;
+}
+
+/** Marker for fields the quick form does not ask for (same as the passenger quick quote). */
+export const HEAVY_TBC = "TBC";
+export const isHeavyQuick = (raw: unknown) => !!raw && typeof raw === "object" && (raw as Record<string, unknown>).quick === true;
+
+/** Fills a sanitised quick payload so it is stored like any other heavy enquiry. Submitting is the consent (shown at the button). */
+export function quickToHeavy(d: HeavyQuoteInput): HeavyQuoteInput {
+  return {
+    ...d,
+    service: (HEAVY_SERVICES as readonly string[]).includes(d.service) ? d.service : "other_heavy",
+    dropoff: d.dropoff || HEAVY_TBC, date: ksaToday(), name: "Quick quote (WhatsApp)", consent: true,
+    notes: "Sent from the short form: the date shown is the day it was sent. Ask on WhatsApp when it is needed.",
+  };
+}
+
+/** What staff still have to ask before a price can be given. Never a claim that the lead is qualified. */
+export function checkHeavy(d: HeavyQuoteInput): { complete: boolean; line: string } {
+  const missing = [
+    d.dropoff === HEAVY_TBC ? "destination" : "",
+    d.name.startsWith("Quick quote") ? "name and when it is needed" : "",
+    asksCondition(d.service) ? (d.condition ? "" : "vehicle condition") : !d.weight && !d.makeModel ? "weight or model" : "",
+    !asksCondition(d.service) && !(d.length && d.width && d.height) ? "dimensions" : "",
+  ].filter(Boolean);
+  // Dimensions are asked for but a price can be started from the model or weight.
+  const complete = missing.every((m) => m === "dimensions");
+  return { complete, line: `${complete ? "complete details." : "incomplete."}${missing.length ? ` Ask for: ${missing.join(", ")}.` : ""}` };
 }
