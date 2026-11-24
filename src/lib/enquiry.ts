@@ -61,7 +61,7 @@ const PHONE_RE = /^\+?[0-9\s\-()]{7,20}$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export const emptyEnquiry = (): EnquiryInput => ({
-  service: "", pickup: "", dropoff: "", date: "", time: "", passengers: "1", luggage: "0", childSeats: "0", tripType: "one_way", returnDate: "", returnTime: "",
+  service: "", pickup: "", dropoff: "", date: "", time: "", passengers: "", luggage: "", childSeats: "0", tripType: "one_way", returnDate: "", returnTime: "",
   vehicle: "", flight: "", name: "", phone: "", email: "", notes: "", consent: false,
   locale: "en", source: "", hours: "", company: "", vehicles: "", attribution: {}, website: "", startedAt: 0,
 });
@@ -90,7 +90,8 @@ export function validateEnquiry(d: EnquiryInput, today = new Date()): FieldError
   }
   const p = Number(d.passengers);
   if (!Number.isInteger(p) || p < 1 || p > 100) e.passengers = "number";
-  const l = Number(d.luggage);
+  // Luggage may be left blank ("not sure yet"); it is then asked for on WhatsApp.
+  const l = Number(d.luggage || "0");
   if (!Number.isInteger(l) || l < 0 || l > 100) e.luggage = "number";
   const cs = Number(d.childSeats || "0");
   if (!Number.isInteger(cs) || cs < 0 || cs > 10) e.childSeats = "number";

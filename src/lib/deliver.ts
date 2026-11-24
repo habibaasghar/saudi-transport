@@ -1,4 +1,5 @@
 import { extrasSummary, type EnquiryInput } from "./enquiry";
+import { checkLead, leadCheckLine } from "./lead-quality";
 import { smtpTransport } from "@/server/email/send";
 
 type Lead = Omit<EnquiryInput, "website" | "startedAt"> & { receivedAt: string };
@@ -49,7 +50,9 @@ export function logUndelivered(lead: Lead | Record<string, unknown>) {
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
 function alertContent(lead: Lead) {
+  const check = checkLead(lead);
   const rows: [string, string][] = [
+    ["Lead check", leadCheckLine(check).replace("Lead check: ", "")],
     ["Name", lead.name],
     ["Phone / WhatsApp", lead.phone],
     ["Email", lead.email],
@@ -77,7 +80,7 @@ function alertContent(lead: Lead) {
     .map(([k, v]) => `<tr><td><b>${k}</b></td><td>${esc(v).replace(/\n/g, "<br>")}</td></tr>`)
     .join("")}</table>`;
   const text = rows.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join("\n");
-  return { html, text, subject: `New enquiry: ${lead.service} · ${lead.name}`.replace(/[\r\n]+/g, " ").slice(0, 200) };
+  return { html, text, subject: `${check.complete ? "New enquiry" : "Incomplete enquiry"}: ${lead.service} · ${lead.name}`.replace(/[\r\n]+/g, " ").slice(0, 200) };
 }
 
 async function toEmail(lead: Lead, key: string, to: string): Promise<boolean> {

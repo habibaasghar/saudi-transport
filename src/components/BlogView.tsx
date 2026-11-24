@@ -17,10 +17,12 @@ import { HeavyQuoteSection, HeavyWhatsApp } from "./HeavyQuoteSection";
 import { SectionHead } from "./SectionHead";
 import { JsonLd } from "./JsonLd";
 import { ContactRow } from "./ContactCta";
+import { RichText } from "./RichText";
+import { QuickQuoteForm } from "./QuickQuoteForm";
 
 const L = {
-  en: { home: "Home", blog: "Guides", eyebrow: "Travel guides", heavyEyebrow: "Transport guides", indexH1: "Private transport and heavy transport guides for Saudi Arabia", indexSub: "Practical, plain-language guidance for planning airport pickups, intercity trips, cross-border road journeys, car towing and machinery transport. We publish no prices or unverified claims here.", read: "Read the guide", answer: "Quick answer", plan: "Plan this job", planText: "Pages that match this guide:", related: "Related guides", faq: "Frequently asked questions", updated: "Last reviewed", getQuote: "Get a Quote", crumb: "Breadcrumb", allIn: "All guides in this topic", book: "Book this service", hubOpen: "Open the topic", other: "More guides" },
-  ar: { home: "الرئيسية", blog: "الأدلة", eyebrow: "أدلة السفر", heavyEyebrow: "أدلة النقل", indexH1: "أدلة التوصيل الخاص والنقل الثقيل في السعودية", indexSub: "إرشادات عملية بلغة واضحة لتخطيط الاستقبال من المطار والرحلات بين المدن والرحلات البرية عبر الحدود وسحب السيارات ونقل المعدات. لا ننشر هنا أسعارًا أو ادعاءات غير مؤكدة.", read: "اقرأ الدليل", answer: "الإجابة السريعة", plan: "خطط لمهمتك", planText: "صفحات تناسب هذا الدليل:", related: "أدلة ذات صلة", faq: "الأسئلة الشائعة", updated: "آخر مراجعة", getQuote: "اطلب عرض سعر", crumb: "مسار التنقل", allIn: "كل الأدلة في هذا الموضوع", book: "احجز الخدمة", hubOpen: "افتح الموضوع", other: "أدلة أخرى" },
+  en: { bookTrip: "Want it driven for you? Book a private car:", bookHeavy: "Need it moved? See the service:", home: "Home", blog: "Guides", eyebrow: "Travel guides", heavyEyebrow: "Transport guides", indexH1: "Private transport and heavy transport guides for Saudi Arabia", indexSub: "Practical, plain-language guidance for planning airport pickups, intercity trips, cross-border road journeys, car towing and machinery transport. We publish no prices or unverified claims here.", read: "Read the guide", answer: "Quick answer", plan: "Plan this job", planText: "Pages that match this guide:", related: "Related guides", faq: "Frequently asked questions", updated: "Last reviewed", getQuote: "Get a Quote", crumb: "Breadcrumb", allIn: "All guides in this topic", book: "Book this service", hubOpen: "Open the topic", other: "More guides" },
+  ar: { bookTrip: "تريد سيارة خاصة مع سائق لهذه الرحلة؟", bookHeavy: "تحتاج إلى النقل؟ راجع الخدمة:", home: "الرئيسية", blog: "الأدلة", eyebrow: "أدلة السفر", heavyEyebrow: "أدلة النقل", indexH1: "أدلة التوصيل الخاص والنقل الثقيل في السعودية", indexSub: "إرشادات عملية بلغة واضحة لتخطيط الاستقبال من المطار والرحلات بين المدن والرحلات البرية عبر الحدود وسحب السيارات ونقل المعدات. لا ننشر هنا أسعارًا أو ادعاءات غير مؤكدة.", read: "اقرأ الدليل", answer: "الإجابة السريعة", plan: "خطط لمهمتك", planText: "صفحات تناسب هذا الدليل:", related: "أدلة ذات صلة", faq: "الأسئلة الشائعة", updated: "آخر مراجعة", getQuote: "اطلب عرض سعر", crumb: "مسار التنقل", allIn: "كل الأدلة في هذا الموضوع", book: "احجز الخدمة", hubOpen: "افتح الموضوع", other: "أدلة أخرى" },
 } as const;
 
 const href = (path: string) => `/${path}`;
@@ -166,8 +168,8 @@ export async function BlogHubView({ hub, locale }: { hub: BlogHub; locale: Local
             <div className="wrap prose">
               <h2 id={`s${i}-h`}>{s.h}</h2>
               <div className="prose__body">
-                {s.p.map((para) => <p key={para}>{para}</p>)}
-                {s.list && <ul className="ticks">{s.list.map((item) => <li key={item}>{item}</li>)}</ul>}
+                {s.p.map((para) => <p key={para}><RichText text={para} /></p>)}
+                {s.list && <ul className="ticks">{s.list.map((item) => <li key={item}><RichText text={item} /></li>)}</ul>}
               </div>
             </div>
           </section>
@@ -213,6 +215,7 @@ export async function BlogPostView({ post, locale }: { post: BlogPost; locale: L
   const hub = post.cluster ? getHub(post.cluster) : undefined;
   const heavy = Boolean(hub?.heavy);
   const form = guidePrefill(post.slug, locale);
+  const quickRoute = form.prefill ? [form.prefill.pickup, form.prefill.dropoff].filter(Boolean).join(locale === "ar" ? " إلى " : " to ") : "";
   return (
     <>
       <JsonLd data={blogPostSchema(post, locale)} />
@@ -221,7 +224,8 @@ export async function BlogPostView({ post, locale }: { post: BlogPost; locale: L
         <section className={`svc-hero${post.hero ? " svc-hero--img" : ""}`} aria-labelledby="post-h1">
           {post.hero && <HeroImage img={post.hero} locale={locale} />}
           <HeroCaption img={post.hero} locale={locale} />
-          <div className="wrap">
+          <div className={`wrap${heavy ? "" : " svc-hero__grid"}`}>
+            <div className="svc-hero__copy">
             <nav aria-label={l.crumb} className="crumbs">
               <ol>
                 <li><Link href="/">{l.home}</Link></li>
@@ -237,6 +241,9 @@ export async function BlogPostView({ post, locale }: { post: BlogPost; locale: L
               <a href="#quote" className="btn btn--primary btn--lg">{l.getQuote}</a>
             </div>
             {heavy && <HeavyWhatsApp locale={locale} topic={c.h1} service={post.heavyService} className="hero__contact" />}
+            {!heavy && <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp"]} className="hero__contact" />}
+            </div>
+            {!heavy && <QuickQuoteForm locale={locale} service={form.service} route={quickRoute} />}
           </div>
         </section>
 
@@ -245,6 +252,15 @@ export async function BlogPostView({ post, locale }: { post: BlogPost; locale: L
             <div className="answer">
               <h2 id="answer-h" className="answer__label">{l.answer}</h2>
               <p>{c.answer}</p>
+              {/* The guide's first two commercial pages, right under the answer: readers who only wanted the fact can book here. */}
+              {links.length > 0 && (
+                <p className="answer__book">
+                  {heavy ? l.bookHeavy : l.bookTrip}{" "}
+                  {links.slice(0, 2).map((p, i) => (
+                    <Fragment key={p.path}>{i > 0 && " · "}<Link href={href(p.path)}>{p.copy[locale].nav}</Link></Fragment>
+                  ))}
+                </p>
+              )}
             </div>
           </div>
         </section>
@@ -255,10 +271,10 @@ export async function BlogPostView({ post, locale }: { post: BlogPost; locale: L
               <div className="wrap prose">
                 <h2 id={`s${i}-h`}>{s.h}</h2>
                 <div className="prose__body">
-                  {s.p.map((para) => <p key={para}>{para}</p>)}
+                  {s.p.map((para) => <p key={para}><RichText text={para} /></p>)}
                   {s.list && (
                     <ul className="ticks">
-                      {s.list.map((item) => <li key={item}>{item}</li>)}
+                      {s.list.map((item) => <li key={item}><RichText text={item} /></li>)}
                     </ul>
                   )}
                 </div>

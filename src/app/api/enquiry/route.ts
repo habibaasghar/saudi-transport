@@ -8,6 +8,7 @@ import { SITE_URL } from "@/lib/site";
 import { createInquiry } from "@/server/services/inquiry";
 import { allow } from "@/server/services/ratelimit";
 import { errorDetail } from "@/lib/error-detail";
+import { checkLead, leadCheckLine } from "@/lib/lead-quality";
 import { quickToEnquiry, sanitizeQuick, validateQuick } from "@/lib/quick-quote";
 
 export const runtime = "nodejs";
@@ -57,6 +58,8 @@ export async function POST(request: Request) {
 
   const { website: _h, startedAt: _s, ...payload } = data;
   void _h; void _s;
+  // Completeness of the details, never a claim that the lead is qualified (that is a staff decision in the CRM).
+  const check = checkLead(payload);
 
   const dbConfigured = !!process.env.DATABASE_URL;
   let reference: string | undefined;
@@ -83,7 +86,7 @@ export async function POST(request: Request) {
         childSeats: Number(payload.childSeats) || 0,
         vehiclePref: payload.vehicle || undefined, flightNo: payload.flight || undefined,
         customerNotes: payload.notes || undefined, locale: payload.locale, sourcePage: payload.source,
-        specialRequirements: extrasSummary(payload) || undefined, attribution: payload.attribution,
+        specialRequirements: [leadCheckLine(check), extrasSummary(payload)].filter(Boolean).join("\n"), attribution: payload.attribution,
         source: "website",
       }, { ipHash: createHash("sha256").update(ip + salt).digest("hex").slice(0, 32) });
       reference = result.reference;
@@ -109,7 +112,7 @@ export async function POST(request: Request) {
   if (!duplicate) other = await deliverLead({ ...payload, receivedAt: new Date().toISOString() });
 
   if (stored || other.delivered || (duplicate && stored)) {
-    return NextResponse.json({ ok: true, ...(reference ? { reference } : {}), ...(duplicate ? { duplicate: true } : {}) });
+    return NextResponse.json({ ok: true, complete: check.complete, ...(reference ? { reference } : {}), ...(duplicate ? { duplicate: true } : {}) });
   }
   if (!dbConfigured && !other.configured) { logUndelivered({ ...payload, receivedAt: new Date().toISOString() }); return NextResponse.json({ error: "not_configured" }, { status: 503 }); }
   // Never silently discard a lead: keep it recoverable from the server log, then let the client show the WhatsApp fallback.
