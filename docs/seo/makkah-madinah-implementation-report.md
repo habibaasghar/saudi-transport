@@ -94,3 +94,14 @@ The owner pasted the same master brief again after pass 1 went live (a394199). P
 - Prices and the "ليموزين" decision.
 - GA4 ID.
 - A GSC export about 4 weeks after deploy, used to re-rank the roadmap.
+
+### Pass 2 deployment and corrections (2026-11-24)
+
+- **Deployed:** commit 0ea41b8, merged to `main` in c659bb8 on 2026-11-23.
+- **Verified on www.ridesaudi.com (2026-11-24):**
+  - The indexability audit covers 402 URLs, every bucket 0.
+  - The Umrah plan guide is linked on all five service pages in English and Arabic.
+  - No "نقل خاص" remains on the 24 live pages checked.
+- **Correction, page count:** "25 pages" means 25 page sources edited. `luxury-family-transport` is consolidated (redirects to family transport), and the Makkah and Madinah hub copy in `batch6-cities-tourism.ts` is overridden by `makkah-madinah.ts`, so their visible text did not change.
+- **Correction, rendered checks:** before deploy, Arabic guide links were checked on the Makkah hub only. The other four were confirmed live on 2026-11-24.
+- **Scope:** competitors were not re-researched in pass 2, and no search-volume data was available.
