@@ -109,7 +109,16 @@ export async function POST(request: Request) {
 
   // Secondary channels (email alert / webhook). Skipped for duplicates so retries never re-alert.
   let other = { configured: false, delivered: false };
-  if (!duplicate) other = await deliverLead({ ...payload, receivedAt: new Date().toISOString() });
+  if (!duplicate) {
+    const send = () => deliverLead({ ...payload, receivedAt: new Date().toISOString() });
+    if (stored) {
+      // The lead is already safe in the database: the customer should not wait for the email server.
+      const job = () => send().then((r) => { if (r.configured && !r.delivered) console.error("[enquiry] alert email failed for", reference); }).catch((e) => console.error("[enquiry] alert email failed for", reference, errorDetail(e)));
+      try { after(job); } catch { await job(); }
+    } else {
+      other = await send();
+    }
+  }
 
   if (stored || other.delivered || (duplicate && stored)) {
     return NextResponse.json({ ok: true, complete: check.complete, ...(reference ? { reference } : {}), ...(duplicate ? { duplicate: true } : {}) });

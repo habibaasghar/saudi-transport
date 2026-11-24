@@ -33,3 +33,7 @@ Leave `EMAIL_PROVIDER` unset (or `none`) to send nothing. The business alert in 
 ## What each enquiry now records
 - Service-specific details: duration (hourly, chauffeur, event), company name (corporate), number of vehicles (event, corporate). Stored in the inquiry's special requirements and shown in the alert email.
 - Where the lead came from: first page opened, referring website (host name only), and any `utm_*` tags or ad click IDs (`gclid`, `gbraid`, `wbraid`, `msclkid`, `fbclid`) in the link. Stored on the inquiry's "created" activity and shown in the alert email as "Came from". Never sent to analytics.
+
+## Function region
+
+`vercel.json` pins functions to `icn1` (Seoul) because the Supabase database is in `ap-northeast-2` (Seoul). Each enquiry makes about 12-17 sequential database round trips, so running in another region (it was `iad1`) adds seconds. If the database moves, change the region with it.
