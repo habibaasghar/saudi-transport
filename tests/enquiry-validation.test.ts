@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { emptyEnquiry, sanitizeEnquiry, validateEnquiry } from "@/lib/enquiry";
 
 const base = () => ({
-  ...emptyEnquiry(), service: "intercity", pickup: "Jeddah", dropoff: "Yanbu", date: "2030-03-01", time: "09:00",
+  ...emptyEnquiry(), passengers: "2", service: "intercity", pickup: "Jeddah", dropoff: "Yanbu", date: "2030-03-01", time: "09:00",
   name: "Test", phone: "+966500000000", consent: true,
 });
 

@@ -6,7 +6,7 @@ import { DURATIONS, emptyEnquiry, usesCompany, usesDuration, usesVehicleCount, v
 import { readAttribution } from "@/lib/attribution";
 import { formServiceKeys } from "@/lib/site";
 import { PREFILL_EVENT } from "@/lib/events";
-import { track } from "@/lib/analytics";
+import { track, trackLead } from "@/lib/analytics";
 import { whatsappHref } from "@/config/contact";
 import { Link } from "@/i18n/navigation";
 import { fleetCategories, otherVehicleValue } from "@/content/fleet";
@@ -109,7 +109,7 @@ export function EnquiryForm({ locale, defaultService, prefill }: { locale: strin
         setReceipt({ reference: j.reference, wa });
         // No names, phone numbers, emails or journey details are ever sent to analytics.
         track("quote_form_success", { form: "quote", service: sent.service, trip_type: sent.tripType, language: locale });
-        track("generate_lead", { form: "quote", service: sent.service, trip_type: sent.tripType, language: locale });
+        trackLead({ form: "quote", service: sent.service, trip_type: sent.tripType, language: locale, complete: j.complete === true });
         // Fired only after the backend accepted the enquiry (never on a button click).
         track("form_submit", { form: "quote", service: sent.service, language: locale });
         // Pickup/drop-off are free text (can be a home address), so they never go to analytics.

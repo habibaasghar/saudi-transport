@@ -39,6 +39,8 @@ import { applyBatch5Enrichments } from "./enrich-batch5";
 import { applyHeavyCityDistances } from "./heavy/city-distances";
 import { consolidated, consolidationLinks, mergedSections } from "./consolidated";
 import { linkTargets } from "./inline-links";
+import { applyGscGrowth } from "./gsc-growth";
+import { linkSections } from "./auto-links";
 import { madinahToRiyadh, applyMakkahMadinahGrowth } from "./makkah-madinah";
 import { jeddahToAlBaha, alBahaToJeddah, applyJeddahCluster } from "./jeddah-cluster";
 
@@ -68,6 +70,9 @@ for (const p of pages) p.related = p.related.map((r) => consolidated[r] ?? r);
 for (const p of pages) if (consolidationLinks[p.path]) p.related.push(...consolidationLinks[p.path]);
 for (const p of pages) if (mergedSections[p.path]) for (const l of ["en", "ar"] as Locale[]) p.copy[l].sections.push(mergedSections[p.path][l]);
 
+// Search Console growth pass: runs after every other content patch, so it edits the final copy.
+applyGscGrowth(pages);
+
 /**
  * SEO-RULES.md: no FAQ may appear verbatim on two pages. Generic questions that several pages
  * share are kept on the first page and scoped to the page's own service name everywhere else,
@@ -94,6 +99,12 @@ scopeDuplicateFaqs(pages);
 
 // A page never lists itself or the same related page twice (keeps cards and React keys unique).
 for (const p of pages) p.related = [...new Set(p.related)].filter((r) => r !== p.path);
+
+// Contextual links in body text (./auto-links.ts): only to pages already chosen as neighbours of this one.
+for (const p of pages) {
+  const targets = [...p.related, ...(p.parent && p.parent !== "services" ? [p.parent] : []), ...pages.filter((k) => k.parent === p.path).map((k) => k.path)];
+  for (const l of ["en", "ar"] as Locale[]) p.copy[l].sections = linkSections(p.copy[l].sections, targets, p.path, l);
+}
 
 const byPath = new Map(pages.map((p) => [p.path, p]));
 
@@ -136,6 +147,7 @@ export function validateRegistry() {
       }
       if (c.faqs.length < 4) errors.push(`${p.path}/${l}: fewer than 4 FAQs`);
       for (const s of c.sections) for (const t of [...s.p, ...(s.list ?? [])].flatMap(linkTargets)) {
+        if (t.startsWith("blog/")) continue; // guide links are checked in tests/blog-content.test.ts (the blog imports this registry)
         if (!byPath.has(t)) errors.push(`${p.path}/${l}: inline link to unknown page ${t}`);
         else if (t === p.path) errors.push(`${p.path}/${l}: inline link to itself`);
         else inbound.add(t);

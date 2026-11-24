@@ -1,3 +1,5 @@
+import { linkSections } from "../auto-links";
+import { applyGuideGrowth } from "./gsc-growth";
 import type { BlogPost } from "./types";
 import { pillarPost } from "./pillar";
 import { jeddahAirportMakkahPost } from "./jeddah-airport-makkah-options";
@@ -363,6 +365,16 @@ const guideHeroes: Record<string, PageImage> = {
   "choose-heavy-equipment-transport-company-saudi-arabia": images.heavyLowbed,
 };
 for (const p of blogPosts) if (!p.hero && guideHeroes[p.slug]) p.hero = guideHeroes[p.slug];
+
+applyGuideGrowth(blogPosts);
+
+/** Contextual links inside guide text, only to the pages the guide already cites (src/content/auto-links.ts). */
+for (const p of blogPosts) {
+  p.copy = {
+    en: { ...p.copy.en, sections: linkSections(p.copy.en.sections, p.links, "", "en") },
+    ar: { ...p.copy.ar, sections: linkSections(p.copy.ar.sections, p.links, "", "ar") },
+  };
+}
 
 export const getPost = (slug: string) => blogPosts.find((p) => p.slug === slug);
 

@@ -314,6 +314,8 @@ html[lang="ar"] .svc-hero h1 { max-width: 22ch; line-height: 1.35; }
 html[lang="ar"] .answer__label { letter-spacing: 0; text-transform: none; font-size: .95rem; }
 .answer p { font-size: clamp(1.1rem, 1.8vw, 1.3rem); line-height: 1.7; }
 .answer p.answer__exclusive { margin-top: 1rem; font-size: 1rem; font-weight: 600; color: var(--clay); }
+.answer p.answer__book { margin-top: 1rem; font-size: 1rem; }
+.answer__book a { font-weight: 600; }
 .svc-answer { padding-block: clamp(2.5rem, 5vw, 4rem); }
 
 .prose { display: grid; gap: 1.5rem; }

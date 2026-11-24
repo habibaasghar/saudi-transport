@@ -4,7 +4,7 @@ import { useId, useRef, useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { readAttribution } from "@/lib/attribution";
-import { track } from "@/lib/analytics";
+import { track, trackLead } from "@/lib/analytics";
 import { validateQuick, type QuickErrors } from "@/lib/quick-quote";
 import { whatsappHref } from "@/config/contact";
 
@@ -59,7 +59,7 @@ export function QuickQuoteForm({ locale, service, route: initialRoute = "", clas
         setReference(j.reference);
         // Fired only after the backend accepted the enquiry. No route, phone or date is sent to analytics.
         track("quick_form_submit", { form: "quick", service: service ?? "", language: locale });
-        track("generate_lead", { form: "quick", service: service ?? "", language: locale });
+        trackLead({ form: "quick", service: service ?? "", language: locale, complete: false });
         setStatus("success");
       } else {
         track("quote_submission_error", { form: "quick", status: res.status, language: locale });
@@ -82,7 +82,8 @@ export function QuickQuoteForm({ locale, service, route: initialRoute = "", clas
         {reference && <p><strong>{t("reference", { ref: reference })}</strong></p>}
         <p>{t("successText")}</p>
         <p className="quick__reply">{t("reply")}</p>
-        <a href="#quote" className="btn btn--dark btn--block">{t("addDetails")}</a>
+        {/* Continue the same enquiry on WhatsApp with its reference; a second form would create a duplicate lead. */}
+        <a href={whatsappHref(t("whatsappDetails", { ref: reference ?? "-", route, date }))} target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--block">{t("addDetails")}</a>
       </div>
     );
   }
