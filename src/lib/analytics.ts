@@ -10,6 +10,7 @@
  *  - inquiry_incomplete : accepted, but the team must ask for more on WhatsApp
  *    Neither means "qualified": that is decided by staff in the CRM. "Booking confirmed" is a CRM status, not a page event.
  *  - whatsapp_click : click on any wa.me link          (contact intent)
+ *  - phone_copy     : the WhatsApp number was copied    (contact intent)
  *  - phone_click    : click on any tel: link           (contact intent)
  *  - email_click    : click on any mailto: link        (contact intent)
  *  - form_error : funnel diagnostics (field name only)

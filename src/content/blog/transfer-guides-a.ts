@@ -103,9 +103,9 @@ export const riyadhJeddahRoadPost: BlogPost = {
   copy: {
     en: {
       nav: "Riyadh to Jeddah by private car",
-      title: "Riyadh to Jeddah by Private Car: Road & Stops",
+      title: "Riyadh to Jeddah by Road: Route, Stops, Timing",
       description: "Riyadh to Jeddah by private car: about 955 km on Route 40, close to ten hours of driving, where to break the trip, Taif or Makkah stops and planning tips.",
-      h1: "Riyadh to Jeddah by private car: the road, the stops and how to plan the day",
+      h1: "Riyadh to Jeddah by road: the route, the stops and how to plan the day",
       answer: "Riyadh to Jeddah by private car is about 955 km on Route 40, close to ten hours of driving before stops, so it is a full-day journey. The road runs west across Najd and climbs to the Taif area before descending to Makkah's outskirts and Jeddah. A private car with a driver lets you leave from your door, stop when you need to and arrive at your Jeddah address without driving yourself.",
       summary: "What the 955 km road looks like, where to stop, and when a private car beats flying or driving yourself.",
       table: {
@@ -137,9 +137,9 @@ export const riyadhJeddahRoadPost: BlogPost = {
     },
     ar: {
       nav: "من الرياض إلى جدة بسيارة خاصة",
-      title: "من الرياض إلى جدة بسيارة خاصة: الطريق والتوقف",
+      title: "طريق الرياض جدة برًا: المسار والتوقفات والوقت",
       description: "من الرياض إلى جدة بسيارة خاصة: نحو 955 كم على طريق 40 وقرابة عشر ساعات قيادة، وأين تتوقف، والتوقف في الطائف أو مكة، ونصائح التخطيط.",
-      h1: "من الرياض إلى جدة بسيارة خاصة: الطريق والتوقفات وتخطيط اليوم",
+      h1: "من الرياض إلى جدة برًا: الطريق والتوقفات وتخطيط اليوم",
       answer: "الرحلة من الرياض إلى جدة بسيارة خاصة نحو 955 كم على طريق 40، وقرابة عشر ساعات قيادة قبل التوقفات، فهي رحلة يوم كامل. يتجه الطريق غربًا عبر نجد ويصعد إلى منطقة الطائف ثم ينحدر إلى أطراف مكة وجدة. وتتيح لك السيارة الخاصة مع سائق الانطلاق من بابك والتوقف متى احتجت والوصول إلى عنوانك في جدة دون أن تقود بنفسك.",
       summary: "كيف يبدو طريق 955 كم، وأين تتوقف، ومتى تكون السيارة الخاصة أفضل من الطيران أو القيادة بنفسك.",
       table: {
@@ -343,9 +343,9 @@ export const makkahTaifPost: BlogPost = {
   copy: {
     en: {
       nav: "Makkah to Taif day trip by private car",
-      title: "Makkah to Taif Day Trip by Private Car: Guide",
+      title: "Makkah to Taif Day Trip: Stops and Timing",
       description: "Makkah to Taif by private car: about 89 km up the mountain road, around 1 hour 20 minutes, a day trip plan, places families visit and the return to Makkah.",
-      h1: "Makkah to Taif by private car: planning a day trip to the mountains",
+      h1: "A Makkah to Taif day trip: where to stop and when to leave",
       answer: "Makkah to Taif by private car is about 89 km, around 1 hour 20 minutes, climbing from the Makkah plain into the Sarawat mountains, where the air is noticeably cooler. A private car with a driver makes it an easy day trip: leave after the morning prayer, spend the day in Taif and return to your Makkah hotel in the evening. Pilgrims coming back for Umrah should plan their Ihram at the Miqat.",
       summary: "The road up to Taif, how to plan a day there from Makkah, and what to know before returning.",
       table: {
@@ -377,9 +377,9 @@ export const makkahTaifPost: BlogPost = {
     },
     ar: {
       nav: "رحلة يوم من مكة إلى الطائف بسيارة خاصة",
-      title: "رحلة من مكة إلى الطائف بسيارة خاصة: دليل اليوم",
+      title: "رحلة يوم من مكة إلى الطائف: التوقفات والوقت",
       description: "من مكة إلى الطائف بسيارة خاصة: نحو 89 كم صعودًا في الطريق الجبلي، وقرابة ساعة و20 دقيقة، وخطة رحلة اليوم، والأماكن التي تزورها العائلات، والعودة.",
-      h1: "من مكة إلى الطائف بسيارة خاصة: التخطيط لرحلة يوم إلى الجبال",
+      h1: "رحلة يوم من مكة إلى الطائف: أين تتوقف ومتى تنطلق",
       answer: "الرحلة من مكة إلى الطائف بسيارة خاصة نحو 89 كم، وقرابة ساعة و20 دقيقة، صعودًا من سهل مكة إلى جبال السروات حيث الجو أبرد بوضوح. وتجعلها السيارة الخاصة مع سائق رحلة يوم سهلة: انطلق بعد صلاة الفجر، واقضِ اليوم في الطائف، وعد إلى فندقك في مكة مساءً. ومن سيعود لأداء العمرة فليخطط لإحرامه من الميقات.",
       summary: "الطريق إلى الطائف، وكيف تخطط ليوم فيها من مكة، وما تعرفه قبل العودة.",
       table: {

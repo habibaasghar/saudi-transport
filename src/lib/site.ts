@@ -35,7 +35,7 @@ export const servicePath: Record<ServiceKey, string> = {
   intercity: "/services/intercity-transfers/",
   hourly: "/services/chauffeur-services/",
   corporate: "/services/chauffeur-services/business-chauffeur/",
-  vip: "/luxury-transportation/",
+  vip: "/luxury-transportation/vip-car-service/",
 };
 
 /** Services selectable in the enquiry form (homepage cards keep using `serviceKeys`). */

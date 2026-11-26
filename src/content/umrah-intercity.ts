@@ -18,13 +18,13 @@ export const umrahIntercityPages: ServicePage[] = [
     copy: {
       en: {
         nav: "Umrah Transport",
-        title: "Private Umrah Taxi & Transport in Saudi Arabia",
+        title: "Private Umrah Transport in Saudi Arabia",
         description:
-          "Request a pre-booked private taxi for Umrah: airport to Makkah, Makkah to Madinah and back. Families, elderly travellers and groups. Get a quotation.",
-        h1: "Private Umrah taxi and transport, planned in advance",
+          "Request a pre-booked private car for Umrah: airport to Makkah, Makkah to Madinah and back. Families, elderly travellers and groups. Get a quotation.",
+        h1: "Private Umrah transport, planned in advance",
         eyebrow: "Umrah Transport",
         answer:
-          "A private Umrah taxi is a pre-booked car with a driver for the journeys that surround Umrah: from the airport to Makkah, between Makkah and Madinah, and back to the airport. RideSaudi arranges private transfers for pilgrims, families and groups. Send your details for a quotation; availability is confirmed before you commit.",
+          "Private Umrah transport is a pre-booked car with a driver for the journeys that surround Umrah: from the airport to Makkah, between Makkah and Madinah, and back to the airport. RideSaudi arranges private transfers for pilgrims, families and groups. Send your details for a quotation; availability is confirmed before you commit.",
         summary: "Pre-booked private transfers for the journeys around Umrah, for individuals, families and groups.",
         sections: [
           {
@@ -71,7 +71,7 @@ export const umrahIntercityPages: ServicePage[] = [
         },
         faqs: [
           {
-            q: "How do I book an Umrah taxi in advance?",
+            q: "How do I book a car with a driver for Umrah in advance?",
             a: "Send an enquiry listing the legs you need, your flight details and hotel names. RideSaudi replies with a quotation, and your journeys are arranged only after you confirm.",
           },
           {
@@ -79,7 +79,7 @@ export const umrahIntercityPages: ServicePage[] = [
             a: "Yes. Airport to Makkah, Makkah to Madinah and the return to the airport can be requested together so they are quoted together.",
           },
           {
-            q: "Is a private taxi better than other ways to travel between Makkah and Madinah?",
+            q: "Is a private car better than other ways to travel between Makkah and Madinah?",
             a: "It depends on what matters to you. A private car offers door-to-door travel and flexibility for luggage and groups, while other options, such as the Haramain high-speed rail, have their own advantages. Compare them against your plans.",
           },
           {
@@ -94,13 +94,13 @@ export const umrahIntercityPages: ServicePage[] = [
       },
       ar: {
         nav: "نقل المعتمرين",
-        title: "تاكسي وتوصيل خاص للمعتمرين في السعودية",
+        title: "توصيل خاص للمعتمرين في السعودية",
         description:
-          "اطلب تاكسي خاصًا للعمرة بحجز مسبق: من المطار إلى مكة المكرمة، ومن مكة إلى المدينة المنورة والعكس. للعائلات وكبار السن والمجموعات. استلم عرض السعر.",
-        h1: "تاكسي وتوصيل خاص للعمرة، مخطَّط له مسبقًا",
+          "اطلب سيارة خاصة مع سائق للعمرة بحجز مسبق: من المطار إلى مكة المكرمة، ومن مكة إلى المدينة المنورة والعكس. للعائلات وكبار السن والمجموعات. استلم عرض السعر.",
+        h1: "توصيل خاص للعمرة، مخطَّط له مسبقًا",
         eyebrow: "نقل المعتمرين",
         answer:
-          "تاكسي العمرة الخاص هو سيارة بسائق بحجز مسبق لرحلات الطريق المحيطة بالعمرة: من المطار إلى مكة المكرمة، وبين مكة والمدينة المنورة، والعودة إلى المطار. تُرتِّب RideSaudi توصيلًا خاصًا للمعتمرين والعائلات والمجموعات. أرسل تفاصيلك لتصلك عرض سعر، وتتأكد الإتاحة قبل أن تلتزم.",
+          "التوصيل الخاص للعمرة هو سيارة مع سائق بحجز مسبق لرحلات الطريق المحيطة بالعمرة: من المطار إلى مكة المكرمة، وبين مكة والمدينة المنورة، والعودة إلى المطار. تُرتِّب RideSaudi توصيلًا خاصًا للمعتمرين والعائلات والمجموعات. أرسل تفاصيلك لتصلك عرض سعر، وتتأكد الإتاحة قبل أن تلتزم.",
         summary: "توصيل خاص بحجز مسبق لرحلات الطريق المحيطة بالعمرة، للأفراد والعائلات والمجموعات.",
         sections: [
           {
@@ -147,7 +147,7 @@ export const umrahIntercityPages: ServicePage[] = [
         },
         faqs: [
           {
-            q: "كيف أحجز تاكسي عمرة مسبقًا؟",
+            q: "كيف أحجز سيارة مع سائق للعمرة مسبقًا؟",
             a: "أرسل طلبًا يذكر المراحل التي تحتاجها وتفاصيل رحلتك وأسماء الفنادق. ترد عليك RideSaudi بعرض سعر، ولا تُرتَّب رحلاتك إلا بعد تأكيدك.",
           },
           {

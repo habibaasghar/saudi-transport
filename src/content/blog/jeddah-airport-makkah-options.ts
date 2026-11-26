@@ -32,9 +32,9 @@ export const jeddahAirportMakkahPost: BlogPost = {
   copy: {
     en: {
       nav: "Jeddah airport to Makkah: your options",
-      title: "Jeddah Airport to Makkah: Train, Taxi or Car?",
-      description: "Compare the Haramain train, intercity bus, taxi and a pre-booked private car from Jeddah airport to Makkah: who each suits and what to check first.",
-      h1: "Jeddah airport to Makkah: train, bus, taxi or private car?",
+      title: "Jeddah Airport to Makkah: Train, Bus or Car?",
+      description: "Compare the Haramain train, intercity bus, app cars and a pre-booked private car from Jeddah airport to Makkah: who each suits and what to check first.",
+      h1: "Jeddah airport to Makkah: train, bus or private car?",
       answer:
         "From King Abdulaziz International Airport in Jeddah you can reach Makkah by the Haramain train, an intercity bus, a taxi or ride-hailing car, or a pre-booked private car. The train is quick but stops about 3 km from the Haram, so you need onward transport. A private car goes about 98 km door to door, around an hour without traffic, and suits families with luggage.",
       summary: "Four ways from Jeddah airport to Makkah, compared honestly, with what to check before you land.",
@@ -119,9 +119,9 @@ export const jeddahAirportMakkahPost: BlogPost = {
     },
     ar: {
       nav: "من مطار جدة إلى مكة: الخيارات",
-      title: "مطار جدة إلى مكة: القطار أم التاكسي أم السيارة؟",
-      description: "قارن بين قطار الحرمين والحافلة والتاكسي والسيارة الخاصة المحجوزة مسبقًا من مطار جدة إلى مكة: لمن يناسب كل خيار وما الذي تتحقق منه أولًا.",
-      h1: "من مطار جدة إلى مكة: القطار أم الحافلة أم التاكسي أم سيارة خاصة؟",
+      title: "مطار جدة إلى مكة: القطار أم الحافلة أم السيارة؟",
+      description: "قارن بين قطار الحرمين والحافلة وسيارات التطبيقات والسيارة الخاصة المحجوزة مسبقًا من مطار جدة إلى مكة: لمن يناسب كل خيار وما الذي تتحقق منه أولًا.",
+      h1: "من مطار جدة إلى مكة: القطار أم الحافلة أم سيارة خاصة؟",
       answer:
         "من مطار الملك عبدالعزيز الدولي في جدة تصل إلى مكة بقطار الحرمين أو بالحافلة أو بالتاكسي وتطبيقات التوصيل أو بسيارة خاصة تحجزها مسبقًا. القطار سريع لكنه يتوقف على بعد نحو 3 كم من الحرم فتحتاج إلى وسيلة أخرى بعده. أما السيارة الخاصة فتقطع نحو 98 كم من الباب إلى الباب في قرابة ساعة دون زحام، وتناسب العائلات مع الحقائب.",
       summary: "أربع طرق من مطار جدة إلى مكة، بمقارنة صادقة، مع ما تتحقق منه قبل أن تهبط.",

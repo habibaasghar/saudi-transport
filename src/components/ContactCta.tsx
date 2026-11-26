@@ -10,6 +10,8 @@ type Props = {
   locale: string;
   /** Page / route name used in the pre-filled WhatsApp message and email subject. */
   topic?: string;
+  /** "A to B" when the page is a single route: switches WhatsApp to the booking template (date, people, vehicle). */
+  route?: string;
   variant?: Variant;
   size?: "sm" | "md" | "lg";
   /** Render icon only (label stays available to assistive tech). */
@@ -18,10 +20,10 @@ type Props = {
 };
 
 /** One contact button. All labels, messages and links come from messages/*.json + config/contact.ts. */
-export async function ContactCta({ kind, locale, topic, variant = "ghost", size = "md", iconOnly = false, className = "" }: Props) {
+export async function ContactCta({ kind, locale, topic, route, variant = "ghost", size = "md", iconOnly = false, className = "" }: Props) {
   const t = await getTranslations({ locale, namespace: "contact" });
   const label = t(kind === "whatsapp" ? "whatsapp" : "email");
-  const message = topic ? t("whatsappTopic", { topic }) : t("whatsappGeneral");
+  const message = route ? t("whatsappRoute", { route }) : topic ? t("whatsappTopic", { topic }) : t("whatsappGeneral");
   const subject = topic ? t("emailSubjectTopic", { topic }) : t("emailSubject");
 
   const href = kind === "whatsapp" ? whatsappHref(message) : mailHref(subject);
@@ -47,6 +49,7 @@ export async function ContactCta({ kind, locale, topic, variant = "ghost", size 
 export async function ContactRow({
   locale,
   topic,
+  route,
   variant = "ghost",
   size = "md",
   kinds = ["whatsapp", "email"],
@@ -54,6 +57,7 @@ export async function ContactRow({
 }: {
   locale: string;
   topic?: string;
+  route?: string;
   variant?: Variant;
   size?: "sm" | "md" | "lg";
   kinds?: CtaKind[];
@@ -62,7 +66,7 @@ export async function ContactRow({
   return (
     <div className={`cta-row ${className}`.trim()}>
       {kinds.map((k) => (
-        <ContactCta key={k} kind={k} locale={locale} topic={topic} variant={variant} size={size} />
+        <ContactCta key={k} kind={k} locale={locale} topic={topic} route={route} variant={variant} size={size} />
       ))}
     </div>
   );

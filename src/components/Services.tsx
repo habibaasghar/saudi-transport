@@ -16,8 +16,7 @@ export async function Services() {
               <h3>{t(`items.${k}.title`)}</h3>
               <p>{t(`items.${k}.text`)}</p>
               <Link className="card__link" href={servicePath[k]}>
-                {t("cta")}
-                <span className="sr-only"> — {t(`items.${k}.title`)}</span>
+                {t(`items.${k}.title`)}
                 <span aria-hidden="true" className="arrow">→</span>
               </Link>
             </li>

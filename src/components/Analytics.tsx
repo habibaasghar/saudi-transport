@@ -4,6 +4,7 @@ import Script from "next/script";
 import { useEffect } from "react";
 import { track } from "@/lib/analytics";
 import { captureAttribution } from "@/lib/attribution";
+import { CONTACT } from "@/config/contact";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
 const VALID = /^G-[A-Z0-9]{4,}$/.test(GA_ID);
@@ -31,8 +32,14 @@ export function Analytics() {
       else if (href.startsWith("tel:")) track("phone_click", { location: where });
       else if (href.startsWith("mailto:")) track("email_click", { location: where });
     };
+    // phone_copy: someone copied the WhatsApp number (we take no voice calls, so copying it is contact intent). Only a flag is sent.
+    const onCopy = () => {
+      const digits = (window.getSelection()?.toString() || "").replace(/\D/g, "");
+      if (digits.includes(CONTACT.whatsapp.slice(-9))) track("phone_copy", { location: "selection" });
+    };
     document.addEventListener("click", onClick);
-    return () => document.removeEventListener("click", onClick);
+    document.addEventListener("copy", onCopy);
+    return () => { document.removeEventListener("click", onClick); document.removeEventListener("copy", onCopy); };
   }, []);
 
   if (!VALID) return null;

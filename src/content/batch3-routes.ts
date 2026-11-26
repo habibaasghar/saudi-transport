@@ -280,9 +280,9 @@ export const batch3Routes: ServicePage[] = [
     copy: {
       en: {
         nav: "Private Intercity Chauffeur",
-        title: "Private Intercity Chauffeur for Multi-City Trips",
+        title: "Multi-City Trip with Driver Across Saudi",
         description: "Hire a private chauffeur who stays with you across several Saudi cities in one trip. Plan stops, days and luggage; get a quotation from RideSaudi.",
-        h1: "A private chauffeur who travels with you from city to city",
+        h1: "One car and driver for a trip through several Saudi cities",
         eyebrow: "Intercity · Private Chauffeur",
         answer: "A private intercity chauffeur is one driver and vehicle arranged for a whole trip across several Saudi cities, instead of separate transfers for each leg. It suits itineraries such as Riyadh, Jeddah and Madinah over a few days. RideSaudi quotes each trip individually; availability and arrangements are confirmed before you commit.",
         summary: "One driver for a multi-city itinerary, instead of separate transfers.",

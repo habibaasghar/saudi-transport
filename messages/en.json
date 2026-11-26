@@ -350,7 +350,8 @@
       "hejaz": "Hejaz (West)",
       "central": "Central (Najd)",
       "eastern": "Eastern Province",
-      "northWest": "North-West"
+      "northWest": "North-West",
+      "south": "South"
     }
   },
   "svc": {
@@ -421,6 +422,7 @@
     "emailAria": "Email RideSaudi at {email}",
     "whatsappGeneral": "Hello, I would like to request a private transfer quotation through RideSaudi.",
     "whatsappTopic": "Hello, I need a private transfer: {topic}. Please share availability and quotation.",
+    "whatsappRoute": "Hi RideSaudi, I need a private car from {route} on [date] for [number] people, vehicle: [GMC / Staria / sedan / not sure].",
     "emailSubject": "Request a Private Transfer Quotation - RideSaudi",
     "emailSubjectTopic": "Request a Private Transfer Quotation - {topic}",
     "heading": "Prefer to talk to us directly?",
@@ -433,7 +435,12 @@
     "contactHeading": "Contact RideSaudi",
     "related": "Related pages",
     "fleet": "Vehicles and fleet",
-    "services": "All services"
+    "services": "All services",
+    "corporateHeading": "Company or monthly contract enquiry",
+    "corporateText": "For staff transport, airport runs for visiting teams, event fleets or a monthly car with driver, tell us the company name, city, number of vehicles and how long you need them. We reply on WhatsApp within 15 minutes, 8am to 12am KSA time.",
+    "corporateForm": "Start a corporate enquiry",
+    "corporateWhatsApp": "Corporate enquiry on WhatsApp",
+    "corporateMessage": "Hi RideSaudi, corporate enquiry. Company: [name]. City: [city]. Vehicles: [number and type]. Duration: [days / weeks / monthly]. Start date: [date]."
   },
   "social": {
     "footerHeading": "Follow RideSaudi",
@@ -678,17 +685,17 @@
     "failed": "We could not send this online. Send the same details on WhatsApp instead:",
     "rateLimited": "Too many attempts in a short time. Send your route on WhatsApp instead:",
     "sendOnWhatsApp": "Send on WhatsApp",
-    "whatsappMessage": "Hello RideSaudi, I would like a quote. Route: {route}. Date: {date}."
+    "whatsappMessage": "Hi RideSaudi, I need {route} on {date} for [number] people, vehicle: [GMC / Staria / sedan / not sure]."
   },
   "prices": {
     "title": "Starting prices by vehicle",
-    "from": "Starting from SAR {amount}",
+    "from": "From SAR {amount}",
     "vehicles": {
       "sedan": "Sedan",
       "gmc": "GMC Yukon",
       "staria": "Hyundai Staria"
     },
-    "note": "One-way starting price for this route. Your quotation gives the final price for your date, pickup point, waiting time and luggage.",
+    "note": "One-way starting price. Final quote confirmed on WhatsApp based on date, vehicle and stops.",
     "updated": "Prices checked"
   },
   "trustBlock": {

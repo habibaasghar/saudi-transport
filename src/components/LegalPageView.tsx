@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
-import { CONTACT } from "@/config/contact";
+import { CONTACT, whatsappHref } from "@/config/contact";
+import { CorporateEnquiry } from "./CorporateEnquiry";
 import { getLegalPage, legalPages, type LegalPage } from "@/content/legal";
 import { localeUrl, pageUrl, SITE_URL } from "@/lib/site";
 import { organizationSchema } from "@/lib/schema";
@@ -105,6 +106,16 @@ export async function LegalPageView({ slug, locale }: { slug: LegalPage["slug"];
                 <h2>{l("contactHeading")}</h2>
                 <ContactDetails locale={locale} />
               </section>
+            )}
+
+            {slug === "contact" && (
+              <CorporateEnquiry
+                heading={l("corporateHeading")}
+                text={l("corporateText")}
+                formLabel={l("corporateForm")}
+                waLabel={l("corporateWhatsApp")}
+                waHref={whatsappHref(l("corporateMessage"))}
+              />
             )}
 
             {slug === "contact" && <SocialInline />}

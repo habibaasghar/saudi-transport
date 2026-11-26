@@ -32,9 +32,10 @@ const C = "services/city-transport";
 const A = "services/airport-transfers";
 const footerRegions = [
   { key: "hejaz", paths: [`${C}/jeddah`, `${C}/makkah`, `${C}/madinah`, "services/tourism-transport/taif", `${C}/yanbu`, `${A}/jeddah-airport`] },
-  { key: "central", paths: [`${C}/riyadh`, `${C}/buraidah`, `${A}/riyadh-airport`, `${A}/qassim-airport`] },
-  { key: "eastern", paths: [`${C}/dammam`, `${C}/al-khobar`, `${C}/jubail`, `${C}/al-ahsa`, `${A}/dammam-airport`] },
-  { key: "northWest", paths: [`${C}/tabuk`, "services/tourism-transport/alula", `${C}/hail`, `${A}/alula-airport`] },
+  { key: "central", paths: [`${C}/riyadh`, `${C}/buraidah`, `${C}/hail`, `${A}/riyadh-airport`, `${A}/qassim-airport`] },
+  { key: "eastern", paths: [`${C}/dammam`, `${C}/al-khobar`, `${C}/dhahran`, `${C}/jubail`, `${C}/al-ahsa`, `${A}/dammam-airport`] },
+  { key: "northWest", paths: [`${C}/tabuk`, "services/tourism-transport/alula", `${A}/alula-airport`] },
+  { key: "south", paths: [`${C}/abha`, `${C}/khamis-mushait`, `${C}/jazan`, `${C}/najran`, `${C}/al-baha`] },
 ] as const;
 
 export async function Footer({ locale, switchHref = "/" }: { locale: Locale; switchHref?: string }) {

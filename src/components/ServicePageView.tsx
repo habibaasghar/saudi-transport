@@ -143,7 +143,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
             {heavy ? (
               <HeavyWhatsApp locale={locale} topic={c.h1} service={page.heavyService} className="hero__contact" />
             ) : (
-              <ContactRow locale={locale} topic={c.h1} kinds={["whatsapp"]} className="hero__contact" />
+              <ContactRow locale={locale} topic={c.h1} route={prefill?.pickup && prefill?.dropoff ? quickRoute : undefined} kinds={["whatsapp"]} className="hero__contact" />
             )}
             {/* The "enquiry is not a confirmed booking" notice appears once, next to the full form's submit button. */}
             {heavy && <p className="hero__note">{h("notice")}</p>}
@@ -191,8 +191,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
                     <h3>{k.copy[locale].nav}</h3>
                     <p>{k.copy[locale].summary}</p>
                     <Link className="card__link" href={href(k.path)}>
-                      {t("viewPage")}
-                      <span className="sr-only"> — {k.copy[locale].nav}</span>
+                      {k.copy[locale].nav}
                       <span aria-hidden="true" className="arrow">→</span>
                     </Link>
                   </li>
@@ -249,8 +248,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
                     <h3>{r.copy[locale].nav}</h3>
                     <p>{r.copy[locale].summary}</p>
                     <Link className="card__link" href={href(r.path)}>
-                      {t("viewPage")}
-                      <span className="sr-only"> — {r.copy[locale].nav}</span>
+                      {r.copy[locale].nav}
                       <span aria-hidden="true" className="arrow">→</span>
                     </Link>
                   </li>
