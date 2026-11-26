@@ -18,6 +18,10 @@ export const consolidated: Record<string, string> = {
   "luxury-transportation/premium-group-transport": "services/group-transportation",
   "luxury-transportation/luxury-event-transport": "services/event-transportation/vip-event-chauffeur",
   "services/event-transportation/group-event-transport": "services/event-transportation",
+  // 2026-11-27: the GMC and Staria guides targeted the same queries as the new vehicle pages (0 impressions in GSC,
+  // 7 Nov to 24 Nov); their content moved into the vehicle pages.
+  "blog/luxury-suv-gmc-transfer-saudi-arabia": "fleet/gmc-yukon-with-driver",
+  "blog/hyundai-staria-with-driver-family-group-travel": "fleet/hyundai-staria-with-driver",
 };
 
 /** Links that the removed pages used to carry, so the remaining luxury pages keep their contextual inlinks. */

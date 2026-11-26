@@ -16,7 +16,7 @@ export const businessChauffeurPost: BlogPost = {
   updated: D,
   cluster: "private-transfers",
   hero: photo("toyota-camry-black-exterior", 1100, 825, "Black Toyota Camry sedan in a three-quarter front view", "سيدان تويوتا كامري سوداء من زاوية أمامية جانبية", "50% 55%"),
-  related: ["riyadh-to-dammam-private-transfer", "luxury-suv-gmc-transfer-saudi-arabia", "private-car-with-driver-vs-taxi-saudi-arabia"],
+  related: ["riyadh-to-dammam-private-transfer", "private-car-with-driver-vs-taxi-saudi-arabia"],
   links: [`${S}/chauffeur-services`, `${S}/chauffeur-services/business-chauffeur`, `${S}/chauffeur-services/multi-day-chauffeur`, `${A}/riyadh-airport`, `${S}/city-transport/riyadh`],
   copy: {
     en: {
@@ -85,84 +85,6 @@ export const businessChauffeurPost: BlogPost = {
         { q: "هل يمكن الحجز لمسؤول زائر يصل الليلة؟", a: "أرسل الرحلة والبرنامج في أقرب وقت، وتُؤكَّد الإتاحة للطلبات العاجلة في كل طلب." },
         { q: "هل توفرون سائقًا لسيارتي الخاصة؟", a: "لا. ترتب RideSaudi مركبات مع سائقيها، لا سائقين للسيارات الخاصة." },
         { q: "هل توصلني السيارة من الرياض إلى الدمام لاجتماع؟", a: "نعم، كيوم بين المدن مع العودة في المساء نفسه أو في يوم آخر." },
-      ],
-    },
-  },
-};
-
-export const gmcYukonPost: BlogPost = {
-  slug: "luxury-suv-gmc-transfer-saudi-arabia",
-  published: D,
-  updated: D,
-  cluster: "private-transfers",
-  hero: photo("gmc-yukon-at4-exterior", 892, 762, "GMC Yukon full-size SUV parked in a desert landscape", "جمس يوكن دفع رباعي كبيرة في أرض صحراوية", "50% 60%"),
-  related: ["choosing-vehicle-size-family-group-travel-saudi", "hyundai-staria-with-driver-family-group-travel", "private-airport-transfers-saudi-arabia"],
-  links: ["luxury-transportation/luxury-suv", "fleet", `${A}/vip-airport-transfer`, `${I}/private-intercity-chauffeur`, `${I}/riyadh-to-jeddah`, `${S}/umrah-transport/family-umrah-transport`],
-  copy: {
-    en: {
-      nav: "When to book a GMC Yukon with chauffeur",
-      title: "GMC Yukon With Driver in KSA: When to Book",
-      description: "When a GMC Yukon or other full-size SUV with a driver is right in Saudi Arabia: families, long routes, VIP arrivals, and how it compares with a sedan or Staria.",
-      h1: "GMC Yukon with a driver in Saudi Arabia: when a full-size SUV is the right choice",
-      answer: "A GMC Yukon with a driver is the vehicle to ask for when you want more space and comfort than a sedan: families with luggage, long intercity roads such as Riyadh to Jeddah, Umrah trips, and VIP airport arrivals. Similar full-size SUVs include the Chevrolet Suburban and Tahoe. For groups of up to seven with a lot of luggage, a Hyundai Staria is usually the better fit. The exact vehicle is confirmed in the quotation.",
-      summary: "Who the GMC Yukon suits, how it compares with a sedan and a Staria, and how to ask for one.",
-      table: {
-        h: "Sedan, GMC Yukon or Hyundai Staria",
-        head: ["Vehicle", "Best for", "Consider instead if"],
-        rows: [
-          ["Sedan (e.g. Toyota Camry)", "One to a few travellers with light luggage, city and business trips", "You have large suitcases or want more room on a long road"],
-          ["GMC Yukon / full-size SUV", "Families, long routes, VIP arrivals, more luggage and comfort", "Your group is up to seven with many bags: consider a Staria"],
-          ["Hyundai Staria", "Up to 7 passengers with 10 or more bags", "You want a premium SUV feel for a smaller party"],
-          ["Luxury / VIP SUV", "Senior guests, delegations, special occasions", "Comfort matters more than the badge"],
-        ],
-      },
-      sections: [
-        { h: "Why people ask for a GMC", p: ["In Saudi Arabia the GMC Yukon is a familiar choice for family travel and for guests who expect a premium vehicle. It sits higher than a sedan, has more room for passengers and luggage, and is comfortable on long desert highways. Many people simply say 'GMC' when they mean a full-size SUV with a driver."] },
-        { h: "When a GMC Yukon makes sense", p: ["Choose a full-size SUV when:"], list: ["A family travels with suitcases and does not want two cars", "The road is long, such as Riyadh to Jeddah or Makkah to Madinah", "You are meeting a senior guest or a VIP at the airport", "Older passengers want an easier, roomier ride", "You want a premium vehicle for an event or wedding day"] },
-        { h: "When another vehicle fits better", p: ["For one or two travellers with light bags, a sedan is usually enough. For a group of up to seven with a lot of luggage, a Hyundai Staria takes up to 7 passengers with 10 or more bags, which is often more practical than an SUV. If you are unsure, send the passengers and bags by size and ask for a recommendation."] },
-        { h: "Seats and luggage", p: ["Seat and luggage capacity depend on the exact model and configuration, so we do not publish a fixed number for the Yukon. List your passengers and every bag by size; the quotation confirms a vehicle that fits them."] },
-        { h: "How to book a GMC with a driver", p: ["Choose GMC Yukon as your vehicle preference in the enquiry form, and give the route, date, time, passengers and bags. Similar SUVs such as the Chevrolet Suburban or Tahoe may be offered if they suit your party better or are available on your date; the quotation names the vehicle."] },
-        { h: "A typical example", p: ["A family of five with four large suitcases flies into Riyadh and travels to Jeddah two days later. They ask for a GMC Yukon for the airport pickup and the intercity leg. The quotation confirms the vehicle for both dates, and the family keeps the same size of car for the whole trip."] },
-      ],
-      faqs: [
-        { q: "Can I book a GMC Yukon with a driver in Saudi Arabia?", a: "Yes, through transport partners and subject to availability. Choose GMC Yukon in the enquiry form." },
-        { q: "How many people fit in a GMC Yukon?", a: "It depends on the model and configuration. Send your passengers and bags and the quotation confirms a vehicle that fits them." },
-        { q: "Is a GMC better than a Staria for a family?", a: "A GMC suits families wanting a premium SUV. For up to seven passengers with many bags, a Staria is often more practical." },
-        { q: "Can I get a GMC for an airport pickup?", a: "Yes, including VIP airport arrivals in Riyadh, Jeddah, Madinah and Dammam." },
-        { q: "What if a GMC is not available on my date?", a: "A similar full-size SUV may be offered; the quotation always names the vehicle before you confirm." },
-      ],
-    },
-    ar: {
-      nav: "متى تحجز جمس يوكن مع سائق",
-      title: "جمس يوكن مع سائق في السعودية: متى تحجزه",
-      description: "متى يكون جمس يوكن أو سيارة دفع رباعي كبيرة مع سائق الخيار الصحيح في السعودية: العائلات والطرق الطويلة واستقبال كبار الشخصيات، ومقارنته بالسيدان والستاريا.",
-      h1: "جمس يوكن مع سائق في السعودية: متى تكون الدفع الرباعي الكبيرة هي الخيار الصحيح",
-      answer: "جمس يوكن مع سائق هو المركبة التي تطلبها حين تريد مساحة وراحة أكثر من السيدان: العائلات مع الحقائب، والطرق الطويلة بين المدن مثل الرياض إلى جدة، ورحلات العمرة، واستقبال كبار الشخصيات في المطار. ومن السيارات المشابهة شيفروليه سوبربان وتاهو. أما المجموعات حتى سبعة أشخاص مع حقائب كثيرة فالأنسب غالبًا هيونداي ستاريا. وتُؤكَّد المركبة في عرض السعر.",
-      summary: "لمن يناسب جمس يوكن، وكيف يقارن بالسيدان والستاريا، وكيف تطلبه.",
-      table: {
-        h: "سيدان أم جمس يوكن أم هيونداي ستاريا",
-        head: ["المركبة", "الأنسب لـ", "فكر في غيرها إذا"],
-        rows: [
-          ["سيدان (مثل تويوتا كامري)", "مسافر إلى بضعة مسافرين بحقائب خفيفة، ومشاوير المدينة والعمل", "كانت معك حقائب كبيرة أو تريد مساحة أكبر في طريق طويل"],
-          ["جمس يوكن / دفع رباعي كبيرة", "العائلات والطرق الطويلة واستقبال كبار الشخصيات، وحقائب وراحة أكثر", "كانت مجموعتك حتى سبعة مع حقائب كثيرة: فكر في الستاريا"],
-          ["هيونداي ستاريا", "حتى 7 ركاب مع 10 حقائب أو أكثر", "أردت إحساس سيارة فاخرة لمجموعة أصغر"],
-          ["دفع رباعي فاخرة / VIP", "كبار الضيوف والوفود والمناسبات الخاصة", "كانت الراحة أهم من الماركة"],
-        ],
-      },
-      sections: [
-        { h: "لماذا يطلب الناس الجمس", p: ["جمس يوكن في السعودية خيار مألوف لسفر العائلات وللضيوف الذين يتوقعون مركبة فاخرة. فهو أعلى من السيدان وفيه مساحة أكبر للركاب والحقائب ومريح على الطرق الصحراوية الطويلة. وكثيرون يقولون جمس وهم يقصدون سيارة دفع رباعي كبيرة مع سائق."] },
-        { h: "متى يكون جمس يوكن مناسبًا", p: ["اختر الدفع الرباعي الكبيرة حين:"], list: ["تسافر عائلة مع حقائب ولا تريد سيارتين", "يكون الطريق طويلًا مثل الرياض إلى جدة أو مكة إلى المدينة", "تستقبل ضيفًا رفيعًا أو شخصية مهمة في المطار", "يريد كبار السن رحلة أسهل وأوسع", "تريد مركبة فاخرة لمناسبة أو يوم زفاف"] },
-        { h: "متى تناسبك مركبة أخرى أكثر", p: ["لمسافر أو اثنين بحقائب خفيفة تكفي السيدان عادةً. ولمجموعة حتى سبعة أشخاص مع حقائب كثيرة تتسع هيونداي ستاريا لسبعة ركاب مع 10 حقائب أو أكثر، وهي غالبًا أكثر عملية من الدفع الرباعي. وإن لم تكن متأكدًا فأرسل عدد الركاب والحقائب بأحجامها واطلب توصية."] },
-        { h: "المقاعد والحقائب", p: ["تعتمد سعة المقاعد والحقائب على الموديل والتجهيز بالضبط، فلا ننشر رقمًا ثابتًا لليوكن. اذكر ركابك وكل حقيبة بحجمها، ويؤكد عرض السعر مركبة تناسبهم."] },
-        { h: "كيف تحجز جمس مع سائق", p: ["اختر جمس يوكن كمركبة مفضلة في نموذج الطلب، واذكر الطريق والتاريخ والوقت والركاب والحقائب. وقد تُعرض سيارات مشابهة مثل شيفروليه سوبربان أو تاهو إن كانت أنسب لمجموعتك أو متوفرة في تاريخك، ويسمي عرض السعر المركبة."] },
-        { h: "مثال معتاد", p: ["عائلة من خمسة أشخاص مع أربع حقائب كبيرة تصل جوًا إلى الرياض وتسافر إلى جدة بعد يومين. تطلب جمس يوكن للاستقبال من المطار ولرحلة ما بين المدن، فيؤكد عرض السعر المركبة للتاريخين، وتحافظ العائلة على حجم السيارة نفسه طوال الرحلة."] },
-      ],
-      faqs: [
-        { q: "هل يمكن حجز جمس يوكن مع سائق في السعودية؟", a: "نعم، عبر شركاء النقل وحسب التوفر. اختر جمس يوكن في نموذج الطلب." },
-        { q: "كم شخصًا يتسع جمس يوكن؟", a: "يعتمد على الموديل والتجهيز. أرسل ركابك وحقائبك ويؤكد عرض السعر مركبة تناسبهم." },
-        { q: "هل الجمس أفضل من الستاريا للعائلة؟", a: "الجمس يناسب العائلات التي تريد دفعًا رباعيًا فاخرًا، ولسبعة ركاب مع حقائب كثيرة تكون الستاريا غالبًا أكثر عملية." },
-        { q: "هل يمكن طلب جمس للاستقبال من المطار؟", a: "نعم، ومنه استقبال كبار الشخصيات في مطارات الرياض وجدة والمدينة والدمام." },
-        { q: "ماذا لو لم يتوفر الجمس في تاريخي؟", a: "قد تُعرض سيارة دفع رباعي كبيرة مشابهة، ويسمي عرض السعر المركبة دائمًا قبل تأكيدك." },
       ],
     },
   },
@@ -330,7 +252,7 @@ export const uaeRoadPost: BlogPost = {
   updated: D,
   cluster: "private-transfers",
   hero: images.dubai,
-  related: ["cross-border-private-transfer-checklist", "saudi-arabia-to-qatar-private-transfer", "luxury-suv-gmc-transfer-saudi-arabia"],
+  related: ["cross-border-private-transfer-checklist", "saudi-arabia-to-qatar-private-transfer"],
   links: [`${X}/uae`, `${I}/riyadh-to-dubai`, `${I}/riyadh-to-abu-dhabi`, `${I}/dammam-to-dubai`, X],
   copy: {
     en: {

@@ -25,6 +25,8 @@ import { HeavyPromise, HeavyQuoteSection, HeavySteps, HeavyWhatsApp } from "./He
 import { HeavyQuickForm } from "./HeavyQuickForm";
 import { QuickQuoteForm } from "./QuickQuoteForm";
 import { PriceFrom } from "./PriceFrom";
+import { VehicleRoutes } from "./VehicleRoutes";
+import { vehicleRoutes } from "@/content/vehicle-pages";
 import { TrustDetails } from "./TrustDetails";
 
 type Table = { h: string; head: string[]; rows: string[][] };
@@ -170,6 +172,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
         {heavy && <HeavyPromise locale={locale} />}
 
         {!heavy && <PriceFrom path={page.path} locale={locale} />}
+        <VehicleRoutes path={page.path} locale={locale} />
 
         {page.path === "fleet" && (
           <section className="section section--sand fleet-page" aria-labelledby="fleet-cards-h">
@@ -297,7 +300,7 @@ export async function ServicePageView({ page, locale }: { page: ServicePage; loc
           </div>
         </section>
 
-        {heavy ? <HeavyQuoteSection locale={locale} service={page.heavyService} topic={c.h1} prefill={prefill} /> : <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} prefill={prefill} />}
+        {heavy ? <HeavyQuoteSection locale={locale} service={page.heavyService} topic={c.h1} prefill={prefill} /> : <QuoteSection locale={locale} defaultService={page.service} topic={c.h1} prefill={prefill} vehicle={vehicleRoutes[page.path]?.formValue} />}
         <p className="wrap svc-reviewed">{t("reviewed")}: <time dateTime={page.updated}>{page.updated}</time></p>
       </main>
       <Footer locale={locale} switchHref={href(page.path)} />

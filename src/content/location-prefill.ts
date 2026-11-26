@@ -125,13 +125,11 @@ export const guideForm: Record<string, { service: string; pickup?: L; dropoff?: 
   "private-airport-transfers-saudi-arabia": { service: "airport" },
   "airport-pickup-tips-saudi-arrivals": { service: "airport" },
   "private-chauffeur-service-saudi-arabia": { service: "chauffeur", pickup: city.riyadh },
-  "luxury-suv-gmc-transfer-saudi-arabia": { service: "luxury" },
   "saudi-arabia-to-qatar-private-transfer": { service: "intercity", dropoff: l("Doha, Qatar", "الدوحة، قطر") },
   "saudi-arabia-to-bahrain-private-transfer": { service: "intercity", dropoff: l("Manama, Bahrain", "المنامة، البحرين") },
   "saudi-arabia-to-uae-private-transfer": { service: "intercity", dropoff: l("Dubai or Abu Dhabi, UAE", "دبي أو أبوظبي، الإمارات") },
   "cross-border-private-transfer-checklist": { service: "intercity" },
   "private-car-vs-flight-vs-rental-saudi-intercity": { service: "intercity" },
-  "hyundai-staria-with-driver-family-group-travel": { service: "intercity" },
 };
 
 /** Pre-fill for a registry page: route pages first, then location pages. */

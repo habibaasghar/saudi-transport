@@ -8,7 +8,6 @@ import { howToBookPost } from "./how-to-book";
 import { jeddahMadinahPost } from "./jeddah-madinah-options";
 import { madinahAlulaPost } from "./madinah-alula-road";
 import { chauffeurVsTaxiPost } from "./chauffeur-vs-taxi";
-import { stariaPost } from "./staria-groups";
 import { applyGuideEnrichments } from "../enrich-batch4";
 import { heavyGuides } from "./heavy-guides";
 import { transferGuides } from "./transfer-guides";
@@ -31,7 +30,6 @@ export const blogPosts: BlogPost[] = [
   jeddahMadinahPost,
   madinahAlulaPost,
   chauffeurVsTaxiPost,
-  stariaPost,
   {
     slug: "cross-border-private-transfer-checklist",
     published: D,
@@ -136,7 +134,7 @@ export const blogPosts: BlogPost[] = [
     slug: "choosing-vehicle-size-family-group-travel-saudi",
     published: D,
     updated: "2026-11-18",
-    links: [
+    links: ["fleet/gmc-yukon-with-driver", "fleet/hyundai-staria-with-driver", 
       "fleet",
       "services/group-transportation/family-transport",
       "services/umrah-transport/family-umrah-transport",
@@ -357,7 +355,6 @@ const guideHeroes: Record<string, PageImage> = {
   "jeddah-to-madinah-train-flight-bus-or-car": images.jeddah,
   "madinah-to-alula-by-road-guide": images.alulaRock,
   "private-car-with-driver-vs-taxi-saudi-arabia": vehicles.sonata,
-  "hyundai-staria-with-driver-family-group-travel": vehicles.staria,
   "cross-border-private-transfer-checklist": images.causeway,
   "private-car-vs-flight-vs-rental-saudi-intercity": images.taif,
   "choosing-vehicle-size-family-group-travel-saudi": vehicles.yukon,

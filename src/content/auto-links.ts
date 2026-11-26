@@ -81,7 +81,9 @@ const PHRASES: Record<string, Pair> = {
   "luxury-transportation": [["luxury transportation", "luxury transport"], ["النقل الفاخر"]],
   "luxury-transportation/luxury-suv": [["luxury SUV"], []],
   "luxury-transportation/vip-delegation-transport": [["VIP delegations", "delegations"], ["الوفود"]],
-  fleet: [["GMC Yukon", "Hyundai Staria"], ["جمس يوكن", "هيونداي ستاريا"]],
+  "fleet/gmc-yukon-with-driver": [["GMC Yukon", "GMC"], ["جمس يوكن", "جمس"]],
+  "fleet/hyundai-staria-with-driver": [["Hyundai Staria", "Staria"], ["هيونداي ستاريا", "ستاريا"]],
+  fleet: [["vehicle by group size", "vehicles you can request"], ["المركبات المتاحة"]],
 };
 
 const AIRPORT: Record<string, Pair> = {

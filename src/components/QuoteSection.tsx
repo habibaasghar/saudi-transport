@@ -5,7 +5,7 @@ import { EnquiryForm } from "./EnquiryForm";
 import { ContactRow } from "./ContactCta";
 
 /** Doubles as the final CTA: "Plan your journey with RideSaudi" + the quote request. */
-export async function QuoteSection({ locale, defaultService, topic, prefill }: { locale: Locale; defaultService?: string; topic?: string; prefill?: { pickup: string; dropoff: string } }) {
+export async function QuoteSection({ locale, defaultService, topic, prefill, vehicle }: { locale: Locale; defaultService?: string; topic?: string; prefill?: { pickup: string; dropoff: string }; vehicle?: string }) {
   const t = await getTranslations("cta");
   const f = await getTranslations("form");
   const q = await getTranslations("quickQuote");
@@ -28,7 +28,7 @@ export async function QuoteSection({ locale, defaultService, topic, prefill }: {
           </div>
         </div>
         {/* Rendered on the server too (no Suspense / search params), so the form is in the HTML before JS loads. */}
-        <EnquiryForm locale={locale} defaultService={defaultService} prefill={prefill} />
+        <EnquiryForm locale={locale} defaultService={defaultService} prefill={prefill} vehicle={vehicle} />
       </div>
     </section>
   );

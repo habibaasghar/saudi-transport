@@ -687,6 +687,15 @@
     "sendOnWhatsApp": "Send on WhatsApp",
     "whatsappMessage": "Hi RideSaudi, I need {route} on {date} for [number] people, vehicle: [GMC / Staria / sedan / not sure]."
   },
+  "vehicleRoutes": {
+    "title": "Routes this vehicle is booked for most",
+    "route": "Route",
+    "distance": "Distance",
+    "time": "Driving time, no stops",
+    "price": "From",
+    "onRequest": "Quote on WhatsApp",
+    "source": "Distances and times as published on each route page (Google Maps and routing data, checked November 2026)."
+  },
   "prices": {
     "title": "Starting prices by vehicle",
     "from": "From SAR {amount}",

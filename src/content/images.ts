@@ -250,6 +250,8 @@ export const pageImages: Record<string, PageImage> = {
   "luxury-transportation/luxury-suv": vehicles.lexusLx,
   "luxury-transportation/vip-car-service": vehicles.suburban,
   fleet: vehicles.suburban,
+  "fleet/gmc-yukon-with-driver": vehicles.yukon,
+  "fleet/hyundai-staria-with-driver": vehicles.staria,
   "services/airport-transfers/family-airport-transfer": vehicles.staria,
   "services/group-transportation/family-transport": vehicles.staria,
   "services/group-transportation/van-and-minibus": vehicles.staria,

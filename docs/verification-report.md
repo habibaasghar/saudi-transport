@@ -1,0 +1,9 @@
+# Verification report: facts the owner must confirm before they are published
+
+## Vehicle pages, 2026-11-27 (Phase 3A)
+Built: `/fleet/gmc-yukon-with-driver/` and `/fleet/hyundai-staria-with-driver/` (EN + AR). The GMC and Staria guides were merged into them (308, 0 GSC impressions).
+Needs owner confirmation before it can be published:
+- GMC Yukon / Suburban / Tahoe: passenger and large-bag capacity (pages say "confirmed per vehicle in the quotation")
+- Hyundai Staria: whether a 9- or 11-seat version is supplied (page publishes 7 only)
+- Toyota Hiace and Toyota Coaster: do partners supply them? No page until confirmed
+- "From SAR" price per vehicle for the 8 routes in each vehicle table (`src/content/prices.ts`, keys `gmc`, `staria`)

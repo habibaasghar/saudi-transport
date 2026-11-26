@@ -18,10 +18,10 @@ type Status = "idle" | "sending" | "success" | "notConfigured" | "rateLimited" |
 const noSubscribe = () => () => {};
 const localToday = () => new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
 
-export function EnquiryForm({ locale, defaultService, prefill }: { locale: string; defaultService?: string; prefill?: { pickup: string; dropoff: string } }) {
+export function EnquiryForm({ locale, defaultService, prefill, vehicle }: { locale: string; defaultService?: string; prefill?: { pickup: string; dropoff: string }; vehicle?: string }) {
   const t = useTranslations("form");
   const uid = useId();
-  const [data, setData] = useState<EnquiryInput>({ ...emptyEnquiry(), locale, service: defaultService ?? "", pickup: prefill?.pickup ?? "", dropoff: prefill?.dropoff ?? "" });
+  const [data, setData] = useState<EnquiryInput>({ ...emptyEnquiry(), locale, service: defaultService ?? "", pickup: prefill?.pickup ?? "", dropoff: prefill?.dropoff ?? "", vehicle: vehicle ?? "" });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [receipt, setReceipt] = useState<{ reference?: string; wa: string } | null>(null);
