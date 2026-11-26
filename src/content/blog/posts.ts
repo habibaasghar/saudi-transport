@@ -12,7 +12,7 @@ import { stariaPost } from "./staria-groups";
 import { applyGuideEnrichments } from "../enrich-batch4";
 import { heavyGuides } from "./heavy-guides";
 import { transferGuides } from "./transfer-guides";
-import { images, vehicles, type PageImage } from "../images";
+import { images, inbox, vehicles, type PageImage } from "../images";
 
 const I = "services/intercity-transfers";
 const X = "services/cross-border-transfers";
@@ -361,7 +361,9 @@ const guideHeroes: Record<string, PageImage> = {
   "cross-border-private-transfer-checklist": images.causeway,
   "private-car-vs-flight-vs-rental-saudi-intercity": images.taif,
   "choosing-vehicle-size-family-group-travel-saudi": vehicles.yukon,
-  "airport-pickup-tips-saudi-arrivals": images.airportRuh,
+  "airport-pickup-tips-saudi-arrivals": inbox.arrivalsKerb,
+  "flatbed-vs-hydraulic-towing-saudi-arabia": inbox.sathaSedan,
+  "intercity-car-transport-saudi-arabia": inbox.sathaPickup,
   "choose-heavy-equipment-transport-company-saudi-arabia": images.heavyLowbed,
 };
 for (const p of blogPosts) if (!p.hero && guideHeroes[p.slug]) p.hero = guideHeroes[p.slug];

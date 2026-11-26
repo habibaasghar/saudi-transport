@@ -90,6 +90,44 @@ export const vehicles = {
   yukon: veh("gmc-yukon-at4-exterior", 892, 762, "GMC Yukon full-size SUV in a desert landscape", "جمس يوكن دفع رباعي كبيرة في أرض صحراوية", "50% 55%"),
 };
 
+/**
+ * Owner inbox 2026-11-26 (images-inbox/New folder): cropped to 16:9, hotel names, fake door logos, plates and phone
+ * numbers blurred, WebP q78, metadata stripped. AI-generated scenes carry a visible "Illustrative image" caption; web
+ * photos of heavy jobs say they are an example of the job type. None is described as a RideSaudi or partner vehicle.
+ */
+const illustrative: Record<Locale, string> = { en: "Illustrative image.", ar: "صورة توضيحية." };
+const jobExample: Record<Locale, string> = {
+  en: "Example of this type of job. The truck for your job is confirmed in the quotation.",
+  ar: "مثال على هذا النوع من النقل. تتأكد الشاحنة المناسبة لطلبك في عرض السعر.",
+};
+const ai = (file: string, en: string, ar: string, focus?: string): PageImage => ({ ...img(file, 1365, 768, en, ar, focus, "AI-generated scene, owner inbox 2026-11-26"), caption: illustrative });
+const job = (file: string, w: number, h: number, en: string, ar: string, focus?: string): PageImage => ({ ...img(file, w, h, en, ar, focus, "low resolution, owner-supplied web photo"), caption: jobExample });
+export const inbox = {
+  cabinCognac: ai("fleet/luxury-suv-rear-cabin-cognac-leather", "Rear cabin of a luxury SUV with cognac leather seats and screens", "المقصورة الخلفية لسيارة دفع رباعي فاخرة بمقاعد جلدية بنية وشاشات"),
+  cabinCaptain: ai("fleet/luxury-suv-rear-cabin-captain-seats", "Captain seats with armrests in the rear of a luxury SUV", "مقاعد خلفية منفصلة بمساند ذراع في سيارة دفع رباعي فاخرة", "60% 50%"),
+  vipDoorNight: ai("services/vip-airport-transfer-door-open-night", "Chauffeur holding the rear door of a black SUV at an airport kerb at night", "سائق يفتح الباب الخلفي لسيارة دفع رباعي سوداء أمام المطار ليلًا", "60% 50%"),
+  luggageLoading: ai("services/airport-pickup-luggage-loading", "Driver loading a suitcase into an SUV at an airport arrivals kerb", "سائق يحمّل حقيبة سفر في سيارة دفع رباعي عند رصيف الوصول بالمطار"),
+  nameBoard: ai("services/airport-meet-greet-name-board", "Driver holding a welcome name board in an airport arrivals hall", "سائق يحمل لوحة ترحيب باسم الراكب في صالة الوصول بالمطار", "70% 45%"),
+  arrivalsWaiting: ai("services/airport-arrivals-chauffeur-waiting", "Chauffeur waiting with a name board at an airport arrivals exit", "سائق ينتظر بلوحة اسم عند مخرج صالة الوصول", "45% 45%"),
+  departuresNight: ai("services/airport-departures-suv-chauffeur-night", "Chauffeur beside a black SUV at an airport terminal kerb at night", "سائق بجانب سيارة دفع رباعي سوداء أمام صالة المطار ليلًا"),
+  arrivalsKerb: ai("services/airport-arrivals-kerb-evening", "Busy airport arrivals kerb in the evening with travellers and cars", "رصيف وصول مزدحم في المطار مساءً مع مسافرين وسيارات"),
+  hotelLuggage: ai("services/hotel-entrance-suv-luggage-riyadh", "Driver placing a bag in an SUV at a hotel entrance in Riyadh", "سائق يضع حقيبة في سيارة دفع رباعي عند مدخل فندق في الرياض", "70% 55%"),
+  yukonHotel: ai("services/gmc-yukon-hotel-door-riyadh-dusk", "GMC Yukon with its rear door open outside a hotel in Riyadh at dusk", "جمس يوكن بباب خلفي مفتوح أمام فندق في الرياض عند الغروب", "45% 55%"),
+  suvHotelSunset: ai("services/suv-chauffeur-hotel-riyadh-sunset", "Black SUV with a driver at a hotel entrance in Riyadh at sunset", "سيارة دفع رباعي سوداء مع سائق عند مدخل فندق في الرياض وقت الغروب", "55% 55%"),
+  suvHotelBlueHour: ai("services/suv-chauffeur-hotel-riyadh-blue-hour", "Driver standing by a black SUV at a hotel entrance in Riyadh at dusk", "سائق يقف بجانب سيارة دفع رباعي سوداء عند مدخل فندق في الرياض مساءً", "55% 55%"),
+  oversized: ai("heavy-transport/oversized-load-escort-highway", "Oversized load on a lowbed with an escort pickup and warning banners", "حمولة استثنائية على لوبد مع سيارة مرافقة ولافتات تحذير", "60% 55%"),
+  machinery: ai("heavy-transport/flatbed-machinery-relocation-highway", "Industrial machinery chained on a flatbed trailer on a highway", "معدات صناعية مثبتة بالسلاسل على تريلا سطحة في طريق سريع", "40% 55%"),
+  wheelLoaderLowbed: ai("heavy-transport/lowbed-wheel-loader-highway", "Wheel loader carried on a lowbed trailer on a highway", "شيول محمول على لوبد في طريق سريع", "55% 55%"),
+  stariaDoor: img("fleet/hyundai-staria-sliding-door-open", 1024, 576, "Hyundai Staria with its sliding door open showing the passenger seats", "هيونداي ستاريا بباب منزلق مفتوح تظهر منه مقاعد الركاب", "40% 50%"),
+  jubailRendering: img("locations/marsa-al-jubail-rendering", 1600, 900, "Artist's rendering of the Marsa Al Jubail waterfront project", "تصور تخيلي لمشروع مرسى الجبيل على الواجهة البحرية", "50% 50%", "architectural rendering, not a photo"),
+  madinahAirport: img("airports/madinah-prince-mohammad-airport", 721, 406, "Terminal of Prince Mohammed bin Abdulaziz International Airport in Madinah", "مبنى مطار الأمير محمد بن عبدالعزيز الدولي في المدينة المنورة", "50% 55%", "low resolution, owner-supplied web photo"),
+  jeddahStadium: img("locations/jeddah-king-abdullah-sports-city-stadium", 736, 414, "Stadium at King Abdullah Sports City in Jeddah", "ملعب مدينة الملك عبدالله الرياضية في جدة", "50% 55%", "low resolution, owner-supplied web photo"),
+  sathaSedan: job("heavy-transport/satha-sedan-coastal-road", 678, 381, "Sedan strapped on a flatbed satha on a coastal road", "سيارة سيدان مثبتة على سطحة على طريق ساحلي", "50% 55%"),
+  sathaPickup: job("heavy-transport/satha-pickup-car-transport", 638, 359, "Pickup truck carried on a satha recovery truck", "سيارة بيك أب محمولة على سطحة", "55% 55%"),
+  craneLowbed: job("heavy-transport/lowbed-mobile-crane-saudi-road", 640, 360, "Mobile crane carried on a multi-axle lowbed by the roadside", "رافعة متحركة محمولة على لوبد متعدد المحاور على جانب الطريق", "55% 55%"),
+  forkliftTrailer: job("heavy-transport/forklift-on-beavertail-trailer", 738, 415, "Forklift loaded on a low trailer with ramps", "رافعة شوكية محمّلة على تريلا منخفضة بمنحدرات", "60% 55%"),
+};
+
 /** Page path -> image. Pages not listed here have no picture (honest gap, not a placeholder). */
 export const pageImages: Record<string, PageImage> = {
   // Heavy transport: owner-supplied web photos, re-cropped, renamed and metadata-stripped (docs/heavy-transport/IMAGE_PLAN.md).
@@ -99,10 +137,10 @@ export const pageImages: Record<string, PageImage> = {
   // They show the type of job, never a RideSaudi or partner truck. Pages without a suitable photo have none.
   "services/recovery-heavy-transport": img("heavy-transport/lowbed-truck-hauling-mobile-crane", 1419, 798, "Lowbed truck hauling a rough-terrain mobile crane on an open road", "شاحنة لوبد تنقل رافعة متحركة على طريق مفتوح", "60% 55%", "owner-supplied web photo"),
   "services/recovery-heavy-transport/lowbed-transport": img("heavy-transport/lowbed-truck-hauling-mobile-crane", 1419, 798, "Multi-axle lowbed carrying a heavy mobile crane, with warning flags on the load", "لوبد متعدد المحاور يحمل رافعة متحركة ثقيلة مع أعلام تحذيرية على الحمولة", "45% 55%", "owner-supplied web photo"),
-  "services/recovery-heavy-transport/crane-transport": img("heavy-transport/rough-terrain-crane-loaded-on-lowbed", 1120, 630, "Rough-terrain crane secured on a lowbed trailer for road transport", "رافعة للطرق الوعرة مثبتة على لوبد للنقل البري", "40% 50%", "owner-supplied web photo"),
+  "services/recovery-heavy-transport/crane-transport": inbox.craneLowbed,
   "services/recovery-heavy-transport/wheel-loader-transport": img("heavy-transport/wheel-loader-bucket-construction-site", 705, 350, "Wheel loader (shuwel) with a full bucket on a construction site", "شيول بجرافة ممتلئة في موقع إنشاءات", "55% 60%", "low resolution, owner-supplied web photo"),
   "services/recovery-heavy-transport/flatbed-trailer-transport": img("heavy-transport/flatbed-trailer-steel-coils-highway", 654, 469, "Flatbed trailer carrying chained steel coils on a highway", "تريلا سطحة تحمل لفائف حديد مثبتة بالسلاسل على طريق سريع", "50% 60%", "low resolution, owner-supplied web photo, trailer logos blurred"),
-  "services/recovery-heavy-transport/forklift-transport": img("heavy-transport/heavy-duty-forklifts-yard", 577, 346, "Row of large heavy-duty forklifts parked in a yard", "صف من الرافعات الشوكية الكبيرة للأحمال الثقيلة في ساحة", "50% 60%", "low resolution, owner-supplied web photo, maker logos blurred"),
+  "services/recovery-heavy-transport/forklift-transport": inbox.forkliftTrailer,
   // City pages use the real city photographs already on the site.
   "services/recovery-heavy-transport/satha-car-recovery/riyadh": images.riyadh,
   "services/recovery-heavy-transport/satha-car-recovery/jeddah": images.jeddah,
@@ -114,7 +152,7 @@ export const pageImages: Record<string, PageImage> = {
   "services/airport-transfers/riyadh-airport": images.airportRuh,
   "services/tourism-transport/riyadh-sightseeing": images.diriyah,
   "services/airport-transfers/jeddah-airport": images.airportJed,
-  "services/airport-transfers/madinah-airport": images.airportMed,
+  "services/airport-transfers/madinah-airport": inbox.madinahAirport,
   "services/airport-transfers/dammam-airport": images.airportDmm,
   "services/airport-transfers/taif-airport": images.airportTaif,
   "services/intercity-transfers/riyadh-to-dammam": images.alKhobar,
@@ -195,7 +233,7 @@ export const pageImages: Record<string, PageImage> = {
   "services/city-transport/dammam": images.dammamCoast,
   "services/event-transportation/dammam": images.dammamCoast,
   "services/event-transportation/riyadh": images.riyadh,
-  "services/event-transportation/jeddah": images.jeddah,
+  "services/event-transportation/jeddah": inbox.jeddahStadium,
   "services/intercity-transfers/makkah-to-jeddah": images.jeddah,
   "services/intercity-transfers/makkah-to-riyadh": images.riyadh,
   "services/intercity-transfers/al-khobar-to-riyadh": images.riyadh,
@@ -217,6 +255,26 @@ export const pageImages: Record<string, PageImage> = {
   "services/group-transportation/van-and-minibus": vehicles.staria,
   "services/chauffeur-services/business-chauffeur": vehicles.camry,
   "services/special-transportation/business-travel": vehicles.sonata,
+  // Owner inbox 2026-11-26.
+  services: inbox.yukonHotel,
+  "services/chauffeur-services": inbox.suvHotelSunset,
+  "services/airport-transfers": inbox.arrivalsWaiting,
+  "services/airport-transfers/private-airport-pickup": inbox.nameBoard,
+  "services/airport-transfers/airport-to-hotel": inbox.hotelLuggage,
+  "services/airport-transfers/vip-airport-transfer": inbox.vipDoorNight,
+  "services/event-transportation/event-airport-transfers": inbox.luggageLoading,
+  "services/special-transportation/hotel-transportation": inbox.suvHotelBlueHour,
+  "luxury-transportation/luxury-chauffeur": inbox.cabinCognac,
+  "luxury-transportation/vip-delegation-transport": inbox.departuresNight,
+  "services/intercity-transfers/private-intercity-chauffeur": inbox.cabinCaptain,
+  "services/umrah-transport/group-umrah-transport": inbox.stariaDoor,
+  "services/recovery-heavy-transport/oversized-load-transport": inbox.oversized,
+  "services/recovery-heavy-transport/industrial-machinery-relocation": inbox.machinery,
+  "services/recovery-heavy-transport/heavy-equipment-transport": inbox.wheelLoaderLowbed,
+  "services/recovery-heavy-transport/car-transport-between-cities": inbox.sathaPickup,
+  "services/city-transport/jubail": inbox.jubailRendering,
+  "services/intercity-transfers/riyadh-to-jubail": inbox.jubailRendering,
+  "services/intercity-transfers/dammam-to-jubail": inbox.jubailRendering,
 };
 
 export const getImage = (path: string) => pageImages[path];
