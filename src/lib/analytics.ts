@@ -16,7 +16,8 @@
  *  - quote_submission_error : the backend refused or failed the enquiry (HTTP status only; the visitor sees the WhatsApp fallback)
  *  - quote_form_view : the quote form scrolled into view (once per page view)
  * Parameters never contain names, phone numbers, emails, addresses or free text.
- * Nothing is sent unless NEXT_PUBLIC_GA_ID is configured (see components/Analytics.tsx).
+ * Events go to the dataLayer of the Google Tag Manager container (components/GoogleTag.tsx), and straight to GA4
+ * as well when NEXT_PUBLIC_GA_ID is configured (components/Analytics.tsx).
  */
 type Params = Record<string, string | number | boolean | undefined>;
 

@@ -7,6 +7,7 @@ import { arabic, display, sans } from "@/lib/fonts";
 import { SITE_URL } from "@/lib/site";
 import { whatsappHref } from "@/config/contact";
 import { Analytics } from "@/components/Analytics";
+import { GoogleTag } from "@/components/GoogleTag";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import "../globals.css";
 
@@ -36,6 +37,9 @@ export default async function LocaleLayout({ children, params }: { children: Rea
       dir={isRtl ? "rtl" : "ltr"}
       className={`${display.variable} ${sans.variable} ${arabic.variable}`}
     >
+      <head>
+        <GoogleTag />
+      </head>
       <body>
         <NextIntlClientProvider messages={clientMessages}>{children}</NextIntlClientProvider>
         <Analytics />
