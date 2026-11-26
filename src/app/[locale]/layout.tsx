@@ -14,6 +14,9 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+/** Only en and ar exist: any other first segment is a 404 at routing level, never a 500. */
+export const dynamicParams = false;
+
 export const metadata: Metadata = { metadataBase: new URL(SITE_URL) };
 
 export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {

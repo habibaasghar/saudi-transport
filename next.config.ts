@@ -6,6 +6,8 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // app/global-not-found.tsx: real 404 for unmatched URLs (there is no single root layout).
+  experimental: { globalNotFound: true },
   trailingSlash: true,
   images: { formats: ["image/avif", "image/webp"] },
   // Removed pages keep their link equity: permanent redirect to the chauffeur hub (SEO-RULES.md section 2).
