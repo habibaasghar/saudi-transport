@@ -45,6 +45,8 @@ const airport = {
   ula: l("AlUla International Airport", "مطار العلا الدولي"),
   qassim: l("Prince Naif bin Abdulaziz International Airport, Al Qassim", "مطار الأمير نايف بن عبدالعزيز الدولي، القصيم"),
   ahsa: l("Al Ahsa International Airport", "مطار الأحساء الدولي"),
+  tuu: l("Prince Sultan bin Abdulaziz International Airport (TUU), Tabuk", "مطار الأمير سلطان بن عبدالعزيز الدولي، تبوك"),
+  ynb: l("Prince Abdul Mohsin bin Abdulaziz International Airport (YNB), Yanbu", "مطار الأمير عبدالمحسن بن عبدالعزيز الدولي، ينبع"),
 };
 
 const empty = l("", "");
@@ -89,6 +91,8 @@ export const locationPrefill: Record<string, { pickup: L; dropoff: L }> = {
   [`${A}/alula-airport`]: from(airport.ula),
   [`${A}/qassim-airport`]: from(airport.qassim),
   [`${A}/al-ahsa-airport`]: from(airport.ahsa),
+  [`${A}/tabuk-airport`]: from(airport.tuu),
+  [`${A}/yanbu-airport`]: from(airport.ynb),
   // Cross-border country pages: the destination is the country.
   [`${S}/cross-border-transfers/bahrain`]: to(l("Manama, Bahrain", "المنامة، البحرين")),
   [`${S}/cross-border-transfers/qatar`]: to(l("Doha, Qatar", "الدوحة، قطر")),

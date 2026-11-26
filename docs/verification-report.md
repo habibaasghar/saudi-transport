@@ -7,3 +7,11 @@ Needs owner confirmation before it can be published:
 - Hyundai Staria: whether a 9- or 11-seat version is supplied (page publishes 7 only)
 - Toyota Hiace and Toyota Coaster: do partners supply them? No page until confirmed
 - "From SAR" price per vehicle for the 8 routes in each vehicle table (`src/content/prices.ts`, keys `gmc`, `staria`)
+
+## Airport pages, 2026-11-27 (Phase 3B)
+Built: `/services/airport-transfers/tabuk-airport/` and `/services/airport-transfers/yanbu-airport/` (EN + AR). Distances read from Google Maps on 27 Nov 2026 (airport as start point).
+NEOM Bay Airport (NUM): no page. Only 3 local facts verifiable, schedule small and changing, project area restricted; covered as a section on the Tabuk airport page.
+Owner to confirm:
+- Partners can collect at TUU and YNB (pages say availability is confirmed in the quotation)
+- Whether NEOM / Sharma pickups are possible at all (page promises nothing)
+- "From SAR" prices for both airports (`src/content/prices.ts`)

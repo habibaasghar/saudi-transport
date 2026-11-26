@@ -95,6 +95,8 @@ const AIRPORT: Record<string, Pair> = {
   "alula-airport": [["AlUla International Airport", "AlUla's airport", "AlUla airport"], ["مطار العلا الدولي", "مطار العلا"]],
   "qassim-airport": [["Qassim airport", "Qassim Airport"], ["مطار القصيم"]],
   "al-ahsa-airport": [["Al Ahsa airport", "Al Ahsa Airport"], ["مطار الأحساء"]],
+  "tabuk-airport": [["Prince Sultan bin Abdulaziz International Airport", "Tabuk airport", "Tabuk Airport"], ["مطار الأمير سلطان بن عبدالعزيز", "مطار تبوك"]],
+  "yanbu-airport": [["Prince Abdul Mohsin bin Abdulaziz International Airport", "Yanbu airport", "Yanbu Airport"], ["مطار الأمير عبدالمحسن بن عبدالعزيز", "مطار ينبع"]],
 };
 
 /** Every phrase that may anchor a link to `path`. */
