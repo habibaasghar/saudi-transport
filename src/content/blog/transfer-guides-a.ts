@@ -103,7 +103,7 @@ export const riyadhJeddahRoadPost: BlogPost = {
   copy: {
     en: {
       nav: "Riyadh to Jeddah by private car",
-      title: "Riyadh to Jeddah by Road: Route, Stops, Timing",
+      title: "Riyadh to Jeddah by Car: 955 km, About 10 Hours",
       description: "Riyadh to Jeddah by private car: about 955 km on Route 40, close to ten hours of driving, where to break the trip, Taif or Makkah stops and planning tips.",
       h1: "Riyadh to Jeddah by road: the route, the stops and how to plan the day",
       answer: "Riyadh to Jeddah by private car is about 955 km on Route 40, close to ten hours of driving before stops, so it is a full-day journey. The road runs west across Najd and climbs to the Taif area before descending to Makkah's outskirts and Jeddah. A private car with a driver lets you leave from your door, stop when you need to and arrive at your Jeddah address without driving yourself.",
