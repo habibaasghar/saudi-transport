@@ -48,6 +48,7 @@ import { madinahToRiyadh, applyMakkahMadinahGrowth } from "./makkah-madinah";
 import { jeddahToAlBaha, alBahaToJeddah, applyJeddahCluster } from "./jeddah-cluster";
 import { vehiclePages, vehicleRoutes } from "./vehicle-pages";
 import { northWestAirportPages, applyNorthWestAirports } from "./airport-pages-nw";
+import { routes3c, applyRoutes3c } from "./routes-3c";
 
 export const pages: ServicePage[] = [servicesHub, ...airportPages, ...umrahIntercityPages, ...eventLuxuryChauffeurPages, ...batch2Pages, ...batch3Routes, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8Riyadh, ...batch9RiyadhCrossBorder, ...batch10RiyadhRoutes, ...batch11RiyadhRoutes, ...batch12GapRoutes, ...batch13EasternProvince, ...batch14OriginRoutes, ...batch15CitiesAirports, ...batch16ReverseAlulaRoutes, ...priorityRoutes, ...priorityRoutesB, ...priorityRoutesC, ...priorityRoutesD, ...batch17JeddahRoutes, ...batch18Locations, ...heavyHubAndCars, ...heavyRecovery, ...heavyTrailers, ...heavyMachines, ...heavyCities, madinahToRiyadh, jeddahToAlBaha, alBahaToJeddah];
 
@@ -83,8 +84,9 @@ applyGscGrowth(pages);
 applyCompetitorGapFaqs(pages);
 
 // Vehicle pages (./vehicle-pages.ts): each route in a vehicle's table links back to that vehicle page.
-pages.push(...vehiclePages, ...northWestAirportPages);
+pages.push(...vehiclePages, ...northWestAirportPages, ...routes3c);
 applyNorthWestAirports(pages);
+applyRoutes3c(pages);
 for (const [vehicle, v] of Object.entries(vehicleRoutes))
   for (const r of v.routes) {
     const page = pages.find((p) => p.path === r.path);

@@ -15,3 +15,9 @@ Owner to confirm:
 - Partners can collect at TUU and YNB (pages say availability is confirmed in the quotation)
 - Whether NEOM / Sharma pickups are possible at all (page promises nothing)
 - "From SAR" prices for both airports (`src/content/prices.ts`)
+
+## Route pages, 2026-11-27 (Phase 3C, P1)
+Built: madinah-to-yanbu, madinah-to-tabuk, tabuk-to-alula (EN + AR, both directions on one page). Distances from Google Maps, 27 Nov 2026.
+Not built: tabuk-to-neom (restricted project area, too few verifiable facts). P2/P3 (tabuk-to-jeddah, tabuk-to-dammam, yanbu-to-umluj) later.
+Note: the brief's "Madinah Airport to Yanbu about 246 km" measures about 266 km from MED to Yanbu's historic area; 246 km is from the Prophet's Mosque. Brief's "Madinah to Tabuk about 683 km" matches the Route 15 road (about 690 km); the faster road through AlUla is about 633 km.
+Owner to confirm: partner coverage for Tabuk and the north-west; "from" prices for the three routes.
