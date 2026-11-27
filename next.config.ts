@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
   experimental: { globalNotFound: true },
   trailingSlash: true,
   images: { formats: ["image/avif", "image/webp"] },
+  // Quotation PDFs (admin only): react-pdf runs as a plain Node package, and its fonts + logo are read from disk.
+  serverExternalPackages: ["@react-pdf/renderer"],
+  outputFileTracingIncludes: {
+    "/admin/**/*": ["./src/server/pdf/fonts/**/*", "./public/logo.png"],
+    "/api/admin/**/*": ["./src/server/pdf/fonts/**/*", "./public/logo.png"],
+  },
   // Removed pages keep their link equity: permanent redirect to the chauffeur hub (SEO-RULES.md section 2).
   async redirects() {
     const removed = ["hourly-driver", "full-day-driver", "personal-driver"].map((slug) => ({

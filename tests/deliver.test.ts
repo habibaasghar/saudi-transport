@@ -24,7 +24,7 @@ describe("deliverLead business alert", () => {
     expect(await deliverLead(lead())).toEqual({ configured: true, delivered: true });
     const msg = sendMail.mock.calls[0][0];
     expect(msg.to).toEqual(["owner@example.com"]);
-    expect(msg.subject).toContain("intercity");
+    expect(msg.subject).toContain("NEW BOOKING REQUEST – A to B");
     expect(msg.text).toContain("+966500000000");
     expect(msg.html.match(/Child seats/g)).toBeNull();
   });
@@ -36,6 +36,24 @@ describe("deliverLead business alert", () => {
     const err = vi.spyOn(console, "error").mockImplementation(() => {});
     expect(await deliverLead(lead())).toEqual({ configured: true, delivered: false });
     err.mockRestore();
+  });
+
+  it("puts route and reference in the subject and flags returning customers", async () => {
+    delete process.env.RESEND_API_KEY; delete process.env.LEAD_NOTIFY_EMAIL; delete process.env.ENQUIRY_WEBHOOK_URL;
+    Object.assign(process.env, { EMAIL_PROVIDER: "gmail", SMTP_USERNAME: "s@example.com", ADMIN_NOTIFY_EMAIL: "o@example.com" });
+    sendMail.mockResolvedValue({ accepted: ["o@example.com"] });
+    const full = { ...lead(), pickup: "Riyadh", dropoff: "Doha", date: "2030-01-02", time: "09:00", passengers: "3", luggage: "2", smallBags: "1", tripType: "round_trip", returnDate: "2030-01-05", returnTime: "18:00", email: "c@example.com" };
+    await deliverLead(full, undefined, { reference: "RS-3001-0007", inquiryId: "11111111-1111-1111-1111-111111111111" });
+    let msg = sendMail.mock.calls[0][0];
+    expect(msg.subject).toBe("NEW BOOKING REQUEST – Riyadh to Doha – RS-3001-0007");
+    expect(msg.html).toContain("ROUND TRIP");
+    expect(msg.html).toContain("2 large, 1 small");
+    expect(msg.html).toContain("/admin/inquiries/11111111-1111-1111-1111-111111111111/");
+    expect(msg.replyTo).toBe("c@example.com");
+    await deliverLead(full, undefined, { reference: "RS-3001-0008", returning: true });
+    msg = sendMail.mock.calls[1][0];
+    expect(msg.subject).toMatch(/^RETURNING CUSTOMER - NEW BOOKING REQUEST/);
+    expect(msg.html).toContain("RETURNING CUSTOMER");
   });
 
   it("labels heavy transport alerts with their own check and urgency, not passenger questions", async () => {

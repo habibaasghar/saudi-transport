@@ -43,7 +43,7 @@ describe("contextual links", () => {
 });
 
 describe("lead completeness", () => {
-  const full = { ...emptyEnquiry(), service: "intercity", name: "A", phone: "+966500000000", pickup: "Madinah", dropoff: "AlUla", date: "2030-01-01", time: "09:00", passengers: "4", luggage: "3", consent: true };
+  const full = { ...emptyEnquiry(), service: "intercity", name: "A", email: "test@example.com", phone: "+966500000000", pickup: "Madinah", dropoff: "AlUla", date: "2030-01-01", time: "09:00", passengers: "4", luggage: "3", consent: true };
   it("complete only when every quotation detail is present", () => {
     expect(checkLead(full)).toEqual({ complete: true, missing: [] });
     expect(checkLead({ ...full, luggage: "" }).missing).toEqual(["luggage"]);

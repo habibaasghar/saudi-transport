@@ -54,6 +54,8 @@ export async function POST(request: Request) {
   let reference: string | undefined;
   let duplicate = false;
   let stored = false;
+  let inquiryId: string | undefined;
+  let returning = false;
 
   if (process.env.DATABASE_URL) {
     try {
@@ -70,6 +72,8 @@ export async function POST(request: Request) {
       }, { ipHash: createHash("sha256").update(ip + (process.env.IP_HASH_SALT || "")).digest("hex").slice(0, 32) });
       reference = result.reference;
       duplicate = result.duplicate;
+      inquiryId = result.id;
+      returning = !!result.returning;
       stored = true;
       if (!duplicate && d.email) {
         const job = () => sendInquiryAck(result.id, d.email, {
@@ -94,7 +98,7 @@ export async function POST(request: Request) {
       notes: [cargo, d.notes].filter(Boolean).join("\n\n"), consent: true, locale: d.locale, source: d.source,
       attribution: d.attribution, receivedAt: new Date().toISOString(),
     };
-    const send = () => deliverLead(lead, { complete: check.complete, line: check.line, tag: [d.timing === "now" ? "URGENT" : "", d.business ? "BUSINESS" : ""].filter(Boolean).join(" ") });
+    const send = () => deliverLead(lead, { complete: check.complete, line: check.line, tag: [d.timing === "now" ? "URGENT" : "", d.business ? "BUSINESS" : ""].filter(Boolean).join(" ") }, { reference, inquiryId, returning });
     if (stored) {
       // The lead is already safe in the database: a customer on the roadside should not wait for the email server.
       const job = () => send().then((r) => { if (r.configured && !r.delivered) console.error("[heavy-quote] alert email failed for", reference); }).catch((e) => console.error("[heavy-quote] alert email failed for", reference, errorDetail(e)));

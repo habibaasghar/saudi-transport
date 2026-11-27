@@ -3,7 +3,7 @@ import { emptyEnquiry, extrasSummary, sanitizeAttribution, sanitizeEnquiry, vali
 import { inquiryAck } from "@/server/email/templates";
 
 const base = (service: string) => ({
-  ...emptyEnquiry(), passengers: "2", service, pickup: "Olaya", dropoff: "KAFD", date: "2030-03-01", time: "09:00",
+  ...emptyEnquiry(), passengers: "2", email: "test@example.com", service, pickup: "Olaya", dropoff: "KAFD", date: "2030-03-01", time: "09:00",
   name: "Test", phone: "+966500000000", consent: true,
 });
 const today = new Date("2030-01-01");

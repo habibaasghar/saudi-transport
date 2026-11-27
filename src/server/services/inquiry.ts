@@ -20,7 +20,8 @@ export type NewInquiry = {
   dedupeExtra?: string;
 };
 
-export type CreateResult = { id: string; reference: string; duplicate: boolean };
+/** `returning`: the email or phone already belonged to a customer from an earlier inquiry. */
+export type CreateResult = { id: string; reference: string; duplicate: boolean; returning?: boolean };
 
 const DEDUPE_WINDOW_MS = 10 * 60 * 1000;
 type Tx = Parameters<Parameters<Db["transaction"]>[0]>[0];
@@ -41,7 +42,7 @@ export async function nextReference(tx: Tx, now = new Date()): Promise<string> {
   return `RS-${ym}-${String(row.value).padStart(4, "0")}`;
 }
 
-async function upsertCustomer(tx: Tx, i: NewInquiry): Promise<string> {
+async function upsertCustomer(tx: Tx, i: NewInquiry): Promise<{ id: string; existed: boolean }> {
   const email = i.email?.trim().toLowerCase() || null;
   let existing = email
     ? (await tx.select({ id: schema.customers.id }).from(schema.customers)
@@ -58,12 +59,12 @@ async function upsertCustomer(tx: Tx, i: NewInquiry): Promise<string> {
       phone: sql`coalesce(${schema.customers.phone}, ${i.phone})`,
       updatedAt: new Date(),
     }).where(eq(schema.customers.id, existing.id));
-    return existing.id;
+    return { id: existing.id, existed: true };
   }
   const [c] = await tx.insert(schema.customers)
     .values({ name: i.name, email, phone: i.phone, countryCode: i.countryCode ?? null })
     .returning({ id: schema.customers.id });
-  return c.id;
+  return { id: c.id, existed: false };
 }
 
 export async function createInquiry(i: NewInquiry, meta: { ipHash?: string } = {}): Promise<CreateResult> {
@@ -83,7 +84,7 @@ export async function createInquiry(i: NewInquiry, meta: { ipHash?: string } = {
       .orderBy(desc(schema.inquiries.createdAt)).limit(1))[0];
     if (dup) return { ...dup, duplicate: true };
 
-    const customerId = await upsertCustomer(tx, i);
+    const { id: customerId, existed } = await upsertCustomer(tx, i);
     const reference = await nextReference(tx);
     const [row] = await tx.insert(schema.inquiries).values({
       reference, customerId,
@@ -104,29 +105,31 @@ export async function createInquiry(i: NewInquiry, meta: { ipHash?: string } = {
       inquiryId: row.id, type: "created", summary: `Inquiry received via ${i.source ?? "website"}`,
       meta: i.attribution && Object.keys(i.attribution).length ? { attribution: i.attribution } : null,
     });
-    return { id: row.id, reference, duplicate: false };
+    return { id: row.id, reference, duplicate: false, returning: existed };
   });
 }
 
 export type InquiryListItem = {
   id: string; reference: string; status: string; name: string; email: string | null; phone: string | null;
   pickup: string; dropoff: string; pickupDate: string; pickupTime: string; tripType: string;
-  adults: number; vehiclePref: string | null; source: string; createdAt: Date;
+  adults: number; largeBags: number; vehiclePref: string | null; source: string; createdAt: Date; quotes: number;
 };
 
-export async function listInquiries(opts: { limit?: number; offset?: number; status?: string; q?: string } = {}) {
+export async function listInquiries(opts: { limit?: number; offset?: number; status?: string; statuses?: readonly string[]; q?: string } = {}) {
   const limit = Math.min(Math.max(opts.limit ?? 25, 1), 100);
   const offset = Math.max(opts.offset ?? 0, 0);
   const where = and(
     isNull(schema.inquiries.deletedAt),
     opts.status ? sql`${schema.inquiries.status} = ${opts.status}` : undefined,
-    opts.q ? sql`(${schema.customers.name} ilike ${"%" + opts.q + "%"} or ${schema.inquiries.reference} ilike ${"%" + opts.q + "%"} or ${schema.customers.email} ilike ${"%" + opts.q + "%"} or ${schema.customers.phone} ilike ${"%" + opts.q + "%"})` : undefined,
+    !opts.status && opts.statuses?.length ? sql`${schema.inquiries.status}::text in (${sql.join(opts.statuses.map((x) => sql`${x}`), sql`, `)})` : undefined,
+    opts.q ? sql`(${schema.customers.name} ilike ${"%" + opts.q + "%"} or ${schema.inquiries.reference} ilike ${"%" + opts.q + "%"} or ${schema.customers.email} ilike ${"%" + opts.q + "%"} or ${schema.customers.phone} ilike ${"%" + opts.q + "%"} or ${schema.inquiries.pickup} ilike ${"%" + opts.q + "%"} or ${schema.inquiries.dropoff} ilike ${"%" + opts.q + "%"})` : undefined,
   );
   const rows = await db().select({
     id: schema.inquiries.id, reference: schema.inquiries.reference, status: schema.inquiries.status,
     name: schema.customers.name, email: schema.customers.email, phone: schema.customers.phone,
     pickup: schema.inquiries.pickup, dropoff: schema.inquiries.dropoff, pickupDate: schema.inquiries.pickupDate,
-    pickupTime: schema.inquiries.pickupTime, tripType: schema.inquiries.tripType, adults: schema.inquiries.adults,
+    pickupTime: schema.inquiries.pickupTime, tripType: schema.inquiries.tripType, adults: schema.inquiries.adults, largeBags: schema.inquiries.largeBags,
+    quotes: sql<number>`(select count(*)::int from quotations q where q.inquiry_id = ${schema.inquiries.id})`,
     vehiclePref: schema.inquiries.vehiclePref, source: schema.inquiries.source, createdAt: schema.inquiries.createdAt,
   }).from(schema.inquiries).innerJoin(schema.customers, eq(schema.customers.id, schema.inquiries.customerId))
     .where(where).orderBy(desc(schema.inquiries.createdAt)).limit(limit).offset(offset);

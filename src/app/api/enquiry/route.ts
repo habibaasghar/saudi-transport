@@ -65,6 +65,8 @@ export async function POST(request: Request) {
   let reference: string | undefined;
   let duplicate = false;
   let stored = false;
+  let returning = false;
+  let inquiryId: string | undefined;
 
   if (dbConfigured) {
     try {
@@ -83,6 +85,7 @@ export async function POST(request: Request) {
         returnTime: payload.tripType === "round_trip" ? payload.returnTime || undefined : undefined,
         adults: Number(payload.passengers) || 1,
         largeBags: Number(payload.luggage) || 0,
+        smallBags: Number(payload.smallBags) || 0,
         childSeats: Number(payload.childSeats) || 0,
         vehiclePref: payload.vehicle || undefined, flightNo: payload.flight || undefined,
         customerNotes: payload.notes || undefined, locale: payload.locale, sourcePage: payload.source,
@@ -91,6 +94,8 @@ export async function POST(request: Request) {
       }, { ipHash: createHash("sha256").update(ip + salt).digest("hex").slice(0, 32) });
       reference = result.reference;
       duplicate = result.duplicate;
+      returning = !!result.returning;
+      inquiryId = result.id;
       stored = true;
 
       // Customer acknowledgement: only for a new, stored enquiry with an email address. Sent after the
@@ -99,6 +104,9 @@ export async function POST(request: Request) {
         const job = () => sendInquiryAck(result.id, payload.email, {
           reference: result.reference, name: payload.name, pickup: payload.pickup, dropoff: payload.dropoff,
           date: payload.date, time: payload.time, passengers: Number(payload.passengers) || 1, locale: payload.locale,
+          vehicle: payload.vehicle || undefined,
+          bags: [payload.luggage ? `${payload.luggage} ${payload.locale === "ar" ? "كبيرة" : "large"}` : "", payload.smallBags ? `${payload.smallBags} ${payload.locale === "ar" ? "صغيرة" : "small"}` : ""].filter(Boolean).join(", ") || undefined,
+          returnTrip: payload.tripType === "round_trip" ? `${payload.returnDate} ${payload.returnTime}`.trim() : undefined,
         }).catch(() => undefined);
         try { after(job); } catch { await job(); }
       }
@@ -110,7 +118,7 @@ export async function POST(request: Request) {
   // Secondary channels (email alert / webhook). Skipped for duplicates so retries never re-alert.
   let other = { configured: false, delivered: false };
   if (!duplicate) {
-    const send = () => deliverLead({ ...payload, receivedAt: new Date().toISOString() });
+    const send = () => deliverLead({ ...payload, receivedAt: new Date().toISOString() }, undefined, { reference, returning, inquiryId });
     if (stored) {
       // The lead is already safe in the database: the customer should not wait for the email server.
       const job = () => send().then((r) => { if (r.configured && !r.delivered) console.error("[enquiry] alert email failed for", reference); }).catch((e) => console.error("[enquiry] alert email failed for", reference, errorDetail(e)));

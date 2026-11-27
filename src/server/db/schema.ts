@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import {
-  boolean, check, index, integer, jsonb, pgEnum, pgTable, text, timestamp, uniqueIndex, uuid,
+  boolean, check, index, integer, jsonb, numeric, pgEnum, pgTable, text, timestamp, uniqueIndex, uuid,
 } from "drizzle-orm/pg-core";
 
 /**
@@ -170,3 +170,33 @@ export const rateLimits = pgTable("rate_limits", {
   count: integer("count").notNull().default(0),
   expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
 }, (t) => [index("rate_limits_expires_idx").on(t.expiresAt)]).enableRLS();
+
+/**
+ * Quotations (booking system, 2026-11-27). Prices are only ever entered by staff after checking availability and
+ * supplier cost: nothing on the public site reads this table. One inquiry can have several quotations (revisions);
+ * the reference is QT-YYMM-NNNN from `counters`.
+ */
+export const quotationStatus = pgEnum("quotation_status", ["draft", "sent", "accepted", "declined", "expired", "cancelled"]);
+
+export const quotations = pgTable("quotations", {
+  id: id(),
+  reference: text("reference").notNull(),
+  inquiryId: uuid("inquiry_id").notNull().references(() => inquiries.id, { onDelete: "restrict" }),
+  status: quotationStatus("status").notNull().default("draft"),
+  vehicle: text("vehicle").notNull(),
+  amount: numeric("amount", { precision: 12, scale: 2 }).notNull(),
+  currency: text("currency").notNull().default("SAR"),
+  inclusions: text("inclusions"),
+  exclusions: text("exclusions"),
+  notes: text("notes"),
+  validUntil: text("valid_until").notNull(),   // YYYY-MM-DD (Saudi date)
+  createdBy: uuid("created_by").references(() => adminUsers.id, { onDelete: "set null" }),
+  sentAt: timestamp("sent_at", { withTimezone: true }),
+  sentTo: text("sent_to"),
+  createdAt: createdAt(),
+  updatedAt: updatedAt(),
+}, (t) => [
+  uniqueIndex("quotations_reference_uq").on(t.reference),
+  index("quotations_inquiry_idx").on(t.inquiryId, t.createdAt),
+  check("quotations_amount_chk", sql`${t.amount} > 0`),
+]).enableRLS();

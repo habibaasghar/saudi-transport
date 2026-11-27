@@ -8,6 +8,7 @@ export type AckEmailData = {
   passengers: number; locale?: string | null;
   /** Heavy transport / satha requests: the load replaces the time and passenger rows. */
   load?: string;
+  vehicle?: string; bags?: string; returnTrip?: string;
 };
 
 type Rendered = { subject: string; html: string; text: string };
@@ -40,7 +41,7 @@ export function inquiryAck(d: AckEmailData): Rendered {
   if (d.locale === "ar") {
     const rows: [string, string | number][] = d.load
       ? [["الرقم المرجعي", d.reference], ["الحمولة", d.load], ["من", d.pickup], ["إلى", d.dropoff], ["التاريخ المطلوب", d.date]]
-      : [["الرقم المرجعي", d.reference], ["من", d.pickup], ["إلى", d.dropoff], ["التاريخ", d.date], ["الوقت", d.time], ["عدد الركاب", d.passengers]];
+      : [["الرقم المرجعي", d.reference], ["من", d.pickup], ["إلى", d.dropoff], ["التاريخ", d.date], ["الوقت", d.time], ...(d.returnTrip ? [["العودة", d.returnTrip] as [string, string]] : []), ["عدد الركاب", d.passengers], ...(d.bags ? [["الحقائب", d.bags] as [string, string]] : []), ["المركبة", d.vehicle || "نقترح لك المركبة المناسبة"]];
     const html = layout({
       rtl: true, title: "استلمنا طلبك",
       bodyHtml: `<h2 style="margin:0 0 12px;font-size:18px">شكرًا ${esc(d.name)}، استلمنا طلبك</h2>
@@ -53,7 +54,7 @@ export function inquiryAck(d: AckEmailData): Rendered {
   }
   const rows: [string, string | number][] = d.load
     ? [["Reference", d.reference], ["Load", d.load], ["From", d.pickup], ["To", d.dropoff], ["Required date", d.date]]
-    : [["Reference", d.reference], ["From", d.pickup], ["To", d.dropoff], ["Date", d.date], ["Time", d.time], ["Passengers", d.passengers]];
+    : [["Reference", d.reference], ["From", d.pickup], ["To", d.dropoff], ["Date", d.date], ["Time", d.time], ...(d.returnTrip ? [["Return", d.returnTrip] as [string, string]] : []), ["Passengers", d.passengers], ...(d.bags ? [["Bags", d.bags] as [string, string]] : []), ["Vehicle", d.vehicle || "We will recommend one"]];
   const html = layout({
     title: "We received your enquiry",
     bodyHtml: `<h2 style="margin:0 0 12px;font-size:18px">Thank you ${esc(d.name)}, we received your enquiry</h2>
@@ -63,4 +64,35 @@ export function inquiryAck(d: AckEmailData): Rendered {
   });
   const text = [`Thank you ${d.name}, we received your enquiry.`, "This is an enquiry, not a confirmed booking. We will send you a quotation and availability before anything is arranged.", "", ...rows.map(([k, v]) => `${k}: ${v}`), "", "Reply to this email to add or change any detail. Please quote your reference."].join("\n");
   return { subject: `We received your enquiry ${d.reference} - RideSaudi`, html, text };
+}
+
+export type QuoteEmailData = {
+  quoteRef: string; inquiryRef: string; name: string; pickup: string; dropoff: string; date: string; time: string;
+  vehicle: string; price: string; validUntil: string; locale?: string | null; whatsapp: string;
+};
+
+/** Quotation email; the PDF is attached. The price is the one staff entered, nothing else is promised. */
+export function quotationEmail(d: QuoteEmailData): Rendered {
+  if (d.locale === "ar") {
+    const rows: [string, string][] = [["رقم العرض", d.quoteRef], ["من", d.pickup], ["إلى", d.dropoff], ["التاريخ", `${d.date} ${d.time}`.trim()], ["المركبة", d.vehicle], ["السعر", d.price], ["صالح حتى", d.validUntil]];
+    const html = layout({
+      rtl: true, title: `عرض السعر ${d.quoteRef}`,
+      bodyHtml: `<h2 style="margin:0 0 12px;font-size:18px">مرحبًا ${esc(d.name)}، هذا عرض السعر لرحلتك</h2>
+<table role="presentation" cellpadding="0" cellspacing="0">${rows.map(([k, v]) => row(k, v)).join("")}</table>
+<p>تجد التفاصيل الكاملة في ملف PDF المرفق (باللغة الإنجليزية). العرض مرهون بتوفر المركبة وقت التأكيد.</p>
+<p>للتأكيد، رد على هذه الرسالة أو راسلنا على واتساب <span dir="ltr">${esc(d.whatsapp)}</span> مع ذكر الرقم ${esc(d.quoteRef)}.</p>`,
+    });
+    const text = [`مرحبًا ${d.name}، هذا عرض السعر لرحلتك.`, "", ...rows.map(([k, v]) => `${k}: ${v}`), "", "التفاصيل في ملف PDF المرفق.", `للتأكيد رد على هذه الرسالة أو واتساب ${d.whatsapp} مع ذكر ${d.quoteRef}.`].join("\n");
+    return { subject: `عرض السعر ${d.quoteRef} - ${d.pickup} إلى ${d.dropoff} - RideSaudi`, html, text };
+  }
+  const rows: [string, string][] = [["Quotation", d.quoteRef], ["From", d.pickup], ["To", d.dropoff], ["Date", `${d.date} ${d.time}`.trim()], ["Vehicle", d.vehicle], ["Price", d.price], ["Valid until", d.validUntil]];
+  const html = layout({
+    title: `Quotation ${d.quoteRef}`,
+    bodyHtml: `<h2 style="margin:0 0 12px;font-size:18px">Hello ${esc(d.name)}, here is your quotation</h2>
+<table role="presentation" cellpadding="0" cellspacing="0">${rows.map(([k, v]) => row(k, v)).join("")}</table>
+<p>The full quotation, with what is included, is in the attached PDF. It is subject to vehicle availability at the time you confirm.</p>
+<p>To confirm, reply to this email or message us on WhatsApp ${esc(d.whatsapp)} and quote <b>${esc(d.quoteRef)}</b>.</p>`,
+  });
+  const text = [`Hello ${d.name}, here is your quotation.`, "", ...rows.map(([k, v]) => `${k}: ${v}`), "", "The full quotation is in the attached PDF.", `To confirm, reply to this email or WhatsApp ${d.whatsapp} quoting ${d.quoteRef}.`].join("\n");
+  return { subject: `Your RideSaudi quotation ${d.quoteRef} – ${d.pickup} to ${d.dropoff}`, html, text };
 }

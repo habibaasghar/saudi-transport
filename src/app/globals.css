@@ -526,3 +526,37 @@ ul.social { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; margin
 .heavy-promise { padding-block: 2rem; }
 .heavy-promise__list { display: grid; gap: .6rem; }
 @media (min-width: 800px) { .heavy-promise__list { grid-template-columns: 1fr 1fr; } }
+
+/* Booking form (2026-11-27): steps, trip toggle, vehicle cards, success panel. No animations beyond colour changes. */
+.form__head { display: grid; gap: .9rem; }
+.steps { list-style: none; margin: 0; padding: 0; display: flex; gap: .5rem; flex-wrap: wrap; font-size: .85rem; font-weight: 600; color: var(--muted); }
+.steps li { display: inline-flex; align-items: center; gap: .45rem; padding: .35rem .8rem .35rem .4rem; border: 1px solid var(--line); border-radius: 999px; background: #fff; }
+.steps li span { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--sand-2); color: var(--night); font-size: .8rem; }
+.steps li.is-on { color: var(--night); border-color: var(--night); }
+.steps li.is-on span, .steps li.is-done span { background: var(--night); color: #fff; }
+.form fieldset[hidden] { display: none; }
+.field__label { font-size: .875rem; font-weight: 600; }
+.grid--3 { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; background: var(--sand-2); padding: .3rem; border-radius: var(--radius); }
+.seg label { position: relative; display: grid; place-items: center; min-height: 44px; padding: .5rem; border-radius: calc(var(--radius) - 4px); font-weight: 600; font-size: .95rem; cursor: pointer; color: var(--muted); }
+.seg label.is-on { background: #fff; color: var(--night); box-shadow: 0 1px 4px rgba(11, 31, 58, .15); }
+.seg input, .vcard input { position: absolute; opacity: 0; width: 1px; height: 1px; min-height: 0; pointer-events: none; }
+.seg label:has(input:focus-visible), .vcard:has(input:focus-visible) { outline: 3px solid var(--dune); outline-offset: 2px; }
+.vcards { display: grid; gap: .5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 720px) { .vcards { gap: .6rem; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); } }
+.vcard { position: relative; display: grid; gap: .2rem; align-content: start; padding: .65rem .7rem; background: #fff; border: 1px solid #c3ccd8; border-radius: var(--radius); cursor: pointer; min-height: 64px; }
+.vcard b { font-size: .95rem; color: var(--night); }
+.vcard small { font-size: .8rem; color: var(--muted); line-height: 1.35; }
+.vcard:hover { border-color: var(--palm); }
+.vcard.is-on { border: 2px solid var(--night); background: var(--sand-2); padding: calc(.65rem - 1px) calc(.7rem - 1px); }
+.recap { display: flex; justify-content: space-between; align-items: center; gap: .75rem; flex-wrap: wrap; background: var(--sand-2); padding: .7rem 1rem; border-radius: var(--radius); font-weight: 600; font-size: .95rem; margin: 0; }
+.linkbtn { background: none; border: 0; padding: .25rem; font: inherit; font-weight: 600; color: var(--palm); text-decoration: underline; cursor: pointer; min-height: 0; width: auto; }
+.form__nav { display: grid; grid-template-columns: auto 1fr; gap: .75rem; }
+.btn--outline { border-color: var(--night); color: var(--night); background: #fff; }
+.btn--outline:hover { background: var(--sand-2); }
+.form--done { text-align: center; }
+.done { display: grid; gap: .75rem; justify-items: center; }
+.done:focus { outline: none; }
+.done__icon { display: grid; place-items: center; width: 3.25rem; height: 3.25rem; border-radius: 50%; background: #dcfce7; color: #166534; font-size: 1.6rem; font-weight: 700; }
+.done__ref { font-size: 1.15rem; font-weight: 700; color: var(--night); background: var(--sand-2); padding: .4rem .9rem; border-radius: 999px; margin: 0; }
+.done__actions { display: flex; gap: .75rem; flex-wrap: wrap; justify-content: center; margin-top: .5rem; }

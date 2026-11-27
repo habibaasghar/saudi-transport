@@ -8,6 +8,8 @@ export type EnquiryInput = {
   time: string;
   passengers: string;
   luggage: string;
+  /** small bags / hand luggage ("" = not given) */
+  smallBags: string;
   /** number of child seats needed ("0" if none) */
   childSeats: string;
   /** "one_way" or "round_trip" */
@@ -58,10 +60,12 @@ export type FieldErrors = Partial<Record<keyof EnquiryInput, FieldErrorCode>>;
 
 const MAX = { short: 160, notes: 1500 };
 const PHONE_RE = /^\+?[0-9\s\-()]{7,20}$/;
+/** A real number has 8-15 digits (E.164 max 15), however it is spaced. "+966 5..." and a local "05..." both pass. */
+export const validPhone = (p: string) => PHONE_RE.test(p.trim()) && (() => { const n = p.replace(/\D/g, "").length; return n >= 8 && n <= 15; })();
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export const emptyEnquiry = (): EnquiryInput => ({
-  service: "", pickup: "", dropoff: "", date: "", time: "", passengers: "", luggage: "", childSeats: "0", tripType: "one_way", returnDate: "", returnTime: "",
+  service: "", pickup: "", dropoff: "", date: "", time: "", passengers: "", luggage: "", smallBags: "", childSeats: "0", tripType: "one_way", returnDate: "", returnTime: "",
   vehicle: "", flight: "", name: "", phone: "", email: "", notes: "", consent: false,
   locale: "en", source: "", hours: "", company: "", vehicles: "", attribution: {}, website: "", startedAt: 0,
 });
@@ -74,8 +78,11 @@ export function validateEnquiry(d: EnquiryInput, today = new Date()): FieldError
   if (!d.dropoff.trim()) e.dropoff = "required";
   if (!d.name.trim()) e.name = "required";
   if (!d.phone.trim()) e.phone = "required";
-  else if (!PHONE_RE.test(d.phone.trim())) e.phone = "phone";
-  if (d.email.trim() && !EMAIL_RE.test(d.email.trim())) e.email = "email";
+  else if (!validPhone(d.phone)) e.phone = "phone";
+  // Email is required on the full booking form: the quotation PDF is emailed to it. The three-field quick form
+  // (src/lib/quick-quote.ts) stays WhatsApp-only and is validated on its own.
+  if (!d.email.trim()) e.email = "required";
+  else if (!EMAIL_RE.test(d.email.trim())) e.email = "email";
   if (!d.date) e.date = "required";
   else {
     const picked = new Date(`${d.date}T00:00:00`);
@@ -93,6 +100,8 @@ export function validateEnquiry(d: EnquiryInput, today = new Date()): FieldError
   // Luggage may be left blank ("not sure yet"); it is then asked for on WhatsApp.
   const l = Number(d.luggage || "0");
   if (!Number.isInteger(l) || l < 0 || l > 100) e.luggage = "number";
+  const sb = Number(d.smallBags || "0");
+  if (!Number.isInteger(sb) || sb < 0 || sb > 100) e.smallBags = "number";
   const cs = Number(d.childSeats || "0");
   if (!Number.isInteger(cs) || cs < 0 || cs > 10) e.childSeats = "number";
   if (d.service === "hourly" && !d.hours) e.hours = "required";
@@ -112,8 +121,8 @@ export function sanitizeEnquiry(raw: unknown): EnquiryInput | null {
   const service = s("service");
   return {
     service, pickup: s("pickup"), dropoff: s("dropoff"), date: s("date", 10), time: s("time", 5),
-    passengers: s("passengers", 3), luggage: s("luggage", 3), childSeats: s("childSeats", 2) || "0",
-    tripType: s("tripType", 10) === "round_trip" ? "round_trip" : "one_way", returnDate: s("returnDate", 10), returnTime: s("returnTime", 5), vehicle: s("vehicle"), flight: s("flight", 12),
+    passengers: s("passengers", 3), luggage: s("luggage", 3), smallBags: s("smallBags", 3), childSeats: s("childSeats", 2) || "0",
+    tripType: s("tripType", 10) === "round_trip" ? "round_trip" : "one_way", returnDate: s("returnDate", 10), returnTime: s("returnTime", 5), vehicle: s("vehicle"), flight: s("flight", 12).toUpperCase(),
     name: s("name"), phone: s("phone", 20), email: s("email"), notes: s("notes", MAX.notes),
     consent: r.consent === true, locale: s("locale", 2), source: s("source", 200),
     // Extra fields only survive for the services that show them, so stale values never reach the CRM.

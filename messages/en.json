@@ -251,8 +251,8 @@
       "date": "Date",
       "time": "Time",
       "passengers": "Passengers",
-      "luggage": "Pieces of luggage",
-      "vehicle": "Vehicle",
+      "luggage": "Large bags (suitcases)",
+      "vehicle": "Preferred vehicle",
       "vehicleAny": "Not sure, recommend one",
       "vehicleSedan": "Sedan",
       "vehicleGmc": "GMC Yukon (SUV)",
@@ -271,8 +271,8 @@
       "name": "Full name",
       "phone": "WhatsApp or phone number",
       "phoneHint": "Include the country code, for example +966.",
-      "email": "Email (optional)",
-      "notes": "Special requirements (optional)",
+      "email": "Email",
+      "notes": "Special requirements or notes (optional)",
       "consent": "I agree that RideSaudi may use these details to respond to my enquiry, as described in the <privacy>Privacy Policy</privacy>.",
       "tripType": "Trip type",
       "oneWay": "One way",
@@ -292,9 +292,14 @@
       "guests": "Number of guests",
       "vehicles": "Vehicles needed (optional)",
       "vehiclesHint": "Leave empty if you would like us to suggest how many.",
-      "notesItinerary": "Itinerary, stops or special requirements (optional)"
+      "notesItinerary": "Itinerary, stops or special requirements (optional)",
+      "smallBags": "Small bags / hand luggage",
+      "emailHint": "Your quotation is emailed here.",
+      "vehicleAnySub": "We suggest the right car for your group and bags",
+      "vehicleOtherSub": "Bigger groups or more than one vehicle",
+      "vehicleCapacity": "Up to {n} passengers"
     },
-    "submit": "Send enquiry",
+    "submit": "Get My Quote",
     "sending": "Sending…",
     "errors": {
       "required": "This field is required.",
@@ -329,7 +334,21 @@
     "whatsappFollowUp": "Hello RideSaudi, I just sent an enquiry (ref {ref}) for {service}: {pickup} to {dropoff} on {date} at {time}, {pax} passenger(s). Please confirm availability and a quotation.",
     "sendOnWhatsApp": "Send this enquiry on WhatsApp",
     "whatsappFallback": "Hello RideSaudi, I would like a quotation for {service}: {pickup} to {dropoff} on {date} at {time}, {pax} passenger(s), {bags} bag(s). Name: {name}.",
-    "legal": "An enquiry is not a confirmed reservation. See the <terms>Terms and Conditions</terms>."
+    "legal": "An enquiry is not a confirmed reservation. See the <terms>Terms and Conditions</terms>.",
+    "continue": "Continue",
+    "back": "Back",
+    "stepOf": "Step {n} of 2",
+    "steps": {
+      "journey": "Journey & vehicle",
+      "details": "Your details"
+    },
+    "summaryLine": "{pickup} → {dropoff} · {date} {time}",
+    "success": {
+      "title": "Request received",
+      "text": "Thank you. We are checking availability and will send your quotation by WhatsApp and email. This is not yet a confirmed booking.",
+      "next": "Replies on WhatsApp usually within 15 minutes, 8am to midnight (KSA).",
+      "again": "Send another request"
+    }
   },
   "footer": {
     "tagline": "Pre-booked private chauffeur transportation in Saudi Arabia.",
