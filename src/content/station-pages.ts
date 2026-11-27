@@ -50,6 +50,7 @@ export const stationPages: ServicePage[] = [
           rows: [
             ["Station location", "Al-Rusaifa district, west of the central area", "Saudipedia"],
             ["Station to the Masjid al-Haram by road", "About 7.4 km, around 17 minutes in usual traffic", "Google Maps, 27 Nov 2026"],
+            ["Station to the Clock Tower (Abraj Al Bait) hotels by road", "About 11.3 km, around 20 minutes in usual traffic", "Google Maps, 28 Nov 2026"],
             ["Train from Madinah", "About 2 hours 45 minutes", "Saudipedia"],
             ["Other stations on the line", "Jeddah (Sulaymaniyah and the airport), King Abdullah Economic City, Madinah", "Saudipedia"],
             ["Vehicles you can request", "Sedan, GMC Yukon, Hyundai Staria (7 passengers)", "RideSaudi"],
@@ -65,7 +66,7 @@ export const stationPages: ServicePage[] = [
           {
             h: "From the station to your hotel",
             p: [
-              "Send us your train's scheduled arrival time, the number of passengers, the number of large bags and the name of your hotel. The driver meets you at the point agreed in the quotation and drives you to the hotel. Vehicle access close to the Haram is controlled and changes with the season and the time of day, so the drop-off is made at the nearest point the traffic arrangements allow on the day.",
+              "Send us your train's scheduled arrival time, the number of passengers, the number of large bags and the name of your hotel. The driver meets you at the point agreed in the quotation and drives you to the hotel. Vehicle access close to the Haram is controlled and changes with the season and the time of day, so the drop-off is made at the nearest point the traffic arrangements allow on the day. Hotels around the Clock Tower (Abraj Al Bait) are further by road than the Haram's nearest edge: about 11.3 km and 20 minutes from the station, so allow for that when you plan the evening.",
               "If your train is running late, message us on WhatsApp with the new time. We reply within 15 minutes between 8am and midnight, Saudi time.",
             ],
           },
@@ -101,6 +102,7 @@ export const stationPages: ServicePage[] = [
         },
         faqs: [
           { q: "How far is the Makkah Haramain station from the Masjid al-Haram?", a: "About 7.4 km by road, around 17 minutes in usual traffic, according to Google Maps (November 2026). The station is in al-Rusaifa, so you need transport from the station to a hotel near the Haram." },
+          { q: "How far is Makkah station from the Clock Tower hotels?", a: "About 11.3 km by road, around 20 minutes in usual traffic (Google Maps, November 2026), because the route to Abraj Al Bait goes round by the First Ring Road. Give your hotel name and the drive is planned to its entrance or the nearest point a car may reach." },
           { q: "Can I book a private car from Makkah train station to my hotel?", a: "Yes. Send the train arrival time, your hotel, the number of passengers and bags, and RideSaudi quotes a private car with a driver for your party only." },
           { q: "Can the car take me from my Makkah hotel to the train station?", a: "Yes. Give us the departure time on your ticket and your hotel, and the pickup is planned with a margin for check-out and traffic around the Haram." },
           { q: "What happens if my train arrives late in Makkah?", a: "Message us on WhatsApp with the new arrival time. We reply within 15 minutes between 8am and midnight, Saudi time, and adjust the pickup where availability allows." },
@@ -123,6 +125,7 @@ export const stationPages: ServicePage[] = [
           rows: [
             ["موقع المحطة", "حي الرصيفة، غرب المنطقة المركزية", "سعوديبيديا"],
             ["من المحطة إلى المسجد الحرام بالطريق", "نحو 7.4 كم، قرابة 17 دقيقة في حركة السير المعتادة", "خرائط جوجل، 27 نوفمبر 2026"],
+            ["من المحطة إلى فنادق أبراج البيت (برج الساعة) بالطريق", "نحو 11.3 كم، قرابة 20 دقيقة في حركة السير المعتادة", "خرائط جوجل، 28 نوفمبر 2026"],
             ["القطار من المدينة المنورة", "نحو ساعتين و45 دقيقة", "سعوديبيديا"],
             ["محطات الخط الأخرى", "جدة (السليمانية والمطار)، مدينة الملك عبدالله الاقتصادية، المدينة المنورة", "سعوديبيديا"],
             ["السيارات المتاحة للطلب", "سيدان، جمس يوكن، هيونداي ستاريا (7 ركاب)", "RideSaudi"],
@@ -138,7 +141,7 @@ export const stationPages: ServicePage[] = [
           {
             h: "من المحطة إلى فندقك",
             p: [
-              "أرسل لنا موعد وصول قطارك المجدول وعدد الركاب وعدد الحقائب الكبيرة واسم فندقك. يلتقيك السائق في النقطة المتفق عليها في عرض السعر ويوصلك إلى الفندق. الدخول بالسيارات قرب الحرم منظم ويتغير بحسب الموسم والوقت، لذلك يكون النزول في أقرب نقطة تسمح بها ترتيبات المرور في ذلك اليوم.",
+              "أرسل لنا موعد وصول قطارك المجدول وعدد الركاب وعدد الحقائب الكبيرة واسم فندقك. يلتقيك السائق في النقطة المتفق عليها في عرض السعر ويوصلك إلى الفندق. الدخول بالسيارات قرب الحرم منظم ويتغير بحسب الموسم والوقت، لذلك يكون النزول في أقرب نقطة تسمح بها ترتيبات المرور في ذلك اليوم. وفنادق أبراج البيت (برج الساعة) أبعد بالطريق من أقرب طرف للحرم: نحو 11.3 كم و20 دقيقة من المحطة، فاحسب ذلك عند تخطيط المساء.",
               "إذا تأخر قطارك فأرسل لنا الموعد الجديد على واتساب، ونرد خلال 15 دقيقة من الثامنة صباحًا حتى منتصف الليل بتوقيت السعودية.",
             ],
           },
@@ -174,6 +177,7 @@ export const stationPages: ServicePage[] = [
         },
         faqs: [
           { q: "كم تبعد محطة قطار الحرمين في مكة عن المسجد الحرام؟", a: "نحو 7.4 كم بالطريق، أي قرابة 17 دقيقة في حركة السير المعتادة بحسب خرائط جوجل (نوفمبر 2026). المحطة في حي الرصيفة، فتحتاج وسيلة نقل منها إلى فندقك قرب الحرم." },
+          { q: "كم تبعد محطة مكة عن فنادق برج الساعة؟", a: "نحو 11.3 كم بالطريق، قرابة 20 دقيقة في حركة السير المعتادة (خرائط جوجل، نوفمبر 2026)، لأن الطريق إلى أبراج البيت يلتف عبر الطريق الدائري الأول. أرسل اسم فندقك ويُخطَّط المشوار إلى مدخله أو أقرب نقطة تصلها السيارة." },
           { q: "هل أحجز سيارة خاصة من محطة قطار مكة إلى فندقي؟", a: "نعم. أرسل موعد وصول القطار واسم فندقك وعدد الركاب والحقائب، وتقدم لك RideSaudi عرض سعر لسيارة خاصة مع سائق لمجموعتك وحدها." },
           { q: "هل توصلني السيارة من فندقي في مكة إلى محطة القطار؟", a: "نعم. أعطنا موعد المغادرة على تذكرتك واسم فندقك، ونحدد وقت الاستلام بهامش يكفي لتسجيل الخروج وزحام محيط الحرم." },
           { q: "ماذا لو تأخر وصول قطاري إلى مكة؟", a: "أرسل لنا موعد الوصول الجديد على واتساب، ونرد خلال 15 دقيقة من الثامنة صباحًا حتى منتصف الليل بتوقيت السعودية، ونعدل وقت الاستلام بحسب التوفر." },
