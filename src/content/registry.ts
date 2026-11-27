@@ -42,6 +42,7 @@ import { applyHeavyCityDistances } from "./heavy/city-distances";
 import { consolidated, consolidationLinks, mergedSections } from "./consolidated";
 import { linkTargets } from "./inline-links";
 import { applyGscGrowth } from "./gsc-growth";
+import { applyCompetitorGapFaqs } from "./competitor-gap";
 import { linkSections } from "./auto-links";
 import { madinahToRiyadh, applyMakkahMadinahGrowth } from "./makkah-madinah";
 import { jeddahToAlBaha, alBahaToJeddah, applyJeddahCluster } from "./jeddah-cluster";
@@ -77,6 +78,9 @@ for (const p of pages) if (mergedSections[p.path]) for (const l of ["en", "ar"] 
 
 // Search Console growth pass: runs after every other content patch, so it edits the final copy.
 applyGscGrowth(pages);
+
+// Competitor query-gap pass (./competitor-gap.ts): buyer questions rival route pages answer and ours did not.
+applyCompetitorGapFaqs(pages);
 
 // Vehicle pages (./vehicle-pages.ts): each route in a vehicle's table links back to that vehicle page.
 pages.push(...vehiclePages, ...northWestAirportPages);
