@@ -100,6 +100,8 @@ export const locationPrefill: Record<string, { pickup: L; dropoff: L }> = {
   [`${S}/cross-border-transfers/kuwait`]: to(l("Kuwait City, Kuwait", "مدينة الكويت، الكويت")),
   // Umrah Ziyarat, event and tourism pages tied to one city.
   [`${S}/umrah-transport/makkah-ziyarat`]: both(city.makkah, city.makkah),
+  [`${S}/umrah-transport/makkah-train-station-transfer`]: both(l("Haramain train station, Makkah", "محطة قطار الحرمين، مكة المكرمة"), city.makkah),
+  [`${S}/umrah-transport/madinah-train-station-transfer`]: both(l("Haramain train station, Madinah", "محطة قطار الحرمين، المدينة المنورة"), city.madinah),
   [`${S}/umrah-transport/madinah-ziyarat`]: both(city.madinah, city.madinah),
   [`${S}/event-transportation/riyadh`]: from(city.riyadh),
   [`${S}/event-transportation/jeddah`]: from(city.jeddah),

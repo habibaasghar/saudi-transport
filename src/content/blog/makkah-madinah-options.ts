@@ -8,8 +8,9 @@ const D = "2026-11-18";
  * Guide C2: Makkah to Madinah options (informational; booking intent stays on the two route pages).
  * Sources checked 2026-11-18:
  * - Saudipedia, "Haramain High Speed Railway": five stations, none at a miqat; Makkah station in al-Rusaifa,
- *   about 3 km from the Grand Mosque; Madinah station in Knowledge Economic City, about 7 km from the
- *   Prophet's Mosque; Makkah to Madinah about 2 h 45 min.
+ *   the Grand Mosque; Madinah station in Knowledge Economic City.
+ *   Road distances (Google Maps, 2026-11-27): Makkah station to the Masjid al-Haram about 7.4 km / 17 min;
+ *   Madinah station to the Prophet's Mosque about 12.3 km / 20 min; Makkah to Madinah about 2 h 45 min.
  * - Road: about 436 km on Route 15, about 4 h 20 min without stops (Google Maps, November 2026; see the
  *   makkah-to-madinah route page).
  * Not stated (not verified): timetables, fares, luggage or Zamzam rules on the train, bus operators or fares.
@@ -35,7 +36,7 @@ export const makkahMadinahPost: BlogPost = {
       description: "Compare the Haramain train, the bus and a private car between Makkah and Madinah: real door-to-door time, luggage, the Miqat and who each option suits.",
       h1: "Makkah to Madinah: train, bus or private car?",
       answer:
-        "Between Makkah and Madinah you can take the Haramain train, an intercity bus or a private car. The train is quicker on board, about 2 hours 45 minutes, but its stations are about 3 km from the Haram and about 7 km from the Prophet's Mosque. A private car drives about 436 km hotel to hotel, around 4 hours 20 minutes before stops.",
+        "Between Makkah and Madinah you can take the Haramain train, an intercity bus or a private car. The train is quicker on board, about 2 hours 45 minutes, but its stations are about 7 km by road from the Haram and about 12 km by road from the Prophet's Mosque. A private car drives about 436 km hotel to hotel, around 4 hours 20 minutes before stops.",
       summary: "The honest comparison: time on board against door-to-door time, luggage, group size and the Miqat.",
       sections: [
         {
@@ -47,7 +48,7 @@ export const makkahMadinahPost: BlogPost = {
         {
           h: "The train: quick on board, with a transfer at each end",
           p: [
-            "The Haramain High Speed Railway runs between the two cities in about 2 hours 45 minutes, according to Saudipedia; some services may differ, so check the timetable for your date. The Makkah station is in al-Rusaifa, about 3 km from the Masjid al-Haram, and the Madinah station is in Knowledge Economic City, about 7 km from the Prophet's Mosque.",
+            "The Haramain High Speed Railway runs between the two cities in about 2 hours 45 minutes, according to Saudipedia; some services may differ, so check the timetable for your date. The Makkah station is in al-Rusaifa, about 7 km by road from the Masjid al-Haram, and the Madinah station is in Knowledge Economic City, about 12 km by road from the Prophet's Mosque.",
             "That means three legs, not one: hotel to the Makkah station, the train, then the Madinah station to your hotel. Add time to reach the station through traffic near the Haram, to arrive before departure and to find a car at the other end. For one or two people with light bags this is easy. For a family with suitcases and Zamzam water, each change of vehicle means lifting everything again.",
           ],
           list: [
@@ -89,14 +90,14 @@ export const makkahMadinahPost: BlogPost = {
         h: "Train, bus and car compared",
         head: ["Option", "Time on the move", "Hotel to hotel?", "Best for"],
         rows: [
-          ["Haramain train", "About 2 h 45 min on board, plus transfers at both ends", "No: stations are about 3 km and 7 km from the two mosques", "Light travellers comfortable with transfers"],
+          ["Haramain train", "About 2 h 45 min on board, plus transfers at both ends", "No: stations are about 7 km and 12 km by road from the two mosques", "Light travellers comfortable with transfers"],
           ["Intercity bus", "Longer; depends on the service", "No: depends on the stops", "Lowest cost, flexible time"],
           ["Private car", "About 4 h 20 min before stops", "Yes, to the nearest point access allows", "Families, older pilgrims, lots of luggage, Miqat stop"],
         ],
       },
       faqs: [
         { q: "Is the train faster than a car from Makkah to Madinah?", a: "On board, yes: about 2 hours 45 minutes against about 4 hours 20 minutes of driving. Door to door the gap is smaller, because the train needs a transfer at each end." },
-        { q: "How far are the train stations from the two mosques?", a: "The Makkah station is about 3 km from the Masjid al-Haram and the Madinah station about 7 km from the Prophet's Mosque (Saudipedia)." },
+        { q: "How far are the train stations from the two mosques?", a: "The Makkah station is about 7 km by road from the Masjid al-Haram and the Madinah station about 12 km by road from the Prophet's Mosque (Google Maps road distances, November 2026)." },
         { q: "Does the train stop at the Miqat on the way from Madinah to Makkah?", a: "No. The railway has no station at a miqat, so ask a scholar where to enter Ihram if you travel by train. A private car can stop at Abyar Ali." },
         { q: "Can I take Zamzam water on the train?", a: "Check the current luggage rules with Saudi Arabian Railways before you travel. In a private car the only limit is the space in the vehicle." },
         { q: "Can I book a private car for the whole Makkah to Madinah trip?", a: "Yes. Send your hotels, date, passengers and bags on the Makkah to Madinah page for a quotation." },
@@ -108,7 +109,7 @@ export const makkahMadinahPost: BlogPost = {
       description: "قارن بين قطار الحرمين والحافلة والسيارة الخاصة بين مكة والمدينة: الزمن الفعلي من الباب إلى الباب، والحقائب، والميقات، ولمن يناسب كل خيار.",
       h1: "من مكة إلى المدينة: القطار أم الحافلة أم السيارة الخاصة؟",
       answer:
-        "بين مكة المكرمة والمدينة المنورة يمكنك ركوب قطار الحرمين أو الحافلة أو سيارة خاصة. القطار أسرع في زمن الرحلة نفسها، نحو ساعتين و45 دقيقة، لكن محطتيه على بعد نحو 3 كم من الحرم ونحو 7 كم من المسجد النبوي. أما السيارة الخاصة فتقطع نحو 436 كم من فندق إلى فندق في قرابة 4 ساعات و20 دقيقة قبل التوقفات.",
+        "بين مكة المكرمة والمدينة المنورة يمكنك ركوب قطار الحرمين أو الحافلة أو سيارة خاصة. القطار أسرع في زمن الرحلة نفسها، نحو ساعتين و45 دقيقة، لكن محطتيه على بعد نحو 7 كم بالطريق من الحرم ونحو 12 كم بالطريق من المسجد النبوي. أما السيارة الخاصة فتقطع نحو 436 كم من فندق إلى فندق في قرابة 4 ساعات و20 دقيقة قبل التوقفات.",
       summary: "مقارنة صادقة: زمن الرحلة على متن القطار مقابل الزمن من الباب إلى الباب، والحقائب، وحجم المجموعة، والميقات.",
       sections: [
         {
@@ -120,7 +121,7 @@ export const makkahMadinahPost: BlogPost = {
         {
           h: "القطار: سريع على متنه، مع تنقل عند كل طرف",
           p: [
-            "يقطع قطار الحرمين السريع المسافة بين المدينتين في نحو ساعتين و45 دقيقة بحسب الموسوعة السعودية (سعوديبيديا)، وقد تختلف بعض الرحلات، فتحقق من الجدول لتاريخك. تقع محطة مكة في حي الرصيفة على بعد نحو 3 كم من المسجد الحرام، وتقع محطة المدينة في مدينة المعرفة الاقتصادية على بعد نحو 7 كم من المسجد النبوي.",
+            "يقطع قطار الحرمين السريع المسافة بين المدينتين في نحو ساعتين و45 دقيقة بحسب الموسوعة السعودية (سعوديبيديا)، وقد تختلف بعض الرحلات، فتحقق من الجدول لتاريخك. تقع محطة مكة في حي الرصيفة على بعد نحو 7 كم بالطريق من المسجد الحرام، وتقع محطة المدينة في مدينة المعرفة الاقتصادية على بعد نحو 12 كم بالطريق من المسجد النبوي.",
             "وهذا يعني ثلاث مراحل لا مرحلة واحدة: من الفندق إلى محطة مكة، ثم القطار، ثم من محطة المدينة إلى فندقك. أضف وقتًا للوصول إلى المحطة عبر الزحام قرب الحرم، وللحضور قبل موعد الانطلاق، ولإيجاد سيارة في الطرف الآخر. وهذا سهل لشخص أو شخصين بحقائب خفيفة، أما العائلة التي معها حقائب وماء زمزم فكل تبديل للوسيلة يعني حمل كل شيء من جديد.",
           ],
           list: [
@@ -162,14 +163,14 @@ export const makkahMadinahPost: BlogPost = {
         h: "مقارنة القطار والحافلة والسيارة",
         head: ["الخيار", "زمن التنقل", "من فندق إلى فندق؟", "الأنسب لـ"],
         rows: [
-          ["قطار الحرمين", "نحو ساعتين و45 دقيقة على متنه، مع التنقل في الطرفين", "لا: المحطتان على بعد نحو 3 كم و7 كم من المسجدين", "المسافر الخفيف الذي لا يمانع التنقل"],
+          ["قطار الحرمين", "نحو ساعتين و45 دقيقة على متنه، مع التنقل في الطرفين", "لا: المحطتان على بعد نحو 7 كم و12 كم بالطريق من المسجدين", "المسافر الخفيف الذي لا يمانع التنقل"],
           ["الحافلة بين المدن", "أطول، وبحسب الخدمة", "لا: بحسب أماكن التوقف", "أقل تكلفة ووقت مرن"],
           ["السيارة الخاصة", "نحو 4 ساعات و20 دقيقة قبل التوقفات", "نعم، حتى أقرب نقطة يسمح بها الدخول", "العائلات وكبار السن والحقائب الكثيرة والتوقف عند الميقات"],
         ],
       },
       faqs: [
         { q: "هل القطار أسرع من السيارة من مكة إلى المدينة؟", a: "على متنه نعم: نحو ساعتين و45 دقيقة مقابل نحو 4 ساعات و20 دقيقة قيادة. لكن الفارق من الباب إلى الباب أقل، لأن القطار يحتاج إلى تنقل في كل طرف." },
-        { q: "كم تبعد محطتا القطار عن المسجدين؟", a: "تبعد محطة مكة نحو 3 كم عن المسجد الحرام، ومحطة المدينة نحو 7 كم عن المسجد النبوي (سعوديبيديا)." },
+        { q: "كم تبعد محطتا القطار عن المسجدين؟", a: "تبعد محطة مكة نحو 7 كم بالطريق عن المسجد الحرام، ومحطة المدينة نحو 12 كم بالطريق عن المسجد النبوي (المسافة بالطريق على خرائط Google، نوفمبر 2026)." },
         { q: "هل يتوقف القطار عند الميقات في الطريق من المدينة إلى مكة؟", a: "لا. ليست للقطار محطة عند أي ميقات، فاسأل أهل العلم عن موضع الإحرام إن سافرت بالقطار. أما السيارة الخاصة فيمكنها التوقف عند أبيار علي." },
         { q: "هل يمكنني حمل ماء زمزم في القطار؟", a: "تحقق من قواعد الأمتعة الحالية لدى الخطوط الحديدية السعودية قبل السفر. وفي السيارة الخاصة لا حد سوى مساحة السيارة." },
         { q: "هل يمكنني حجز سيارة خاصة للرحلة كاملة من مكة إلى المدينة؟", a: "نعم. أرسل اسمي الفندقين والتاريخ وعدد الركاب والحقائب من صفحة التوصيل من مكة إلى المدينة لتحصل على عرض سعر." },

@@ -10,7 +10,7 @@ const D = "2026-11-18";
  * Sources checked 2026-11-18:
  * - Saudipedia, "Haramain High Speed Railway": Jeddah stations in Sulaymaniyah and at King Abdulaziz
  *   International Airport; airport to Madinah about two hours; Madinah station in Knowledge Economic City,
- *   about 7 km from the Prophet's Mosque.
+ *   about 12.3 km / 20 min by road to the Prophet's Mosque (Google Maps, 2026-11-27).
  * - Road: about 404 km and 4 h 07 min from central Jeddah; about 400 km and about 4 h between the airport and
  *   Madinah (Google Maps, November 2026, measured Madinah to the airport: 3 h 56 min). See the route pages.
  * Not stated: timetables, fares, luggage rules, flight schedules, bus operators.
@@ -35,7 +35,7 @@ export const jeddahMadinahPost: BlogPost = {
       description: "Jeddah to Madinah compared by where you start, the airport on arrival or a Jeddah address: Haramain train, flight, bus or a private car, honestly weighed.",
       h1: "Jeddah to Madinah: train, flight, bus or private car?",
       answer:
-        "From Jeddah to Madinah you can take the Haramain train, a domestic flight, a bus or a private car. Straight from King Abdulaziz International Airport, the train takes about two hours to Madinah, whose station is about 7 km from the Prophet's Mosque. A private car covers about 400 km in roughly four hours, from the arrivals hall or your Jeddah address to your hotel.",
+        "From Jeddah to Madinah you can take the Haramain train, a domestic flight, a bus or a private car. Straight from King Abdulaziz International Airport, the train takes about two hours to Madinah, whose station is about 12 km by road from the Prophet's Mosque. A private car covers about 400 km in roughly four hours, from the arrivals hall or your Jeddah address to your hotel.",
       summary: "The best option depends on where you start: the airport straight after landing, or an address in Jeddah.",
       sections: [
         {
@@ -47,7 +47,7 @@ export const jeddahMadinahPost: BlogPost = {
         {
           h: "Starting at Jeddah airport, straight after landing",
           p: [
-            "The Haramain railway has a station at King Abdulaziz International Airport, and Saudipedia gives the airport to Madinah journey as about two hours. For a traveller with light bags who lands at a time when trains are running, that is hard to beat. It still means walking to the station with your luggage, waiting for the departure and finding a car at Madinah station, which is in Knowledge Economic City, about 7 km from the Prophet's Mosque.",
+            "The Haramain railway has a station at King Abdulaziz International Airport, and Saudipedia gives the airport to Madinah journey as about two hours. For a traveller with light bags who lands at a time when trains are running, that is hard to beat. It still means walking to the station with your luggage, waiting for the departure and finding a car at Madinah station, which is in Knowledge Economic City, about 12 km by road from the Prophet's Mosque.",
             "A private car meets you at arrivals and drives about 400 km, around four hours, straight to your hotel. It is slower than the train, but after an overnight flight many families prefer one vehicle and the chance to sleep, rather than two more changes with suitcases and tired children. Give the flight number so the pickup follows your actual arrival, and allow for immigration and baggage reclaim.",
           ],
         },
@@ -81,7 +81,7 @@ export const jeddahMadinahPost: BlogPost = {
         h: "Jeddah to Madinah by starting point",
         head: ["Option", "From Jeddah airport", "From an address in Jeddah", "Arriving in Madinah"],
         rows: [
-          ["Haramain train", "Station at the airport; about 2 h to Madinah", "Drive to Sulaymaniyah station first", "Station about 7 km from the Prophet's Mosque"],
+          ["Haramain train", "Station at the airport; about 2 h to Madinah", "Drive to Sulaymaniyah station first", "Station about 12 km by road from the Prophet's Mosque"],
           ["Private car", "From arrivals; about 400 km, around 4 h", "From your door; about 404 km, around 4 h 07 min", "To your hotel, as close as access allows"],
           ["Domestic flight", "Another check-in after landing", "Drive to the airport first", "Madinah airport, then a drive to the city"],
           ["Intercity bus", "Check the departure point", "Check the departure point", "Depends on the stop"],
@@ -101,7 +101,7 @@ export const jeddahMadinahPost: BlogPost = {
       description: "مقارنة الطريق من جدة إلى المدينة بحسب نقطة انطلاقك، المطار عند الوصول أو عنوان في جدة: قطار الحرمين أو الطيران أو الحافلة أو السيارة الخاصة.",
       h1: "من جدة إلى المدينة: القطار أم الطيران أم الحافلة أم السيارة الخاصة؟",
       answer:
-        "من جدة إلى المدينة المنورة يمكنك ركوب قطار الحرمين أو رحلة طيران داخلية أو الحافلة أو سيارة خاصة. ومن مطار الملك عبدالعزيز الدولي مباشرة يستغرق القطار نحو ساعتين إلى المدينة، ومحطتها على بعد نحو 7 كم من المسجد النبوي. أما السيارة الخاصة فتقطع نحو 400 كم في قرابة أربع ساعات، من صالة الوصول أو عنوانك في جدة حتى فندقك.",
+        "من جدة إلى المدينة المنورة يمكنك ركوب قطار الحرمين أو رحلة طيران داخلية أو الحافلة أو سيارة خاصة. ومن مطار الملك عبدالعزيز الدولي مباشرة يستغرق القطار نحو ساعتين إلى المدينة، ومحطتها على بعد نحو 12 كم بالطريق من المسجد النبوي. أما السيارة الخاصة فتقطع نحو 400 كم في قرابة أربع ساعات، من صالة الوصول أو عنوانك في جدة حتى فندقك.",
       summary: "الخيار الأنسب يعتمد على نقطة انطلاقك: المطار بعد الهبوط مباشرة، أو عنوان في جدة.",
       sections: [
         {
@@ -113,7 +113,7 @@ export const jeddahMadinahPost: BlogPost = {
         {
           h: "الانطلاق من مطار جدة بعد الهبوط مباشرة",
           p: [
-            "لقطار الحرمين محطة في مطار الملك عبدالعزيز الدولي، وتذكر سعوديبيديا أن الرحلة من المطار إلى المدينة نحو ساعتين. ولمسافر بحقائب خفيفة يهبط في وقت تعمل فيه القطارات يصعب أن تجد أفضل من ذلك. لكنه يعني المشي إلى المحطة بحقائبك، وانتظار موعد الانطلاق، ثم إيجاد سيارة في محطة المدينة الواقعة في مدينة المعرفة الاقتصادية على بعد نحو 7 كم من المسجد النبوي.",
+            "لقطار الحرمين محطة في مطار الملك عبدالعزيز الدولي، وتذكر سعوديبيديا أن الرحلة من المطار إلى المدينة نحو ساعتين. ولمسافر بحقائب خفيفة يهبط في وقت تعمل فيه القطارات يصعب أن تجد أفضل من ذلك. لكنه يعني المشي إلى المحطة بحقائبك، وانتظار موعد الانطلاق، ثم إيجاد سيارة في محطة المدينة الواقعة في مدينة المعرفة الاقتصادية على بعد نحو 12 كم بالطريق من المسجد النبوي.",
             "أما السيارة الخاصة فتستقبلك عند صالة الوصول وتقطع نحو 400 كم في قرابة أربع ساعات حتى فندقك مباشرة. وهي أبطأ من القطار، لكن بعد رحلة ليلية تفضّل عائلات كثيرة سيارة واحدة وفرصة للنوم بدل تبديلين إضافيين مع الحقائب والأطفال المتعبين. أعطِ رقم رحلتك ليُخطَّط الاستقبال على وقت وصولك الفعلي، واحسب وقت الجوازات واستلام الحقائب.",
           ],
         },
@@ -147,7 +147,7 @@ export const jeddahMadinahPost: BlogPost = {
         h: "من جدة إلى المدينة بحسب نقطة الانطلاق",
         head: ["الخيار", "من مطار جدة", "من عنوان في جدة", "الوصول إلى المدينة"],
         rows: [
-          ["قطار الحرمين", "محطة في المطار؛ نحو ساعتين إلى المدينة", "مشوار إلى محطة السليمانية أولًا", "المحطة على بعد نحو 7 كم من المسجد النبوي"],
+          ["قطار الحرمين", "محطة في المطار؛ نحو ساعتين إلى المدينة", "مشوار إلى محطة السليمانية أولًا", "المحطة على بعد نحو 12 كم بالطريق من المسجد النبوي"],
           ["السيارة الخاصة", "من صالة الوصول؛ نحو 400 كم في قرابة 4 ساعات", "من بابك؛ نحو 404 كم في قرابة 4 ساعات و7 دقائق", "حتى فندقك، أقرب ما يسمح به الدخول"],
           ["الطيران الداخلي", "إجراءات سفر أخرى بعد الهبوط", "مشوار إلى المطار أولًا", "مطار المدينة ثم مشوار إلى المدينة"],
           ["الحافلة بين المدن", "تحقق من نقطة الانطلاق", "تحقق من نقطة الانطلاق", "بحسب مكان التوقف"],

@@ -242,6 +242,8 @@ export const pageImages: Record<string, PageImage> = {
   "services/airport-transfers/qassim-airport": images.buraydah,
   "services/umrah-transport/jeddah-airport-to-makkah": images.makkah,
   "services/umrah-transport/makkah-ziyarat": images.makkah,
+  "services/umrah-transport/makkah-train-station-transfer": images.haramainTrain,
+  "services/umrah-transport/madinah-train-station-transfer": images.madinah,
   "services/umrah-transport/madinah-ziyarat": images.madinah,
   "services/umrah-transport/family-umrah-transport": images.madinah,
   "services/tourism-transport": images.alulaHegra,

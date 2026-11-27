@@ -53,7 +53,7 @@ export const navItems: readonly NavItem[] = [
   {
     key: "umrah",
     href: "/services/umrah-transport",
-    children: [U, `${U}/jeddah-airport-to-makkah`, `${U}/makkah-ziyarat`, `${U}/madinah-ziyarat`, `${U}/family-umrah-transport`, `${U}/private-umrah-chauffeur`],
+    children: [U, `${U}/jeddah-airport-to-makkah`, `${U}/makkah-ziyarat`, `${U}/madinah-ziyarat`, `${U}/makkah-train-station-transfer`, `${U}/madinah-train-station-transfer`, `${U}/family-umrah-transport`, `${U}/private-umrah-chauffeur`],
   },
   { key: "luxury", href: "/luxury-transportation" },
   { key: "events", href: "/services/event-transportation" },

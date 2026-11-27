@@ -19,8 +19,8 @@ import type { Copy, ServicePage } from "./types";
  *    (alternative 865 km via Route 60). Prophet's Mosque to King Khalid International Airport (RUH): about 7 h 45 min.
  *  - Already published and sourced elsewhere in src/content (enrich-routes, priority-routes*, enrich-batch5):
  *    JED to the Haram area 98 km / about 1 h 05 min; central Jeddah to the Haram 88 km; Makkah Haramain station in
- *    al-Rusaifa about 3 km from the Masjid al-Haram; Madinah station in Knowledge Economic City about 7 km from the
- *    Prophet's Mosque (Saudipedia); Makkah to Madinah 436 km / about 4 h 20 min; Haram to Taif 89 km / 1 h 19 min;
+ *    al-Rusaifa about 7 km by road from the Masjid al-Haram; Madinah station in Knowledge Economic City about 12 km by
+ *    road from the Prophet's Mosque (Google Maps road distances, 2026-11-27); Makkah to Madinah 436 km / about 4 h 20 min; Haram to Taif 89 km / 1 h 19 min;
  *    Haram to KAFD 871 km / about 9 h; Prophet's Mosque to JED 399 km / 3 h 56 min; Jeddah to the Prophet's Mosque
  *    404 km; AlUla to the Prophet's Mosque 337 km; Riyadh to Buraydah 350 km.
  *  - Vehicles (src/content/fleet.ts, owner-confirmed 2026-11-21): sedans (Toyota Camry, Hyundai Sonata, Ford Taurus),
@@ -54,7 +54,7 @@ const makkahHub: Record<Locale, Copy> = {
         list: [
           "Arriving by air: [Jeddah Airport to Makkah](services/umrah-transport/jeddah-airport-to-makkah), about 98 km on Route 40",
           "Coming from a Jeddah hotel or home: [a private car from Jeddah to Makkah](services/intercity-transfers/jeddah-to-makkah)",
-          "Arriving by Haramain train at the Makkah station in al-Rusaifa, about 3 km from the Masjid al-Haram",
+          "Arriving by Haramain train at the Makkah station in al-Rusaifa, about 7 km by road from the Masjid al-Haram",
           "Moving between hotels inside Makkah, for example from Aziziyah to the Haram area",
           "Visiting historic sites such as Jabal al-Nour, Jabal Thawr and Arafat with [Makkah ziyarat transport](services/umrah-transport/makkah-ziyarat)",
           "Leaving for Madinah: [Makkah to Madinah by private car](services/intercity-transfers/makkah-to-madinah), about 436 km",
@@ -80,7 +80,7 @@ const makkahHub: Record<Locale, Copy> = {
         h: "Arriving at Jeddah airport or the Haramain station",
         p: [
           "From King Abdulaziz International Airport (JED) it is about 98 km to the Haram area, roughly 1 hour 5 minutes without traffic. Send your flight number and terminal so the pickup follows the real landing time; the [Jeddah airport transfers page](services/airport-transfers/jeddah-airport) explains terminals and meeting points.",
-          "The Haramain high-speed train stops at the Makkah station in al-Rusaifa, about 3 km from the Masjid al-Haram, so the last stretch to your hotel still needs a car. Send the train number and arrival time, and the number of bags you are carrying off the train.",
+          "The Haramain high-speed train stops at the Makkah station in al-Rusaifa, about 7 km by road from the Masjid al-Haram, so the last stretch to your hotel still needs a car. Send the train number and arrival time, and the number of bags you are carrying off the train.",
         ],
       },
       {
@@ -136,7 +136,7 @@ const makkahHub: Record<Locale, Copy> = {
       { q: "Can I request a GMC Yukon or another SUV in Makkah?", a: "Yes. Ask for a GMC Yukon or a full-size SUV such as a Chevrolet Tahoe or Suburban. The vehicle available for your date is named in the quotation." },
       { q: "Can I book a sedan for a private journey in Makkah?", a: "Yes. A sedan suits one or two travellers with light luggage, for example a station transfer or a short hotel move." },
       { q: "Which vehicle suits a family with a lot of luggage in Makkah?", a: "Usually the Hyundai Staria, which takes up to 7 passengers and 10 or more bags. For a bigger family, two vehicles can travel together." },
-      { q: "Do you collect pilgrims from the Makkah Haramain train station?", a: "You can request it with your train number and arrival time. The station is in al-Rusaifa, about 3 km from the Masjid al-Haram." },
+      { q: "Do you collect pilgrims from the Makkah Haramain train station?", a: "You can request it with your train number and arrival time. The station is in al-Rusaifa, about 7 km by road from the Masjid al-Haram." },
       { q: "What information is needed for a Makkah transfer quotation?", a: "Pickup and destination, date and time, passengers, luggage and your vehicle preference. Add the flight or train number for arrivals." },
       { q: "How do I confirm vehicle availability for Makkah?", a: "Send the enquiry; the quotation states the vehicle category available for your date. The booking is only made once you confirm that quotation." },
       { q: "Can the car wait at my hotel door near the Haram?", a: "Not always. Access near the Haram is controlled, so the pickup point is agreed in advance and confirmed in the quotation." },
@@ -159,7 +159,7 @@ const makkahHub: Record<Locale, Copy> = {
         list: [
           "القادمون جوًا: [التوصيل من مطار جدة إلى مكة](services/umrah-transport/jeddah-airport-to-makkah)، نحو 98 كم على الطريق 40",
           "القادمون من فندق أو منزل في جدة: [سيارة خاصة من جدة إلى مكة](services/intercity-transfers/jeddah-to-makkah)",
-          "القادمون بقطار الحرمين إلى محطة مكة في الرصيفة، على بُعد نحو 3 كم من المسجد الحرام",
+          "القادمون بقطار الحرمين إلى محطة مكة في الرصيفة، على بُعد نحو 7 كم بالطريق من المسجد الحرام",
           "الانتقال بين الفنادق داخل مكة، مثل الانتقال من العزيزية إلى محيط الحرم",
           "زيارة المعالم مثل جبل النور وجبل ثور وعرفات عبر [نقل زيارات مكة](services/umrah-transport/makkah-ziyarat)",
           "السفر إلى المدينة: [من مكة إلى المدينة بسيارة خاصة](services/intercity-transfers/makkah-to-madinah)، نحو 436 كم",
@@ -185,7 +185,7 @@ const makkahHub: Record<Locale, Copy> = {
         h: "الوصول إلى مطار جدة أو محطة قطار الحرمين",
         p: [
           "من مطار الملك عبدالعزيز الدولي (JED) إلى محيط الحرم نحو 98 كم، أي ساعة وخمس دقائق تقريبًا دون زحام. أرسل رقم الرحلة والصالة ليتبع الاستقبال موعد الهبوط الفعلي؛ وتشرح [صفحة التوصيل من مطار جدة](services/airport-transfers/jeddah-airport) الصالات ونقاط اللقاء.",
-          "يتوقف قطار الحرمين السريع في محطة مكة بحي الرصيفة، على بُعد نحو 3 كم من المسجد الحرام، لذا تحتاج المسافة الأخيرة إلى فندقك سيارة. أرسل رقم القطار وموعد وصوله وعدد الحقائب التي تنزل بها.",
+          "يتوقف قطار الحرمين السريع في محطة مكة بحي الرصيفة، على بُعد نحو 7 كم بالطريق من المسجد الحرام، لذا تحتاج المسافة الأخيرة إلى فندقك سيارة. أرسل رقم القطار وموعد وصوله وعدد الحقائب التي تنزل بها.",
         ],
       },
       {
@@ -219,7 +219,7 @@ const makkahHub: Record<Locale, Copy> = {
       rows: [
         ["مطار جدة (JED) إلى محيط الحرم", "نحو 98 كم", "نحو ساعة و5 دقائق"],
         ["وسط جدة إلى محيط الحرم", "نحو 88 كم", "نحو ساعة"],
-        ["محطة قطار الحرمين في مكة إلى الحرم", "نحو 3 كم", "مسافة قصيرة تطول في أوقات الصلاة"],
+        ["محطة قطار الحرمين في مكة إلى الحرم", "نحو 7 كم بالطريق", "مسافة قصيرة تطول في أوقات الصلاة"],
         ["مكة إلى المدينة المنورة", "نحو 436 كم", "نحو 4 ساعات و20 دقيقة"],
         ["مكة إلى الطائف (طريق الهدا)", "نحو 89 كم", "نحو ساعة و20 دقيقة"],
         ["مكة إلى الرياض", "نحو 871 كم", "نحو 9 ساعات"],
@@ -241,7 +241,7 @@ const makkahHub: Record<Locale, Copy> = {
       { q: "هل يمكنني طلب جمس يوكن أو سيارة دفع رباعي في مكة؟", a: "نعم. اطلب جمس يوكن أو دفعًا رباعيًا كبيرة مثل شفروليه تاهو أو سوبربان، ويذكر عرض السعر السيارة المتاحة لتاريخك." },
       { q: "هل يمكنني حجز سيارة سيدان لمشوار خاص في مكة؟", a: "نعم. تناسب السيدان مسافرًا أو اثنين بحقائب خفيفة، مثل التوصيل من المحطة أو الانتقال القصير بين الفنادق." },
       { q: "أي سيارة تناسب عائلة معها حقائب كثيرة في مكة؟", a: "غالبًا هيونداي ستاريا، وتتسع حتى 7 ركاب و10 حقائب أو أكثر. وللعائلة الأكبر يمكن أن تسير سيارتان معًا." },
-      { q: "هل تستقبلون المعتمرين من محطة قطار الحرمين في مكة؟", a: "يمكنك طلب ذلك مع رقم القطار وموعد وصوله. وتقع المحطة في الرصيفة على بُعد نحو 3 كم من المسجد الحرام." },
+      { q: "هل تستقبلون المعتمرين من محطة قطار الحرمين في مكة؟", a: "يمكنك طلب ذلك مع رقم القطار وموعد وصوله. وتقع المحطة في الرصيفة على بُعد نحو 7 كم بالطريق من المسجد الحرام." },
       { q: "ما المعلومات المطلوبة لعرض سعر توصيل في مكة؟", a: "نقطة الاستلام والوجهة، والتاريخ والوقت، وعدد الركاب والحقائب، والسيارة المفضلة. وأضف رقم الرحلة أو القطار للقادمين." },
       { q: "كيف أتأكد من توفر السيارة في مكة؟", a: "أرسل طلبك، فيذكر عرض السعر فئة السيارة المتاحة لتاريخك. ولا يتم الحجز إلا بعد أن تؤكد ذلك العرض." },
       { q: "هل يمكن للسيارة الانتظار عند باب فندقي قرب الحرم؟", a: "ليس دائمًا. فالوصول قرب الحرم منظّم، لذا يُتفق على نقطة الاستلام مسبقًا وتُؤكَّد في عرض السعر." },
@@ -268,7 +268,7 @@ const madinahHub: Record<Locale, Copy> = {
         p: ["Almost every visitor's plan in Madinah uses the same few points: the airport or the station on arrival, a hotel in the Markaziyah around the Prophet's Mosque, a morning of ziyarat, and a long road out when the visit ends. The pages below cover each journey in detail."],
         list: [
           "Arriving by air: [Madinah airport transfers](services/airport-transfers/madinah-airport), about 21 km from MED to the Prophet's Mosque area",
-          "Arriving by Haramain train at the Madinah station in Knowledge Economic City, about 7 km from the Prophet's Mosque",
+          "Arriving by Haramain train at the Madinah station in Knowledge Economic City, about 12 km by road from the Prophet's Mosque",
           "Visiting Quba Mosque, Masjid al-Qiblatain and Uhud with [Madinah ziyarat transport](services/umrah-transport/madinah-ziyarat)",
           "Leaving for Umrah, with the Miqat stop at Dhul Hulaifah: [Madinah to Makkah by private car](services/intercity-transfers/madinah-to-makkah)",
           "Flying home from Jeddah: [Madinah to Jeddah Airport](services/intercity-transfers/madinah-to-jeddah), about 399 km",
@@ -293,7 +293,7 @@ const madinahHub: Record<Locale, Copy> = {
         h: "Airport and station arrivals",
         p: [
           "Google Maps measures about 20.7 km from MED to the Prophet's Mosque area, around 25 minutes in light traffic; daytime and prayer-time traffic near the centre makes it longer. Send the flight number so the pickup follows the actual landing.",
-          "The Haramain station is in Knowledge Economic City, about 7 km from the Prophet's Mosque. Trains from Makkah and Jeddah arrive with many passengers at once, so give the train number and say how many bags you are carrying.",
+          "The Haramain station is in Knowledge Economic City, about 12 km by road from the Prophet's Mosque. Trains from Makkah and Jeddah arrive with many passengers at once, so give the train number and say how many bags you are carrying.",
         ],
       },
       {
@@ -345,7 +345,7 @@ const madinahHub: Record<Locale, Copy> = {
       { q: "What information is needed for a Madinah transfer quotation?", a: "Pickup and destination, date and time, passengers, luggage and vehicle preference, plus the flight or train number for arrivals." },
       { q: "How do I confirm vehicle availability in Madinah?", a: "Send the enquiry and the quotation states the vehicle category free for your date. It is only booked once you confirm." },
       { q: "Can I plan a ziyarat tour in Madinah in one booking?", a: "Yes. List the places in the order you want and the time at each. The quotation covers the whole circuit." },
-      { q: "Do you meet arrivals at the Madinah train station?", a: "You can request it with your train time. The station is about 7 km from the Prophet's Mosque, and availability is confirmed in the quotation." },
+      { q: "Do you meet arrivals at the Madinah train station?", a: "You can request it with your train time. The station is about 12 km by road from the Prophet's Mosque, and availability is confirmed in the quotation." },
     ],
   },
   ar: {
@@ -363,7 +363,7 @@ const madinahHub: Record<Locale, Copy> = {
         p: ["تدور خطة أغلب الزوار في المدينة المنورة حول نقاط قليلة: المطار أو المحطة عند الوصول، وفندق في المركزية حول المسجد النبوي، وصباح للزيارات، وطريق طويل حين تنتهي الزيارة. وتشرح الصفحات التالية كل رحلة بالتفصيل."],
         list: [
           "القادمون جوًا: [التوصيل من مطار المدينة المنورة](services/airport-transfers/madinah-airport)، نحو 21 كم من المطار إلى محيط المسجد النبوي",
-          "القادمون بقطار الحرمين إلى محطة المدينة في مدينة المعرفة الاقتصادية، على بُعد نحو 7 كم من المسجد النبوي",
+          "القادمون بقطار الحرمين إلى محطة المدينة في مدينة المعرفة الاقتصادية، على بُعد نحو 12 كم بالطريق من المسجد النبوي",
           "زيارة مسجد قباء ومسجد القبلتين وأحد عبر [نقل زيارات المدينة المنورة](services/umrah-transport/madinah-ziyarat)",
           "السفر للعمرة مع الوقوف بميقات ذي الحليفة: [من المدينة إلى مكة بسيارة خاصة](services/intercity-transfers/madinah-to-makkah)",
           "العودة جوًا من جدة: [من المدينة إلى مطار جدة](services/intercity-transfers/madinah-to-jeddah)، نحو 399 كم",
@@ -386,7 +386,7 @@ const madinahHub: Record<Locale, Copy> = {
         h: "الوصول إلى المطار والمحطة",
         p: [
           "تقيس خرائط Google نحو 20.7 كم من مطار المدينة المنورة إلى محيط المسجد النبوي، أي نحو 25 دقيقة في الحركة الخفيفة؛ ويطول الوقت نهارًا وقرب أوقات الصلاة. أرسل رقم الرحلة ليتبع الاستقبال موعد الهبوط الفعلي.",
-          "تقع محطة قطار الحرمين في مدينة المعرفة الاقتصادية على بُعد نحو 7 كم من المسجد النبوي. ويصل قطار مكة وجدة بركاب كثيرين في وقت واحد، فاذكر رقم القطار وعدد حقائبك.",
+          "تقع محطة قطار الحرمين في مدينة المعرفة الاقتصادية على بُعد نحو 12 كم بالطريق من المسجد النبوي. ويصل قطار مكة وجدة بركاب كثيرين في وقت واحد، فاذكر رقم القطار وعدد حقائبك.",
         ],
       },
       {
@@ -411,7 +411,7 @@ const madinahHub: Record<Locale, Copy> = {
       head: ["الرحلة", "المسافة البرية التقريبية", "مدة القيادة دون توقف"],
       rows: [
         ["مطار المدينة (MED) إلى محيط المسجد النبوي", "نحو 21 كم", "نحو 25 دقيقة في الحركة الخفيفة"],
-        ["محطة قطار الحرمين في المدينة إلى المسجد النبوي", "نحو 7 كم", "مسافة قصيرة تطول في أوقات الصلاة"],
+        ["محطة قطار الحرمين في المدينة إلى المسجد النبوي", "نحو 12 كم بالطريق", "مسافة قصيرة تطول في أوقات الصلاة"],
         ["المدينة إلى مكة المكرمة", "نحو 436 كم", "نحو 4 ساعات و20 دقيقة"],
         ["المدينة إلى مطار جدة (JED)", "نحو 399 كم", "نحو 4 ساعات"],
         ["المدينة إلى العلا", "نحو 337 كم", "نحو 3 ساعات و50 دقيقة"],
@@ -438,7 +438,7 @@ const madinahHub: Record<Locale, Copy> = {
       { q: "ما المعلومات المطلوبة لعرض سعر توصيل في المدينة المنورة؟", a: "نقطة الاستلام والوجهة، والتاريخ والوقت، وعدد الركاب والحقائب، والسيارة المفضلة، مع رقم الرحلة أو القطار للقادمين." },
       { q: "كيف أتأكد من توفر السيارة في المدينة المنورة؟", a: "أرسل طلبك فيذكر عرض السعر فئة السيارة المتاحة لتاريخك، ولا يتم الحجز إلا بعد أن تؤكد." },
       { q: "هل أخطط جولة زيارات في المدينة المنورة بحجز واحد؟", a: "نعم. اذكر الأماكن بالترتيب الذي تريد والوقت عند كل منها، ويشمل عرض السعر الجولة كاملة." },
-      { q: "هل تستقبلون القادمين في محطة قطار المدينة المنورة؟", a: "يمكنك طلب ذلك مع ذكر موعد قطارك. وتبعد المحطة نحو 7 كم عن المسجد النبوي، وتُؤكَّد الإتاحة في عرض السعر." },
+      { q: "هل تستقبلون القادمين في محطة قطار المدينة المنورة؟", a: "يمكنك طلب ذلك مع ذكر موعد قطارك. وتبعد المحطة نحو 12 كم بالطريق عن المسجد النبوي، وتُؤكَّد الإتاحة في عرض السعر." },
     ],
   },
 };

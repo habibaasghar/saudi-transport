@@ -8,7 +8,7 @@ const D = "2026-11-18";
  * services/umrah-transport/jeddah-airport-to-makkah).
  * Sources checked 2026-11-18:
  * - Saudipedia, "Haramain High Speed Railway": five stations; KAIA is a terminal station; the Makkah station is
- *   in al-Rusaifa, about 3 km from the Grand Mosque.
+ *   in al-Rusaifa; about 7.4 km / 17 min by road to the Grand Mosque (Google Maps, 2026-11-27).
  * - Asharq Al-Awsat, 2 June 2025: hourly Haramain trips from King Abdulaziz International Airport to Makkah
  *   (Hajj season).
  * - Road: about 98 km between JED and the Masjid al-Haram area, about 1 h 05 min without stops
@@ -36,7 +36,7 @@ export const jeddahAirportMakkahPost: BlogPost = {
       description: "Compare the Haramain train, intercity bus, app cars and a pre-booked private car from Jeddah airport to Makkah: who each suits and what to check first.",
       h1: "Jeddah airport to Makkah: train, bus or private car?",
       answer:
-        "From King Abdulaziz International Airport in Jeddah you can reach Makkah by the Haramain train, an intercity bus, a taxi or ride-hailing car, or a pre-booked private car. The train is quick but stops about 3 km from the Haram, so you need onward transport. A private car goes about 98 km door to door, around an hour without traffic, and suits families with luggage.",
+        "From King Abdulaziz International Airport in Jeddah you can reach Makkah by the Haramain train, an intercity bus, a taxi or ride-hailing car, or a pre-booked private car. The train is quick but stops about 7 km by road from the Haram, so you need onward transport. A private car goes about 98 km door to door, around an hour without traffic, and suits families with luggage.",
       summary: "Four ways from Jeddah airport to Makkah, compared honestly, with what to check before you land.",
       sections: [
         {
@@ -49,7 +49,7 @@ export const jeddahAirportMakkahPost: BlogPost = {
           h: "Option 1: the Haramain train",
           p: [
             "The Haramain High Speed Railway has a station at King Abdulaziz International Airport, one of its three terminal stations, and runs to Makkah, Jeddah city, King Abdullah Economic City and Madinah. During Hajj season Saudi Arabian Railways has run hourly trips from the airport to Makkah.",
-            "The point people miss is the last stretch. The Makkah station is in the al-Rusaifa district, about 3 km from the Masjid al-Haram, so you still need a taxi, a shuttle or a pickup to reach your hotel. Check the current timetable, fares and luggage allowance on the official Saudi Arabian Railways channels before you travel, because they change by season.",
+            "The point people miss is the last stretch. The Makkah station is in the al-Rusaifa district, about 7 km by road from the Masjid al-Haram, so you still need a taxi, a shuttle or a pickup to reach your hotel. Check the current timetable, fares and luggage allowance on the official Saudi Arabian Railways channels before you travel, because they change by season.",
           ],
           list: [
             "Suits: solo travellers and couples with light luggage who are comfortable changing vehicle once more in Makkah",
@@ -103,7 +103,7 @@ export const jeddahAirportMakkahPost: BlogPost = {
         h: "The four options side by side",
         head: ["Option", "Door to door?", "Best for", "Check before you travel"],
         rows: [
-          ["Haramain train", "No: Makkah station is about 3 km from the Haram", "Light luggage, comfortable with one more change", "Timetable, luggage allowance, onward transfer"],
+          ["Haramain train", "No: Makkah station is about 7 km by road from the Haram", "Light luggage, comfortable with one more change", "Timetable, luggage allowance, onward transfer"],
           ["Intercity bus", "No: depends on the stop", "Budget, flexible timing", "Current operator, departure point, Makkah stop"],
           ["Taxi or ride-hailing", "Yes", "Small groups at quiet times", "Vehicle size for your bags, licensed taxi or app"],
           ["Pre-booked private car", "Yes, to the nearest point access allows", "Families, elderly travellers, lots of luggage, late arrivals", "Flight number, hotel drop-off point, quotation"],
@@ -112,7 +112,7 @@ export const jeddahAirportMakkahPost: BlogPost = {
       faqs: [
         { q: "How far is Makkah from Jeddah airport?", a: "About 98 km by road between King Abdulaziz International Airport and the Masjid al-Haram area, around 1 hour 5 minutes without stops (Google Maps, November 2026)." },
         { q: "Does the Haramain train stop at Jeddah airport?", a: "Yes. King Abdulaziz International Airport is one of the railway's terminal stations. Check the timetable for your arrival time on the official Saudi Arabian Railways channels." },
-        { q: "Does the train take me to the Haram?", a: "No. The Makkah station is in al-Rusaifa, about 3 km from the Masjid al-Haram, so you need onward transport to your hotel." },
+        { q: "Does the train take me to the Haram?", a: "No. The Makkah station is in al-Rusaifa, about 7 km by road from the Masjid al-Haram, so you need onward transport to your hotel." },
         { q: "Is a private car faster than the train?", a: "Not usually on board. The car avoids the change at the Makkah station and the transfer to your hotel, which matters most for families with luggage." },
         { q: "Can I book a private car before I land?", a: "Yes. Send your flight number, passengers, bags and Makkah hotel for a quotation on the Jeddah airport to Makkah page." },
       ],
@@ -123,7 +123,7 @@ export const jeddahAirportMakkahPost: BlogPost = {
       description: "قارن بين قطار الحرمين والحافلة وسيارات التطبيقات والسيارة الخاصة المحجوزة مسبقًا من مطار جدة إلى مكة: لمن يناسب كل خيار وما الذي تتحقق منه أولًا.",
       h1: "من مطار جدة إلى مكة: القطار أم الحافلة أم سيارة خاصة؟",
       answer:
-        "من مطار الملك عبدالعزيز الدولي في جدة تصل إلى مكة بقطار الحرمين أو بالحافلة أو بالتاكسي وتطبيقات التوصيل أو بسيارة خاصة تحجزها مسبقًا. القطار سريع لكنه يتوقف على بعد نحو 3 كم من الحرم فتحتاج إلى وسيلة أخرى بعده. أما السيارة الخاصة فتقطع نحو 98 كم من الباب إلى الباب في قرابة ساعة دون زحام، وتناسب العائلات مع الحقائب.",
+        "من مطار الملك عبدالعزيز الدولي في جدة تصل إلى مكة بقطار الحرمين أو بالحافلة أو بالتاكسي وتطبيقات التوصيل أو بسيارة خاصة تحجزها مسبقًا. القطار سريع لكنه يتوقف على بعد نحو 7 كم بالطريق من الحرم فتحتاج إلى وسيلة أخرى بعده. أما السيارة الخاصة فتقطع نحو 98 كم من الباب إلى الباب في قرابة ساعة دون زحام، وتناسب العائلات مع الحقائب.",
       summary: "أربع طرق من مطار جدة إلى مكة، بمقارنة صادقة، مع ما تتحقق منه قبل أن تهبط.",
       sections: [
         {
@@ -136,7 +136,7 @@ export const jeddahAirportMakkahPost: BlogPost = {
           h: "الخيار الأول: قطار الحرمين",
           p: [
             "لقطار الحرمين السريع محطة في مطار الملك عبدالعزيز الدولي، وهي إحدى محطاته الطرفية الثلاث، ويصل إلى مكة ومحطة جدة والمدينة الاقتصادية والمدينة المنورة. وفي موسم الحج سيّرت الخطوط الحديدية السعودية رحلات كل ساعة من المطار إلى مكة.",
-            "والنقطة التي يغفل عنها كثيرون هي الجزء الأخير: فمحطة مكة في حي الرصيفة على بعد نحو 3 كم من المسجد الحرام، فتحتاج بعدها إلى تاكسي أو حافلة ترددية أو من يستقبلك حتى الفندق. وتحقق من مواعيد القطار وأسعاره وحد الأمتعة عبر القنوات الرسمية للخطوط الحديدية السعودية قبل السفر، لأنها تتغير بحسب الموسم.",
+            "والنقطة التي يغفل عنها كثيرون هي الجزء الأخير: فمحطة مكة في حي الرصيفة على بعد نحو 7 كم بالطريق من المسجد الحرام، فتحتاج بعدها إلى تاكسي أو حافلة ترددية أو من يستقبلك حتى الفندق. وتحقق من مواعيد القطار وأسعاره وحد الأمتعة عبر القنوات الرسمية للخطوط الحديدية السعودية قبل السفر، لأنها تتغير بحسب الموسم.",
           ],
           list: [
             "يناسب: المسافر المنفرد والزوجين بحقائب خفيفة ممن لا يمانعون تبديل الوسيلة مرة أخرى في مكة",
@@ -190,7 +190,7 @@ export const jeddahAirportMakkahPost: BlogPost = {
         h: "الخيارات الأربعة جنبًا إلى جنب",
         head: ["الخيار", "من الباب إلى الباب؟", "الأنسب لـ", "تحقق قبل السفر من"],
         rows: [
-          ["قطار الحرمين", "لا: محطة مكة على بعد نحو 3 كم من الحرم", "حقائب خفيفة وقبول تبديل الوسيلة مرة أخرى", "المواعيد وحد الأمتعة والتنقل بعد المحطة"],
+          ["قطار الحرمين", "لا: محطة مكة على بعد نحو 7 كم بالطريق من الحرم", "حقائب خفيفة وقبول تبديل الوسيلة مرة أخرى", "المواعيد وحد الأمتعة والتنقل بعد المحطة"],
           ["الحافلة بين المدن", "لا: بحسب مكان التوقف", "التوفير والمرونة في الوقت", "المشغّل الحالي ونقطة الانطلاق ومكان النزول في مكة"],
           ["التاكسي أو التطبيقات", "نعم", "المجموعات الصغيرة في الأوقات الهادئة", "اتساع السيارة لحقائبك، وتاكسي مرخص أو تطبيق معروف"],
           ["سيارة خاصة محجوزة مسبقًا", "نعم، حتى أقرب نقطة يسمح بها الدخول", "العائلات وكبار السن والحقائب الكثيرة والوصول المتأخر", "رقم الرحلة ونقطة النزول عند الفندق وعرض السعر"],
@@ -199,7 +199,7 @@ export const jeddahAirportMakkahPost: BlogPost = {
       faqs: [
         { q: "كم المسافة من مطار جدة إلى مكة؟", a: "نحو 98 كم بالطريق بين مطار الملك عبدالعزيز الدولي ومنطقة المسجد الحرام، أي قرابة ساعة و5 دقائق بلا توقف (خرائط Google، نوفمبر 2026)." },
         { q: "هل يتوقف قطار الحرمين في مطار جدة؟", a: "نعم. مطار الملك عبدالعزيز الدولي إحدى المحطات الطرفية للقطار. تحقق من موعد يناسب وقت وصولك عبر القنوات الرسمية للخطوط الحديدية السعودية." },
-        { q: "هل يوصلني القطار إلى الحرم؟", a: "لا. محطة مكة في حي الرصيفة على بعد نحو 3 كم من المسجد الحرام، فتحتاج إلى وسيلة أخرى حتى فندقك." },
+        { q: "هل يوصلني القطار إلى الحرم؟", a: "لا. محطة مكة في حي الرصيفة على بعد نحو 7 كم بالطريق من المسجد الحرام، فتحتاج إلى وسيلة أخرى حتى فندقك." },
         { q: "هل السيارة الخاصة أسرع من القطار؟", a: "ليست أسرع عادةً في زمن الرحلة نفسها، لكنها تغنيك عن التبديل في محطة مكة والتنقل منها إلى الفندق، وهذا أهم ما يكون للعائلات مع الحقائب." },
         { q: "هل يمكنني حجز سيارة خاصة قبل أن أهبط؟", a: "نعم. أرسل رقم رحلتك وعدد الركاب والحقائب واسم فندقك في مكة لتحصل على عرض سعر من صفحة التوصيل من مطار جدة إلى مكة." },
       ],

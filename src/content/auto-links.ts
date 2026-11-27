@@ -49,6 +49,8 @@ const PHRASES: Record<string, Pair> = {
   [`${S}/umrah-transport/jeddah-airport-to-makkah`]: [["Jeddah Airport to Makkah", "Jeddah airport to Makkah"], ["مطار جدة إلى مكة المكرمة", "مطار جدة إلى مكة"]],
   [`${S}/umrah-transport/makkah-ziyarat`]: [["Makkah ziyarat"], ["زيارات مكة المكرمة", "زيارات مكة"]],
   [`${S}/umrah-transport/madinah-ziyarat`]: [["Madinah ziyarat"], ["زيارات المدينة المنورة", "زيارات المدينة"]],
+  [`${S}/umrah-transport/makkah-train-station-transfer`]: [["Makkah train station transfer", "Makkah station transfer"], ["التوصيل من محطة قطار مكة"]],
+  [`${S}/umrah-transport/madinah-train-station-transfer`]: [["Madinah train station transfer", "Madinah station transfer"], ["التوصيل من محطة قطار المدينة"]],
   [`${S}/umrah-transport/family-umrah-transport`]: [["family Umrah transport", "Family Umrah transport"], ["نقل العائلات المعتمرة"]],
   [`${S}/umrah-transport/private-umrah-chauffeur`]: [["private Umrah chauffeur", "Umrah chauffeur"], ["سيارة مع سائق للعمرة"]],
   [`${S}/chauffeur-services`]: [["chauffeur services", "chauffeur service", "by the hour or day", "by the hour or by the day"], ["بالساعة أو اليوم", "بالساعة أو باليوم"]],
